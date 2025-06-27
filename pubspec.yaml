@@ -51,3 +51,48 @@ dev_dependencies:
 
   flutter_lints: ^5.0.0
 
+flutter:
+
+
+
+
+  uses-material-design: true
+
+
+  #--------------- LOCAL ASSETS ------------------#
+  assets:
+    - assets/logos/
+    - assets/icons/brands/
+    - assets/images/content/
+    - assets/images/banners/
+    - assets/images/reviews/
+    - assets/images/products/
+    - assets/icons/categories/
+    - assets/images/animations/
+    - assets/icons/payment_methods/
+    - assets/images/on_boarding_images/
+
+  #--------------- LOCAL FONTS ------------------#
+
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Poppins-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Poppins-Italic.ttf
+          style: italic
+        - asset: assets/fonts/Poppins-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Poppins-MediumItalic.ttf
+          weight: 500
+          style: italic
+        - asset: assets/fonts/Poppins-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Poppins-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Poppins-Black.ttf
+        - asset: assets/fonts/Poppins-BlackItalic.ttf
+        - asset: assets/fonts/Poppins-BoldItalic.ttf
+          weight: 300
