@@ -9,12 +9,11 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // Initialize GetX Local Storage
 
-  // Remove # sign from ủl
+  // Remove # sign from url
 
   // Initialize Firebase & Authentication Repository
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  ).then((_) => Get.put(AuthenticationRepository()));
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  // .then((_) => Get.put());
   //Main App Start here...
   runApp(const App());
 }
