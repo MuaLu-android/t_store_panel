@@ -1,4 +1,4 @@
-import 'package:admin_t_store/utils/enums/enums.dart';
+import 'package:admin_t_store/utils/constants/enums.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../utils/constants/colors.dart';

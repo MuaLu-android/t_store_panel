@@ -1,4 +1,6 @@
 import 'package:admin_t_store/common/widgets/layouts/headers/header.dart';
+import 'package:admin_t_store/common/widgets/layouts/sidebars/sidebar.dart';
+import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
 class DesktopLayout extends StatelessWidget {
@@ -9,18 +11,23 @@ class DesktopLayout extends StatelessWidget {
     return Scaffold(
       body: Row(
         children: [
-          const Expanded(child: Drawer()),
+          const Expanded(child: TSizebar()),
           Expanded(
             flex: 5,
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  // Header
-                  THeader(),
-                  // Body
-                  body ?? const SizedBox(),
-                ],
-              ),
+            child: Column(
+              children: [
+                // Header
+                THeader(),
+                // Body
+                Padding(
+                  padding: const EdgeInsets.only(
+                    left: TSizes.xl,
+                    right: TSizes.xl,
+                    top: TSizes.xl,
+                  ),
+                  child: SingleChildScrollView(child: body ?? const SizedBox()),
+                ),
+              ],
             ),
           ),
         ],

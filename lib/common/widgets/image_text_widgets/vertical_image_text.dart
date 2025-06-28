@@ -1,3 +1,4 @@
+import 'package:admin_t_store/utils/constants/enums.dart';
 import 'package:flutter/material.dart';
 
 import '../../../utils/constants/colors.dart';
@@ -32,7 +33,7 @@ class TVerticaImageText extends StatelessWidget {
         child: Column(
           children: [
             TCircularImage(
-              isNetworkImage: isNetworkImage,
+              imageType: ImageType.network,
               padding: TSizes.sm * 1.4,
               overlayColor: dark ? TColors.light : TColors.dark,
               backgroundColor: backgroundColor,
