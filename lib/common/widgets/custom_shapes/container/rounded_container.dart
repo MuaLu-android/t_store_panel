@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/sizes.dart';
+
 class TRoundedContainer extends StatelessWidget {
   const TRoundedContainer({
     super.key,
@@ -9,7 +10,7 @@ class TRoundedContainer extends StatelessWidget {
     this.height,
     this.radius = TSizes.cardRadiusLg,
     this.child,
-    this.showBorder =false,
+    this.showBorder = false,
     this.borderColor = TColors.borderPrimary,
     this.backgroundColor = TColors.white,
     this.padding,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../utils/constants/colors.dart';
+
 class TCircularContainer extends StatelessWidget {
   const TCircularContainer({
     super.key,
@@ -29,7 +30,7 @@ class TCircularContainer extends StatelessWidget {
       padding: EdgeInsets.all(padding),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(radius),
-        color: backgroundColor
+        color: backgroundColor,
       ),
       child: child,
     );
