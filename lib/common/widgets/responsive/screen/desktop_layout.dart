@@ -1,9 +1,9 @@
-import 'package:admin_t_store/common/widgets/custom_shapes/container/rounded_container.dart';
+import 'package:admin_t_store/common/widgets/layouts/headers/header.dart';
 import 'package:flutter/material.dart';
 
 class DesktopLayout extends StatelessWidget {
-  const DesktopLayout({super.key});
-
+  const DesktopLayout({super.key, this.body});
+  final Widget? body;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,10 +11,16 @@ class DesktopLayout extends StatelessWidget {
         children: [
           const Expanded(child: Drawer()),
           Expanded(
-            child: TRoundedContainer(
-              width: double.infinity,
-              height: 500,
-              backgroundColor: Colors.blue.withAlpha(100),
+            flex: 5,
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  // Header
+                  THeader(),
+                  // Body
+                  body ?? const SizedBox(),
+                ],
+              ),
             ),
           ),
         ],

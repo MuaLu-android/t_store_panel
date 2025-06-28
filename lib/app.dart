@@ -1,5 +1,5 @@
 import 'package:admin_t_store/common/widgets/custom_shapes/container/rounded_container.dart';
-import 'package:admin_t_store/common/widgets/responsive/reponsive_design.dart';
+import 'package:admin_t_store/common/widgets/layouts/templates/site_layouts.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:admin_t_store/utils/constants/text_string.dart';
 import 'package:admin_t_store/utils/theme/theme.dart';
@@ -28,17 +28,10 @@ class ResponiveDesignScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // implement build
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(TSizes.xl),
-          child: TResponsiveWidget(
-            desktop: Desktop(),
-            tabblet: Tablet(),
-            mobile: Mobile(),
-          ),
-        ),
-      ),
+    return const TSizeTemplate(
+      desktop: Desktop(),
+      tablet: Tablet(),
+      mobile: Mobile(),
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:admin_t_store/utils/enums/enums.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -41,6 +42,7 @@ class TProductCardHorizontal extends StatelessWidget {
                   height: 120,
                   width: 120,
                   child: TRoundedImage(
+                    imageType: ImageType.assets,
                     imageUrl: TImages.productImage1,
                     applyImageRadius: true,
                     backgroundColor: dark ? TColors.darkerGrey : TColors.grey,

@@ -55,6 +55,8 @@ class TSizes {
   // Grid view spacing
   static const double gridViewSpacing = 16.0;
   // Reponsive
-  static const double desktopScreenSize = 1300.0;
-  static const double tabbletScreenSize = 768.0;
+  static const int desktopScreenSize = 1366;
+  static const int tabbletScreenSize = 768;
+  static const int mobileScreenSize = 360;
+  static const int customScreenSize = 1100;
 }

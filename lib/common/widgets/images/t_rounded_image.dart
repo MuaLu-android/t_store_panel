@@ -1,3 +1,7 @@
+import 'dart:io';
+import 'dart:typed_data';
+
+import 'package:admin_t_store/utils/enums/enums.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
@@ -8,61 +12,119 @@ import '../shimmer/shimmer.dart';
 class TRoundedImage extends StatelessWidget {
   const TRoundedImage({
     super.key,
-    this.width,
-    this.height,
-    required this.imageUrl,
+    this.width = 56,
+    this.height = 56,
+    this.imageUrl,
     this.applyImageRadius = true,
-    this.border,
+    this.margin,
     this.backgroundColor = TColors.light,
     this.fit = BoxFit.contain,
     this.padding,
-    this.isNetworkImage = false,
-    this.onPressed,
     this.borderRadius = TSizes.md,
+    this.file,
+    this.memoryImage,
+    this.overlayColor,
+    required this.imageType,
+    this.border,
   });
 
-  final double? width, height;
-  final String imageUrl;
+  final double? width, height, padding;
+  final String? imageUrl;
   final bool applyImageRadius;
-  final BoxBorder? border;
-  final Color backgroundColor;
+  final double? margin;
+  final Color? backgroundColor;
   final BoxFit? fit;
-  final EdgeInsetsGeometry? padding;
-  final bool isNetworkImage;
-  final VoidCallback? onPressed;
+  final File? file;
+  final Uint8List? memoryImage;
+  final Color? overlayColor;
+  final ImageType imageType;
   final double borderRadius;
+  final BoxBorder? border;
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onPressed,
-      child: Container(
-        width: width,
-        height: height,
-        padding: padding,
-        decoration: BoxDecoration(
-          border: border,
-          color: backgroundColor,
-          borderRadius: BorderRadius.circular(borderRadius),
-        ),
-        child: ClipRRect(
-          borderRadius: applyImageRadius
-              ? BorderRadius.circular(borderRadius)
-              : BorderRadius.zero,
-          child: isNetworkImage
-              ? CachedNetworkImage(
-                  fit: fit,
-                  imageUrl: imageUrl,
-                  progressIndicatorBuilder: (context, url, downloadProgress) =>
-                      TShimmerEffect(
-                        width: width ?? double.infinity,
-                        height: height ?? 158,
-                      ),
-                  errorWidget: (context, url, error) => const Icon(Icons.error),
-                )
-              : Image(fit: fit, image: AssetImage(imageUrl)),
-        ),
+    return Container(
+      width: width,
+      height: height,
+      margin: margin != null ? EdgeInsets.all(margin!) : null,
+      decoration: BoxDecoration(
+        border: border,
+        color: backgroundColor,
+        borderRadius: BorderRadius.circular(borderRadius),
       ),
+      child: _buildImageWidget(),
     );
+  }
+
+  Widget _buildImageWidget() {
+    Widget imageWidget;
+    switch (imageType) {
+      case ImageType.network:
+        imageWidget = _buildNetworkImage();
+        break;
+      case ImageType.assets:
+        imageWidget = _buildAssetImage();
+        break;
+      case ImageType.memory:
+        imageWidget = _buildMemoryImage();
+        break;
+      case ImageType.file:
+        imageWidget = _buildFileImage();
+        break;
+    }
+    // Apply ClipRRect dorectly to thr image widget
+    return ClipRRect(
+      borderRadius: applyImageRadius
+          ? BorderRadius.circular(borderRadius)
+          : BorderRadius.zero,
+      child: imageWidget,
+    );
+  }
+
+  // Function to build the File image widget
+  Widget _buildNetworkImage() {
+    if (imageUrl != null) {
+      return CachedNetworkImage(
+        imageUrl: imageUrl!,
+        fit: fit,
+        color: overlayColor,
+        errorWidget: (context, url, error) => const Icon(Icons.error),
+        progressIndicatorBuilder: (context, url, dowloadProgress) =>
+            TShimmerEffect(width: width!, height: height!),
+      );
+    } else {
+      return Container();
+    }
+  }
+
+  // Function to build the Memory image widget
+  Widget _buildMemoryImage() {
+    if (memoryImage != null) {
+      return Image(
+        image: MemoryImage(memoryImage!),
+        color: overlayColor,
+        fit: fit,
+      );
+    } else {
+      return Container();
+    }
+  }
+
+  // Function to build the File image widget
+  Widget _buildFileImage() {
+    if (file != null) {
+      return Image(image: FileImage(file!), color: overlayColor, fit: fit);
+    } else {
+      return Container();
+    }
+  }
+
+  // Function to build the asset image widget
+  Widget _buildAssetImage() {
+    if (imageUrl != null) {
+      return Image(image: AssetImage(imageUrl!), color: overlayColor, fit: fit);
+    } else {
+      return Container();
+    }
   }
 }

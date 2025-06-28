@@ -1,3 +1,4 @@
+import 'package:admin_t_store/utils/enums/enums.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../utils/constants/colors.dart';
@@ -17,10 +18,11 @@ class TCartItem extends StatelessWidget {
       children: [
         /// Image
         TRoundedImage(
+          imageType: ImageType.assets,
           imageUrl: TImages.productImage1,
           width: 60,
           height: 60,
-          padding: EdgeInsets.all(TSizes.sm),
+          padding: TSizes.sm,
           backgroundColor: dark ? TColors.darkerGrey : TColors.light,
         ),
         const SizedBox(width: TSizes.spaceBtwItems),

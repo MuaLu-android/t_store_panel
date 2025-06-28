@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/foundation.dart';
@@ -27,7 +28,9 @@ class TDeviceUtils {
   }
 
   static void setFullScreen(bool enable) {
-    SystemChrome.setEnabledSystemUIMode(enable ? SystemUiMode.immersiveSticky : SystemUiMode.edgeToEdge);
+    SystemChrome.setEnabledSystemUIMode(
+      enable ? SystemUiMode.immersiveSticky : SystemUiMode.edgeToEdge,
+    );
   }
 
   static double getScreenHeight() {
@@ -65,7 +68,8 @@ class TDeviceUtils {
   }
 
   static Future<bool> isPhysicalDevice() async {
-    return defaultTargetPlatform == TargetPlatform.android || defaultTargetPlatform == TargetPlatform.iOS;
+    return defaultTargetPlatform == TargetPlatform.android ||
+        defaultTargetPlatform == TargetPlatform.iOS;
   }
 
   static void vibrate(Duration duration) {
@@ -73,7 +77,9 @@ class TDeviceUtils {
     Future.delayed(duration, () => HapticFeedback.vibrate());
   }
 
-  static Future<void> setPreferredOrientations(List<DeviceOrientation> orientations) async {
+  static Future<void> setPreferredOrientations(
+    List<DeviceOrientation> orientations,
+  ) async {
     await SystemChrome.setPreferredOrientations(orientations);
   }
 
@@ -82,7 +88,10 @@ class TDeviceUtils {
   }
 
   static void showStatusBar() {
-    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: SystemUiOverlay.values);
+    SystemChrome.setEnabledSystemUIMode(
+      SystemUiMode.manual,
+      overlays: SystemUiOverlay.values,
+    );
   }
 
   static Future<bool> hasInternetConnection() async {
@@ -110,6 +119,17 @@ class TDeviceUtils {
     }
   }
 
+  // Add more device utility methods as per your specific requirements.
+  static bool isDesktopSreen(BuildContext context) {
+    return MediaQuery.of(context).size.width >= TSizes.desktopScreenSize;
+  }
 
-// Add more device utility methods as per your specific requirements.
+  static bool isTabletScreen(BuildContext context) {
+    return MediaQuery.of(context).size.width >= TSizes.tabbletScreenSize &&
+        MediaQuery.of(context).size.width < TSizes.desktopScreenSize;
+  }
+
+  static bool isMobileScreen(BuildContext context) {
+    return MediaQuery.of(context).size.width < TSizes.tabbletScreenSize;
+  }
 }
