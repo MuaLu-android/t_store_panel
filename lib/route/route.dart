@@ -26,7 +26,10 @@ class TRoutes {
   static List sidebarMenuItems = [
     firstScreen,
     reponsiveDesignTutoralScreen,
+    login,
     secondScreen,
+    forgetPassword,
+    resetPassword,
     secondScreenWithUID,
   ];
 }
