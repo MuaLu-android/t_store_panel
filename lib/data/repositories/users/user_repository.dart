@@ -1,3 +1,4 @@
+import 'package:admin_t_store/data/repositories/authentication/authentication_repository.dart';
 import 'package:admin_t_store/data/repositories/users/user_model.dart';
 import 'package:admin_t_store/utils/exceptions/firebase_auth_exceptions.dart';
 import 'package:admin_t_store/utils/exceptions/format_exceptions.dart';
@@ -15,6 +16,25 @@ class UserRepository extends GetxController {
   Future<void> ceateUser(UserModel user) async {
     try {
       await _db.collection('Users').doc(user.id).set(user.toJson());
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FormatException catch (_) {
+      throw TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again';
+    }
+  }
+
+  // Function to fetch user details based ti Firestore
+  Future<UserModel> fetchAdminDetails() async {
+    try {
+      final docSnapsnot = await _db
+          .collection('Users')
+          .doc(AuthenticationRepository.instance.authUser!.uid)
+          .get();
+      return UserModel.fromSnapshot(docSnapsnot);
     } on FirebaseAuthException catch (e) {
       throw TFirebaseAuthException(e.code).message;
     } on FormatException catch (_) {
