@@ -15,8 +15,9 @@ Future<void> main() async {
   // Remove # sign from url
   setPathUrlStrategy();
   // Initialize Firebase & Authentication Repository
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
-  .then((value) => Get.put(AuthenticationRepository()));
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  ).then((value) => Get.put(AuthenticationRepository()));
   //Main App Start here...
   runApp(const App());
 }

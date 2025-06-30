@@ -1,3 +1,4 @@
+import 'package:admin_t_store/bindings/general_binding.dart';
 import 'package:admin_t_store/common/widgets/custom_shapes/container/rounded_container.dart';
 import 'package:admin_t_store/common/widgets/layouts/templates/site_layouts.dart';
 import 'package:admin_t_store/route/app_routes.dart';
@@ -19,6 +20,7 @@ class App extends StatelessWidget {
       themeMode: ThemeMode.light,
       theme: TAppTheme.lightTheme,
       darkTheme: TAppTheme.darkTheme,
+      initialBinding: GeneralBindings(),
       initialRoute: TRoutes.dashboard,
       getPages: TAppRoute.pages,
       unknownRoute: GetPage(
