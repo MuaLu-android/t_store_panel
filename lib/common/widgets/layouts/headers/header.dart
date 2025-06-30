@@ -1,10 +1,13 @@
 import 'package:admin_t_store/common/widgets/images/t_rounded_image.dart';
+import 'package:admin_t_store/common/widgets/shimmer/shimmer.dart';
+import 'package:admin_t_store/features/authentication/controllers/user_controller.dart';
 import 'package:admin_t_store/utils/constants/colors.dart';
 import 'package:admin_t_store/utils/constants/enums.dart';
 import 'package:admin_t_store/utils/constants/image_strings.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:admin_t_store/utils/devices/device_utility.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:iconsax/iconsax.dart';
 
 class THeader extends StatelessWidget implements PreferredSizeWidget {
@@ -14,6 +17,7 @@ class THeader extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     // implement build
+    final controller = UserController.instance;
     return Container(
       decoration: const BoxDecoration(
         color: TColors.white,
@@ -56,28 +60,40 @@ class THeader extends StatelessWidget implements PreferredSizeWidget {
           // User Data
           Row(
             children: [
-              TRoundedImage(
-                width: 40,
-                height: 40,
-                padding: 2,
-                imageType: ImageType.assets,
-                imageUrl: TImages.user,
+              Obx(
+                () => TRoundedImage(
+                  width: 40,
+                  height: 40,
+                  padding: 2,
+                  imageType: controller.user.value.profilePicture.isNotEmpty
+                      ? ImageType.network
+                      : ImageType.assets,
+                  imageUrl: controller.user.value.profilePicture.isNotEmpty
+                      ? controller.user.value.profilePicture
+                      : TImages.user,
+                ),
               ),
               const SizedBox(width: TSizes.sm),
               if (!TDeviceUtils.isMobileScreen(context))
-                Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Coding with T',
-                      style: Theme.of(context).textTheme.titleLarge,
-                    ),
-                    Text(
-                      'support@CodingwithT.com',
-                      style: Theme.of(context).textTheme.labelMedium,
-                    ),
-                  ],
+                Obx(
+                  () => Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      controller.loading.value
+                          ? const TShimmerEffect(width: 50, height: 13)
+                          : Text(
+                              controller.user.value.fullName,
+                              style: Theme.of(context).textTheme.titleLarge,
+                            ),
+                      controller.loading.value
+                          ? const TShimmerEffect(width: 50, height: 13)
+                          : Text(
+                              controller.user.value.email,
+                              style: Theme.of(context).textTheme.labelMedium,
+                            ),
+                    ],
+                  ),
                 ),
             ],
           ),

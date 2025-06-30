@@ -82,7 +82,7 @@ class UserModel {
       final data = document.data()!;
       return UserModel(
         id: document.id,
-        firstName: data.containsKey('FisrtName') ? data['FisrtName'] ?? '' : '',
+        firstName: data.containsKey('FirstName') ? data['FirstName'] ?? '' : '',
         lastName: data.containsKey('LastName') ? data['LastName'] ?? '' : '',
         username: data.containsKey('Username') ? data['Username'] ?? '' : '',
         email: data.containsKey('Email') ? data['Email'] ?? '' : '',
