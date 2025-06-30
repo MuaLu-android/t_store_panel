@@ -24,3 +24,6 @@ enum PaymentMethods {
 
 // ImageType
 enum ImageType { assets, network, memory, file }
+
+// Role
+enum AppRole { admin, user }

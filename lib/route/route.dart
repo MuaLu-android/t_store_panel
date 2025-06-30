@@ -23,13 +23,5 @@ class TRoutes {
   static const secondScreen = '/second-screen';
   static const secondScreenWithUID = '/second-screen/:userId';
 
-  static List sidebarMenuItems = [
-    firstScreen,
-    reponsiveDesignTutoralScreen,
-    login,
-    secondScreen,
-    forgetPassword,
-    resetPassword,
-    secondScreenWithUID,
-  ];
+  static List sidebarMenuItems = [dashboard];
 }

@@ -19,7 +19,7 @@ class App extends StatelessWidget {
       themeMode: ThemeMode.light,
       theme: TAppTheme.lightTheme,
       darkTheme: TAppTheme.darkTheme,
-      initialRoute: TRoutes.login,
+      initialRoute: TRoutes.dashboard,
       getPages: TAppRoute.pages,
       unknownRoute: GetPage(
         name: '/page-not-found',
