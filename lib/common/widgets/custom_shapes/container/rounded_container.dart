@@ -15,31 +15,47 @@ class TRoundedContainer extends StatelessWidget {
     this.backgroundColor = TColors.white,
     this.padding,
     this.margin,
+    this.onTap,
+    this.showShadow = true,
   });
 
   final double? width;
   final double? height;
   final double radius;
   final Widget? child;
+  final bool showShadow;
   final bool showBorder;
   final Color borderColor;
   final Color backgroundColor;
   final EdgeInsetsGeometry? padding;
   final EdgeInsetsGeometry? margin;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: width,
-      height: height,
-      padding: padding,
-      margin: margin,
-      decoration: BoxDecoration(
-        color: backgroundColor,
-        borderRadius: BorderRadius.circular(radius),
-        border: showBorder ? Border.all(color: borderColor) : null,
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: width,
+        height: height,
+        padding: padding,
+        margin: margin,
+        decoration: BoxDecoration(
+          color: backgroundColor,
+          borderRadius: BorderRadius.circular(radius),
+          border: showBorder ? Border.all(color: borderColor) : null,
+          boxShadow: [
+            if (showShadow)
+              BoxShadow(
+                color: TColors.grey.withAlpha(245),
+                spreadRadius: 5,
+                blurRadius: 8,
+                offset: const Offset(0, 3),
+              ),
+          ],
+        ),
+        child: child,
       ),
-      child: child,
     );
   }
 }

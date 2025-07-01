@@ -1,7 +1,7 @@
-import 'package:admin_t_store/app.dart';
 import 'package:admin_t_store/features/authentication/screens/login/forget_password/forget_password.dart';
 import 'package:admin_t_store/features/authentication/screens/login/login.dart';
 import 'package:admin_t_store/features/authentication/screens/reset_password/reset_password.dart';
+import 'package:admin_t_store/features/shop/dashboard/dashboard_screen.dart';
 import 'package:admin_t_store/route/route.dart';
 import 'package:admin_t_store/route/routes_middleware.dart';
 import 'package:get/route_manager.dart';
@@ -13,7 +13,7 @@ class TAppRoute {
     GetPage(name: TRoutes.forgetPassword, page: () => ForgetPasswordScreen()),
     GetPage(
       name: TRoutes.dashboard,
-      page: () => const ResponiveDesignScreen(),
+      page: () => const DashBoardScreen(),
       middlewares: [TRouteMiddleware()],
     ),
   ];
