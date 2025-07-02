@@ -24,18 +24,19 @@ class TDashbosrCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return TRoundedContainer(
       padding: EdgeInsets.all(TSizes.lg),
-      backgroundColor: Colors.grey.withAlpha(128),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          // Heading
+          /// Heading
           TSectionHeading(
             title: title,
             textColor: TColors.textSecondary,
             showActionButton: false,
           ),
           const SizedBox(height: TSizes.spaceBtwSections),
+
+          /// Cards
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

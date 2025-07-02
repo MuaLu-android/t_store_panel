@@ -13,7 +13,7 @@ class TRoundedContainer extends StatelessWidget {
     this.showBorder = false,
     this.borderColor = TColors.borderPrimary,
     this.backgroundColor = TColors.white,
-    this.padding,
+    this.padding = const EdgeInsets.all(TSizes.spaceBtwItems),
     this.margin,
     this.onTap,
     this.showShadow = true,
@@ -48,7 +48,7 @@ class TRoundedContainer extends StatelessWidget {
             if (showShadow)
               BoxShadow(
                 color: TColors.grey.withAlpha(245),
-                spreadRadius: 5,
+                spreadRadius: 1,
                 blurRadius: 8,
                 offset: const Offset(0, 3),
               ),

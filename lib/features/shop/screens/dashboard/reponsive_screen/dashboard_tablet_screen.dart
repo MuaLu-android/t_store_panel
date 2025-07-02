@@ -1,4 +1,4 @@
-import 'package:admin_t_store/features/shop/dashboard/widgets/dashboard_card.dart';
+import 'package:admin_t_store/features/shop/screens/dashboard/widgets/dashboard_card.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 

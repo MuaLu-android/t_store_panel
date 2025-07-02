@@ -1,4 +1,6 @@
-import 'package:admin_t_store/features/shop/dashboard/widgets/dashboard_card.dart';
+import 'package:admin_t_store/common/widgets/custom_shapes/container/rounded_container.dart';
+import 'package:admin_t_store/features/shop/screens/dashboard/widgets/dashboard_card.dart';
+import 'package:admin_t_store/features/shop/screens/dashboard/widgets/week_sales.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
@@ -54,6 +56,29 @@ class DashboardDesktopScreen extends StatelessWidget {
                       subtitle: '\$365.6',
                     ),
                   ),
+                ],
+              ),
+              const SizedBox(height: TSizes.spaceBtwSections),
+
+              /// Graphs
+              Row(
+                children: [
+                  Expanded(
+                    flex: 2,
+                    child: Column(
+                      children: [
+                        /// Bar Graph
+                        TWeeklySalesGraph(),
+                        const SizedBox(height: TSizes.spaceBtwSections),
+
+                        /// Orders
+                        TRoundedContainer(),
+                      ],
+                    ),
+                  ),
+
+                  /// Pie Chart
+                  Expanded(child: TRoundedContainer()),
                 ],
               ),
               // Search

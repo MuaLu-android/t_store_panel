@@ -1,8 +1,42 @@
+import 'package:admin_t_store/utils/constants/enums.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
 class THelperFunctions {
+  // Lay ngay dau tien cua tuan
+  static DateTime getStartOfWeek(DateTime date) {
+    final int daysUntilMonday = date.weekday - 1;
+    final DateTime startofWeek = date.subtract(Duration(days: daysUntilMonday));
+    return DateTime(
+      startofWeek.year,
+      startofWeek.month,
+      startofWeek.day,
+      0,
+      0,
+      0,
+      0,
+      0,
+    );
+  }
+
+  // Lay mau trang thai don hang
+  static Color getOrderStatusColor(OrderStatus value) {
+    if (OrderStatus.pending == value) {
+      return Colors.blue;
+    } else if (OrderStatus.processing == value) {
+      return Colors.orange;
+    } else if (OrderStatus.shipped == value) {
+      return Colors.purple;
+    } else if (OrderStatus.delivered == value) {
+      return Colors.green;
+    } else if (OrderStatus.cancelled == value) {
+      return Colors.red;
+    } else {
+      return Colors.grey;
+    }
+  }
+
   static Color? getColor(String value) {
     /// Define your product specific colors here and it will match the attribute colors and show specific 🟠🟡🟢🔵🟣🟤
 
@@ -40,9 +74,9 @@ class THelperFunctions {
   }
 
   static void showSnackBar(String message) {
-    ScaffoldMessenger.of(Get.context!).showSnackBar(
-      SnackBar(content: Text(message)),
-    );
+    ScaffoldMessenger.of(
+      Get.context!,
+    ).showSnackBar(SnackBar(content: Text(message)));
   }
 
   static void showAlert(String title, String message) {
@@ -64,10 +98,7 @@ class THelperFunctions {
   }
 
   static void navigateToScreen(BuildContext context, Widget screen) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (_) => screen),
-    );
+    Navigator.push(context, MaterialPageRoute(builder: (_) => screen));
   }
 
   static String truncateText(String text, int maxLength) {
@@ -94,7 +125,10 @@ class THelperFunctions {
     return MediaQuery.of(Get.context!).size.width;
   }
 
-  static String getFormattedDate(DateTime date, {String format = 'dd MMM yyyy'}) {
+  static String getFormattedDate(
+    DateTime date, {
+    String format = 'dd MMM yyyy',
+  }) {
     return DateFormat(format).format(date);
   }
 
@@ -105,7 +139,10 @@ class THelperFunctions {
   static List<Widget> wrapWidgets(List<Widget> widgets, int rowSize) {
     final wrappedList = <Widget>[];
     for (var i = 0; i < widgets.length; i += rowSize) {
-      final rowChildren = widgets.sublist(i, i + rowSize > widgets.length ? widgets.length : i + rowSize);
+      final rowChildren = widgets.sublist(
+        i,
+        i + rowSize > widgets.length ? widgets.length : i + rowSize,
+      );
       wrappedList.add(Row(children: rowChildren));
     }
     return wrappedList;
