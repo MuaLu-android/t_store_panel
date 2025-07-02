@@ -3,7 +3,7 @@ import '../../../../../route/route.dart';
 import 'package:get/get.dart';
 
 class SidebarController extends GetxController {
-  final activeItem = TRoutes.reponsiveDesignTutoralScreen.obs;
+  final activeItem = TRoutes.dashboard.obs;
   final hoverItem = ''.obs;
   void changeActiveItem(String route) => activeItem.value = route;
   void changeHoverItem(String route) {

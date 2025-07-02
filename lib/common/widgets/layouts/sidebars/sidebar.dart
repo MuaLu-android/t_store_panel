@@ -44,7 +44,7 @@ class TSizebar extends StatelessWidget {
                     ),
                     // menu Items
                     const TMenuTem(
-                      route: TRoutes.firstScreen,
+                      route: TRoutes.dashboard,
                       icon: Iconsax.status,
                       itemName: 'Dashboard',
                     ),

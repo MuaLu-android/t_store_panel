@@ -1,4 +1,7 @@
+import 'package:admin_t_store/common/widgets/custom_shapes/container/rounded_container.dart';
 import 'package:admin_t_store/features/shop/screens/dashboard/widgets/dashboard_card.dart';
+import 'package:admin_t_store/features/shop/screens/dashboard/widgets/order_status_piechart.dart';
+import 'package:admin_t_store/features/shop/screens/dashboard/widgets/week_sales.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +15,6 @@ class DashboardTabletScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(TSizes.defaultSpace),
           child: Column(
-            mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Heding
@@ -61,6 +63,18 @@ class DashboardTabletScreen extends StatelessWidget {
                   ),
                 ],
               ),
+              const SizedBox(height: TSizes.spaceBtwSections),
+
+              /// Graphs
+              const TWeeklySalesGraph(),
+              const SizedBox(height: TSizes.spaceBtwSections),
+
+              /// Orders
+              const TRoundedContainer(),
+              const SizedBox(height: TSizes.spaceBtwSections),
+
+              /// Pie Chart
+              const OrderStatusPiechart(),
             ],
           ),
         ),
