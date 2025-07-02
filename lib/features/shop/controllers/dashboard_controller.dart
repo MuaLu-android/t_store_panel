@@ -62,12 +62,12 @@ class DashboardController extends GetxController {
     weeklySales.value = List<double>.filled(7, 0.0);
     for (var order in orders) {
       final DateTime orderWeekStart = THelperFunctions.getStartOfWeek(
-        order.orderDate!,
+        order.orderDate,
       );
       // Check if the order is within the current week
       if (orderWeekStart.isBefore(DateTime.now()) &&
           orderWeekStart.add(const Duration(days: 7)).isAfter(DateTime.now())) {
-        int index = (order.orderDate!.weekday - 1) % 7;
+        int index = (order.orderDate.weekday - 1) % 7;
         // Ensure the index is non-negative
         index = index < 0 ? index + 7 : index;
         weeklySales[index] += order.totalAmount;

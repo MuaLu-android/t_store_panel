@@ -86,7 +86,12 @@ class OrderStatusPiechart extends StatelessWidget {
                       ),
                     ),
                     DataCell(Text(' $count')),
-                    DataCell(Text(' \$${totalAmount.toStringAsFixed(2)}')),
+                    DataCell(
+                      Text(
+                        ' \$${totalAmount.toStringAsFixed(2)}',
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
                   ],
                 );
               }).toList(),

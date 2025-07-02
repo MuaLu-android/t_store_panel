@@ -1,6 +1,6 @@
-import 'package:admin_t_store/common/widgets/custom_shapes/container/rounded_container.dart';
 import 'package:admin_t_store/features/shop/screens/dashboard/widgets/dashboard_card.dart';
 import 'package:admin_t_store/features/shop/screens/dashboard/widgets/order_status_piechart.dart';
+import 'package:admin_t_store/features/shop/screens/dashboard/widgets/recent_order.dart';
 import 'package:admin_t_store/features/shop/screens/dashboard/widgets/week_sales.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
@@ -74,7 +74,7 @@ class DashboardDesktopScreen extends StatelessWidget {
                         const SizedBox(height: TSizes.spaceBtwSections),
 
                         /// Orders
-                        TRoundedContainer(),
+                        const TRecentOrderScreen(),
                       ],
                     ),
                   ),
