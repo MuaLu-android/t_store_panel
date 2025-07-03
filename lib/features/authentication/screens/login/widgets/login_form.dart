@@ -1,7 +1,7 @@
 import 'package:admin_t_store/features/authentication/controllers/login_controller.dart';
 import 'package:admin_t_store/route/route.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
-import 'package:admin_t_store/utils/constants/text_string.dart';
+import 'package:admin_t_store/utils/constants/text_strings.dart';
 import 'package:admin_t_store/utils/validators/validation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

@@ -6,7 +6,6 @@ import 'package:admin_t_store/utils/constants/colors.dart';
 import 'package:admin_t_store/utils/constants/enums.dart';
 import 'package:admin_t_store/utils/constants/image_strings.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
-import 'package:admin_t_store/utils/devices/device_utility.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -27,7 +26,7 @@ class MediaContent extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    'Select Folder',
+                    'Gallery Folder',
                     style: Theme.of(context).textTheme.headlineSmall,
                   ),
                   const SizedBox(width: TSizes.spaceBtwItems),

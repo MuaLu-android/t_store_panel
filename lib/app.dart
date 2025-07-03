@@ -4,7 +4,7 @@ import 'package:admin_t_store/common/widgets/layouts/templates/site_layouts.dart
 import 'package:admin_t_store/route/app_routes.dart';
 import 'package:admin_t_store/route/route.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
-import 'package:admin_t_store/utils/constants/text_string.dart';
+import 'package:admin_t_store/utils/constants/text_strings.dart';
 import 'package:admin_t_store/utils/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';

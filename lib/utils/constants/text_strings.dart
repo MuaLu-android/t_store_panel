@@ -1,14 +1,22 @@
 /// This class contains all the App Text in String formats.
 class TTexts {
-  // Admin Defauls credentils
+  // -- Admin Default Credentials
   static const String adminEmail = "support@codingwitht.com";
-  static const String adminPasword = "admin@123";
+  static const String adminPassword = "Admin@123";
+
+  // -- Storage Paths
+  static const String bannersStoragePath = "/Banners";
+  static const String brandsStoragePath = "/Brands";
+  static const String categoriesStoragePath = "/Categories";
+  static const String productsStoragePath = "/Products";
+  static const String usersStoragePath = "/Users";
+
   // -- GLOBAL Texts
   static const String and = "and";
   static const String skip = "Skip";
   static const String done = "Done";
   static const String submit = "Submit";
-  static const String appName = "T-Store";
+  static const String appName = "T Store";
   static const String tContinue = "Continue";
 
   // -- OnBoarding Texts
