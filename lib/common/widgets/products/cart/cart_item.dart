@@ -18,7 +18,7 @@ class TCartItem extends StatelessWidget {
       children: [
         /// Image
         TRoundedImage(
-          imageType: ImageType.assets,
+          imageType: ImageType.asset,
           imageUrl: TImages.productImage1,
           width: 60,
           height: 60,

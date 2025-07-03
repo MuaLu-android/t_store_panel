@@ -21,7 +21,7 @@ class TResponsiveWidget extends StatelessWidget {
         if (contrains.maxWidth >= TSizes.desktopScreenSize) {
           return desktop;
         } else if (contrains.maxWidth < TSizes.desktopScreenSize &&
-            contrains.maxWidth >= TSizes.tabbletScreenSize) {
+            contrains.maxWidth >= TSizes.tabletScreenSize) {
           return tabblet;
         } else {
           return mobile;

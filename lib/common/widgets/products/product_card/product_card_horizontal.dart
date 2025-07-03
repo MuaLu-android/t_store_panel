@@ -42,7 +42,7 @@ class TProductCardHorizontal extends StatelessWidget {
                   height: 120,
                   width: 120,
                   child: TRoundedImage(
-                    imageType: ImageType.assets,
+                    imageType: ImageType.asset,
                     imageUrl: TImages.productImage1,
                     applyImageRadius: true,
                     backgroundColor: dark ? TColors.darkerGrey : TColors.grey,

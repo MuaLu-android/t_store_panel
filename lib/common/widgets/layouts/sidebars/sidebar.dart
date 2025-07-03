@@ -24,7 +24,7 @@ class TSizebar extends StatelessWidget {
           child: Column(
             children: [
               TCircularImage(
-                imageType: ImageType.assets,
+                imageType: ImageType.asset,
                 image: TImages.darkAppLogo,
                 width: 100,
                 height: 100,

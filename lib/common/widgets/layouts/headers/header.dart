@@ -29,7 +29,7 @@ class THeader extends StatelessWidget implements PreferredSizeWidget {
       ),
       child: AppBar(
         /// Mobile Menu
-        leading: !TDeviceUtils.isDesktopSreen(context)
+        leading: !TDeviceUtils.isDesktopScreen(context)
             ? IconButton(
                 onPressed: () => scaffoldKey?.currentState?.openDrawer(),
                 icon: const Icon(Iconsax.menu),
@@ -37,7 +37,7 @@ class THeader extends StatelessWidget implements PreferredSizeWidget {
             : null,
 
         /// Search Field
-        title: TDeviceUtils.isDesktopSreen(context)
+        title: TDeviceUtils.isDesktopScreen(context)
             ? SizedBox(
                 width: 400,
                 child: TextFormField(
@@ -52,7 +52,7 @@ class THeader extends StatelessWidget implements PreferredSizeWidget {
         /// Actions
         actions: [
           // Search Icon on Mobile
-          if (!TDeviceUtils.isDesktopSreen(context))
+          if (!TDeviceUtils.isDesktopScreen(context))
             IconButton(onPressed: () {}, icon: Icon(Iconsax.search_normal)),
           // Notification Icon
           IconButton(onPressed: () {}, icon: Icon(Iconsax.notification)),
@@ -67,7 +67,7 @@ class THeader extends StatelessWidget implements PreferredSizeWidget {
                   padding: 2,
                   imageType: controller.user.value.profilePicture.isNotEmpty
                       ? ImageType.network
-                      : ImageType.assets,
+                      : ImageType.asset,
                   imageUrl: controller.user.value.profilePicture.isNotEmpty
                       ? controller.user.value.profilePicture
                       : TImages.user,

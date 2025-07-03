@@ -98,7 +98,7 @@ class TPaginateDataTable extends StatelessWidget {
           // empty
           empty: TAnimationLoaderWidget(
             text: 'Nothing Found',
-            animation: TImages.pasksgeAnimation,
+            animation: TImages.packageAnimation,
             width: 200,
             height: 200,
           ),

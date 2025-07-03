@@ -3,7 +3,6 @@ import 'package:admin_t_store/route/route.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/get_core.dart';
 import 'package:iconsax/iconsax.dart';
 
 class TBreadcrumbWithHeading extends StatelessWidget {
@@ -54,9 +53,10 @@ class TBreadcrumbWithHeading extends StatelessWidget {
                         i == breadcrumbItems.length - 1
                             ? breadcrumbItems[i].capitalize.toString()
                             : capitalize(breadcrumbItems[i].substring(1)),
-                        style: Theme.of(
-                          context,
-                        ).textTheme.bodySmall!.apply(fontWeightDelta: -1),
+                        style: Theme.of(context).textTheme.bodySmall!.apply(
+                          fontWeightDelta: -1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
                       ),
                     ),
                   ),

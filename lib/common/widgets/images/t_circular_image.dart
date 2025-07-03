@@ -54,7 +54,7 @@ class TCircularImage extends StatelessWidget {
       case ImageType.network:
         imageWidget = _buildNetworkImage();
         break;
-      case ImageType.assets:
+      case ImageType.asset:
         imageWidget = _buildAssetImage();
         break;
       case ImageType.memory:

@@ -70,7 +70,7 @@ class TWeeklySalesGraph extends StatelessWidget {
                   touchTooltipData: BarTouchTooltipData(
                     getTooltipColor: (_) => TColors.secondary,
                   ),
-                  touchCallback: TDeviceUtils.isDesktopSreen(context)
+                  touchCallback: TDeviceUtils.isDesktopScreen(context)
                       ? (barTouchEvent, barTouchResponse) {}
                       : null,
                 ),
