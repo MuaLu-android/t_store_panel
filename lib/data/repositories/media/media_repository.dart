@@ -12,9 +12,9 @@ class MediaRepository extends GetxController {
   static MediaRepository get onstance => Get.find();
   //Firebase Storage instance
   final FirebaseStorage _storage = FirebaseStorage.instance;
-  //Up;oad any Image using File
+  //Upload any Image using File
   Future<ImageModle> uploadImageFileInStorage({
-    required html.File file,
+    required dynamic file,
     required String path,
     required String imageName,
   }) async {
@@ -22,7 +22,7 @@ class MediaRepository extends GetxController {
       // Refernce to the storage location
       final Reference ref = _storage.ref('$path/$imageName');
       // Upload Image
-      await ref.putBlob(file);
+      await ref.putData(file);
       // Get doeload URL
       final String downloadUrl = await ref.getDownloadURL();
 
@@ -37,10 +37,12 @@ class MediaRepository extends GetxController {
     } on SocketException catch (e) {
       throw e.message;
     } on FirebaseException catch (e) {
+      print("🔥 FirebaseException: ${e.code} - ${e.message}");
       throw TFirebaseException(e.code).message;
     } on FormatException catch (_) {
       throw TFormatException();
     } catch (e) {
+      print("🔥 FirebaseException: ${e.toString()}");
       throw 'Something went wrong. Please try again';
     }
   }

@@ -105,29 +105,31 @@ class MediaController extends GetxController {
         var selectedImage = selectedImagesTopUpload[i];
         final image = selectedImage.file!;
         // Upload Image ti the Storage
-        // final ImageModle uploadeImage = await mediaRepository
-        //     .uploadImageFileInStorage(
-        //       file: image,
-        //       path: getSelectedPath(),
-        //       imageName: selectedImage.filename,
-        //     );
-        // // Upload Image to the Firestỏe
-        // uploadeImage.mediaCategory = selectedCategory.name;
-        // final id = await mediaRepository.uploadImageFileInDatabase(
-        //   uploadeImage,
-        // );
-        // uploadeImage.id = id;
+        final ImageModle uploadeImage = await mediaRepository
+            .uploadImageFileInStorage(
+              file: image,
+              path: getSelectedPath(),
+              imageName: selectedImage.filename,
+            );
+        // Upload Image to the Firestỏe
+        uploadeImage.mediaCategory = selectedCategory.name;
+        final id = await mediaRepository.uploadImageFileInDatabase(
+          uploadeImage,
+        );
+        uploadeImage.id = id;
         selectedImagesTopUpload.removeAt(i);
-        // targetList.add(uploadeImage);
+        targetList.add(uploadeImage);
       }
-    } catch (e) {
+    } catch (e, stackTrace) {
       // Stop Loader in csae of an error
       TFullScreenLoader.stopLoading();
       // Show a warning snack-bar for the error
       TLoaders.warningSnackBar(
         title: 'Error Uploang Images',
-        message: 'Something went wrong whike uploadong your images',
+        message:
+            'Something went wrong whike uploadong your images:${e.toString()}',
       );
+      print('Upload error: $e\n$stackTrace');
     }
   }
 
