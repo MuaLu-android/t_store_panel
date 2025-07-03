@@ -49,7 +49,7 @@ class TSizebar extends StatelessWidget {
                       itemName: 'Dashboard',
                     ),
                     const TMenuTem(
-                      route: TRoutes.secondScreen,
+                      route: TRoutes.media,
                       icon: Iconsax.image,
                       itemName: 'Media',
                     ),
