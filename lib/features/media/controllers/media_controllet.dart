@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:admin_t_store/data/repositories/media/media_repository.dart';
@@ -6,9 +7,12 @@ import 'package:admin_t_store/utils/constants/enums.dart';
 import 'package:admin_t_store/utils/constants/image_strings.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:admin_t_store/utils/constants/text_strings.dart';
+import 'package:admin_t_store/utils/exceptions/firebase_exceptions.dart';
+import 'package:admin_t_store/utils/exceptions/format_exceptions.dart';
 import 'package:admin_t_store/utils/popups/dialogs.dart';
 import 'package:admin_t_store/utils/popups/full_screen_loader.dart';
 import 'package:admin_t_store/utils/popups/loaders.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dropzone/flutter_dropzone.dart';
 import 'package:get/get.dart';
@@ -104,10 +108,12 @@ class MediaController extends GetxController {
       for (int i = selectedImagesTopUpload.length - 1; i >= 0; i--) {
         var selectedImage = selectedImagesTopUpload[i];
         final image = selectedImage.file!;
+        // Lấy Uint8List
+        final bytes = await dropzoneController.getFileData(image);
         // Upload Image ti the Storage
         final ImageModle uploadeImage = await mediaRepository
-            .uploadImageFileInStorage(
-              file: image,
+            .uploadImageToCloudinary(
+              file: bytes,
               path: getSelectedPath(),
               imageName: selectedImage.filename,
             );
@@ -120,6 +126,13 @@ class MediaController extends GetxController {
         selectedImagesTopUpload.removeAt(i);
         targetList.add(uploadeImage);
       }
+    } on SocketException catch (e) {
+      throw e.message;
+    } on FirebaseException catch (e) {
+      print("🔥 FirebaseException: ${e.code} - ${e.message}");
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw TFormatException();
     } catch (e, stackTrace) {
       // Stop Loader in csae of an error
       TFullScreenLoader.stopLoading();

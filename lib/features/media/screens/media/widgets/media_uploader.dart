@@ -14,7 +14,6 @@ import 'package:admin_t_store/utils/devices/device_utility.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dropzone/flutter_dropzone.dart';
 import 'package:get/get.dart';
-import 'package:universal_html/html.dart' as html;
 
 class MediaUploader extends StatelessWidget {
   const MediaUploader({super.key});
@@ -58,20 +57,21 @@ class MediaUploader extends StatelessWidget {
                               },
                               onDrop: (file) async {
                                 // chuyen doi ve UistList8
-                                final bytes = await controller
-                                    .dropzoneController
-                                    .getFileData(file);
-                                final image = ImageModle(
-                                  url: '',
-                                  file: file,
-                                  folder: '',
-                                  filename: file.name,
-                                  localImageToDisplay: Uint8List.fromList(
-                                    bytes,
-                                  ),
-                                );
-                                controller.selectedImagesTopUpload.add(image);
-                                if (file is String) {
+                                if (file is DropzoneFileInterface) {
+                                  final bytes = await controller
+                                      .dropzoneController
+                                      .getFileData(file);
+                                  final image = ImageModle(
+                                    url: '',
+                                    file: file,
+                                    folder: '',
+                                    filename: file.name,
+                                    localImageToDisplay: Uint8List.fromList(
+                                      bytes,
+                                    ),
+                                  );
+                                  controller.selectedImagesTopUpload.add(image);
+                                } else if (file is String) {
                                   print('Zone drop: $file');
                                 } else {
                                   print(

@@ -104,4 +104,29 @@ class ImageModle {
       contentType: metadata.contentType,
     );
   }
+
+  /// Map Cloudinary Data
+  factory ImageModle.fromCloudinaryJson(Map<String, dynamic> json) {
+    return ImageModle(
+      url: json['secure_url'],
+      folder: json['public_id']
+          .toString()
+          .split('/')
+          .first
+          .replaceAll('/', '_')
+          .replaceAll('\\', '_'),
+      filename: json['public_id']
+          .toString()
+          .split('/')
+          .last
+          .replaceAll('/', '_')
+          .replaceAll('\\', '_'),
+      sizeBytes: json['bytes'],
+      updateAt: DateTime.parse(json['created_at']),
+      createAt: DateTime.parse(json['created_at']),
+      fullPath: json['public_id'].replaceAll('/', '_').replaceAll('\\', '_'),
+      contentType:
+          "image/${json['format'].replaceAll('/', '_').replaceAll('\\', '_')}",
+    );
+  }
 }

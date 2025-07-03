@@ -5,11 +5,11 @@ class TTexts {
   static const String adminPassword = "Admin@123";
 
   // -- Storage Paths
-  static const String bannersStoragePath = "/Banners";
-  static const String brandsStoragePath = "/Brands";
-  static const String categoriesStoragePath = "/Categories";
-  static const String productsStoragePath = "/Products";
-  static const String usersStoragePath = "/Users";
+  static const String bannersStoragePath = "Banners";
+  static const String brandsStoragePath = "Brands";
+  static const String categoriesStoragePath = "Categories";
+  static const String productsStoragePath = "Products";
+  static const String usersStoragePath = "Users";
 
   // -- GLOBAL Texts
   static const String and = "and";
