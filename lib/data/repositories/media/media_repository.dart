@@ -116,9 +116,10 @@ class MediaRepository extends GetxController {
     int loadCount,
   ) async {
     try {
+      print("🔍 Query with mediaCategory: ${mediaCategory.name}");
       final querySnapshot = await _store
           .collection("Images")
-          .where('mediaCategory', isEqualTo: mediaCategory.name.toString())
+          .where('mediaCategory', isEqualTo: mediaCategory.name)
           .orderBy('createAt', descending: true)
           .limit(loadCount)
           .get();
@@ -143,7 +144,7 @@ class MediaRepository extends GetxController {
     try {
       final querySnapshot = await _store
           .collection("Images")
-          .where('mediaCategory', isEqualTo: mediaCategory.name.toString())
+          .where('mediaCategory', isEqualTo: mediaCategory.name)
           .orderBy('createAt', descending: true)
           .startAfter([lastFetchedData])
           .limit(loadCount)

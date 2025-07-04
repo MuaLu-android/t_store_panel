@@ -76,7 +76,7 @@ class OrderStatusPiechart extends StatelessWidget {
                             backgroundColor:
                                 THelperFunctions.getOrderStatusColor(status),
                           ),
-                          Expanded(
+                          Flexible(
                             child: Text(
                               ' ${controller.getDisplayStatusName(status)}',
                               overflow: TextOverflow.ellipsis,

@@ -30,10 +30,7 @@ class MediaDesktopScreen extends StatelessWidget {
                   // Breadcrumbs
                   TBreadcrumbWithHeading(
                     heading: 'Media',
-                    breadcrumbItems: [
-                      TRoutes.media,
-                      'Media Screen nhu nay cua toi',
-                    ],
+                    breadcrumbItems: [TRoutes.media, 'details'],
                   ),
                   // Toggle Images Section Button
                   Flexible(

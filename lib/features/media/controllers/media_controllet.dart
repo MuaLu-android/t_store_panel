@@ -48,16 +48,16 @@ class MediaController extends GetxController {
         targetList = allBannerImages;
       } else if (selectedPath.value == MediaCategory.brands &&
           allBrandImages.isEmpty) {
-        targetList == allBrandImages;
+        targetList = allBrandImages;
       } else if (selectedPath.value == MediaCategory.categories &&
           allCategoryImages.isEmpty) {
-        targetList == allCategoryImages;
+        targetList = allCategoryImages;
       } else if (selectedPath.value == MediaCategory.products &&
           allProductImages.isEmpty) {
-        targetList == allProductImages;
+        targetList = allProductImages;
       } else if (selectedPath.value == MediaCategory.users &&
           allUserIamges.isEmpty) {
-        targetList == allUserIamges;
+        targetList = allUserIamges;
       }
       final images = await mediaRepository.fetchImagesFromDatabase(
         selectedPath.value,
@@ -78,22 +78,24 @@ class MediaController extends GetxController {
   void loadMoreMediaImages() async {
     try {
       loading.value = true;
-      RxList<ImageModle> targetList = <ImageModle>[].obs;
-      if (selectedPath.value == MediaCategory.banners &&
-          allBannerImages.isEmpty) {
+      RxList<ImageModle> targetList = switch (selectedPath.value) {
+        MediaCategory.banners => allBannerImages,
+        MediaCategory.brands => allBrandImages,
+        MediaCategory.categories => allCategoryImages,
+        MediaCategory.products => allProductImages,
+        MediaCategory.users => allUserIamges,
+        _ => <ImageModle>[].obs,
+      };
+      if (selectedPath.value == MediaCategory.banners) {
         targetList = allBannerImages;
-      } else if (selectedPath.value == MediaCategory.brands &&
-          allBrandImages.isEmpty) {
-        targetList == allBrandImages;
-      } else if (selectedPath.value == MediaCategory.categories &&
-          allCategoryImages.isEmpty) {
-        targetList == allCategoryImages;
-      } else if (selectedPath.value == MediaCategory.products &&
-          allProductImages.isEmpty) {
-        targetList == allProductImages;
-      } else if (selectedPath.value == MediaCategory.users &&
-          allUserIamges.isEmpty) {
-        targetList == allUserIamges;
+      } else if (selectedPath.value == MediaCategory.brands) {
+        targetList = allBrandImages;
+      } else if (selectedPath.value == MediaCategory.categories) {
+        targetList = allCategoryImages;
+      } else if (selectedPath.value == MediaCategory.products) {
+        targetList = allProductImages;
+      } else if (selectedPath.value == MediaCategory.users) {
+        targetList = allUserIamges;
       }
       final images = await mediaRepository.loadMoreImagesFromDatabase(
         selectedPath.value,
