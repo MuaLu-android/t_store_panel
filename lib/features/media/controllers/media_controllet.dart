@@ -16,7 +16,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dropzone/flutter_dropzone.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 
 class MediaController extends GetxController {
   static MediaController get instance => Get.find();

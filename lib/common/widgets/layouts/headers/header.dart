@@ -28,6 +28,9 @@ class THeader extends StatelessWidget implements PreferredSizeWidget {
         vertical: TSizes.sm,
       ),
       child: AppBar(
+        /// Bo back
+        automaticallyImplyLeading: false,
+
         /// Mobile Menu
         leading: !TDeviceUtils.isDesktopScreen(context)
             ? IconButton(

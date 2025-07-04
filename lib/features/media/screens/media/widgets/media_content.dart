@@ -4,13 +4,14 @@ import 'package:admin_t_store/common/widgets/layouts/templates/loader_animation.
 import 'package:admin_t_store/features/media/controllers/media_controllet.dart';
 import 'package:admin_t_store/features/media/models/image_modle.dart';
 import 'package:admin_t_store/features/media/screens/media/widgets/folder_dropdown.dart';
+import 'package:admin_t_store/features/media/screens/media/widgets/view_image_details.dart';
 import 'package:admin_t_store/utils/constants/colors.dart';
 import 'package:admin_t_store/utils/constants/enums.dart';
 import 'package:admin_t_store/utils/constants/image_strings.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:admin_t_store/utils/loaders/animation_loader.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class MediaContent extends StatelessWidget {
@@ -67,7 +68,7 @@ class MediaContent extends StatelessWidget {
                   children: images
                       .map(
                         (image) => GestureDetector(
-                          onTap: () {},
+                          onTap: () => Get.dialog(ImagePopup(imae: image)),
                           child: SizedBox(
                             width: 140,
                             height: 180,
