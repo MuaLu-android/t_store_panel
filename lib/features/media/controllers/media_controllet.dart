@@ -16,9 +16,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dropzone/flutter_dropzone.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 class MediaController extends GetxController {
   static MediaController get instance => Get.find();
+
+  final RxBool loading = false.obs;
+  final int inittialLoadCount = 20;
+  final int laodMoreCount = 25;
   // bo dieu khien che do xem drop zone
   late DropzoneViewController dropzoneController;
   final RxBool showImagesUploaderSection = false.obs;
@@ -33,6 +38,80 @@ class MediaController extends GetxController {
   final RxList<ImageModle> allUserIamges = <ImageModle>[].obs;
 
   final MediaRepository mediaRepository = MediaRepository();
+
+  // Get Images
+  void getMediaImages() async {
+    try {
+      loading.value = true;
+      RxList<ImageModle> targetList = <ImageModle>[].obs;
+      if (selectedPath.value == MediaCategory.banners &&
+          allBannerImages.isEmpty) {
+        targetList = allBannerImages;
+      } else if (selectedPath.value == MediaCategory.brands &&
+          allBrandImages.isEmpty) {
+        targetList == allBrandImages;
+      } else if (selectedPath.value == MediaCategory.categories &&
+          allCategoryImages.isEmpty) {
+        targetList == allCategoryImages;
+      } else if (selectedPath.value == MediaCategory.products &&
+          allProductImages.isEmpty) {
+        targetList == allProductImages;
+      } else if (selectedPath.value == MediaCategory.users &&
+          allUserIamges.isEmpty) {
+        targetList == allUserIamges;
+      }
+      final images = await mediaRepository.fetchImagesFromDatabase(
+        selectedPath.value,
+        inittialLoadCount,
+      );
+      targetList.assignAll(images);
+      loading.value = false;
+    } catch (e) {
+      loading.value = false;
+      TLoaders.errorSnackBar(
+        title: 'Oh snap',
+        message: 'Unable to fetch Images, Something wrnt wrong. Try again',
+      );
+    }
+  }
+
+  // Load more Image
+  void loadMoreMediaImages() async {
+    try {
+      loading.value = true;
+      RxList<ImageModle> targetList = <ImageModle>[].obs;
+      if (selectedPath.value == MediaCategory.banners &&
+          allBannerImages.isEmpty) {
+        targetList = allBannerImages;
+      } else if (selectedPath.value == MediaCategory.brands &&
+          allBrandImages.isEmpty) {
+        targetList == allBrandImages;
+      } else if (selectedPath.value == MediaCategory.categories &&
+          allCategoryImages.isEmpty) {
+        targetList == allCategoryImages;
+      } else if (selectedPath.value == MediaCategory.products &&
+          allProductImages.isEmpty) {
+        targetList == allProductImages;
+      } else if (selectedPath.value == MediaCategory.users &&
+          allUserIamges.isEmpty) {
+        targetList == allUserIamges;
+      }
+      final images = await mediaRepository.loadMoreImagesFromDatabase(
+        selectedPath.value,
+        inittialLoadCount,
+        targetList.last.createAt ?? DateTime.now(),
+      );
+      targetList.addAll(images);
+      loading.value = false;
+    } catch (e) {
+      loading.value = false;
+      TLoaders.errorSnackBar(
+        title: 'Oh snap',
+        message: 'Unable to fetch Images, Something wrnt wrong. Try again',
+      );
+    }
+  }
+
   // selecLocalImages
   Future<void> selectLocalImages() async {
     final files = await dropzoneController.pickFiles(
@@ -143,6 +222,8 @@ class MediaController extends GetxController {
             'Something went wrong whike uploadong your images:${e.toString()}',
       );
       print('Upload error: $e\n$stackTrace');
+    } finally {
+      Get.back();
     }
   }
 

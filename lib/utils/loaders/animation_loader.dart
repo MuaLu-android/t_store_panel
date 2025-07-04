@@ -23,10 +23,12 @@ class TAnimationLoaderWidget extends StatelessWidget {
     this.onActionPressed,
     this.width,
     this.height,
+    this.style,
   });
 
   final String text;
   final String animation;
+  final TextStyle? style;
   final bool showAction;
   final String? actionText;
   final VoidCallback? onActionPressed;
@@ -46,7 +48,7 @@ class TAnimationLoaderWidget extends StatelessWidget {
           const SizedBox(height: TSizes.defaultSpace),
           Text(
             text,
-            style: Theme.of(context).textTheme.bodyMedium,
+            style: style ?? Theme.of(context).textTheme.bodyMedium,
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: TSizes.defaultSpace),

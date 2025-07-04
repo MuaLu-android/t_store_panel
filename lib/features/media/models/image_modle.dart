@@ -55,6 +55,7 @@ class ImageModle {
       'createAt': createAt?.toUtc(),
       'updateAt': updateAt?.toUtc(),
       'contentType': contentType,
+      'sizeBytes': sizeBytes,
       'mediaCategory': mediaCategory,
     };
   }
@@ -78,6 +79,7 @@ class ImageModle {
         updateAt: data.containsKey('updateAt')
             ? data['updateAt']?.toDate()
             : null,
+        sizeBytes: data['sizeBytes'],
         contentType: data['contentType'] ?? '',
         mediaCategory: data['mediaCategory'],
       );
@@ -107,26 +109,21 @@ class ImageModle {
 
   /// Map Cloudinary Data
   factory ImageModle.fromCloudinaryJson(Map<String, dynamic> json) {
+    final publicId = json['public_id'] as String;
+    final parts = publicId.split('/');
+    final imageName = parts.isNotEmpty ? parts.last : '';
+    final path = parts.length > 1
+        ? parts.sublist(0, parts.length - 1).join('/')
+        : '';
     return ImageModle(
       url: json['secure_url'],
-      folder: json['public_id']
-          .toString()
-          .split('/')
-          .first
-          .replaceAll('/', '_')
-          .replaceAll('\\', '_'),
-      filename: json['public_id']
-          .toString()
-          .split('/')
-          .last
-          .replaceAll('/', '_')
-          .replaceAll('\\', '_'),
+      folder: "/$path",
+      filename: imageName,
       sizeBytes: json['bytes'],
       updateAt: DateTime.parse(json['created_at']),
       createAt: DateTime.parse(json['created_at']),
-      fullPath: json['public_id'].replaceAll('/', '_').replaceAll('\\', '_'),
-      contentType:
-          "image/${json['format'].replaceAll('/', '_').replaceAll('\\', '_')}",
+      fullPath: json['public_id'],
+      contentType: "image/${json['format']}",
     );
   }
 }
