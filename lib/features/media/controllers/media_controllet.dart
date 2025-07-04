@@ -9,6 +9,7 @@ import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:admin_t_store/utils/constants/text_strings.dart';
 import 'package:admin_t_store/utils/exceptions/firebase_exceptions.dart';
 import 'package:admin_t_store/utils/exceptions/format_exceptions.dart';
+import 'package:admin_t_store/utils/loaders/circular_loader.dart';
 import 'package:admin_t_store/utils/popups/dialogs.dart';
 import 'package:admin_t_store/utils/popups/full_screen_loader.dart';
 import 'package:admin_t_store/utils/popups/loaders.dart';
@@ -262,5 +263,57 @@ class MediaController extends GetxController {
       MediaCategory.users: TTexts.usersStoragePath,
     };
     return storagePaths[selectedPath.value] ?? 'Others';
+  }
+
+  // Popup confirmation to remove cloud image
+  void removeCloudImageConfirmation(ImageModle image) {
+    // Delete Confirmation
+    TDialogs.defaultDialog(
+      context: Get.context!,
+      content: 'Are you sure you want to delete this image?',
+      onConfirm: () {
+        Get.back();
+        removeClouImage(image);
+      },
+      onCancel: () => Get.back(),
+    );
+  }
+
+  void removeClouImage(ImageModle image) async {
+    try {
+      Get.back();
+      // Show Loader
+      Get.defaultDialog(
+        title: '',
+        barrierDismissible: false,
+        backgroundColor: Colors.transparent,
+        content: const PopScope(
+          canPop: false,
+          child: SizedBox(width: 150, height: 150, child: TCircularLoader()),
+        ),
+      );
+      // Delete Image
+      await mediaRepository.deleteFileFromCloudinaryAndFireStore(image);
+      // Check the selected category and update the corresponding list
+      RxList<ImageModle> targetList = switch (selectedPath.value) {
+        MediaCategory.banners => allBannerImages,
+        MediaCategory.brands => allBrandImages,
+        MediaCategory.categories => allCategoryImages,
+        MediaCategory.products => allProductImages,
+        MediaCategory.users => allUserIamges,
+        _ => <ImageModle>[].obs,
+      };
+      // Remove form the list
+      targetList.remove(image);
+      update();
+      TFullScreenLoader.stopLoading();
+      TLoaders.successSnackBar(
+        title: 'Image Deleted',
+        message: 'Image successfully deleted from your cloud storage',
+      );
+    } catch (e) {
+      TFullScreenLoader.stopLoading();
+      TLoaders.errorSnackBar(title: 'Oh snap', message: e.toString());
+    }
   }
 }

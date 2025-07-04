@@ -19,6 +19,9 @@ class MediaRepository extends GetxController {
   final FirebaseStorage _storage = FirebaseStorage.instance;
   //Firebase Firestore íntance
   final FirebaseFirestore _store = FirebaseFirestore.instance;
+  // Connect Cloudinary use HTTP
+  final String cloudName = 'dhl2sbjo5';
+  final String uploadPreset = 't_stores';
   //Upload any Image using File
   Future<ImageModle> uploadImageFileInStorage({
     required Uint8List file,
@@ -63,8 +66,6 @@ class MediaRepository extends GetxController {
     required String imageName,
   }) async {
     try {
-      const String cloudName = 'dhl2sbjo5';
-      const String uploadPreset = 't_stores';
       final url = Uri.parse(
         'https://api.cloudinary.com/v1_1/$cloudName/image/upload',
       );
@@ -84,13 +85,13 @@ class MediaRepository extends GetxController {
         // In chi tiết lỗi nếu upload thất bại
         print('Cloudinary upload failed with status: ${response.statusCode}');
         print('Response body: ${response.body}');
-        throw 'Upload thất bại: [${response.statusCode}] ${response.body}';
+        throw 'Upload error: [${response.statusCode}] ${response.body}';
       }
     } catch (e, stacktrace) {
       // In cả lỗi và StackTrace nếu muốn debug sâu hơn
       print('Exception during upload: $e');
       print('StackTrace: $stacktrace');
-      throw 'Lỗi khi upload Cloudinary: $e';
+      throw 'Loi khi upload Cloudinary: $e';
     }
   }
 
@@ -116,7 +117,6 @@ class MediaRepository extends GetxController {
     int loadCount,
   ) async {
     try {
-      print("🔍 Query with mediaCategory: ${mediaCategory.name}");
       final querySnapshot = await _store
           .collection("Images")
           .where('mediaCategory', isEqualTo: mediaCategory.name)
@@ -158,6 +158,45 @@ class MediaRepository extends GetxController {
       throw TPlatformException(e.code).message;
     } catch (e) {
       throw e.toString();
+    }
+  }
+
+  // Delete file from Cloudinary
+  Future<void> deleteFileFromCloudinaryAndFireStore(ImageModle image) async {
+    try {
+      //FireStore
+      await _store.collection('Images').doc(image.id).delete();
+      //Cloudinary use APi Node js
+      final String publicId = image.fullPath!;
+      final response = await http.post(
+        Uri.parse('http://localhost:3000/delete-image'),
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode({'public_id': publicId}),
+      );
+
+      if (response.statusCode == 200) {
+        final result = jsonDecode(response.body);
+        if (result['result'] == 'ok') {
+          print('Da xoa anh: $publicId');
+        } else {
+          throw 'khong xoa duoc anh: ${result['result']}';
+        }
+      } else {
+        print('Cloudinary delete failed with status: ${response.statusCode}');
+        print('Response body: ${response.body}');
+        throw 'xoa that bai: ${response.statusCode}';
+      }
+    } on FirebaseException catch (e) {
+      throw e.message ?? 'Something went wrong while deleting image';
+    } on SocketException catch (e) {
+      throw e.message;
+    } on PlatformException catch (e) {
+      throw e.message!;
+    } catch (e, stacktrace) {
+      // In cả lỗi và StackTrace nếu muốn debug sâu hơn
+      print('Exception during upload: $e');
+      print('StackTrace: $stacktrace');
+      throw 'Loi khi upload Cloudinary: $e';
     }
   }
 }

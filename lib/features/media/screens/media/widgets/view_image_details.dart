@@ -1,5 +1,6 @@
 import 'package:admin_t_store/common/widgets/custom_shapes/container/rounded_container.dart';
 import 'package:admin_t_store/common/widgets/images/t_rounded_image.dart';
+import 'package:admin_t_store/features/media/controllers/media_controllet.dart';
 import 'package:admin_t_store/features/media/models/image_modle.dart';
 import 'package:admin_t_store/utils/constants/colors.dart';
 import 'package:admin_t_store/utils/constants/enums.dart';
@@ -19,6 +20,7 @@ class ImagePopup extends StatelessWidget {
   final ImageModle imae;
   @override
   Widget build(BuildContext context) {
+    final controller = MediaController.instance;
     // implement build
     return SingleChildScrollView(
       child: Dialog(
@@ -121,7 +123,8 @@ class ImagePopup extends StatelessWidget {
                   SizedBox(
                     width: 300,
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () =>
+                          controller.removeCloudImageConfirmation(imae),
                       child: const Text(
                         'Delete Image',
                         style: TextStyle(color: Colors.red),
