@@ -4,7 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get/get.dart';
 
-class ImageModle {
+class ImageModel {
   String id;
   final String url;
   final String folder;
@@ -23,7 +23,7 @@ class ImageModle {
   // hinh anh cuc bo de hien thi
   final Uint8List? localImageToDisplay;
   // Contructer
-  ImageModle({
+  ImageModel({
     this.id = '',
     required this.url,
     required this.folder,
@@ -39,7 +39,7 @@ class ImageModle {
   });
 
   /// Static function to create an empty user mode
-  static ImageModle empty() => ImageModle(url: '', folder: '', filename: '');
+  static ImageModel empty() => ImageModel(url: '', folder: '', filename: '');
 
   /// Function to get createAt
   String get createAtFormatted => TFormatter.formatDate(createAt);
@@ -61,13 +61,13 @@ class ImageModle {
   }
 
   /// Convert Firestore Json and Map on Model
-  factory ImageModle.fromSapshot(
+  factory ImageModel.fromSapshot(
     DocumentSnapshot<Map<String, dynamic>> document,
   ) {
     if (document.data() != null) {
       final data = document.data()!;
       // Map Json Record to the Model
-      return ImageModle(
+      return ImageModel(
         id: document.id,
         url: data['url'] ?? '',
         folder: data['folder'] ?? '',
@@ -84,18 +84,18 @@ class ImageModle {
         mediaCategory: data['mediaCategory'],
       );
     } else {
-      return ImageModle.empty();
+      return ImageModel.empty();
     }
   }
 
   /// Map Fribase Strorage Data
-  factory ImageModle.fromFirebaseMatedate(
+  factory ImageModel.fromFirebaseMatedate(
     FullMetadata metadata,
     String folder,
     String filenam,
     String dowloadUrl,
   ) {
-    return ImageModle(
+    return ImageModel(
       url: dowloadUrl,
       folder: folder,
       filename: filenam,
@@ -108,14 +108,14 @@ class ImageModle {
   }
 
   /// Map Cloudinary Data
-  factory ImageModle.fromCloudinaryJson(Map<String, dynamic> json) {
+  factory ImageModel.fromCloudinaryJson(Map<String, dynamic> json) {
     final publicId = json['public_id'] as String;
     final parts = publicId.split('/');
     final imageName = parts.isNotEmpty ? parts.last : '';
     final path = parts.length > 1
         ? parts.sublist(0, parts.length - 1).join('/')
         : '';
-    return ImageModle(
+    return ImageModel(
       url: json['secure_url'],
       folder: "/$path",
       filename: imageName,

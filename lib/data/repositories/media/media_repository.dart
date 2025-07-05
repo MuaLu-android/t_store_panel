@@ -23,7 +23,7 @@ class MediaRepository extends GetxController {
   final String cloudName = 'dhl2sbjo5';
   final String uploadPreset = 't_stores';
   //Upload any Image using File
-  Future<ImageModle> uploadImageFileInStorage({
+  Future<ImageModel> uploadImageFileInStorage({
     required Uint8List file,
     required String path,
     required String imageName,
@@ -40,7 +40,7 @@ class MediaRepository extends GetxController {
 
       // Fetch metadata
       final FullMetadata metadata = await ref.getMetadata();
-      return ImageModle.fromFirebaseMatedate(
+      return ImageModel.fromFirebaseMatedate(
         metadata,
         path,
         imageName,
@@ -60,7 +60,7 @@ class MediaRepository extends GetxController {
   }
 
   // Upload Images to Cloudinary
-  Future<ImageModle> uploadImageToCloudinary({
+  Future<ImageModel> uploadImageToCloudinary({
     required Uint8List file,
     required String path,
     required String imageName,
@@ -80,7 +80,7 @@ class MediaRepository extends GetxController {
       print('$path/$imageName'.replaceFirst(RegExp(r'^/'), ''));
       if (response.statusCode == 200) {
         final json = jsonDecode(response.body);
-        return ImageModle.fromCloudinaryJson(json);
+        return ImageModel.fromCloudinaryJson(json);
       } else {
         // In chi tiết lỗi nếu upload thất bại
         print('Cloudinary upload failed with status: ${response.statusCode}');
@@ -96,7 +96,7 @@ class MediaRepository extends GetxController {
   }
 
   // Upload Image data in Firestore
-  Future<String> uploadImageFileInDatabase(ImageModle image) async {
+  Future<String> uploadImageFileInDatabase(ImageModel image) async {
     try {
       final data = await _store.collection("Images").add(image.toJSon());
       return data.id;
@@ -112,7 +112,7 @@ class MediaRepository extends GetxController {
   }
 
   // Fetch images from FirebaseStore on media category and load count
-  Future<List<ImageModle>> fetchImagesFromDatabase(
+  Future<List<ImageModel>> fetchImagesFromDatabase(
     MediaCategory mediaCategory,
     int loadCount,
   ) async {
@@ -123,7 +123,7 @@ class MediaRepository extends GetxController {
           .orderBy('createAt', descending: true)
           .limit(loadCount)
           .get();
-      return querySnapshot.docs.map((e) => ImageModle.fromSapshot(e)).toList();
+      return querySnapshot.docs.map((e) => ImageModel.fromSapshot(e)).toList();
     } on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message;
     } on SocketException catch (e) {
@@ -136,7 +136,7 @@ class MediaRepository extends GetxController {
   }
 
   // Load more images from FireStore base on media category, load count, add last fetched date
-  Future<List<ImageModle>> loadMoreImagesFromDatabase(
+  Future<List<ImageModel>> loadMoreImagesFromDatabase(
     MediaCategory mediaCategory,
     int loadCount,
     DateTime lastFetchedData,
@@ -149,7 +149,7 @@ class MediaRepository extends GetxController {
           .startAfter([lastFetchedData])
           .limit(loadCount)
           .get();
-      return querySnapshot.docs.map((e) => ImageModle.fromSapshot(e)).toList();
+      return querySnapshot.docs.map((e) => ImageModel.fromSapshot(e)).toList();
     } on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message;
     } on SocketException catch (e) {
@@ -162,7 +162,7 @@ class MediaRepository extends GetxController {
   }
 
   // Delete file from Cloudinary
-  Future<void> deleteFileFromCloudinaryAndFireStore(ImageModle image) async {
+  Future<void> deleteFileFromCloudinaryAndFireStore(ImageModel image) async {
     try {
       //FireStore
       await _store.collection('Images').doc(image.id).delete();

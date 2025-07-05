@@ -15,11 +15,22 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class MediaContent extends StatelessWidget {
-  const MediaContent({super.key});
-
+  MediaContent({
+    super.key,
+    required this.allowSelection,
+    required this.allowMoltipleSelection,
+    this.alreadySelectedUrls,
+    this.onImagesSelected,
+  });
+  final bool allowSelection;
+  final bool allowMoltipleSelection;
+  final List<String>? alreadySelectedUrls;
+  final List<ImageModel> selectedImages = [];
+  final Function(List<ImageModel> selectedImages)? onImagesSelected;
   @override
   Widget build(BuildContext context) {
     //implement build
+    var loadedPreviousSection = false;
     final controller = MediaController.instance;
     return TRoundedContainer(
       child: Column(
@@ -45,12 +56,33 @@ class MediaContent extends StatelessWidget {
                   ),
                 ],
               ),
+              if (allowSelection) builAddSelectImagesButton(),
             ],
           ),
           const SizedBox(height: TSizes.spaceBtwSections),
           Obx(() {
             // get selected Folder Images
-            List<ImageModle> images = _getSlectedFolderImages(controller);
+            List<ImageModel> images = _getSlectedFolderImages(controller);
+
+            if (!loadedPreviousSection) {
+              if (alreadySelectedUrls != null &&
+                  alreadySelectedUrls!.isNotEmpty) {
+                // Convert alreadySelectedUrls to a Set for faster lookup
+                final selectedUrlsSet = Set<String>.from(alreadySelectedUrls!);
+                for (var image in images) {
+                  image.isSelected.value = selectedUrlsSet.contains(image.url);
+                  if (image.isSelected.value) {
+                    selectedImages.add(image);
+                  }
+                }
+              } else {
+                // set all images to not selected
+                for (var image in images) {
+                  image.isSelected.value = false;
+                }
+              }
+              loadedPreviousSection = true;
+            }
             // Loader
             if (controller.loading.value && images.isEmpty) {
               return const TLoaderAnimation();
@@ -74,7 +106,9 @@ class MediaContent extends StatelessWidget {
                             height: 180,
                             child: Column(
                               children: [
-                                _buildSimpleList(image),
+                                allowSelection
+                                    ? _buildListWithCheckbox(image)
+                                    : _buildSimpleList(image),
                                 Expanded(
                                   child: Padding(
                                     padding: EdgeInsets.symmetric(
@@ -125,8 +159,8 @@ class MediaContent extends StatelessWidget {
     );
   }
 
-  List<ImageModle> _getSlectedFolderImages(MediaController controller) {
-    List<ImageModle> images = [];
+  List<ImageModel> _getSlectedFolderImages(MediaController controller) {
+    List<ImageModel> images = [];
     if (controller.selectedPath.value == MediaCategory.banners) {
       images = controller.allBannerImages
           .where((image) => image.url.isNotEmpty)
@@ -164,7 +198,7 @@ class MediaContent extends StatelessWidget {
     );
   }
 
-  Widget _buildSimpleList(ImageModle image) {
+  Widget _buildSimpleList(ImageModel image) {
     return TRoundedImage(
       width: 140,
       height: 140,
@@ -173,6 +207,74 @@ class MediaContent extends StatelessWidget {
       margin: TSizes.spaceBtwItems / 2,
       backgroundColor: TColors.primaryBackground,
       imageType: ImageType.network,
+    );
+  }
+
+  Widget _buildListWithCheckbox(ImageModel image) {
+    return Stack(
+      children: [
+        TRoundedImage(
+          width: 140,
+          height: 140,
+          padding: TSizes.sm,
+          imageUrl: image.url,
+          imageType: ImageType.network,
+          margin: TSizes.spaceBtwItems / 2,
+          backgroundColor: TColors.primaryBackground,
+        ),
+        Positioned(
+          top: TSizes.sm,
+          right: TSizes.sm,
+          child: Obx(
+            () => Checkbox(
+              value: image.isSelected.value,
+              onChanged: (selected) {
+                if (selected != null) {
+                  image.isSelected.value = selected;
+                  if (selected) {
+                    if (!allowMoltipleSelection) {
+                      // if multiple selection is not allowed, uncheck other checkboxes
+                      for (var otherImage in selectedImages) {
+                        if (otherImage != image) {
+                          otherImage.isSelected.value = false;
+                        }
+                      }
+                      selectedImages.clear();
+                    }
+                    selectedImages.add(image);
+                  } else {
+                    selectedImages.remove(image);
+                  }
+                }
+              },
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget builAddSelectImagesButton() {
+    return Row(
+      children: [
+        SizedBox(
+          width: 120,
+          child: OutlinedButton.icon(
+            label: const Text('Close'),
+            icon: Icon(Iconsax.close_circle),
+            onPressed: () => Get.back(),
+          ),
+        ),
+        const SizedBox(width: TSizes.spaceBtwItems),
+        SizedBox(
+          width: 120,
+          child: ElevatedButton.icon(
+            onPressed: () => Get.back(result: selectedImages),
+            label: const Text('Add'),
+            icon: const Icon(Iconsax.image),
+          ),
+        ),
+      ],
     );
   }
 }

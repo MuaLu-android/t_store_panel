@@ -17,7 +17,7 @@ class ImagePopup extends StatelessWidget {
   // Contructor for the ImagePopu class
   const ImagePopup({super.key, required this.imae});
   // The image model to display detailed information about
-  final ImageModle imae;
+  final ImageModel imae;
   @override
   Widget build(BuildContext context) {
     final controller = MediaController.instance;

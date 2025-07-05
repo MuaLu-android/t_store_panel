@@ -3,6 +3,9 @@ import 'dart:typed_data';
 
 import 'package:admin_t_store/data/repositories/media/media_repository.dart';
 import 'package:admin_t_store/features/media/models/image_modle.dart';
+import 'package:admin_t_store/features/media/screens/media/widgets/media_content.dart';
+import 'package:admin_t_store/features/media/screens/media/widgets/media_uploader.dart';
+import 'package:admin_t_store/utils/constants/colors.dart';
 import 'package:admin_t_store/utils/constants/enums.dart';
 import 'package:admin_t_store/utils/constants/image_strings.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
@@ -28,14 +31,14 @@ class MediaController extends GetxController {
   late DropzoneViewController dropzoneController;
   final RxBool showImagesUploaderSection = false.obs;
   final Rx<MediaCategory> selectedPath = MediaCategory.folders.obs;
-  final RxList<ImageModle> selectedImagesTopUpload = <ImageModle>[].obs;
+  final RxList<ImageModel> selectedImagesTopUpload = <ImageModel>[].obs;
 
-  final RxList<ImageModle> allImages = <ImageModle>[].obs;
-  final RxList<ImageModle> allBannerImages = <ImageModle>[].obs;
-  final RxList<ImageModle> allProductImages = <ImageModle>[].obs;
-  final RxList<ImageModle> allBrandImages = <ImageModle>[].obs;
-  final RxList<ImageModle> allCategoryImages = <ImageModle>[].obs;
-  final RxList<ImageModle> allUserIamges = <ImageModle>[].obs;
+  final RxList<ImageModel> allImages = <ImageModel>[].obs;
+  final RxList<ImageModel> allBannerImages = <ImageModel>[].obs;
+  final RxList<ImageModel> allProductImages = <ImageModel>[].obs;
+  final RxList<ImageModel> allBrandImages = <ImageModel>[].obs;
+  final RxList<ImageModel> allCategoryImages = <ImageModel>[].obs;
+  final RxList<ImageModel> allUserIamges = <ImageModel>[].obs;
 
   final MediaRepository mediaRepository = MediaRepository();
 
@@ -43,7 +46,7 @@ class MediaController extends GetxController {
   void getMediaImages() async {
     try {
       loading.value = true;
-      RxList<ImageModle> targetList = <ImageModle>[].obs;
+      RxList<ImageModel> targetList = <ImageModel>[].obs;
       if (selectedPath.value == MediaCategory.banners &&
           allBannerImages.isEmpty) {
         targetList = allBannerImages;
@@ -79,13 +82,13 @@ class MediaController extends GetxController {
   void loadMoreMediaImages() async {
     try {
       loading.value = true;
-      RxList<ImageModle> targetList = switch (selectedPath.value) {
+      RxList<ImageModel> targetList = switch (selectedPath.value) {
         MediaCategory.banners => allBannerImages,
         MediaCategory.brands => allBrandImages,
         MediaCategory.categories => allCategoryImages,
         MediaCategory.products => allProductImages,
         MediaCategory.users => allUserIamges,
-        _ => <ImageModle>[].obs,
+        _ => <ImageModel>[].obs,
       };
       if (selectedPath.value == MediaCategory.banners) {
         targetList = allBannerImages;
@@ -123,7 +126,7 @@ class MediaController extends GetxController {
     if (files.isNotEmpty) {
       for (var file in files) {
         final bytes = await dropzoneController.getFileData(file);
-        final image = ImageModle(
+        final image = ImageModel(
           url: '',
           file: file,
           folder: '',
@@ -163,7 +166,7 @@ class MediaController extends GetxController {
       // Get the selected category
       MediaCategory selectedCategory = selectedPath.value;
       // Get the corresponding list to update
-      RxList<ImageModle> targetList;
+      RxList<ImageModel> targetList;
       // Check the selected category and uplosd the corresponfing list
       switch (selectedCategory) {
         case MediaCategory.banners:
@@ -192,7 +195,7 @@ class MediaController extends GetxController {
         // Lấy Uint8List
         final bytes = await dropzoneController.getFileData(image);
         // Upload Image ti the Storage
-        final ImageModle uploadeImage = await mediaRepository
+        final ImageModel uploadeImage = await mediaRepository
             .uploadImageToCloudinary(
               file: bytes,
               path: getSelectedPath(),
@@ -266,7 +269,7 @@ class MediaController extends GetxController {
   }
 
   // Popup confirmation to remove cloud image
-  void removeCloudImageConfirmation(ImageModle image) {
+  void removeCloudImageConfirmation(ImageModel image) {
     // Delete Confirmation
     TDialogs.defaultDialog(
       context: Get.context!,
@@ -279,7 +282,7 @@ class MediaController extends GetxController {
     );
   }
 
-  void removeClouImage(ImageModle image) async {
+  void removeClouImage(ImageModel image) async {
     try {
       Get.back();
       // Show Loader
@@ -295,13 +298,13 @@ class MediaController extends GetxController {
       // Delete Image
       await mediaRepository.deleteFileFromCloudinaryAndFireStore(image);
       // Check the selected category and update the corresponding list
-      RxList<ImageModle> targetList = switch (selectedPath.value) {
+      RxList<ImageModel> targetList = switch (selectedPath.value) {
         MediaCategory.banners => allBannerImages,
         MediaCategory.brands => allBrandImages,
         MediaCategory.categories => allCategoryImages,
         MediaCategory.products => allProductImages,
         MediaCategory.users => allUserIamges,
-        _ => <ImageModle>[].obs,
+        _ => <ImageModel>[].obs,
       };
       // Remove form the list
       targetList.remove(image);
@@ -315,5 +318,36 @@ class MediaController extends GetxController {
       TFullScreenLoader.stopLoading();
       TLoaders.errorSnackBar(title: 'Oh snap', message: e.toString());
     }
+  }
+
+  // Image Selection Bootom Sheet
+  Future<List<ImageModel>?> selectImageFromMedia({
+    List<String>? selectedUrls,
+    bool allowSelection = true,
+    bool multipleSelection = false,
+  }) async {
+    showImagesUploaderSection.value = true;
+    List<ImageModel>? selectedImages = await Get.bottomSheet<List<ImageModel>>(
+      backgroundColor: TColors.primaryBackground,
+      FractionallySizedBox(
+        heightFactor: 1,
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(TSizes.defaultSpace),
+            child: Column(
+              children: [
+                const MediaUploader(),
+                MediaContent(
+                  allowSelection: allowSelection,
+                  alreadySelectedUrls: selectedUrls ?? [],
+                  allowMoltipleSelection: multipleSelection,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+    return selectedImages;
   }
 }

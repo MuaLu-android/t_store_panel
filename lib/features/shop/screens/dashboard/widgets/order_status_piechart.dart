@@ -1,6 +1,6 @@
 import 'package:admin_t_store/common/widgets/custom_shapes/container/circular_container.dart';
 import 'package:admin_t_store/common/widgets/custom_shapes/container/rounded_container.dart';
-import 'package:admin_t_store/features/shop/controllers/dashboard_controller.dart';
+import 'package:admin_t_store/features/shop/controllers/dashboard/dashboard_controller.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:admin_t_store/utils/helpers/helper_functions.dart';
 import 'package:fl_chart/fl_chart.dart';
