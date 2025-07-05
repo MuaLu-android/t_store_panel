@@ -1,5 +1,7 @@
 import 'package:admin_t_store/common/widgets/layouts/templates/site_layouts.dart';
 import 'package:admin_t_store/features/shop/screens/category/create_categories/reponsive_screen/create_categorie_desktop.dart';
+import 'package:admin_t_store/features/shop/screens/category/create_categories/reponsive_screen/create_categories_mobile.dart';
+import 'package:admin_t_store/features/shop/screens/category/create_categories/reponsive_screen/create_categories_tablet.dart';
 import 'package:flutter/material.dart';
 
 class CategorisCreateScreen extends StatelessWidget {
@@ -8,6 +10,10 @@ class CategorisCreateScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // implement build
-    return TSizeTemplate(desktop: CreateCategorieDesktopScreen());
+    return TSizeTemplate(
+      desktop: CreateCategorieDesktopScreen(),
+      tablet: CreateCategoriesTablet(),
+      mobile: CreateCategoriesMobile(),
+    );
   }
 }

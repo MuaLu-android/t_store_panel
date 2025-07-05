@@ -1,6 +1,11 @@
 import 'package:admin_t_store/common/widgets/layouts/templates/site_layouts.dart';
+import 'package:admin_t_store/features/shop/models/category_model.dart';
 import 'package:admin_t_store/features/shop/screens/category/edit_categories/responsive_screen/edit_category_desktop.dart';
+import 'package:admin_t_store/features/shop/screens/category/edit_categories/responsive_screen/edit_category_mobile.dart';
+import 'package:admin_t_store/features/shop/screens/category/edit_categories/responsive_screen/edit_category_tablet.dart';
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
+import 'package:get/state_manager.dart';
 
 class EditCategoryScreen extends StatelessWidget {
   const EditCategoryScreen({super.key});
@@ -8,6 +13,11 @@ class EditCategoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // implement build
-    return TSizeTemplate(desktop: EditCategoryDesktopScreen());
+    final category = CatedoryModel(id: '', name: '', iamge: 'iamge');
+    return TSizeTemplate(
+      desktop: EditCategoryDesktopScreen(catedoryModel: category),
+      tablet: EditCategoryTabletScreen(),
+      mobile: EditCategoryMobileScreen(),
+    );
   }
 }

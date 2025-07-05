@@ -1,4 +1,5 @@
 import 'package:admin_t_store/common/widgets/custom_shapes/container/rounded_container.dart';
+import 'package:admin_t_store/features/shop/models/category_model.dart';
 import 'package:admin_t_store/features/shop/screens/category/create_categories/widgets/image_loader.dart';
 import 'package:admin_t_store/utils/constants/enums.dart';
 import 'package:admin_t_store/utils/constants/image_strings.dart';
@@ -7,9 +8,10 @@ import 'package:admin_t_store/utils/validators/validation.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
-class CreateCategoryFrom extends StatelessWidget {
-  const CreateCategoryFrom({super.key});
+class EditCategoryFromScreen extends StatelessWidget {
+  const EditCategoryFromScreen({super.key, required this.catedoryModel});
 
+  final CatedoryModel catedoryModel;
   @override
   Widget build(BuildContext context) {
     // implement build
@@ -22,7 +24,7 @@ class CreateCategoryFrom extends StatelessWidget {
           // Heading
           SizedBox(height: TSizes.sm),
           Text(
-            'Create New Category',
+            'Update Category',
             style: Theme.of(context).textTheme.headlineMedium,
           ),
           const SizedBox(height: TSizes.spaceBtwSections),

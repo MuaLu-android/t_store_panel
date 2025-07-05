@@ -9,8 +9,8 @@ import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
-class TImageLoader extends StatelessWidget {
-  const TImageLoader({
+class TImageUpLoader extends StatelessWidget {
+  const TImageUpLoader({
     super.key,
     this.cricular = false,
     this.image,
@@ -18,7 +18,7 @@ class TImageLoader extends StatelessWidget {
     this.width = 100,
     this.height = 100,
     this.memoryImage,
-    this.icon = Iconsax.edit2,
+    this.icon = Iconsax.edit,
     this.top,
     this.bottom = 0,
     this.right,
@@ -69,7 +69,7 @@ class TImageLoader extends StatelessWidget {
             size: TSizes.md,
             color: Colors.white,
             onPressed: onIconButtonPressed,
-            backgroundColor: TColors.primary.withAlpha(128),
+            backgroundColor: TColors.primary.withAlpha(245),
           ),
         ),
       ],

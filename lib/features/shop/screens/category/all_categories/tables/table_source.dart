@@ -8,7 +8,6 @@ import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:iconsax/iconsax.dart';
 
 class CategoryRows extends DataTableSource {
