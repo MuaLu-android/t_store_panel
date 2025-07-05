@@ -2,6 +2,9 @@ import 'package:admin_t_store/features/authentication/screens/login/forget_passw
 import 'package:admin_t_store/features/authentication/screens/login/login.dart';
 import 'package:admin_t_store/features/authentication/screens/reset_password/reset_password.dart';
 import 'package:admin_t_store/features/media/screens/media/media.dart';
+import 'package:admin_t_store/features/shop/screens/category/all_categories/category_screen.dart';
+import 'package:admin_t_store/features/shop/screens/category/create_categories/categoris_create.dart';
+import 'package:admin_t_store/features/shop/screens/category/create_categories/reponsive_screen/create_categorie_desktop.dart';
 import 'package:admin_t_store/features/shop/screens/dashboard/dashboard_screen.dart';
 import 'package:admin_t_store/route/route.dart';
 import 'package:admin_t_store/route/routes_middleware.dart';
@@ -20,6 +23,16 @@ class TAppRoute {
     GetPage(
       name: TRoutes.media,
       page: () => const MediaScreen(),
+      middlewares: [TRouteMiddleware()],
+    ),
+    GetPage(
+      name: TRoutes.categories,
+      page: () => const CategoryScreen(),
+      middlewares: [TRouteMiddleware()],
+    ),
+    GetPage(
+      name: TRoutes.createCategory,
+      page: () => const CategorisCreateScreen(),
       middlewares: [TRouteMiddleware()],
     ),
   ];
