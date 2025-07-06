@@ -4,8 +4,6 @@ import 'package:admin_t_store/features/shop/screens/category/edit_categories/res
 import 'package:admin_t_store/features/shop/screens/category/edit_categories/responsive_screen/edit_category_mobile.dart';
 import 'package:admin_t_store/features/shop/screens/category/edit_categories/responsive_screen/edit_category_tablet.dart';
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
-import 'package:get/state_manager.dart';
 
 class EditCategoryScreen extends StatelessWidget {
   const EditCategoryScreen({super.key});

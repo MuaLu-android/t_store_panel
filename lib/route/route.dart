@@ -18,16 +18,14 @@ class TRoutes {
   static const createCategory = '/ceateCategory';
   static const editCategory = '/editCategory';
 
+  static const brands = '/brands';
+  static const createBrand = '/createBrand';
+  static const editbrand = '/editBrand';
+
   static const firstScreen = '/';
   static const reponsiveDesignTutoralScreen = '/responsive-design-tutorial';
   static const secondScreen = '/second-screen';
   static const secondScreenWithUID = '/second-screen/:userId';
 
-  static List sidebarMenuItems = [
-    dashboard,
-    media,
-    categories,
-    createCategory,
-    editCategory,
-  ];
+  static List sidebarMenuItems = [dashboard, media, categories, brands];
 }

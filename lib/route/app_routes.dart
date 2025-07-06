@@ -2,6 +2,9 @@ import 'package:admin_t_store/features/authentication/screens/login/forget_passw
 import 'package:admin_t_store/features/authentication/screens/login/login.dart';
 import 'package:admin_t_store/features/authentication/screens/reset_password/reset_password.dart';
 import 'package:admin_t_store/features/media/screens/media/media.dart';
+import 'package:admin_t_store/features/shop/screens/brands/all_brands/all_brands.dart';
+import 'package:admin_t_store/features/shop/screens/brands/create_brands/create_brands.dart';
+import 'package:admin_t_store/features/shop/screens/brands/edit_brands/edit_brands.dart';
 import 'package:admin_t_store/features/shop/screens/category/all_categories/category_screen.dart';
 import 'package:admin_t_store/features/shop/screens/category/create_categories/categoris_create.dart';
 import 'package:admin_t_store/features/shop/screens/category/edit_categories/edit_category.dart';
@@ -25,6 +28,8 @@ class TAppRoute {
       page: () => const MediaScreen(),
       middlewares: [TRouteMiddleware()],
     ),
+
+    // Categories
     GetPage(
       name: TRoutes.categories,
       page: () => const CategoryScreen(),
@@ -38,6 +43,22 @@ class TAppRoute {
     GetPage(
       name: TRoutes.editCategory,
       page: () => const EditCategoryScreen(),
+      middlewares: [TRouteMiddleware()],
+    ),
+    // Brands
+    GetPage(
+      name: TRoutes.brands,
+      page: () => const BrandsScreen(),
+      middlewares: [TRouteMiddleware()],
+    ),
+    GetPage(
+      name: TRoutes.createBrand,
+      page: () => const CreateBrandsScreen(),
+      middlewares: [TRouteMiddleware()],
+    ),
+    GetPage(
+      name: TRoutes.editbrand,
+      page: () => const EditBrandsScreen(),
       middlewares: [TRouteMiddleware()],
     ),
   ];

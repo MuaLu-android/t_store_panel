@@ -73,7 +73,7 @@ class EditCategoryFromScreen extends StatelessWidget {
             width: double.infinity,
             child: ElevatedButton(
               onPressed: () {},
-              child: const Text('Create'),
+              child: const Text('Update'),
             ),
           ),
           const SizedBox(height: TSizes.spaceBtwInputFields * 2),
