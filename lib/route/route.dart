@@ -35,5 +35,6 @@ class TRoutes {
     brands,
     banners,
     logout,
+    products,
   ];
 }

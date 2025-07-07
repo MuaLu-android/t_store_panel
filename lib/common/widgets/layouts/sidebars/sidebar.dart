@@ -59,6 +59,11 @@ class TSizebar extends StatelessWidget {
                       itemName: 'Categories',
                     ),
                     const TMenuTem(
+                      route: TRoutes.products,
+                      icon: Iconsax.shopping_bag,
+                      itemName: 'Products',
+                    ),
+                    const TMenuTem(
                       route: TRoutes.banners,
                       icon: Iconsax.picture_frame,
                       itemName: 'Banners',
