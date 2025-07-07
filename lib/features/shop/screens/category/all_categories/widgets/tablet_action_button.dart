@@ -2,8 +2,8 @@ import 'package:admin_t_store/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
-class TTabletActionButton extends StatelessWidget {
-  const TTabletActionButton({
+class TTabletActionButtons extends StatelessWidget {
+  const TTabletActionButtons({
     super.key,
     this.view = false,
     this.edit = true,

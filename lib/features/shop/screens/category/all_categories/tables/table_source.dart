@@ -45,7 +45,7 @@ class CategoryRows extends DataTableSource {
         DataCell(Icon(Iconsax.heart5, color: TColors.primary)),
         DataCell(Text(DateTime.now().toString())),
         DataCell(
-          TTabletActionButton(
+          TTabletActionButtons(
             onEditPressed: () =>
                 Get.toNamed(TRoutes.editCategory, arguments: 'category'),
           ),

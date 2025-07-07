@@ -1,5 +1,5 @@
 import 'package:admin_t_store/common/widgets/data_table/paginated_data_table.dart';
-import 'package:admin_t_store/features/shop/screens/brands/create_brands/tablets/data_source.dart';
+import 'package:admin_t_store/features/shop/screens/brands/all_brands/tablets/data_source.dart';
 import 'package:admin_t_store/utils/devices/device_utility.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';

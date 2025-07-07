@@ -1,3 +1,5 @@
+import 'package:admin_t_store/common/widgets/layouts/templates/site_layouts.dart';
+import 'package:admin_t_store/features/shop/screens/brands/create_brands/responsive_screen/create_brands_desktop.dart';
 import 'package:flutter/material.dart';
 
 class CreateBrandsScreen extends StatelessWidget {
@@ -6,6 +8,6 @@ class CreateBrandsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // implement build
-    throw UnimplementedError();
+    return TSizeTemplate(desktop: CreateBrandsDesktop());
   }
 }
