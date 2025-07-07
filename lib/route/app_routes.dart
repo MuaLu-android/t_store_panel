@@ -2,6 +2,9 @@ import 'package:admin_t_store/features/authentication/screens/login/forget_passw
 import 'package:admin_t_store/features/authentication/screens/login/login.dart';
 import 'package:admin_t_store/features/authentication/screens/reset_password/reset_password.dart';
 import 'package:admin_t_store/features/media/screens/media/media.dart';
+import 'package:admin_t_store/features/shop/screens/banners/all_banners/banners_screen.dart';
+import 'package:admin_t_store/features/shop/screens/banners/create_banners/create_banners_screen.dart';
+import 'package:admin_t_store/features/shop/screens/banners/edit_banners/edit_banners.dart';
 import 'package:admin_t_store/features/shop/screens/brands/all_brands/all_brands.dart';
 import 'package:admin_t_store/features/shop/screens/brands/create_brands/create_brands.dart';
 import 'package:admin_t_store/features/shop/screens/brands/edit_brands/edit_brands.dart';
@@ -59,6 +62,21 @@ class TAppRoute {
     GetPage(
       name: TRoutes.editbrand,
       page: () => const EditBrandsScreen(),
+      middlewares: [TRouteMiddleware()],
+    ),
+    GetPage(
+      name: TRoutes.banners,
+      page: () => const BannersScreen(),
+      middlewares: [TRouteMiddleware()],
+    ),
+    GetPage(
+      name: TRoutes.createBanner,
+      page: () => const CreateBannersScreen(),
+      middlewares: [TRouteMiddleware()],
+    ),
+    GetPage(
+      name: TRoutes.editBanner,
+      page: () => const EditBannersScreen(),
       middlewares: [TRouteMiddleware()],
     ),
   ];

@@ -10,6 +10,13 @@ class SidebarController extends GetxController {
     if (!isActive(route)) hoverItem.value = route;
   }
 
+  @override
+  void onInit() {
+    // implement onInit
+    activeItem.value = Get.currentRoute;
+    super.onInit();
+  }
+
   bool isActive(String route) => activeItem.value == route;
   bool isHovering(String route) => hoverItem.value == route;
 

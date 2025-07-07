@@ -22,10 +22,18 @@ class TRoutes {
   static const createBrand = '/createBrand';
   static const editbrand = '/editBrand';
 
+  static const logout = '/logout';
   static const firstScreen = '/';
   static const reponsiveDesignTutoralScreen = '/responsive-design-tutorial';
   static const secondScreen = '/second-screen';
   static const secondScreenWithUID = '/second-screen/:userId';
 
-  static List sidebarMenuItems = [dashboard, media, categories, brands];
+  static List sidebarMenuItems = [
+    dashboard,
+    media,
+    categories,
+    brands,
+    banners,
+    logout,
+  ];
 }
