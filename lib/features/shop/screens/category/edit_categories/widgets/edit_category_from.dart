@@ -11,7 +11,7 @@ import 'package:iconsax/iconsax.dart';
 class EditCategoryFromScreen extends StatelessWidget {
   const EditCategoryFromScreen({super.key, required this.catedoryModel});
 
-  final CatedoryModel catedoryModel;
+  final CategoryModel catedoryModel;
   @override
   Widget build(BuildContext context) {
     // implement build

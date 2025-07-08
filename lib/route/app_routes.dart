@@ -13,6 +13,7 @@ import 'package:admin_t_store/features/shop/screens/category/create_categories/c
 import 'package:admin_t_store/features/shop/screens/category/edit_categories/edit_category.dart';
 import 'package:admin_t_store/features/shop/screens/dashboard/dashboard_screen.dart';
 import 'package:admin_t_store/features/shop/screens/products/all_products/product_screen.dart';
+import 'package:admin_t_store/features/shop/screens/products/create_products/create_product_screen.dart';
 import 'package:admin_t_store/route/route.dart';
 import 'package:admin_t_store/route/routes_middleware.dart';
 import 'package:get/route_manager.dart';
@@ -83,6 +84,11 @@ class TAppRoute {
     GetPage(
       name: TRoutes.products,
       page: () => const ProductScreen(),
+      middlewares: [TRouteMiddleware()],
+    ),
+    GetPage(
+      name: TRoutes.createProduct,
+      page: () => const CreateProductScreen(),
       middlewares: [TRouteMiddleware()],
     ),
   ];

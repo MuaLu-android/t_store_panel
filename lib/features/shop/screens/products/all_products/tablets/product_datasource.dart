@@ -23,7 +23,7 @@ class ProductDatasource extends DataTableSource {
                 height: 50,
                 padding: TSizes.xs,
                 imageType: ImageType.asset,
-                imageUrl: TImages.banner1,
+                imageUrl: TImages.nikeLogo,
                 borderRadius: TSizes.borderRadiusMd,
                 backgroundColor: TColors.primaryBackground,
               ),

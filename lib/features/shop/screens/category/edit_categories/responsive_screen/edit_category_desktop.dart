@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 
 class EditCategoryDesktopScreen extends StatelessWidget {
   const EditCategoryDesktopScreen({super.key, required this.catedoryModel});
-  final CatedoryModel catedoryModel;
+  final CategoryModel catedoryModel;
   @override
   Widget build(BuildContext context) {
     // implement build
