@@ -11,6 +11,8 @@ import 'package:admin_t_store/features/shop/screens/brands/edit_brands/edit_bran
 import 'package:admin_t_store/features/shop/screens/category/all_categories/category_screen.dart';
 import 'package:admin_t_store/features/shop/screens/category/create_categories/categoris_create.dart';
 import 'package:admin_t_store/features/shop/screens/category/edit_categories/edit_category.dart';
+import 'package:admin_t_store/features/shop/screens/customers/all_customers/customer_screen.dart';
+import 'package:admin_t_store/features/shop/screens/customers/customer_details/customer_details_screen.dart';
 import 'package:admin_t_store/features/shop/screens/dashboard/dashboard_screen.dart';
 import 'package:admin_t_store/features/shop/screens/products/all_products/product_screen.dart';
 import 'package:admin_t_store/features/shop/screens/products/create_products/create_product_screen.dart';
@@ -89,6 +91,16 @@ class TAppRoute {
     GetPage(
       name: TRoutes.createProduct,
       page: () => const CreateProductScreen(),
+      middlewares: [TRouteMiddleware()],
+    ),
+    GetPage(
+      name: TRoutes.customers,
+      page: () => const CustomerScreen(),
+      middlewares: [TRouteMiddleware()],
+    ),
+    GetPage(
+      name: TRoutes.detailsCustomers,
+      page: () => const CustomerDeatilsScreen(),
       middlewares: [TRouteMiddleware()],
     ),
   ];

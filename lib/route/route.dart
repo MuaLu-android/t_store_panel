@@ -22,6 +22,10 @@ class TRoutes {
   static const createBrand = '/createBrand';
   static const editbrand = '/editBrand';
 
+  static const customers = '/customers';
+  static const detailsCustomers = '/detailsCustomers';
+  static const deleteCustomers = '/deleteCustomers';
+
   static const logout = '/logout';
   static const firstScreen = '/';
   static const reponsiveDesignTutoralScreen = '/responsive-design-tutorial';
@@ -36,5 +40,6 @@ class TRoutes {
     banners,
     logout,
     products,
+    customers,
   ];
 }
