@@ -49,7 +49,7 @@ class CategoryRows extends DataTableSource {
             ],
           ),
         ),
-        DataCell(Text(parentCategory != null ? parentCategory.image : '')),
+        DataCell(Text(parentCategory != null ? parentCategory.name : '')),
         DataCell(
           category.isFeatured
               ? const Icon(Iconsax.heart5, color: TColors.primary)

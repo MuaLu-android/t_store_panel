@@ -117,7 +117,7 @@ class MediaUploader extends StatelessWidget {
                             Row(
                               children: [
                                 Text(
-                                  'Select Folder',
+                                  'Gallery Folder',
                                   style: Theme.of(
                                     context,
                                   ).textTheme.headlineSmall,

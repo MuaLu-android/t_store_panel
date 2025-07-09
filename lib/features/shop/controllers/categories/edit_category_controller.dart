@@ -9,8 +9,8 @@ import 'package:admin_t_store/utils/popups/loaders.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class CreateCategoryController extends GetxController {
-  static CreateCategoryController get instance => Get.find();
+class EditCategoryController extends GetxController {
+  static EditCategoryController get instance => Get.find();
   final selectedParent = CategoryModel.empty().obs;
   final loading = false.obs;
   RxString imageUrl = ''.obs;
@@ -20,12 +20,23 @@ class CreateCategoryController extends GetxController {
 
   final _categoryReponsitory = CategoryReponsitory.instance;
   final categoryController = CategoryController.instance;
-  // Method to reset fields
+  // Init Data
+  void init(CategoryModel category) {
+    // implement onInit
+    name.text = category.name;
+    isFeatured.value = category.isFeatured;
+    imageUrl.value = category.image;
+    if (category.parentId.isNotEmpty) {
+      selectedParent.value = categoryController.allItems
+          .where((c) => c.id == category.parentId)
+          .single;
+    }
+  }
 
   // Pick Thumbnail Image from Media
 
-  // Register new Category
-  Future<void> createCategory() async {
+  // Update Category
+  Future<void> updateCategory(CategoryModel category) async {
     try {
       // Start Loading
       TFullScreenLoader.popUpCirular();
@@ -43,26 +54,19 @@ class CreateCategoryController extends GetxController {
       }
 
       // Map data
-      final newRecord = CategoryModel(
-        id: '',
-        image: imageUrl.value,
-        name: name.text.trim(),
-        createAt: DateTime.now(),
-        isFeatured: isFeatured.value,
-        parentId: selectedParent.value.id,
-      );
+      category.image = imageUrl.value;
+      category.name = name.text.trim();
+      category.updateAt = DateTime.now();
+      category.isFeatured = isFeatured.value;
+      category.parentId = selectedParent.value.id;
 
-      newRecord.id = await _categoryReponsitory.createCategory(newRecord);
-
-      // Update all Data List
-      categoryController.addItemToList(newRecord);
-
-      // Reset Form
+      // Call repository to updateCategory
+      await _categoryReponsitory.updateCategory(category);
+      // Update All Data List
+      categoryController.updateItemFormList(category);
       resetFields();
       // Remove Loader
       TFullScreenLoader.stopLoading();
-
-      // Back
       Get.back();
       // Success
       TLoaders.successSnackBar(

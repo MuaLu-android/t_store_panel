@@ -48,5 +48,7 @@ class TRoutes {
     settings,
     profile,
     coupons,
+    createCategory,
+    createBrand,
   ];
 }

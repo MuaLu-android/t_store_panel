@@ -1,5 +1,6 @@
 import 'package:admin_t_store/common/widgets/layouts/headers/header.dart';
 import 'package:admin_t_store/common/widgets/layouts/sidebars/sidebar.dart';
+import 'package:admin_t_store/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 class TabletLayout extends StatelessWidget {
@@ -12,7 +13,10 @@ class TabletLayout extends StatelessWidget {
       key: scalloldKey,
       drawer: const TSizebar(),
       appBar: THeader(scaffoldKey: scalloldKey),
-      body: body ?? const SizedBox(),
+      body: Container(
+        color: TColors.darkerGrey, // Change background color here
+        child: body ?? const SizedBox(),
+      ),
     );
   }
 }

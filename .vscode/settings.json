@@ -1,5 +1,7 @@
 {
     "java.project.sourcePaths": [
         "lib/utils"
-    ]
+    ],
+    "github.copilot.chat.agent.autoFix": true,
+    "editor.inlineSuggest.enabled": false
 }

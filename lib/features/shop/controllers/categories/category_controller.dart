@@ -1,5 +1,6 @@
 import 'package:admin_t_store/data/repositories/categories/category_reponsitory.dart';
 import 'package:admin_t_store/features/shop/models/category_model.dart';
+import 'package:admin_t_store/utils/constants/colors.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:admin_t_store/utils/popups/full_screen_loader.dart';
 import 'package:admin_t_store/utils/popups/loaders.dart';
@@ -84,23 +85,41 @@ class CategoryController extends GetxController {
     // show a confirmation dialog
     Get.defaultDialog(
       title: 'Delete Item',
-      content: const Text('are you sure you wan to delete this item?'),
-      confirm: SizedBox(
-        width: 60,
-        child: ElevatedButton(
-          style: OutlinedButton.styleFrom(
-            padding: const EdgeInsets.symmetric(
-              vertical: TSizes.buttonHeight / 2,
+      content: const Text('Are you sure you wan to delete this item?'),
+      actions: [
+        SizedBox(
+          width: 60,
+          child: ElevatedButton(
+            style: OutlinedButton.styleFrom(
+              padding: const EdgeInsets.symmetric(
+                vertical: TSizes.buttonHeight / 2,
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(TSizes.buttonRadius * 5),
+              ),
             ),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(TSizes.buttonRadius * 5),
-            ),
+            onPressed: () async => await deleteOnConfirm(category),
+            child: const Text('OK'),
           ),
-          onPressed: () async => await deleteOnConfirm(category),
-          child: const Text('OK'),
         ),
-      ),
-      cancel: SizedBox(),
+        const SizedBox(width: TSizes.spaceBtwInputFields),
+        SizedBox(
+          width: 60,
+          child: ElevatedButton(
+            style: OutlinedButton.styleFrom(
+              backgroundColor: TColors.darkerGrey.withAlpha(128),
+              padding: const EdgeInsets.symmetric(
+                vertical: TSizes.buttonHeight / 2,
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(TSizes.buttonRadius * 5),
+              ),
+            ),
+            onPressed: () => Get.back(),
+            child: const Text('Cancel'),
+          ),
+        ),
+      ],
     );
   }
 
@@ -137,7 +156,15 @@ class CategoryController extends GetxController {
     allItems.add(item);
     filteredItems.add(item);
     selectedRow.assignAll(List.generate(allItems.length, (index) => false));
+    filteredItems.refresh();
+  }
 
+  // update Category to Data List
+  void updateItemFormList(CategoryModel item) {
+    final itemIndex = allItems.indexWhere((i) => i == item);
+    final filteredItemIndex = filteredItems.indexWhere((i) => i == item);
+    if (itemIndex != -1) allItems[itemIndex] = item;
+    if (filteredItemIndex != -1) filteredItems[itemIndex] = item;
     filteredItems.refresh();
   }
 }

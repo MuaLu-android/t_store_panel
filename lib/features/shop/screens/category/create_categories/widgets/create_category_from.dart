@@ -36,6 +36,7 @@ class CreateCategoryFrom extends StatelessWidget {
             const SizedBox(height: TSizes.spaceBtwSections),
             // Name Text Field
             TextFormField(
+              controller: controller.name,
               validator: (value) => TValidator.validateEmptyText('Name', value),
               decoration: const InputDecoration(
                 labelText: 'Category Name',
@@ -70,16 +71,18 @@ class CreateCategoryFrom extends StatelessWidget {
                     ),
             ),
             const SizedBox(height: TSizes.spaceBtwInputFields * 2),
-            TImageUpLoader(
-              width: 80,
-              height: 80,
-              image: controller.imageUrl.value.isNotEmpty
-                  ? controller.imageUrl.value
-                  : TImages.defaultImage,
-              onIconButtonPressed: () => controller.pickImage(),
-              imageType: controller.imageUrl.isNotEmpty
-                  ? ImageType.network
-                  : ImageType.asset,
+            Obx(
+              () => TImageUpLoader(
+                width: 80,
+                height: 80,
+                image: controller.imageUrl.value.isNotEmpty
+                    ? controller.imageUrl.value
+                    : TImages.defaultImage,
+                onIconButtonPressed: () => controller.pickImage(),
+                imageType: controller.imageUrl.isNotEmpty
+                    ? ImageType.network
+                    : ImageType.asset,
+              ),
             ),
             const SizedBox(height: TSizes.spaceBtwInputFields),
             Obx(

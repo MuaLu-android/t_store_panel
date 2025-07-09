@@ -54,5 +54,19 @@ class CategoryReponsitory extends GetxController {
     }
   }
 
-  // Update to List
+  // Update Category
+  Future<void> updateCategory(CategoryModel category) async {
+    try {
+      final data = await _db
+          .collection('Categories')
+          .doc(category.id)
+          .update(category.toJson());
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went srong. Please try again';
+    }
+  }
 }

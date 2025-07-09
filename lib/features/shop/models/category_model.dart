@@ -3,12 +3,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class CategoryModel {
   String id;
-  final String name;
-  final String image;
-  final String parentId;
-  final bool isFeatured;
-  final DateTime? createAt;
-  final DateTime? updateAt;
+  String name;
+  String image;
+  String parentId;
+  bool isFeatured;
+  DateTime? createAt;
+  DateTime? updateAt;
   CategoryModel({
     required this.id,
     required this.name,
@@ -50,6 +50,7 @@ class CategoryModel {
         name: data['Name'] ?? '',
         image: data['Image'] ?? '',
         isFeatured: data['IsFeatures'] ?? false,
+        parentId: data['ParentId'] ?? '',
         createAt: data.containsKey('CreateAt')
             ? data['CreateAt']?.toDate()
             : null,

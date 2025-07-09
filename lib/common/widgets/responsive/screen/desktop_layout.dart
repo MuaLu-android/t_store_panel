@@ -1,5 +1,6 @@
 import 'package:admin_t_store/common/widgets/layouts/headers/header.dart';
 import 'package:admin_t_store/common/widgets/layouts/sidebars/sidebar.dart';
+import 'package:admin_t_store/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 class DesktopLayout extends StatelessWidget {
@@ -18,7 +19,12 @@ class DesktopLayout extends StatelessWidget {
                 // Header
                 THeader(),
                 // Body
-                Expanded(child: body ?? const SizedBox()),
+                Expanded(
+                  child: Container(
+                    color: TColors.darkerGrey, // Change background color here
+                    child: body ?? const SizedBox(),
+                  ),
+                ),
               ],
             ),
           ),
