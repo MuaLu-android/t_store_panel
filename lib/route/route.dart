@@ -26,11 +26,14 @@ class TRoutes {
   static const detailsCustomers = '/detailsCustomers';
   static const deleteCustomers = '/deleteCustomers';
 
+  static const orders = '/orders';
+  static const detailsOrders = '/detailsOrders';
+  static const deleteOrders = '/deleteOrders';
+
   static const logout = '/logout';
-  static const firstScreen = '/';
-  static const reponsiveDesignTutoralScreen = '/responsive-design-tutorial';
-  static const secondScreen = '/second-screen';
-  static const secondScreenWithUID = '/second-screen/:userId';
+  static const settings = '/settings';
+  static const profile = '/profile';
+  static const coupons = '/coupons';
 
   static List sidebarMenuItems = [
     dashboard,
@@ -41,5 +44,9 @@ class TRoutes {
     logout,
     products,
     customers,
+    orders,
+    settings,
+    profile,
+    coupons,
   ];
 }

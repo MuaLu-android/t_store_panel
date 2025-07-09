@@ -14,6 +14,8 @@ import 'package:admin_t_store/features/shop/screens/category/edit_categories/edi
 import 'package:admin_t_store/features/shop/screens/customers/all_customers/customer_screen.dart';
 import 'package:admin_t_store/features/shop/screens/customers/customer_details/customer_details_screen.dart';
 import 'package:admin_t_store/features/shop/screens/dashboard/dashboard_screen.dart';
+import 'package:admin_t_store/features/shop/screens/orders/all_order/order_screen.dart';
+import 'package:admin_t_store/features/shop/screens/orders/detail_order/orders_details_screen.dart';
 import 'package:admin_t_store/features/shop/screens/products/all_products/product_screen.dart';
 import 'package:admin_t_store/features/shop/screens/products/create_products/create_product_screen.dart';
 import 'package:admin_t_store/route/route.dart';
@@ -101,6 +103,16 @@ class TAppRoute {
     GetPage(
       name: TRoutes.detailsCustomers,
       page: () => const CustomerDeatilsScreen(),
+      middlewares: [TRouteMiddleware()],
+    ),
+    GetPage(
+      name: TRoutes.orders,
+      page: () => const OrderScreen(),
+      middlewares: [TRouteMiddleware()],
+    ),
+    GetPage(
+      name: TRoutes.detailsOrders,
+      page: () => const OrdersDetailsScreen(),
       middlewares: [TRouteMiddleware()],
     ),
   ];
