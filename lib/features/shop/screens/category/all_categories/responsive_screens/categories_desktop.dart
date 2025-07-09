@@ -1,5 +1,7 @@
 import 'package:admin_t_store/common/widgets/breadcrumbs/breadcrumb_with_heading.dart';
 import 'package:admin_t_store/common/widgets/custom_shapes/container/rounded_container.dart';
+import 'package:admin_t_store/common/widgets/layouts/templates/loader_animation.dart';
+import 'package:admin_t_store/features/shop/controllers/categories/category_controller.dart';
 import 'package:admin_t_store/features/shop/screens/category/all_categories/tables/data_table.dart';
 import 'package:admin_t_store/common/widgets/data_table/tables_header.dart';
 import 'package:admin_t_store/route/route.dart';
@@ -13,6 +15,7 @@ class CategoriesDesktopScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // implement build
+    final controller = Get.put(CategoryController());
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
@@ -37,7 +40,12 @@ class CategoriesDesktopScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems),
                     // Table
-                    TCategoryTablets(),
+                    Obx(() {
+                      if (controller.isLoaging.value) {
+                        return const TLoaderAnimation();
+                      }
+                      return TCategoryTablets();
+                    }),
                   ],
                 ),
               ),

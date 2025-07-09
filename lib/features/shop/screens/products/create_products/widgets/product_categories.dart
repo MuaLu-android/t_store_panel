@@ -25,11 +25,11 @@ class ProductCategoriesScreen extends StatelessWidget {
             title: const Text('Categories'),
             items: [
               MultiSelectItem(
-                CategoryModel(id: 'id', name: 'Shoes', iamge: 'image'),
+                CategoryModel(id: 'id', name: 'Shoes', image: 'image'),
                 'Shoes',
               ),
               MultiSelectItem(
-                CategoryModel(id: 'id', name: 'Shirts', iamge: 'image'),
+                CategoryModel(id: 'id', name: 'Shirts', image: 'image'),
                 'Shirts',
               ),
             ],

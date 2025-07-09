@@ -11,7 +11,7 @@ class EditCategoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // implement build
-    final category = CategoryModel(id: '', name: '', iamge: 'iamge');
+    final category = CategoryModel(id: '', name: '', image: 'iamge');
     return TSizeTemplate(
       desktop: EditCategoryDesktopScreen(catedoryModel: category),
       tablet: EditCategoryTabletScreen(),
