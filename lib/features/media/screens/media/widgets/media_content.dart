@@ -38,11 +38,12 @@ class MediaContent extends StatelessWidget {
         children: [
           /// Folder Dropdown
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Row(
                 children: [
                   Text(
-                    'Gallery Folder',
+                    'Select Folder',
                     style: Theme.of(context).textTheme.headlineSmall,
                   ),
                   const SizedBox(width: TSizes.spaceBtwItems),

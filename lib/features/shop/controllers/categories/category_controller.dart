@@ -132,4 +132,12 @@ class CategoryController extends GetxController {
 
     update();
   }
+
+  void addItemToList(CategoryModel item) {
+    allItems.add(item);
+    filteredItems.add(item);
+    selectedRow.assignAll(List.generate(allItems.length, (index) => false));
+
+    filteredItems.refresh();
+  }
 }

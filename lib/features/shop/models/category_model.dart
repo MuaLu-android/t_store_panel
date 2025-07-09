@@ -2,7 +2,7 @@ import 'package:admin_t_store/utils/formatters/formatter.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class CategoryModel {
-  final String id;
+  String id;
   final String name;
   final String image;
   final String parentId;

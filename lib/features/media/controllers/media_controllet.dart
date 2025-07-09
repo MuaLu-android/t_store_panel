@@ -329,8 +329,8 @@ class MediaController extends GetxController {
     showImagesUploaderSection.value = true;
     List<ImageModel>? selectedImages = await Get.bottomSheet<List<ImageModel>>(
       backgroundColor: TColors.primaryBackground,
+      isScrollControlled: true,
       FractionallySizedBox(
-        heightFactor: 1,
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(TSizes.defaultSpace),
