@@ -8,6 +8,9 @@ class CategoryController extends GetxController {
   RxBool isLoaging = true.obs;
   RxList<CategoryModel> allItems = <CategoryModel>[].obs;
   RxList<CategoryModel> filteredItems = <CategoryModel>[].obs;
+  // Dorting
+  RxInt sortColumnIndex = 1.obs;
+  RxBool sortAscending = true.obs;
 
   final _categoryRepository = Get.put(CategoryReponsitory());
   @override
@@ -31,5 +34,31 @@ class CategoryController extends GetxController {
       isLoaging.value = false;
       TLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
     }
+  }
+
+  // Sort By name
+  void sortByName(int columnIndex, bool ascending) {
+    sortColumnIndex.value = columnIndex;
+    sortAscending.value = ascending;
+    filteredItems.sort((a, b) {
+      if (ascending) {
+        return a.name.toLowerCase().compareTo(b.name.toLowerCase());
+      } else {
+        return b.name.toLowerCase().compareTo(a.name.toLowerCase());
+      }
+    });
+  }
+
+  // Sort by parentName
+  void sortByParentName(int columnIndex, bool ascending) {
+    sortColumnIndex.value = columnIndex;
+    sortAscending.value = ascending;
+    filteredItems.sort((a, b) {
+      if (ascending) {
+        return a.name.toLowerCase().compareTo(b.name.toLowerCase());
+      } else {
+        return b.name.toLowerCase().compareTo(a.name.toLowerCase());
+      }
+    });
   }
 }
