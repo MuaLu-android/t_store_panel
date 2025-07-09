@@ -12,8 +12,9 @@ class TCategoryTablets extends StatelessWidget {
   Widget build(BuildContext context) {
     // implement build
     final controller = CategoryController.instance;
-    return Obx(
-      () => TPaginateDataTable(
+    return Obx(() {
+      Text(controller.filteredItems.length.toString());
+      return TPaginateDataTable(
         sortAscending: controller.sortAscending.value,
         sortColumnIndex: controller.sortColumnIndex.value,
         minWith: 700,
@@ -33,7 +34,7 @@ class TCategoryTablets extends StatelessWidget {
           const DataColumn2(label: Text('Date')),
           const DataColumn2(label: Text('Action'), fixedWidth: 100),
         ],
-      ),
-    );
+      );
+    });
   }
 }

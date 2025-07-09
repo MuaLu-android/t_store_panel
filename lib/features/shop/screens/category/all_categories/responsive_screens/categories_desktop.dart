@@ -37,6 +37,8 @@ class CategoriesDesktopScreen extends StatelessWidget {
                     TTableHeader(
                       buttonText: 'Create New Category',
                       onPressed: () => Get.toNamed(TRoutes.createCategory),
+                      seatrchController: controller.searchTextController,
+                      searchOnChanged: (query) => controller.searchQuery(query),
                     ),
                     const SizedBox(height: TSizes.spaceBtwItems),
                     // Table

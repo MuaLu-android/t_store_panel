@@ -1,6 +1,7 @@
 import 'package:admin_t_store/data/repositories/categories/category_reponsitory.dart';
 import 'package:admin_t_store/features/shop/models/category_model.dart';
 import 'package:admin_t_store/utils/popups/loaders.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CategoryController extends GetxController {
@@ -11,6 +12,8 @@ class CategoryController extends GetxController {
   // Dorting
   RxInt sortColumnIndex = 1.obs;
   RxBool sortAscending = true.obs;
+  // searchText
+  final searchTextController = TextEditingController();
 
   final _categoryRepository = Get.put(CategoryReponsitory());
   @override
@@ -60,5 +63,14 @@ class CategoryController extends GetxController {
         return b.name.toLowerCase().compareTo(a.name.toLowerCase());
       }
     });
+  }
+
+  // Search
+  void searchQuery(String query) {
+    filteredItems.assignAll(
+      allItems.where(
+        (item) => item.name.toLowerCase().contains(query.toLowerCase()),
+      ),
+    );
   }
 }
