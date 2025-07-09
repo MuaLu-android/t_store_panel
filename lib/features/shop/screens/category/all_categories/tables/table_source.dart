@@ -19,6 +19,9 @@ class CategoryRows extends DataTableSource {
       (item) => item.id == category.parentId,
     );
     return DataRow2(
+      selected: controller.selectedRow[index],
+      onSelectChanged: (value) =>
+          controller.selectedRow[index] = value ?? false,
       cells: [
         DataCell(
           Row(
@@ -57,6 +60,7 @@ class CategoryRows extends DataTableSource {
           TTabletActionButtons(
             onEditPressed: () =>
                 Get.toNamed(TRoutes.editCategory, arguments: category),
+            onDeletePressed: () => controller.confirmAndDeleteItem(category),
           ),
         ),
       ],
