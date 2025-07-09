@@ -83,6 +83,28 @@ class TSizebar extends StatelessWidget {
                       icon: Iconsax.dcube,
                       itemName: 'Brands',
                     ),
+                    // Other Menu Items
+                    Text(
+                      'OTHER',
+                      style: Theme.of(
+                        context,
+                      ).textTheme.bodySmall!.apply(letterSpacingDelta: 1.2),
+                    ),
+                    const TMenuTem(
+                      route: TRoutes.profile,
+                      icon: Iconsax.user,
+                      itemName: 'Prifile',
+                    ),
+                    const TMenuTem(
+                      route: TRoutes.settings,
+                      icon: Iconsax.setting_2,
+                      itemName: 'Settings',
+                    ),
+                    const TMenuTem(
+                      route: 'logout',
+                      icon: Iconsax.logout,
+                      itemName: 'Logout',
+                    ),
                   ],
                 ),
               ),
