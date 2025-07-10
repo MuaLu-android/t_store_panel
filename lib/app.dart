@@ -1,6 +1,7 @@
 import 'package:admin_t_store/bindings/general_binding.dart';
 import 'package:admin_t_store/common/widgets/custom_shapes/container/rounded_container.dart';
 import 'package:admin_t_store/common/widgets/layouts/templates/site_layouts.dart';
+import 'package:admin_t_store/l10n/app_localizations.dart';
 import 'package:admin_t_store/route/app_routes.dart';
 import 'package:admin_t_store/route/route.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
@@ -27,6 +28,11 @@ class App extends StatelessWidget {
         name: '/page-not-found',
         page: () => const Scaffold(body: Center(child: Text('Page Not Found'))),
       ),
+      // i18n
+      // i18n
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      locale: const Locale('vi'),
     );
   }
 }

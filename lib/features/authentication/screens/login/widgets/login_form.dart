@@ -1,7 +1,7 @@
 import 'package:admin_t_store/features/authentication/controllers/login_controller.dart';
+import 'package:admin_t_store/l10n/app_localizations.dart';
 import 'package:admin_t_store/route/route.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
-import 'package:admin_t_store/utils/constants/text_strings.dart';
 import 'package:admin_t_store/utils/validators/validation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -13,6 +13,7 @@ class TLoginForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(LoginController());
+    final local = AppLocalizations.of(context)!;
     return Form(
       key: controller.loginFormKey,
       child: Padding(
@@ -23,9 +24,9 @@ class TLoginForm extends StatelessWidget {
             TextFormField(
               controller: controller.email,
               validator: TValidator.validateEmail,
-              decoration: const InputDecoration(
-                labelText: TTexts.email,
-                prefixIcon: Icon(Iconsax.direct_right),
+              decoration: InputDecoration(
+                labelText: local.email,
+                prefixIcon: const Icon(Iconsax.direct_right),
               ),
             ),
             const SizedBox(height: TSizes.spaceBtwInputFields),
@@ -38,7 +39,7 @@ class TLoginForm extends StatelessWidget {
                     TValidator.validateEmptyText('Password', value),
                 obscureText: controller.hidePassword.value,
                 decoration: InputDecoration(
-                  labelText: TTexts.password,
+                  labelText: local.password,
                   prefixIcon: Icon(Iconsax.password_check),
                   suffixIcon: IconButton(
                     onPressed: () => controller.hidePassword.value =
@@ -69,14 +70,14 @@ class TLoginForm extends StatelessWidget {
                             controller.rememberMe.value = value!,
                       ),
                     ),
-                    const Text(TTexts.rememberMe),
+                    Text(local.rememberMe),
                   ],
                 ),
 
                 /// Forget password
                 TextButton(
                   onPressed: () => Get.toNamed(TRoutes.forgetPassword),
-                  child: const Text(TTexts.forgetPassword),
+                  child: Text(local.forgetPassword),
                 ),
               ],
             ),
@@ -87,7 +88,7 @@ class TLoginForm extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () => controller.emailAndPasswordSignIn(),
-                child: Text(TTexts.signIn),
+                child: Text(local.signIn),
               ),
             ),
           ],

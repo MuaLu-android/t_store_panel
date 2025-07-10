@@ -1,13 +1,15 @@
 import 'package:admin_t_store/utils/constants/image_strings.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
-import 'package:admin_t_store/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../../l10n/app_localizations.dart';
 
 class TLoginHeader extends StatelessWidget {
   const TLoginHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final local = AppLocalizations.of(context)!;
     return SizedBox(
       width: double.infinity,
       child: Column(
@@ -20,12 +22,12 @@ class TLoginHeader extends StatelessWidget {
           ),
           const SizedBox(height: TSizes.spaceBtwSections),
           Text(
-            TTexts.loginTitle,
+            local.loginTitle,
             style: Theme.of(context).textTheme.headlineMedium,
           ),
           const SizedBox(height: TSizes.sm),
           Text(
-            TTexts.loginSubTitle,
+            local.loginSubTitle,
             style: Theme.of(context).textTheme.bodyMedium,
           ),
         ],
