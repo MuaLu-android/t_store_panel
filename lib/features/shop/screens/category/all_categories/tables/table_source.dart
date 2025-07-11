@@ -14,14 +14,14 @@ class CategoryRows extends DataTableSource {
   final controller = CategoryController.instance;
   @override
   DataRow? getRow(int index) {
-    final category = controller.filteredItems[index];
+    final category = controller.fillteredItems[index];
     final parentCategory = controller.allItems.firstWhereOrNull(
       (item) => item.id == category.parentId,
     );
     return DataRow2(
-      selected: controller.selectedRow[index],
+      selected: controller.selectedRows[index],
       onSelectChanged: (value) =>
-          controller.selectedRow[index] = value ?? false,
+          controller.selectedRows[index] = value ?? false,
       cells: [
         DataCell(
           Row(
@@ -71,7 +71,7 @@ class CategoryRows extends DataTableSource {
   bool get isRowCountApproximate => false;
 
   @override
-  int get rowCount => controller.filteredItems.length;
+  int get rowCount => controller.fillteredItems.length;
 
   @override
   int get selectedRowCount => 0;

@@ -43,7 +43,7 @@ class CategoriesDesktopScreen extends StatelessWidget {
                     const SizedBox(height: TSizes.spaceBtwItems),
                     // Table
                     Obx(() {
-                      if (controller.isLoaging.value) {
+                      if (controller.isLoading.value) {
                         return const TLoaderAnimation();
                       }
                       return TCategoryTablets();

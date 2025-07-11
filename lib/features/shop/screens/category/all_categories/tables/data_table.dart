@@ -13,8 +13,8 @@ class TCategoryTablets extends StatelessWidget {
     // implement build
     final controller = CategoryController.instance;
     return Obx(() {
-      Text(controller.filteredItems.length.toString());
-      Text(controller.selectedRow.length.toString());
+      Text(controller.fillteredItems.length.toString());
+      Text(controller.selectedRows.length.toString());
       return TPaginateDataTable(
         sortAscending: controller.sortAscending.value,
         sortColumnIndex: controller.sortColumnIndex.value,

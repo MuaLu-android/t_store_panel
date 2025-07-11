@@ -47,7 +47,7 @@ class CreateCategoryFrom extends StatelessWidget {
 
             // Categories Dropdown
             Obx(
-              () => categoryController.isLoaging.value
+              () => categoryController.isLoading.value
                   ? const TShimmerEffect(width: double.infinity, height: 55)
                   : DropdownButtonFormField(
                       decoration: const InputDecoration(
