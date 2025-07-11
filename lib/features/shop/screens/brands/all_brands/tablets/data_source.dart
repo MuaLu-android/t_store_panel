@@ -1,9 +1,9 @@
 import 'package:admin_t_store/common/widgets/images/t_rounded_image.dart';
+import 'package:admin_t_store/features/shop/controllers/brands/brand_controller.dart';
 import 'package:admin_t_store/features/shop/screens/category/all_categories/widgets/tablet_action_button.dart';
 import 'package:admin_t_store/route/route.dart';
 import 'package:admin_t_store/utils/constants/colors.dart';
 import 'package:admin_t_store/utils/constants/enums.dart';
-import 'package:admin_t_store/utils/constants/image_strings.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:admin_t_store/utils/devices/device_utility.dart';
 import 'package:data_table_2/data_table_2.dart';
@@ -12,26 +12,31 @@ import 'package:get/route_manager.dart';
 import 'package:iconsax/iconsax.dart';
 
 class BrandsRows extends DataTableSource {
+  final controller = BrandController.instance;
   @override
   DataRow? getRow(int index) {
+    final brand = controller.fillteredItems[index];
     return DataRow2(
+      selected: controller.selectedRows[index],
+      onSelectChanged: (value) =>
+          controller.selectedRows[index] = value ?? false,
       cells: [
         DataCell(
           Row(
             children: [
-              const TRoundedImage(
+              TRoundedImage(
                 width: 50,
                 height: 50,
                 padding: TSizes.sm,
-                imageUrl: TImages.adidasLogo,
-                imageType: ImageType.asset,
+                imageUrl: brand.image,
+                imageType: ImageType.network,
                 borderRadius: TSizes.borderRadiusMd,
                 backgroundColor: TColors.primaryBackground,
               ),
               const SizedBox(width: TSizes.spaceBtwItems),
               Expanded(
                 child: Text(
-                  'Adias',
+                  brand.name,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: Theme.of(
@@ -52,51 +57,39 @@ class BrandsRows extends DataTableSource {
                 direction: TDeviceUtils.isMobileScreen(Get.context!)
                     ? Axis.vertical
                     : Axis.horizontal,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(
-                      bottom: TDeviceUtils.isMobileScreen(Get.context!)
-                          ? 0
-                          : TSizes.xs,
-                    ),
-                    child: const Chip(
-                      label: Text('Shoes'),
-                      padding: EdgeInsets.all(TSizes.xs),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                      bottom: TDeviceUtils.isMobileScreen(Get.context!)
-                          ? 0
-                          : TSizes.xs,
-                    ),
-                    child: const Chip(
-                      label: Text('TrackSuits'),
-                      padding: EdgeInsets.all(TSizes.xs),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                      bottom: TDeviceUtils.isMobileScreen(Get.context!)
-                          ? 0
-                          : TSizes.xs,
-                    ),
-                    child: const Chip(
-                      label: Text('Joggers'),
-                      padding: EdgeInsets.all(TSizes.xs),
-                    ),
-                  ),
-                ],
+                children: brand.brandCategories != null
+                    ? brand.brandCategories!
+                          .map(
+                            (e) => Padding(
+                              padding: EdgeInsets.only(
+                                bottom:
+                                    TDeviceUtils.isMobileScreen(Get.context!)
+                                    ? 0
+                                    : TSizes.xs,
+                              ),
+                              child: Chip(
+                                label: Text(e.name),
+                                padding: EdgeInsets.all(TSizes.xs),
+                              ),
+                            ),
+                          )
+                          .toList()
+                    : [const SizedBox()],
               ),
             ),
           ),
         ),
-        const DataCell(Icon(Iconsax.heart5, color: TColors.primary)),
-        DataCell(Text(DateTime.now().toString())),
+        DataCell(
+          brand.isFeatured
+              ? Icon(Iconsax.heart5, color: TColors.primary)
+              : const Icon(Iconsax.heart),
+        ),
+        DataCell(Text(brand.createAt != null ? brand.formattedDate : '')),
         DataCell(
           TTabletActionButtons(
-            onEditPressed: () => Get.toNamed(TRoutes.editbrand),
-            onDeletePressed: () {},
+            onEditPressed: () =>
+                Get.toNamed(TRoutes.editbrand, arguments: brand),
+            onDeletePressed: () => controller.deleteItem(brand),
           ),
         ),
       ],
@@ -107,7 +100,7 @@ class BrandsRows extends DataTableSource {
   bool get isRowCountApproximate => false;
 
   @override
-  int get rowCount => 20;
+  int get rowCount => controller.fillteredItems.length;
 
   @override
   int get selectedRowCount => 0;
