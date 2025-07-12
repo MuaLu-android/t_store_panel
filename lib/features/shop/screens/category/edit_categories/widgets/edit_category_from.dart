@@ -12,15 +12,15 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class EditCategoryFromScreen extends StatelessWidget {
-  const EditCategoryFromScreen({super.key, required this.catedory});
+  const EditCategoryFromScreen({super.key, required this.category});
 
-  final CategoryModel catedory;
+  final CategoryModel category;
   @override
   Widget build(BuildContext context) {
     // implement build
     final controller = Get.put(EditCategoryController());
     final categoryController = CategoryController.instance;
-    controller.init(catedory);
+    controller.init(category);
     return TRoundedContainer(
       width: 500,
       padding: EdgeInsets.all(TSizes.defaultSpace),
@@ -99,7 +99,7 @@ class EditCategoryFromScreen extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () => controller.updateCategory(catedory),
+                onPressed: () => controller.updateCategory(category),
                 child: const Text('Update'),
               ),
             ),

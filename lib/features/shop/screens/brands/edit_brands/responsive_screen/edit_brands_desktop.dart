@@ -1,12 +1,13 @@
 import 'package:admin_t_store/common/widgets/breadcrumbs/breadcrumb_with_heading.dart';
+import 'package:admin_t_store/features/shop/models/brand_model.dart';
 import 'package:admin_t_store/features/shop/screens/brands/edit_brands/widgets/edit_brands_form.dart';
 import 'package:admin_t_store/route/route.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
 class EditBrandsDesktop extends StatelessWidget {
-  const EditBrandsDesktop({super.key});
-
+  const EditBrandsDesktop({super.key, required this.brands});
+  final BrandModel brands;
   @override
   Widget build(BuildContext context) {
     // implement build
@@ -25,7 +26,7 @@ class EditBrandsDesktop extends StatelessWidget {
               ),
               const SizedBox(height: TSizes.spaceBtwSections),
               // From
-              EditBrandsForm(),
+              EditBrandsForm(brands: brands),
             ],
           ),
         ),

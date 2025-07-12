@@ -44,10 +44,18 @@ class BrandRepository extends GetxController {
     }
   }
 
-  // Delete an existing category document from the 'Categories' collection
-  Future<void> deleteBrands(String categoryId) async {
+  Future<List<BrandCategoryModel>> getCategoriesOfSpecificBrand(
+    String brandId,
+  ) async {
     try {
-      await _db.collection('Categories').doc(categoryId).delete();
+      final snapshot = await _db
+          .collection('BrandCategories')
+          .where('brandId', isEqualTo: brandId)
+          .get();
+      final result = snapshot.docs
+          .map((doc) => BrandCategoryModel.fromSnapshot(doc))
+          .toList();
+      return result;
     } on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message;
     } on PlatformException catch (e) {
@@ -85,11 +93,58 @@ class BrandRepository extends GetxController {
     }
   }
 
+  // Delete an existing category document from the 'Categories' collection
+  Future<void> deleteBrands(BrandModel brands) async {
+    try {
+      await _db.runTransaction((transition) async {
+        final brandRef = _db.collection('Brands').doc(brands.id);
+        final brandSnap = await transition.get(brandRef);
+
+        if (!brandSnap.exists) {
+          throw Exception('Brand not foud');
+        }
+        final brandCategoriesSnapshot = await _db
+            .collection('BrandCategories')
+            .where('brandId', isEqualTo: brands.id)
+            .get();
+        final brandCategories = brandCategoriesSnapshot.docs.map(
+          (e) => BrandCategoryModel.fromSnapshot(e),
+        );
+        if (brandCategories.isNotEmpty) {
+          for (var brandCategory in brandCategories) {
+            transition.delete(
+              _db.collection('BrandCategories').doc(brandCategory.id),
+            );
+          }
+        }
+        transition.delete(brandRef);
+      });
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went srong. Please try again';
+    }
+  }
+
+  Future<void> deleteBrandCategories(String categoryId) async {
+    try {
+      await _db.collection('BrandCategories').doc(categoryId).delete();
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went srong. Please try again';
+    }
+  }
+
   // Update Category
   Future<void> updateBrands(BrandModel item) async {
     try {
       final data = await _db
-          .collection('Categories')
+          .collection('Brands')
           .doc(item.id)
           .update(item.toJson());
     } on FirebaseException catch (e) {

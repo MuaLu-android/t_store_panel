@@ -26,7 +26,7 @@ class EditCategoryDesktopScreen extends StatelessWidget {
               ),
               const SizedBox(height: TSizes.spaceBtwSections),
               // Form
-              EditCategoryFromScreen(catedory: catedoryModel),
+              EditCategoryFromScreen(category: catedoryModel),
             ],
           ),
         ),

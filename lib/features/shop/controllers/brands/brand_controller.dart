@@ -2,8 +2,13 @@ import 'package:admin_t_store/data/abstract/base_data_table_controller.dart';
 import 'package:admin_t_store/data/repositories/brands/brand_repository.dart';
 import 'package:admin_t_store/features/shop/controllers/categories/category_controller.dart';
 import 'package:admin_t_store/features/shop/models/brand_model.dart';
+import 'package:admin_t_store/utils/constants/colors.dart';
+import 'package:admin_t_store/utils/constants/sizes.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get_instance/get_instance.dart';
+import 'package:get/route_manager.dart';
 import 'package:get/state_manager.dart';
+import 'package:html/dom.dart' hide Text;
 
 class BrandController extends TBaseController<BrandModel> {
   static BrandController get instance => Get.find();
@@ -18,7 +23,44 @@ class BrandController extends TBaseController<BrandModel> {
 
   @override
   Future<void> deleteItem(item) async {
-    return await _brandRepository.deleteBrands(item.id);
+    Get.defaultDialog(
+      title: 'Delete Item',
+      content: const Text('Are you sure you wan to delete this item?'),
+      actions: [
+        SizedBox(
+          width: 60,
+          child: ElevatedButton(
+            style: OutlinedButton.styleFrom(
+              padding: const EdgeInsets.symmetric(
+                vertical: TSizes.buttonHeight / 2,
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(TSizes.buttonRadius * 5),
+              ),
+            ),
+            onPressed: () async => await deleteOnConfirm(item),
+            child: const Text('OK'),
+          ),
+        ),
+        const SizedBox(width: TSizes.spaceBtwInputFields),
+        SizedBox(
+          width: 60,
+          child: ElevatedButton(
+            style: OutlinedButton.styleFrom(
+              backgroundColor: TColors.darkerGrey.withAlpha(128),
+              padding: const EdgeInsets.symmetric(
+                vertical: TSizes.buttonHeight / 2,
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(TSizes.buttonRadius * 5),
+              ),
+            ),
+            onPressed: () => Get.back(),
+            child: const Text('Cancel'),
+          ),
+        ),
+      ],
+    );
   }
 
   @override
