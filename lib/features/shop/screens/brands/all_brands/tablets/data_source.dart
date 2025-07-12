@@ -89,7 +89,7 @@ class BrandsRows extends DataTableSource {
           TTabletActionButtons(
             onEditPressed: () =>
                 Get.toNamed(TRoutes.editbrand, arguments: brand),
-            onDeletePressed: () => controller.deleteItem(brand),
+            onDeletePressed: () => controller.confirmAndDeleteItem(brand),
           ),
         ),
       ],

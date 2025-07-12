@@ -24,6 +24,8 @@ class BrandTable extends StatelessWidget {
         minWith: 700,
         tableHeight: lgTable ? 96 * 11.5 : 760,
         dataRowHeight: lgTable ? 96 : 64,
+        sortAscending: controller.sortAscending.value,
+        sortColumnIndex: controller.sortColumnIndex.value,
         source: BrandsRows(),
         columns: [
           DataColumn2(

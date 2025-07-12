@@ -7,8 +7,6 @@ import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_instance/get_instance.dart';
 import 'package:get/route_manager.dart';
-import 'package:get/state_manager.dart';
-import 'package:html/dom.dart' hide Text;
 
 class BrandController extends TBaseController<BrandModel> {
   static BrandController get instance => Get.find();
@@ -23,44 +21,7 @@ class BrandController extends TBaseController<BrandModel> {
 
   @override
   Future<void> deleteItem(item) async {
-    Get.defaultDialog(
-      title: 'Delete Item',
-      content: const Text('Are you sure you wan to delete this item?'),
-      actions: [
-        SizedBox(
-          width: 60,
-          child: ElevatedButton(
-            style: OutlinedButton.styleFrom(
-              padding: const EdgeInsets.symmetric(
-                vertical: TSizes.buttonHeight / 2,
-              ),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(TSizes.buttonRadius * 5),
-              ),
-            ),
-            onPressed: () async => await deleteOnConfirm(item),
-            child: const Text('OK'),
-          ),
-        ),
-        const SizedBox(width: TSizes.spaceBtwInputFields),
-        SizedBox(
-          width: 60,
-          child: ElevatedButton(
-            style: OutlinedButton.styleFrom(
-              backgroundColor: TColors.darkerGrey.withAlpha(128),
-              padding: const EdgeInsets.symmetric(
-                vertical: TSizes.buttonHeight / 2,
-              ),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(TSizes.buttonRadius * 5),
-              ),
-            ),
-            onPressed: () => Get.back(),
-            child: const Text('Cancel'),
-          ),
-        ),
-      ],
-    );
+    await _brandRepository.deleteBrands(item);
   }
 
   @override

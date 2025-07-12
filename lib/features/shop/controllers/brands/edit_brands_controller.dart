@@ -82,8 +82,6 @@ class EditBrandsController extends GetxController {
       brandCotorller.updateItemFormList(brands);
       // Update Ui Listeners
       update();
-
-      resetFields();
       // Remove Loader
       TFullScreenLoader.stopLoading();
       Get.back();
@@ -148,5 +146,7 @@ class EditBrandsController extends GetxController {
     brandCotorller.updateItemFormList(item);
   }
 
-  Future<void> updateBrandInProducts(BrandModel brands) async {}
+  Future<void> updateBrandInProducts(BrandModel brands) async {
+    return;
+  }
 }
