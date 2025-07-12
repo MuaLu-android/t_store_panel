@@ -71,6 +71,20 @@ class BrandRepository extends GetxController {
     }
   }
 
+  // CreateBrandCategories
+  Future<String> createBrandCategories(BrandCategoryModel item) async {
+    try {
+      final data = await _db.collection('BrandCategories').add(item.toJson());
+      return data.id;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went srong. Please try again';
+    }
+  }
+
   // Update Category
   Future<void> updateBrands(BrandModel item) async {
     try {

@@ -10,6 +10,7 @@ class BrandController extends TBaseController<BrandModel> {
 
   final _brandRepository = Get.put(BrandRepository());
   final categoryController = Get.put(CategoryController());
+
   @override
   bool containsSearchQuery(item, String query) {
     return item.name.toLowerCase().contains(query.toLowerCase());
@@ -34,7 +35,7 @@ class BrandController extends TBaseController<BrandModel> {
       //extract categoryIds from the documents
       List<String> categoryIds = fetchedBrandsCategories
           .where((brandCategory) => brandCategory.brandId == brand.id)
-          .map((brandCategory) => brandCategory.brandId)
+          .map((brandCategory) => brandCategory.categoryId)
           .toList();
       brand.brandCategories = categoryController.allItems
           .where((category) => categoryIds.contains(category.id))
