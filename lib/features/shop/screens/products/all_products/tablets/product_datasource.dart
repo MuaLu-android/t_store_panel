@@ -1,4 +1,5 @@
 import 'package:admin_t_store/common/widgets/images/t_rounded_image.dart';
+import 'package:admin_t_store/features/shop/controllers/products/products_controller.dart';
 import 'package:admin_t_store/features/shop/screens/category/all_categories/widgets/tablet_action_button.dart';
 import 'package:admin_t_store/route/route.dart';
 import 'package:admin_t_store/utils/constants/colors.dart';
@@ -11,9 +12,15 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 
 class ProductDatasource extends DataTableSource {
+  final controller = ProductController.instace;
   @override
   DataRow? getRow(int index) {
+    final product = controller.fillteredItems[index];
     return DataRow2(
+      selected: controller.selectedRows[index],
+      onTap: () => Get.toNamed(TRoutes.editProduct, arguments: product),
+      onSelectChanged: (value) =>
+          controller.selectedRows[index] = value ?? false,
       cells: [
         DataCell(
           Row(
@@ -22,15 +29,15 @@ class ProductDatasource extends DataTableSource {
                 width: 50,
                 height: 50,
                 padding: TSizes.xs,
-                imageType: ImageType.asset,
-                imageUrl: TImages.nikeLogo,
+                imageType: ImageType.network,
+                imageUrl: product.thumbnail,
                 borderRadius: TSizes.borderRadiusMd,
                 backgroundColor: TColors.primaryBackground,
               ),
               const SizedBox(width: TSizes.spaceBtwItems),
               Flexible(
                 child: Text(
-                  'Product Title',
+                  product.title,
                   style: Theme.of(
                     Get.context!,
                   ).textTheme.bodyLarge!.apply(color: TColors.primary),
@@ -39,7 +46,8 @@ class ProductDatasource extends DataTableSource {
             ],
           ),
         ),
-        DataCell(Text('256')),
+        DataCell(Text(controller.getProductStockTotal(product))),
+        DataCell(Text(controller.getProductSoldQuantity(product))),
         DataCell(
           Row(
             children: [
@@ -47,15 +55,19 @@ class ProductDatasource extends DataTableSource {
                 width: 35,
                 height: 35,
                 padding: TSizes.xs,
-                imageType: ImageType.asset,
-                imageUrl: TImages.nikeLogo,
+                imageType: product.brand != null
+                    ? ImageType.network
+                    : ImageType.asset,
+                imageUrl: product.brand != null
+                    ? product.brand!.image
+                    : TImages.nikeLogo,
                 borderRadius: TSizes.borderRadiusMd,
                 backgroundColor: TColors.primaryBackground,
               ),
               const SizedBox(width: TSizes.spaceBtwItems),
               Flexible(
                 child: Text(
-                  'Nike',
+                  product.brand != null ? product.brand!.name : '',
                   style: Theme.of(
                     Get.context!,
                   ).textTheme.bodyLarge!.apply(color: TColors.primary),
@@ -64,12 +76,13 @@ class ProductDatasource extends DataTableSource {
             ],
           ),
         ),
-        const DataCell(Text('\$99.9')),
+        DataCell(Text('\$${controller.getProductPrice(product)}')),
         DataCell(Text(DateTime.now().toString())),
         DataCell(
           TTabletActionButtons(
-            onEditPressed: () => Get.toNamed(TRoutes.editProduct),
-            onDeletePressed: () {},
+            onEditPressed: () =>
+                Get.toNamed(TRoutes.editProduct, arguments: product),
+            onDeletePressed: () => controller.confirmAndDeleteItem(product),
           ),
         ),
       ],
@@ -80,8 +93,9 @@ class ProductDatasource extends DataTableSource {
   bool get isRowCountApproximate => false;
 
   @override
-  int get rowCount => 100;
+  int get rowCount => controller.fillteredItems.length;
 
   @override
-  int get selectedRowCount => 0;
+  int get selectedRowCount =>
+      controller.selectedRows.where((selected) => selected).length;
 }
