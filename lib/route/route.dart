@@ -35,7 +35,7 @@ class TRoutes {
   static const profile = '/profile';
   static const coupons = '/coupons';
 
-  static List sidebarMenuItems = [
+  static List<String> sidebarMenuItems = [
     dashboard,
     media,
     categories,

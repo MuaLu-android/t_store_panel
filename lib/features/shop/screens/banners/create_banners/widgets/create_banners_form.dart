@@ -1,11 +1,14 @@
 import 'package:admin_t_store/common/widgets/custom_shapes/container/rounded_container.dart';
 import 'package:admin_t_store/common/widgets/images/t_rounded_image.dart';
+import 'package:admin_t_store/features/shop/controllers/banner/banner_controller.dart';
+import 'package:admin_t_store/features/shop/controllers/banner/ceate_banner_controller.dart';
+import 'package:admin_t_store/route/route.dart';
 import 'package:admin_t_store/utils/constants/colors.dart';
 import 'package:admin_t_store/utils/constants/enums.dart';
 import 'package:admin_t_store/utils/constants/image_strings.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
+import 'package:get/get.dart';
 
 class CreateBannersForm extends StatelessWidget {
   const CreateBannersForm({super.key});
@@ -13,10 +16,13 @@ class CreateBannersForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // implement build
+    final controller = Get.put(CreateBannerController());
+    final bannerController = BannerController.instance;
     return TRoundedContainer(
       width: 500,
       padding: const EdgeInsets.all(TSizes.defaultSpace),
       child: Form(
+        key: controller.formKey,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -29,18 +35,24 @@ class CreateBannersForm extends StatelessWidget {
             const SizedBox(height: TSizes.spaceBtwSections),
             Column(
               children: [
-                GestureDetector(
-                  child: const TRoundedImage(
-                    width: 400,
-                    height: 200,
-                    imageUrl: TImages.acerlogo,
-                    imageType: ImageType.asset,
-                    backgroundColor: TColors.primaryBackground,
+                Obx(
+                  () => GestureDetector(
+                    child: TRoundedImage(
+                      width: 400,
+                      height: 200,
+                      imageUrl: controller.imageUrl.value.isNotEmpty
+                          ? controller.imageUrl.value
+                          : TImages.acerlogo,
+                      imageType: controller.imageUrl.value.isNotEmpty
+                          ? ImageType.network
+                          : ImageType.asset,
+                      backgroundColor: TColors.primaryBackground,
+                    ),
                   ),
                 ),
                 const SizedBox(height: TSizes.spaceBtwItems),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () => controller.pickImage(),
                   child: const Text('Selected Images'),
                 ),
               ],
@@ -50,29 +62,36 @@ class CreateBannersForm extends StatelessWidget {
               'Make your Banner Active or InActicve',
               style: Theme.of(Get.context!).textTheme.bodyMedium,
             ),
-            CheckboxMenuButton(
-              value: true,
-              onChanged: (value) {},
-              child: const Text('Active'),
+            Obx(
+              () => CheckboxMenuButton(
+                value: controller.isActive.value,
+                onChanged: (value) =>
+                    controller.isActive.value = value ?? false,
+                child: const Text('Active'),
+              ),
             ),
             const SizedBox(height: TSizes.spaceBtwInputFields),
             // Dropdown
-            DropdownButton<String>(
-              value: 'search',
-              onChanged: (String? neValue) {},
-              items: [
-                DropdownMenuItem<String>(value: 'home', child: Text('Home')),
-                DropdownMenuItem<String>(
-                  value: 'search',
-                  child: Text('Search'),
-                ),
-              ],
-            ),
+            Obx(() {
+              return DropdownButton<String>(
+                value: controller.targetSceen.value,
+                onChanged: (String? newValue) =>
+                    controller.targetSceen.value = newValue!,
+                items: TRoutes.sidebarMenuItems.map<DropdownMenuItem<String>>((
+                  item,
+                ) {
+                  return DropdownMenuItem<String>(
+                    value: item,
+                    child: Text(bannerController.fromatRoute(item)),
+                  );
+                }).toList(),
+              );
+            }),
             const SizedBox(height: TSizes.spaceBtwInputFields * 2),
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () => controller.createBanners(),
                 child: const Text('Create'),
               ),
             ),

@@ -1,13 +1,13 @@
 import 'package:admin_t_store/common/widgets/breadcrumbs/breadcrumb_with_heading.dart';
-import 'package:admin_t_store/features/shop/screens/banners/data/banner_model.dart';
+import 'package:admin_t_store/features/shop/models/banner_model.dart';
 import 'package:admin_t_store/features/shop/screens/banners/edit_banners/widgets/edit_banners_form.dart';
 import 'package:admin_t_store/route/route.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
 class EditBannersDesktopScreen extends StatelessWidget {
-  const EditBannersDesktopScreen({super.key});
-
+  const EditBannersDesktopScreen({super.key, required this.banner});
+  final BannerModel banner;
   @override
   Widget build(BuildContext context) {
     // implement build
@@ -26,13 +26,7 @@ class EditBannersDesktopScreen extends StatelessWidget {
               ),
               const SizedBox(height: TSizes.spaceBtwSections),
               // Form
-              EditBannersForm(
-                bannerModel: BannerModel(
-                  imageUrl: '',
-                  targetScreen: '',
-                  active: true,
-                ),
-              ),
+              EditBannersForm(banner: banner),
             ],
           ),
         ),

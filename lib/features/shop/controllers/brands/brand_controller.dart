@@ -2,9 +2,6 @@ import 'package:admin_t_store/data/abstract/base_data_table_controller.dart';
 import 'package:admin_t_store/data/repositories/brands/brand_repository.dart';
 import 'package:admin_t_store/features/shop/controllers/categories/category_controller.dart';
 import 'package:admin_t_store/features/shop/models/brand_model.dart';
-import 'package:admin_t_store/utils/constants/colors.dart';
-import 'package:admin_t_store/utils/constants/sizes.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get_instance/get_instance.dart';
 import 'package:get/route_manager.dart';
 
