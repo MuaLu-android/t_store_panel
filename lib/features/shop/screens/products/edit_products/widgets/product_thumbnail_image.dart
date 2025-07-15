@@ -7,6 +7,7 @@ import 'package:admin_t_store/utils/constants/image_strings.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
+import 'package:get/instance_manager.dart';
 
 class ProductThumbnailImage extends StatelessWidget {
   const ProductThumbnailImage({super.key});
@@ -14,7 +15,7 @@ class ProductThumbnailImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // implement build
-    final contrroller = ProductImagesController.instance;
+    final contrroller = Get.put(ProductImagesController());
     return TRoundedContainer(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

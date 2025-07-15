@@ -17,6 +17,7 @@ class ProductRepository extends GetxController {
       final result = await _db.collection('Products').add(produts.toJson());
       return result.id;
     } on FirebaseException catch (e) {
+      print(e.message);
       throw TFirebaseException(e.code).message;
     } on FormatException catch (e) {
       throw TFormatException(e.message);
@@ -89,9 +90,9 @@ class ProductRepository extends GetxController {
   }
 
   // update product
-  Future<void> updateProducts(id, Map<String, dynamic> item) async {
+  Future<void> updateProducts(ProductModel item) async {
     try {
-      await _db.collection('Products').doc(id).update(item);
+      await _db.collection('Products').doc(item.id).update(item.toJson());
     } on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message;
     } on FormatException catch (e) {
@@ -115,7 +116,7 @@ class ProductRepository extends GetxController {
         }
         final brandCategoriesSnapshot = await _db
             .collection('ProductCategories')
-            .where('ProdutId', isEqualTo: products.id)
+            .where('ProductId', isEqualTo: products.id)
             .get();
         final brandCategories = brandCategoriesSnapshot.docs.map(
           (e) => ProductCategoryModel.fromSnapshot(e),
@@ -123,12 +124,37 @@ class ProductRepository extends GetxController {
         if (brandCategories.isNotEmpty) {
           for (var brandCategory in brandCategories) {
             transition.delete(
-              _db.collection('ProductCategroies').doc(brandCategory.id),
+              _db.collection('ProductCategories').doc(brandCategory.id),
             );
           }
         }
         transition.delete(brandRef);
       });
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (e) {
+      throw TFormatException(e.message);
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'something went wrong. Please try again';
+    }
+  }
+
+  // Remove Products Category
+  Future<void> removeProductcategory(
+    String productId,
+    String categoryId,
+  ) async {
+    try {
+      final result = await _db
+          .collection('ProductCategories')
+          .where('ProductId', isEqualTo: productId)
+          .where('categoryId', isEqualTo: categoryId)
+          .get();
+      for (final doc in result.docs) {
+        await doc.reference.delete();
+      }
     } on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message;
     } on FormatException catch (e) {

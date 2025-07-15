@@ -1,19 +1,19 @@
 import 'package:admin_t_store/common/widgets/custom_shapes/container/rounded_container.dart';
 import 'package:admin_t_store/common/widgets/shimmer/shimmer.dart';
 import 'package:admin_t_store/features/shop/controllers/brands/brand_controller.dart';
-import 'package:admin_t_store/features/shop/controllers/products/create_product_controller.dart';
+import 'package:admin_t_store/features/shop/controllers/products/edit_product_controller.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
-class ProductBrandsScreen extends StatelessWidget {
-  const ProductBrandsScreen({super.key});
+class EditProductBrandsScreen extends StatelessWidget {
+  const EditProductBrandsScreen({super.key});
   @override
   Widget build(BuildContext context) {
     // implement build
-    final controller = Get.put(CreateProductController());
+    final controller = EditProductController.instance;
     final brandsController = Get.put(BrandController());
     if (brandsController.allItems.isEmpty) {
       brandsController.fetchItems();
@@ -31,6 +31,11 @@ class ProductBrandsScreen extends StatelessWidget {
                 ? const TShimmerEffect(width: double.infinity, height: 50)
                 : TypeAheadField(
                     builder: (context, ctr, focusNode) {
+                      // Khởi tạo giá trị cho controller nếu chưa có
+                      if (controller.selectedBrand.value!.name.isNotEmpty &&
+                          ctr.text.isEmpty) {
+                        ctr.text = controller.selectedBrand.value!.name;
+                      }
                       return TextFormField(
                         focusNode: focusNode,
                         controller: controller.brandTextField = ctr,

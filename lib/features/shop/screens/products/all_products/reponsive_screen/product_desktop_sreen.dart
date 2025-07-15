@@ -8,7 +8,6 @@ import 'package:admin_t_store/route/route.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/route_manager.dart';
 
 class ProductDesktopSreen extends StatelessWidget {
   const ProductDesktopSreen({super.key});

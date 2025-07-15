@@ -1,4 +1,4 @@
-import 'package:admin_t_store/features/shop/controllers/products/create_product_controller.dart';
+import 'package:admin_t_store/features/shop/controllers/products/edit_product_controller.dart';
 import 'package:admin_t_store/utils/constants/enums.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:admin_t_store/utils/validators/validation.dart';
@@ -6,13 +6,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 
-class ProductStockAndPricing extends StatelessWidget {
-  const ProductStockAndPricing({super.key});
+class EditProductStockAndPricing extends StatelessWidget {
+  const EditProductStockAndPricing({super.key});
 
   @override
   Widget build(BuildContext context) {
     // implement build
-    final controller = CreateProductController.instance;
+    final controller = EditProductController.instance;
     return Obx(
       () => controller.productType.value == ProductType.single
           ? Form(

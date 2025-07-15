@@ -77,7 +77,7 @@ class ProductDatasource extends DataTableSource {
           ),
         ),
         DataCell(Text('\$${controller.getProductPrice(product)}')),
-        DataCell(Text(DateTime.now().toString())),
+        DataCell(Text(product.formattedDate)),
         DataCell(
           TTabletActionButtons(
             onEditPressed: () =>

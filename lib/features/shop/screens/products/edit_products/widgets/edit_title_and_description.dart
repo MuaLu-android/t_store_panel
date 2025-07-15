@@ -1,16 +1,16 @@
 import 'package:admin_t_store/common/widgets/custom_shapes/container/rounded_container.dart';
-import 'package:admin_t_store/features/shop/controllers/products/create_product_controller.dart';
+import 'package:admin_t_store/features/shop/controllers/products/edit_product_controller.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:admin_t_store/utils/validators/validation.dart';
 import 'package:flutter/material.dart';
 
-class ProductTitleAndDescription extends StatelessWidget {
-  const ProductTitleAndDescription({super.key});
+class EditProductTitleAndDescription extends StatelessWidget {
+  const EditProductTitleAndDescription({super.key});
 
   @override
   Widget build(BuildContext context) {
     // implement build
-    final controller = CreateProductController.instance;
+    final controller = EditProductController.instance;
     return TRoundedContainer(
       child: Form(
         key: controller.titleDescriptionFromKey,

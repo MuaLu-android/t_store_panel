@@ -1,7 +1,7 @@
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
 
 class ProductVariationModel {
-  final String id;
+  String id;
   String sku;
   Rx<String> image;
   String? description;

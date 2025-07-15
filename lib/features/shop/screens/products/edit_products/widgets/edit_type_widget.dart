@@ -1,16 +1,16 @@
-import 'package:admin_t_store/features/shop/controllers/products/create_product_controller.dart';
+import 'package:admin_t_store/features/shop/controllers/products/edit_product_controller.dart';
 import 'package:admin_t_store/utils/constants/enums.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 
-class ProductTypeWidget extends StatelessWidget {
-  const ProductTypeWidget({super.key});
+class EditProductTypeWidget extends StatelessWidget {
+  const EditProductTypeWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
     // implement build
-    final controller = CreateProductController.instance;
+    final controller = EditProductController.instance;
     return Obx(
       () => Row(
         children: [

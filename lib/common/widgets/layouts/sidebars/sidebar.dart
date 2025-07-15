@@ -93,7 +93,7 @@ class TSizebar extends StatelessWidget {
                     const TMenuTem(
                       route: TRoutes.profile,
                       icon: Iconsax.user,
-                      itemName: 'Prifile',
+                      itemName: 'Profile',
                     ),
                     const TMenuTem(
                       route: TRoutes.settings,

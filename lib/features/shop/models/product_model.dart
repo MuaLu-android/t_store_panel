@@ -1,5 +1,6 @@
 import 'package:admin_t_store/features/shop/models/product_attribute_model.dart';
 import 'package:admin_t_store/features/shop/models/product_variation_model.dart';
+import 'package:admin_t_store/utils/formatters/formatter.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'brand_model.dart';
@@ -16,11 +17,10 @@ class ProductModel {
   bool? isFeatured;
   BrandModel? brand;
   String? description;
-  String? categoryId;
   List<String>? images;
   String productType;
   int soldQuantity;
-  List<ProductAttributeModel>? productAttributeModel;
+  List<ProductAttributeModel>? productAttribute;
   List<ProductVariationModel>? productVariations;
 
   ProductModel({
@@ -37,11 +37,11 @@ class ProductModel {
     this.images,
     this.salePrices = 0.0,
     this.isFeatured,
-    this.categoryId,
     this.description,
-    this.productAttributeModel,
+    this.productAttribute,
     this.productVariations,
   });
+  String get formattedDate => TFormatter.formatDate(date);
 
   /// Create Empty func for clean code
   static ProductModel empty() => ProductModel(
@@ -60,17 +60,21 @@ class ProductModel {
       'SKU': sku,
       'Stock': stock,
       'Price': price,
-      'Image': images,
+      'Image': images ?? [],
       'Thumbnail': thumbnail,
       'SalePrice': salePrices,
       'IsFeatured': isFeatured,
-      'CategoryId': categoryId,
       'Brand': brand!.toJson(),
       'Description': description,
       'ProductType': productType,
       'SoldQuantity': soldQuantity,
-      'ProductAttributeModel': productAttributeModel,
-      'ProductVariations': productVariations,
+      'ProductAttributes': productAttribute != null
+          ? productAttribute!.map((item) => item.toJson()).toList()
+          : [],
+      'ProductVariations': productVariations != null
+          ? productVariations!.map((item) => item.toJson()).toList()
+          : [],
+      'Data': date,
     };
   }
 
@@ -86,14 +90,13 @@ class ProductModel {
         title: data['Title'] ?? '',
         stock: data['Stock'] ?? 0,
         price: double.parse((data['Price'] ?? 0.0).toString()),
-        salePrices: double.parse((data['SalePrices'] ?? 0.0).toString()),
+        salePrices: double.parse((data['SalePrice'] ?? 0.0).toString()),
         thumbnail: data['Thumbnail'] ?? '',
-        categoryId: data['CategoryId'] ?? '',
         description: data['Description'] ?? '',
         productType: data['ProductType'] ?? '',
         brand: BrandModel.formJson(data['Brand']),
-        images: data['Images'] != null ? List<String>.from(data['Images']) : [],
-        productAttributeModel: (data['ProductAttributeModel'] as List<dynamic>)
+        images: data['Image'] != null ? List<String>.from(data['Image']) : [],
+        productAttribute: (data['ProductAttributes'] as List<dynamic>)
             .map((e) => ProductAttributeModel.fromJson(e))
             .toList(),
         productVariations: (data['ProductVariations'] as List<dynamic>)
@@ -103,6 +106,7 @@ class ProductModel {
             ? data['SoldQuantity'] ?? 0
             : 0,
         isFeatured: data['IsFeatured'] ?? false,
+        date: data['Date'] ?? DateTime.now(),
       );
     } else {
       return ProductModel.empty();
@@ -119,21 +123,24 @@ class ProductModel {
         sku: data['SKU'] ?? '',
         title: data['Title'] ?? '',
         stock: data['Stock'] ?? 0,
+        soldQuantity: data.containsKey('SoldQuantity')
+            ? data['SoldQuantity'] ?? 0
+            : 0,
         price: double.parse((data['Price'] ?? 0.0).toString()),
-        salePrices: double.parse((data['SalePrices'] ?? 0.0).toString()),
+        salePrices: double.parse((data['SalePrice'] ?? 0.0).toString()),
         thumbnail: data['Thumbnail'] ?? '',
-        categoryId: data['CategoryId'] ?? '',
         description: data['Description'] ?? '',
         productType: data['ProductType'] ?? '',
         brand: BrandModel.formJson(data['Brand']),
-        images: data['Images'] != null ? List<String>.from(data['Images']) : [],
-        productAttributeModel: (data['ProductAttributeModel'] as List<dynamic>)
+        images: data['Image'] != null ? List<String>.from(data['Image']) : [],
+        productAttribute: (data['ProductAttributes'] as List<dynamic>)
             .map((e) => ProductAttributeModel.fromJson(e))
             .toList(),
         productVariations: (data['ProductVariations'] as List<dynamic>)
             .map((e) => ProductVariationModel.fromJson(e))
             .toList(),
         isFeatured: data['IsFeatured'] ?? false,
+        date: data['Date'] ?? DateTime.now(),
       );
     } else {
       return ProductModel.empty();

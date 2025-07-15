@@ -1,5 +1,6 @@
 import 'package:admin_t_store/features/media/controllers/media_controllet.dart';
 import 'package:admin_t_store/features/media/models/image_modle.dart';
+import 'package:admin_t_store/features/shop/models/product_variation_model.dart';
 import 'package:get/get.dart';
 
 class ProductImagesController extends GetxController {
@@ -21,6 +22,19 @@ class ProductImagesController extends GetxController {
       ImageModel selectedImage = selectedImages.first;
       // Update the mian image using the selectedImage
       selectedThubnailImageUrl.value = selectedImage.url;
+    }
+  }
+
+  // Pick Thumbnail Image from Media
+  void selectedVariationsImage(ProductVariationModel variations) async {
+    final controller = Get.put(MediaController());
+    List<ImageModel>? selectedImages = await controller.selectImageFromMedia();
+    // handle the selected images
+    if (selectedImages != null && selectedImages.isNotEmpty) {
+      // Set the selected image to the main iage or perform any other action
+      ImageModel selectedImage = selectedImages.first;
+      // Update the mian image using the selectedImage
+      variations.image.value = selectedImage.url;
     }
   }
 

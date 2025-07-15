@@ -50,5 +50,6 @@ class TRoutes {
     coupons,
     createCategory,
     createBrand,
+    editProduct,
   ];
 }

@@ -1,6 +1,6 @@
 import 'package:admin_t_store/common/widgets/custom_shapes/container/rounded_container.dart';
 import 'package:admin_t_store/common/widgets/images/t_rounded_image.dart';
-import 'package:admin_t_store/features/shop/controllers/products/create_product_controller.dart';
+import 'package:admin_t_store/features/shop/controllers/products/edit_product_controller.dart';
 import 'package:admin_t_store/features/shop/controllers/products/product_attribute_controller.dart';
 import 'package:admin_t_store/features/shop/controllers/products/products_variation_controller.dart';
 import 'package:admin_t_store/utils/constants/colors.dart';
@@ -13,13 +13,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
-class ProductAttributes extends StatelessWidget {
-  const ProductAttributes({super.key});
+class EditProductAttributes extends StatelessWidget {
+  const EditProductAttributes({super.key});
 
   @override
   Widget build(BuildContext context) {
     // implement build
-    final controller = CreateProductController.instance;
+    final controller = EditProductController.instance;
     final attributeController = Get.put(ProductAttributeController());
     final variationController = Get.put(ProductVariationController());
     return Column(

@@ -1,4 +1,9 @@
+import 'package:admin_t_store/common/widgets/layouts/templates/site_layouts.dart';
+import 'package:admin_t_store/features/shop/controllers/products/edit_product_controller.dart';
+import 'package:admin_t_store/features/shop/screens/products/edit_products/reponsive_screen/edit_product_desktop.dart';
 import 'package:flutter/material.dart';
+import 'package:get/instance_manager.dart';
+import 'package:get/route_manager.dart';
 
 class EditProductsScreen extends StatelessWidget {
   const EditProductsScreen({super.key});
@@ -6,6 +11,9 @@ class EditProductsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //implement build
-    throw UnimplementedError();
+    final controller = Get.put(EditProductController());
+    final product = Get.arguments;
+    controller.initProductData(product);
+    return TSizeTemplate(desktop: EditProductDesktop(product: product));
   }
 }

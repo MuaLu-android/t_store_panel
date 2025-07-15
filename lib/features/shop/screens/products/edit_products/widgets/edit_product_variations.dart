@@ -1,6 +1,5 @@
 import 'package:admin_t_store/common/widgets/custom_shapes/container/rounded_container.dart';
 import 'package:admin_t_store/common/widgets/images/t_rounded_image.dart';
-import 'package:admin_t_store/features/shop/controllers/products/create_product_controller.dart';
 import 'package:admin_t_store/features/shop/controllers/products/edit_product_controller.dart';
 import 'package:admin_t_store/features/shop/controllers/products/product_images_controller.dart';
 import 'package:admin_t_store/features/shop/controllers/products/products_variation_controller.dart';
@@ -14,13 +13,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/state_manager.dart';
 
-class ProductVariations extends StatelessWidget {
-  const ProductVariations({super.key});
+class EditProductVariations extends StatelessWidget {
+  const EditProductVariations({super.key});
   @override
   Widget build(BuildContext context) {
     // implement build
     final controller = ProductVariationController.instance;
-    final creteProductCotroller = CreateProductController.instance;
+    final creteProductCotroller = EditProductController.instance;
     return Obx(
       () => creteProductCotroller.productType.value == ProductType.variable
           ? TRoundedContainer(
@@ -127,7 +126,9 @@ class ProductVariations extends StatelessWidget {
               child: TextFormField(
                 onChanged: (value) => variations.price = double.parse(value),
                 controller: controller.priceControllerList[index][variations],
-                keyboardType: TextInputType.numberWithOptions(decimal: true),
+                keyboardType: const TextInputType.numberWithOptions(
+                  decimal: true,
+                ),
                 inputFormatters: <TextInputFormatter>[
                   FilteringTextInputFormatter.allow(RegExp(r'^\d+\.?\d{0,2}$')),
                 ],
@@ -152,7 +153,7 @@ class ProductVariations extends StatelessWidget {
                 ],
                 decoration: const InputDecoration(
                   labelText: 'Discounted Price',
-                  hintText: 'Price with up-to 2 decimals',
+                  hintText: 'Discounted Price',
                 ),
               ),
             ),

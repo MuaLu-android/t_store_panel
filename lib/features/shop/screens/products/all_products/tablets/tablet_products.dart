@@ -23,6 +23,8 @@ class TabletProductsScreen extends StatelessWidget {
         child: Text(controller.selectedRows.length.toString()),
       );
       return TPaginateDataTable(
+        sortAscending: controller.sortAscending.value,
+        sortColumnIndex: controller.sortColumnIndex.value,
         minWith: 1000,
         columns: [
           DataColumn2(

@@ -92,7 +92,7 @@ class ProductController extends TBaseController<ProductModel> {
   // Calulate Product Stock
   String getProductStockTotal(ProductModel product) {
     return product.productType == ProductType.single.toString()
-        ? product.soldQuantity.toString()
+        ? product.stock.toString()
         : product.productVariations!
               .fold<int>(
                 0,
