@@ -14,7 +14,7 @@ class BannersForm extends DataTableSource {
   final controller = BannerController.instance;
   @override
   DataRow? getRow(int index) {
-    final banner = controller.fillteredItems[index];
+    final banner = controller.filteredItems[index];
     return DataRow2(
       selected: controller.selectedRows[index],
       onTap: () => Get.toNamed(TRoutes.editBanner, arguments: banner),
@@ -53,7 +53,7 @@ class BannersForm extends DataTableSource {
   bool get isRowCountApproximate => false;
 
   @override
-  int get rowCount => controller.fillteredItems.length;
+  int get rowCount => controller.filteredItems.length;
 
   @override
   int get selectedRowCount => 0;

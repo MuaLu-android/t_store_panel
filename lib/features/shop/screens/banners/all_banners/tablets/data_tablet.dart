@@ -13,7 +13,7 @@ class BannerTablets extends StatelessWidget {
     // implement build
     final controller = BannerController.instance;
     return Obx(() {
-      Text(controller.fillteredItems.length.toString());
+      Text(controller.filteredItems.length.toString());
       Text(controller.selectedRows.length.toString());
       return TPaginateDataTable(
         sortAscending: controller.sortAscending.value,

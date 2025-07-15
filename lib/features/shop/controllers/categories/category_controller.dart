@@ -24,7 +24,7 @@ class CategoryController extends TBaseController<CategoryModel> {
 
   // sort by name
   void sortByName(int sortColumnIndex, bool ascending) {
-    sort(
+    sortByProperty(
       sortColumnIndex,
       ascending,
       ((CategoryModel category) => category.name.toLowerCase()),
@@ -33,7 +33,7 @@ class CategoryController extends TBaseController<CategoryModel> {
 
   // sort by ParentName
   void sortByParentName(int sortColumnIndex, bool ascending) {
-    sort(
+    sortByProperty(
       sortColumnIndex,
       ascending,
       ((CategoryModel category) => category.parentId.toLowerCase()),

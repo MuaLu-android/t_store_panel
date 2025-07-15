@@ -10,7 +10,7 @@ abstract class TBaseController<T> extends GetxController {
   RxInt sortColumnIndex = 1.obs;
   RxBool sortAscending = true.obs;
   RxList<T> allItems = <T>[].obs;
-  RxList<T> fillteredItems = <T>[].obs;
+  RxList<T> filteredItems = <T>[].obs;
   RxList<bool> selectedRows = <bool>[].obs;
   final searchTextController = TextEditingController();
   @override
@@ -32,7 +32,7 @@ abstract class TBaseController<T> extends GetxController {
         fetchedItems = await fetchItems();
       }
       allItems.assignAll(fetchedItems);
-      fillteredItems.assignAll(allItems);
+      filteredItems.assignAll(allItems);
       selectedRows.assignAll(List.generate(allItems.length, (_) => false));
       isLoading.value = false;
     } catch (e) {
@@ -44,10 +44,10 @@ abstract class TBaseController<T> extends GetxController {
   }
 
   // Sort by parentName
-  void sort(int columnIndex, bool ascending, Function(T) property) {
+  void sortByProperty(int columnIndex, bool ascending, Function(T) property) {
     sortColumnIndex.value = columnIndex;
     sortAscending.value = ascending;
-    fillteredItems.sort((a, b) {
+    filteredItems.sort((a, b) {
       if (ascending) {
         return property(a).compareTo(property(b));
       } else {
@@ -58,7 +58,7 @@ abstract class TBaseController<T> extends GetxController {
 
   // Search
   void searchQuery(String query) {
-    fillteredItems.assignAll(
+    filteredItems.assignAll(
       allItems.where((item) => containsSearchQuery(item, query)),
     );
   }
@@ -129,25 +129,25 @@ abstract class TBaseController<T> extends GetxController {
   /// Method for removing an item from the lists
   void removeItemFromLists(T item) {
     allItems.remove(item);
-    fillteredItems.remove(item);
+    filteredItems.remove(item);
     selectedRows.assignAll(List.generate(allItems.length, (index) => false));
     update();
   }
 
   void addItemToList(T item) {
     allItems.add(item);
-    fillteredItems.add(item);
+    filteredItems.add(item);
     selectedRows.assignAll(List.generate(allItems.length, (index) => false));
-    fillteredItems.refresh();
+    filteredItems.refresh();
   }
 
   // update Category to Data List
   void updateItemFormList(T item) {
     final itemIndex = allItems.indexWhere((i) => i == item);
-    final filteredItemIndex = fillteredItems.indexWhere((i) => i == item);
+    final filteredItemIndex = filteredItems.indexWhere((i) => i == item);
     if (itemIndex != -1) allItems[itemIndex] = item;
-    if (filteredItemIndex != -1) fillteredItems[itemIndex] = item;
-    fillteredItems.refresh();
+    if (filteredItemIndex != -1) filteredItems[itemIndex] = item;
+    filteredItems.refresh();
   }
 
   /// Abtrach method to be implemented by subclasses for checking if an item contains the search query

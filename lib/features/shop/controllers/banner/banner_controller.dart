@@ -31,7 +31,7 @@ class BannerController extends TBaseController<BannerModel> {
 
   // sort by name
   void sortByParentRout(int sortColumnIndex, bool ascending) {
-    sort(
+    sortByProperty(
       sortColumnIndex,
       ascending,
       ((BannerModel item) => item.targetScreen.toLowerCase()),

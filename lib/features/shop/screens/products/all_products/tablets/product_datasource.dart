@@ -15,7 +15,7 @@ class ProductDatasource extends DataTableSource {
   final controller = ProductController.instace;
   @override
   DataRow? getRow(int index) {
-    final product = controller.fillteredItems[index];
+    final product = controller.filteredItems[index];
     return DataRow2(
       selected: controller.selectedRows[index],
       onTap: () => Get.toNamed(TRoutes.editProduct, arguments: product),
@@ -93,7 +93,7 @@ class ProductDatasource extends DataTableSource {
   bool get isRowCountApproximate => false;
 
   @override
-  int get rowCount => controller.fillteredItems.length;
+  int get rowCount => controller.filteredItems.length;
 
   @override
   int get selectedRowCount =>

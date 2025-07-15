@@ -3,6 +3,7 @@ import 'package:admin_t_store/common/widgets/images/t_rounded_image.dart';
 import 'package:admin_t_store/features/shop/models/order_model.dart';
 import 'package:admin_t_store/utils/constants/colors.dart';
 import 'package:admin_t_store/utils/constants/enums.dart';
+import 'package:admin_t_store/utils/constants/image_strings.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:admin_t_store/utils/devices/device_utility.dart';
 import 'package:admin_t_store/utils/helpers/pricing_calculator.dart';
@@ -14,7 +15,11 @@ class OrderItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // implement build
-    final subTotal = orderModel.totalAmount;
+    final subTotal = orderModel.items.fold(
+      0.0,
+      (previousValue, element) =>
+          previousValue + (element.price * element.quantity),
+    );
     return TRoundedContainer(
       padding: const EdgeInsets.all(TSizes.defaultSpace),
       child: Column(
@@ -25,13 +30,13 @@ class OrderItems extends StatelessWidget {
           //Itmes
           ListView.separated(
             shrinkWrap: true,
-            itemCount: 3,
+            itemCount: orderModel.items.length,
 
             physics: const NeverScrollableScrollPhysics(),
             separatorBuilder: (_, __) =>
                 const SizedBox(height: TSizes.spaceBtwItems),
             itemBuilder: (_, index) {
-              final item = 3;
+              final item = orderModel.items[index];
               return Row(
                 children: [
                   Expanded(
@@ -39,8 +44,10 @@ class OrderItems extends StatelessWidget {
                       children: [
                         TRoundedImage(
                           backgroundColor: TColors.primaryBackground,
-                          imageType: ImageType.asset,
-                          imageUrl: orderModel.docId,
+                          imageType: item.image != null
+                              ? ImageType.network
+                              : ImageType.asset,
+                          imageUrl: item.image ?? TImages.defaultImage,
                         ),
                         const SizedBox(width: TSizes.spaceBtwItems),
                         Expanded(
@@ -48,12 +55,20 @@ class OrderItems extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'Item.title',
+                                item.title,
                                 style: Theme.of(context).textTheme.titleMedium,
                                 overflow: TextOverflow.ellipsis,
                                 maxLines: 1,
                               ),
-                              if (true) Text('item.selectedVarations!'),
+                              if (item.selectedVariation != null)
+                                Text(
+                                  item.selectedVariation!.entries
+                                      .map(
+                                        (item) =>
+                                            ('${item.key} : ${item.value}'),
+                                      )
+                                      .toString(),
+                                ),
                             ],
                           ),
                         ),

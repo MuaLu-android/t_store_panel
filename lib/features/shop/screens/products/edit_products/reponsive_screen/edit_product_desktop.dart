@@ -4,7 +4,6 @@ import 'package:admin_t_store/features/shop/controllers/products/product_images_
 import 'package:admin_t_store/features/shop/models/product_model.dart';
 import 'package:admin_t_store/features/shop/screens/products/create_products/widgets/product_additional_images.dart';
 import 'package:admin_t_store/features/shop/screens/products/create_products/widgets/product_thumbnail_image.dart';
-import 'package:admin_t_store/features/shop/screens/products/create_products/widgets/product_variations.dart';
 import 'package:admin_t_store/features/shop/screens/products/create_products/widgets/product_visibility_widgets.dart';
 import 'package:admin_t_store/features/shop/screens/products/edit_products/widgets/edit_attributes.dart';
 import 'package:admin_t_store/features/shop/screens/products/edit_products/widgets/edit_bottom_navigation_button.dart';

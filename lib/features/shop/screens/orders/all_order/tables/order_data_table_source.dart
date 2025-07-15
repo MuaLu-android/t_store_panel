@@ -1,5 +1,6 @@
 import 'package:admin_t_store/common/widgets/custom_shapes/container/rounded_container.dart';
 import 'package:admin_t_store/features/shop/controllers/dashboard/dashboard_controller.dart';
+import 'package:admin_t_store/features/shop/controllers/order/oder_controller.dart';
 import 'package:admin_t_store/features/shop/screens/category/all_categories/widgets/tablet_action_button.dart';
 import 'package:admin_t_store/route/route.dart';
 import 'package:admin_t_store/utils/constants/colors.dart';
@@ -8,15 +9,21 @@ import 'package:admin_t_store/utils/helpers/helper_functions.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_rx/src/rx_typedefs/rx_typedefs.dart';
 
 class OrderDataTableSource extends DataTableSource {
+  final controller = OrderController.instance;
   @override
   DataRow? getRow(int index) {
-    final orders = DashboardController.orders[index];
+    final orders = controller.filteredItems[index];
     return DataRow2(
-      onTap: () => Get.toNamed(TRoutes.detailsOrders, arguments: orders),
-      selected: false,
-      onSelectChanged: (value) {},
+      onTap: () => Get.toNamed(
+        TRoutes.detailsOrders,
+        arguments: orders,
+        parameters: {'orderId': orders.id},
+      ),
+      selected: controller.selectedRows[index],
+      onSelectChanged: (value) => controller.selectedRows[index] == value,
       cells: [
         DataCell(
           Text(
@@ -27,7 +34,7 @@ class OrderDataTableSource extends DataTableSource {
           ),
         ),
         DataCell(Text(orders.formattedOrderDate)),
-        DataCell(Text('5 Items')),
+        DataCell(Text('${orders.items.length} Items')),
         DataCell(
           TRoundedContainer(
             radius: TSizes.cardRadiusSm,
@@ -51,9 +58,12 @@ class OrderDataTableSource extends DataTableSource {
           TTabletActionButtons(
             view: true,
             edit: false,
-            onViewPressed: () =>
-                Get.toNamed(TRoutes.detailsOrders, arguments: orders),
-            onDeletePressed: () {},
+            onViewPressed: () => Get.toNamed(
+              TRoutes.detailsOrders,
+              arguments: orders,
+              parameters: {'orderId': orders.id},
+            ),
+            onDeletePressed: () => controller.confirmAndDeleteItem(orders),
           ),
         ),
       ],
@@ -64,8 +74,9 @@ class OrderDataTableSource extends DataTableSource {
   bool get isRowCountApproximate => false;
 
   @override
-  int get rowCount => DashboardController.orders.length;
+  int get rowCount => controller.selectedRows.length;
 
   @override
-  int get selectedRowCount => 0;
+  int get selectedRowCount =>
+      controller.selectedRows.where((item) => item).length;
 }

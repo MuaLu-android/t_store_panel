@@ -17,6 +17,9 @@ class CustomerDataTableSource extends DataTableSource {
       status: OrderStatus.shipped,
       totalAmount: 235.5,
       orderDate: DateTime.now(),
+      items: [],
+      shippingCost: 34,
+      taxCost: 45,
     );
     final totleAmount = '2567.4';
     return DataRow2(

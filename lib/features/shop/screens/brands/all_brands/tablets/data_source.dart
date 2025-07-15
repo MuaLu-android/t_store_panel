@@ -15,7 +15,7 @@ class BrandsRows extends DataTableSource {
   final controller = BrandController.instance;
   @override
   DataRow? getRow(int index) {
-    final brand = controller.fillteredItems[index];
+    final brand = controller.filteredItems[index];
     return DataRow2(
       selected: controller.selectedRows[index],
       onSelectChanged: (value) =>
@@ -100,7 +100,7 @@ class BrandsRows extends DataTableSource {
   bool get isRowCountApproximate => false;
 
   @override
-  int get rowCount => controller.fillteredItems.length;
+  int get rowCount => controller.filteredItems.length;
 
   @override
   int get selectedRowCount => 0;

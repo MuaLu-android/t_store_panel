@@ -1,5 +1,5 @@
 import 'package:admin_t_store/data/repositories/authentication/authentication_repository.dart';
-import 'package:admin_t_store/data/repositories/users/user_model.dart';
+import 'package:admin_t_store/features/shop/models/user_model.dart';
 import 'package:admin_t_store/data/repositories/users/user_repository.dart';
 import 'package:admin_t_store/features/authentication/controllers/user_controller.dart';
 import 'package:admin_t_store/utils/constants/enums.dart';

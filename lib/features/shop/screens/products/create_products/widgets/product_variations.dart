@@ -1,7 +1,6 @@
 import 'package:admin_t_store/common/widgets/custom_shapes/container/rounded_container.dart';
 import 'package:admin_t_store/common/widgets/images/t_rounded_image.dart';
 import 'package:admin_t_store/features/shop/controllers/products/create_product_controller.dart';
-import 'package:admin_t_store/features/shop/controllers/products/edit_product_controller.dart';
 import 'package:admin_t_store/features/shop/controllers/products/product_images_controller.dart';
 import 'package:admin_t_store/features/shop/controllers/products/products_variation_controller.dart';
 import 'package:admin_t_store/features/shop/models/product_variation_model.dart';

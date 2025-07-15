@@ -46,7 +46,7 @@ class BrandController extends TBaseController<BrandModel> {
 
   // sort bay name
   void sortByName(int sortColumnIndex, bool ascending) {
-    sort(
+    sortByProperty(
       sortColumnIndex,
       ascending,
       ((BrandModel item) => item.name.toLowerCase()),

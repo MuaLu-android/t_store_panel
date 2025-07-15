@@ -16,7 +16,7 @@ class TabletProductsScreen extends StatelessWidget {
     return Obx(() {
       Visibility(
         visible: false,
-        child: Text(controller.fillteredItems.length.toString()),
+        child: Text(controller.filteredItems.length.toString()),
       );
       Visibility(
         visible: false,

@@ -13,9 +13,9 @@ class BrandTable extends StatelessWidget {
     // implement build
     final controller = Get.put(BrandController());
     return Obx(() {
-      Text(controller.fillteredItems.length.toString());
+      Text(controller.filteredItems.length.toString());
       Text(controller.selectedRows.length.toString());
-      final lgTable = controller.fillteredItems.any(
+      final lgTable = controller.filteredItems.any(
         (element) =>
             element.brandCategories != null &&
             element.brandCategories!.length > 2,

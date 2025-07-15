@@ -52,7 +52,7 @@ class OrderDetailsDesktop extends StatelessWidget {
                   child: Column(
                     children: [
                       // Customer Info
-                      OrderCustomer(),
+                      OrderCustomer(orders: orderModel),
                       const SizedBox(height: TSizes.spaceBtwSections),
                     ],
                   ),

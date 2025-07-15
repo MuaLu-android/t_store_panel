@@ -1,6 +1,6 @@
 import 'package:admin_t_store/common/widgets/custom_shapes/container/rounded_container.dart';
 import 'package:admin_t_store/common/widgets/images/t_rounded_image.dart';
-import 'package:admin_t_store/data/repositories/users/user_model.dart';
+import 'package:admin_t_store/features/shop/models/user_model.dart';
 import 'package:admin_t_store/utils/constants/colors.dart';
 import 'package:admin_t_store/utils/constants/enums.dart';
 import 'package:admin_t_store/utils/constants/image_strings.dart';

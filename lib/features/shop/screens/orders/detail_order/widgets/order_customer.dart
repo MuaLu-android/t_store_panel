@@ -1,17 +1,23 @@
 import 'package:admin_t_store/common/widgets/custom_shapes/container/rounded_container.dart';
 import 'package:admin_t_store/common/widgets/images/t_rounded_image.dart';
+import 'package:admin_t_store/features/shop/controllers/order/order_detail_controller.dart';
+import 'package:admin_t_store/features/shop/models/order_model.dart';
 import 'package:admin_t_store/utils/constants/colors.dart';
 import 'package:admin_t_store/utils/constants/enums.dart';
 import 'package:admin_t_store/utils/constants/image_strings.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class OrderCustomer extends StatelessWidget {
-  const OrderCustomer({super.key});
-
+  const OrderCustomer({super.key, required this.orders});
+  final OrderModel orders;
   @override
   Widget build(BuildContext context) {
     // implement build
+    final controller = Get.put(OrderDetailController());
+    controller.order.value = orders;
+    controller.getCustomerOfCurrentOrder();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -28,11 +34,15 @@ class OrderCustomer extends StatelessWidget {
               const SizedBox(height: TSizes.spaceBtwSections),
               Row(
                 children: [
-                  const TRoundedImage(
+                  TRoundedImage(
                     padding: 0,
                     backgroundColor: TColors.primaryBackground,
-                    imageUrl: TImages.user,
-                    imageType: ImageType.asset,
+                    imageUrl: controller.users.value.profilePicture.isEmpty
+                        ? controller.users.value.profilePicture
+                        : TImages.user,
+                    imageType: controller.users.value.profilePicture.isEmpty
+                        ? ImageType.network
+                        : ImageType.asset,
                   ),
                   const SizedBox(width: TSizes.spaceBtwItems),
                   Column(
@@ -40,13 +50,13 @@ class OrderCustomer extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        'Coding with T',
+                        controller.users.value.fullName,
                         style: Theme.of(context).textTheme.titleLarge,
                         overflow: TextOverflow.ellipsis,
                         maxLines: 1,
                       ),
-                      const Text(
-                        'support@codingwitht.com',
+                      Text(
+                        controller.users.value.email,
                         overflow: TextOverflow.ellipsis,
                         maxLines: 1,
                       ),
@@ -72,17 +82,19 @@ class OrderCustomer extends StatelessWidget {
                 ),
                 const SizedBox(height: TSizes.spaceBtwSections),
                 Text(
-                  'Coding with t',
+                  controller.users.value.fullName,
                   style: Theme.of(context).textTheme.titleSmall,
                 ),
                 const SizedBox(height: TSizes.spaceBtwItems / 2),
                 Text(
-                  'support@codingwitht.com',
+                  controller.users.value.email,
                   style: Theme.of(context).textTheme.titleSmall,
                 ),
                 const SizedBox(height: TSizes.spaceBtwItems / 2),
                 Text(
-                  '(+44) *** ****',
+                  controller.users.value.formattedPhoneNumber.isNotEmpty
+                      ? controller.users.value.formattedPhoneNumber
+                      : '(+44) *** ****',
                   style: Theme.of(context).textTheme.titleSmall,
                 ),
                 const SizedBox(height: TSizes.spaceBtwItems / 2),

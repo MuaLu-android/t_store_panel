@@ -1,4 +1,4 @@
-import 'package:admin_t_store/data/repositories/users/user_model.dart';
+import 'package:admin_t_store/features/shop/models/user_model.dart';
 import 'package:admin_t_store/data/repositories/users/user_repository.dart';
 import 'package:admin_t_store/utils/popups/loaders.dart';
 import 'package:get/get.dart';

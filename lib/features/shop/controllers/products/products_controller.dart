@@ -27,7 +27,7 @@ class ProductController extends TBaseController<ProductModel> {
 
   // sort bay name
   void sortByName(int sortColumnIndex, bool ascending) {
-    sort(
+    sortByProperty(
       sortColumnIndex,
       ascending,
       ((ProductModel item) => item.title.toLowerCase()),
@@ -36,17 +36,25 @@ class ProductController extends TBaseController<ProductModel> {
 
   // sort bay name
   void sortByPrice(int sortColumnIndex, bool ascending) {
-    sort(sortColumnIndex, ascending, ((ProductModel item) => item.price));
+    sortByProperty(
+      sortColumnIndex,
+      ascending,
+      ((ProductModel item) => item.price),
+    );
   }
 
   // sort bay name
   void sortByTock(int sortColumnIndex, bool ascending) {
-    sort(sortColumnIndex, ascending, ((ProductModel item) => item.stock));
+    sortByProperty(
+      sortColumnIndex,
+      ascending,
+      ((ProductModel item) => item.stock),
+    );
   }
 
   // sort bay name
   void sortBySoldItem(int sortColumnIndex, bool ascending) {
-    sort(
+    sortByProperty(
       sortColumnIndex,
       ascending,
       ((ProductModel item) => item.soldQuantity),
