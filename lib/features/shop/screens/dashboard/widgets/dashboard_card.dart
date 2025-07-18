@@ -1,4 +1,5 @@
 import 'package:admin_t_store/common/widgets/custom_shapes/container/rounded_container.dart';
+import 'package:admin_t_store/common/widgets/icons/t_circular_icon.dart';
 import 'package:admin_t_store/common/widgets/texts/section_heading.dart';
 import 'package:admin_t_store/utils/constants/colors.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
@@ -14,10 +15,15 @@ class TDashbosrCard extends StatelessWidget {
     this.color = TColors.success,
     required this.stas,
     this.onTap,
+    required this.context,
+    required this.headingIcons,
+    required this.headingIconColors,
+    required this.headingIconBgColor,
   });
+  final BuildContext context;
   final String title, subtitle;
-  final IconData icon;
-  final Color color;
+  final IconData icon, headingIcons;
+  final Color color, headingIconColors, headingIconBgColor;
   final int stas;
   final void Function()? onTap;
   @override
@@ -29,10 +35,21 @@ class TDashbosrCard extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           /// Heading
-          TSectionHeading(
-            title: title,
-            textColor: TColors.textSecondary,
-            showActionButton: false,
+          Row(
+            children: [
+              TCircularIcon(
+                icon: headingIcons,
+                backgroundColor: headingIconBgColor,
+                color: headingIconColors,
+                size: TSizes.md,
+              ),
+              const SizedBox(width: TSizes.spaceBtwItems),
+              TSectionHeading(
+                title: title,
+                textColor: TColors.textSecondary,
+                showActionButton: false,
+              ),
+            ],
           ),
           const SizedBox(height: TSizes.spaceBtwSections),
 

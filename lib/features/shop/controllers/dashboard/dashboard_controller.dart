@@ -1,38 +1,36 @@
+import 'package:admin_t_store/data/abstract/base_data_table_controller.dart';
+import 'package:admin_t_store/features/shop/controllers/customer/customer_controller.dart';
+import 'package:admin_t_store/features/shop/controllers/order/oder_controller.dart';
 import 'package:admin_t_store/features/shop/models/order_model.dart';
 import 'package:admin_t_store/utils/constants/enums.dart';
 import 'package:admin_t_store/utils/helpers/helper_functions.dart';
 import 'package:get/get.dart';
 
-class DashboardController extends GetxController {
+class DashboardController extends TBaseController<OrderModel> {
   static DashboardController get instance => Get.find();
   final RxList<double> weeklySales = <double>[].obs;
   /* Tao json lay so luong va tong tien don hang theo trang thai: co khoa va trang thai don hang
   Bien bat dong bo, khong bat buoc cap nhat ui khi bien thay doi */
   final RxMap<OrderStatus, int> orderStatusData = <OrderStatus, int>{}.obs;
   final RxMap<OrderStatus, double> totalAmounts = <OrderStatus, double>{}.obs;
+  final orderController = OrderController.instance;
+  final customerContrller = Get.put(CustomerController());
   // Order
-  static final List<OrderModel> orders = [
-    OrderModel(
-      id: 'CWT0012',
-      status: OrderStatus.processing,
-      totalAmount: 265,
-      orderDate: DateTime(2025, 7, 2),
-      deliveryDate: DateTime(2025, 7, 2),
-      items: [],
-      shippingCost: 45,
-      taxCost: 34,
-    ),
-    OrderModel(
-      id: 'CWT0025',
-      status: OrderStatus.shipped,
-      totalAmount: 369,
-      orderDate: DateTime(2025, 7, 2),
-      deliveryDate: DateTime(2025, 7, 2),
-      items: [],
-      shippingCost: 45,
-      taxCost: 34,
-    ),
-  ];
+  @override
+  Future<List<OrderModel>> fetchItems() async {
+    if (orderController.allItems.isEmpty) {
+      await orderController.fetchItems();
+    }
+    if (customerContrller.allItems.isEmpty) {
+      await customerContrller.fetchItems();
+    }
+
+    _calulateWeeklySales();
+
+    _calulateOrderStatusData();
+    return orderController.allItems;
+  }
+
   @override
   void onInit() {
     // Bat cu khi nao phien ban nay dc tao, ham se tu dong chay
@@ -45,7 +43,7 @@ class DashboardController extends GetxController {
   void _calulateWeeklySales() {
     // Reset weeklySales to zeros
     weeklySales.value = List<double>.filled(7, 0.0);
-    for (var order in orders) {
+    for (var order in orderController.allItems) {
       final DateTime orderWeekStart = THelperFunctions.getStartOfWeek(
         order.orderDate,
       );
@@ -67,7 +65,7 @@ class DashboardController extends GetxController {
     /* Map to store total amounts for each status (Them danh sach trong cho cac so tien) 
     => ban do se luu so tien cho tung trang thai. Khoi tao la 0.0 */
     totalAmounts.value = {for (var status in OrderStatus.values) status: 0.0};
-    for (var order in orders) {
+    for (var order in orderController.allItems) {
       // Tong tien theo trang thai
       final status = order.status;
       // Cap nhat so luong don hang bang khoa trang thai
@@ -91,4 +89,12 @@ class DashboardController extends GetxController {
         return 'Cancelled';
     }
   }
+
+  @override
+  bool containsSearchQuery(OrderModel item, String query) {
+    return false;
+  }
+
+  @override
+  Future<void> deleteItem(OrderModel item) async {}
 }

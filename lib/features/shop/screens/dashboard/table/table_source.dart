@@ -10,9 +10,10 @@ import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:get/get_utils/get_utils.dart';
 
 class OrderRows extends DataTableSource {
+  final controller = DashboardController.instance;
   @override
   DataRow? getRow(int index) {
-    final orders = DashboardController.orders[index];
+    final orders = controller.filteredItems[index];
     return DataRow2(
       cells: [
         DataCell(
@@ -53,8 +54,9 @@ class OrderRows extends DataTableSource {
 
   @override
   // chieu dai don hang
-  int get rowCount => DashboardController.orders.length;
+  int get rowCount => controller.filteredItems.length;
 
   @override
-  int get selectedRowCount => 0;
+  int get selectedRowCount =>
+      controller.selectedRows.where((item) => item).length;
 }

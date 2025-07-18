@@ -42,9 +42,9 @@ class TWeeklySalesGraph extends StatelessWidget {
                   horizontalInterval: 200,
                 ),
                 /*
-                                    Nhom thanh hien thi du lieu. Dung asMap de anh xa, entries de lay mot muc
-                                    nhap rieng le tai thoi diem. 
-                                    */
+                  Nhom thanh hien thi du lieu. Dung asMap de anh xa, entries de lay mot muc
+                  nhap rieng le tai thoi diem. 
+                  */
                 barGroups: controller.weeklySales
                     .asMap()
                     .entries
