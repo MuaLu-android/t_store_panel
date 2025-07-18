@@ -36,8 +36,8 @@ class OrderModel {
     this.deliveryDate,
     this.billingAddressSameAsShipping = true,
   });
-
-  String get formattedOrderDate => THelperFunctions.getFormattedDate(orderDate);
+  String formattedOrderDate([String? locale]) =>
+      THelperFunctions.getFormattedDate(orderDate, locale: locale);
 
   String get formattedDeliveryDate => deliveryDate != null
       ? THelperFunctions.getFormattedDate(deliveryDate!)

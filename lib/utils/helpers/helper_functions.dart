@@ -148,8 +148,9 @@ class THelperFunctions {
   static String getFormattedDate(
     DateTime date, {
     String format = 'dd MMM yyyy',
+    String? locale,
   }) {
-    return DateFormat(format).format(date);
+    return DateFormat(format, locale).format(date);
   }
 
   static List<T> removeDuplicates<T>(List<T> list) {

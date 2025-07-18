@@ -1,6 +1,7 @@
 import 'package:admin_t_store/common/widgets/custom_shapes/container/rounded_container.dart';
 import 'package:admin_t_store/common/widgets/images/t_rounded_image.dart';
 import 'package:admin_t_store/features/shop/models/order_model.dart';
+import 'package:admin_t_store/l10n/app_localizations.dart';
 import 'package:admin_t_store/utils/constants/enums.dart';
 import 'package:admin_t_store/utils/constants/image_strings.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
@@ -14,6 +15,7 @@ class OrderTransactions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // implement build
+    final local = AppLocalizations.of(context)!;
     return TRoundedContainer(
       padding: const EdgeInsets.all(TSizes.defaultSpace),
       child: Column(
@@ -64,7 +66,7 @@ class OrderTransactions extends StatelessWidget {
                       style: Theme.of(context).textTheme.labelMedium,
                     ),
                     Text(
-                      orders.formattedOrderDate,
+                      orders.formattedOrderDate(local.localeName),
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                   ],

@@ -2,6 +2,7 @@ import 'package:admin_t_store/common/widgets/custom_shapes/container/rounded_con
 import 'package:admin_t_store/common/widgets/shimmer/shimmer.dart';
 import 'package:admin_t_store/features/shop/controllers/order/oder_controller.dart';
 import 'package:admin_t_store/features/shop/models/order_model.dart';
+import 'package:admin_t_store/l10n/app_localizations.dart';
 import 'package:admin_t_store/utils/constants/enums.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:admin_t_store/utils/devices/device_utility.dart';
@@ -16,6 +17,7 @@ class OrderInfoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // implement build
+    final local = AppLocalizations.of(context)!;
     final controller = OrderController.instance;
     controller.orderStatus.value = orderModel.status;
     return TRoundedContainer(
@@ -36,7 +38,7 @@ class OrderInfoScreen extends StatelessWidget {
                   children: [
                     const Text('Date'),
                     Text(
-                      orderModel.formattedOrderDate,
+                      orderModel.formattedOrderDate(local.localeName),
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                   ],

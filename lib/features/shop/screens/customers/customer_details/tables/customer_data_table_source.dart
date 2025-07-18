@@ -1,5 +1,6 @@
 import 'package:admin_t_store/common/widgets/custom_shapes/container/rounded_container.dart';
 import 'package:admin_t_store/features/shop/controllers/customer/customer_details_controller.dart';
+import 'package:admin_t_store/l10n/app_localizations.dart';
 import 'package:admin_t_store/route/route.dart';
 import 'package:admin_t_store/utils/constants/colors.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
@@ -12,6 +13,7 @@ class CustomerDataTableSource extends DataTableSource {
   final controller = CustomerDetailController.instance;
   @override
   DataRow? getRow(int index) {
+    final local = AppLocalizations.of(Get.context!)!;
     final order = controller.filteredCustomerOrders[index];
     final totleamount = order.items.fold<double>(
       0,
@@ -33,7 +35,7 @@ class CustomerDataTableSource extends DataTableSource {
             ).textTheme.bodyLarge!.apply(color: TColors.primary),
           ),
         ),
-        DataCell(Text(order.formattedOrderDate)),
+        DataCell(Text(order.formattedOrderDate(local.localeName))),
         DataCell(Text('${order.items.length} Items')),
         DataCell(
           TRoundedContainer(

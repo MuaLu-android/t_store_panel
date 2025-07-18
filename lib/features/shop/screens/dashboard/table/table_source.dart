@@ -1,19 +1,20 @@
 import 'package:admin_t_store/common/widgets/custom_shapes/container/rounded_container.dart';
 import 'package:admin_t_store/features/shop/controllers/order/oder_controller.dart';
+import 'package:admin_t_store/l10n/app_localizations.dart';
 import 'package:admin_t_store/route/route.dart';
 import 'package:admin_t_store/utils/constants/colors.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:admin_t_store/utils/helpers/helper_functions.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/src/extension_navigation.dart';
+import 'package:get/get.dart';
 
 class OrderRows extends DataTableSource {
   final controller = OrderController.instance;
   @override
   DataRow? getRow(int index) {
     final orders = controller.filteredItems[index];
+    final local = AppLocalizations.of(Get.context!)!;
     return DataRow2(
       onTap: () => Get.toNamed(
         TRoutes.detailsOrders,
@@ -32,8 +33,8 @@ class OrderRows extends DataTableSource {
             ).textTheme.bodyLarge!.apply(color: TColors.primary),
           ),
         ),
-        DataCell(Text(orders.formattedOrderDate)),
-        DataCell(Text('\$${orders.items.length} Items')),
+        DataCell(Text(orders.formattedOrderDate(local.localeName))),
+        DataCell(Text('${orders.items.length} ${local.orderItems}')),
         DataCell(
           TRoundedContainer(
             radius: TSizes.cardRadiusSm,
