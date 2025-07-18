@@ -6,8 +6,6 @@ import 'package:admin_t_store/features/shop/screens/dashboard/widgets/week_sales
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:iconsax/iconsax.dart';
 
 class DashboardTabletScreen extends StatelessWidget {

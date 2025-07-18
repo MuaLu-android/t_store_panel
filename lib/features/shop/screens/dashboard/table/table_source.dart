@@ -1,5 +1,6 @@
 import 'package:admin_t_store/common/widgets/custom_shapes/container/rounded_container.dart';
-import 'package:admin_t_store/features/shop/controllers/dashboard/dashboard_controller.dart';
+import 'package:admin_t_store/features/shop/controllers/order/oder_controller.dart';
+import 'package:admin_t_store/route/route.dart';
 import 'package:admin_t_store/utils/constants/colors.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:admin_t_store/utils/helpers/helper_functions.dart';
@@ -10,11 +11,15 @@ import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:get/get_utils/get_utils.dart';
 
 class OrderRows extends DataTableSource {
-  final controller = DashboardController.instance;
+  final controller = OrderController.instance;
   @override
   DataRow? getRow(int index) {
     final orders = controller.filteredItems[index];
     return DataRow2(
+      onTap: () => Get.toNamed(TRoutes.detailsOrders, arguments: orders),
+      selected: controller.selectedRows[index],
+      onSelectChanged: (value) =>
+          controller.selectedRows[index] = value ?? false,
       cells: [
         DataCell(
           Text(
@@ -25,7 +30,7 @@ class OrderRows extends DataTableSource {
           ),
         ),
         DataCell(Text(orders.formattedOrderDate)),
-        DataCell(Text('5 Items')),
+        DataCell(Text('\$${orders.items.length} Items')),
         DataCell(
           TRoundedContainer(
             radius: TSizes.cardRadiusSm,
@@ -35,7 +40,7 @@ class OrderRows extends DataTableSource {
             ),
             backgroundColor: THelperFunctions.getOrderStatusColor(
               orders.status,
-            ).withAlpha(128),
+            ).withAlpha(100),
             child: Text(
               orders.status.name.capitalize.toString(),
               style: TextStyle(

@@ -1,4 +1,6 @@
 import 'package:admin_t_store/common/widgets/custom_shapes/container/rounded_container.dart';
+import 'package:admin_t_store/common/widgets/icons/t_circular_icon.dart';
+import 'package:admin_t_store/common/widgets/layouts/templates/loader_animation.dart';
 import 'package:admin_t_store/features/shop/controllers/dashboard/dashboard_controller.dart';
 import 'package:admin_t_store/utils/constants/colors.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
@@ -6,6 +8,7 @@ import 'package:admin_t_store/utils/devices/device_utility.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
 
 class TWeeklySalesGraph extends StatelessWidget {
   const TWeeklySalesGraph({super.key});
@@ -18,71 +21,95 @@ class TWeeklySalesGraph extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'Weekly Sales',
-            style: Theme.of(context).textTheme.headlineSmall,
+          Row(
+            children: [
+              TCircularIcon(
+                icon: Iconsax.wallet,
+                backgroundColor: Colors.blueAccent.withAlpha(100),
+                color: Colors.blueAccent,
+                size: TSizes.md,
+              ),
+              const SizedBox(width: TSizes.spaceBtwItems),
+              Text(
+                'Weekly Sales',
+                style: Theme.of(context).textTheme.headlineSmall,
+              ),
+            ],
           ),
           const SizedBox(height: TSizes.spaceBtwSections),
           // Graph
-          SizedBox(
-            height: 400,
-            // Bieu do thanh
-            child: BarChart(
-              // Bieu do du lieu
-              BarChartData(
-                titlesData: buildFlTitlesData(),
-                borderData: FlBorderData(
-                  show: true,
-                  border: Border(top: BorderSide.none, right: BorderSide.none),
-                ),
-                gridData: const FlGridData(
-                  show: true,
-                  drawHorizontalLine: true,
-                  drawVerticalLine: true,
-                  horizontalInterval: 200,
-                ),
-                /*
-                  Nhom thanh hien thi du lieu. Dung asMap de anh xa, entries de lay mot muc
-                  nhap rieng le tai thoi diem. 
-                  */
-                barGroups: controller.weeklySales
-                    .asMap()
-                    .entries
-                    .map(
-                      // nhap muc cho moi thanh du lieu
-                      (entry) => BarChartGroupData(
-                        x: entry.key,
-                        barRods: [
-                          BarChartRodData(
-                            width: 30,
-                            toY: entry.value,
-                            color: TColors.primary,
-                            borderRadius: BorderRadius.circular(TSizes.sm),
+          Obx(
+            () => controller.weeklySales.isNotEmpty
+                ? SizedBox(
+                    height: 400,
+                    // Bieu do thanh
+                    child: BarChart(
+                      // Bieu do du lieu
+                      BarChartData(
+                        titlesData: buildFlTitlesData(controller.weeklySales),
+                        borderData: FlBorderData(
+                          show: true,
+                          border: Border(
+                            top: BorderSide.none,
+                            right: BorderSide.none,
                           ),
-                        ],
+                        ),
+                        gridData: const FlGridData(
+                          show: true,
+                          drawHorizontalLine: true,
+                          drawVerticalLine: true,
+                          horizontalInterval: 200,
+                        ),
+                        barGroups: controller.weeklySales
+                            .asMap()
+                            .entries
+                            .map(
+                              // nhap muc cho moi thanh du lieu
+                              (entry) => BarChartGroupData(
+                                x: entry.key,
+                                barRods: [
+                                  BarChartRodData(
+                                    width: 30,
+                                    toY: entry.value,
+                                    color: TColors.primary,
+                                    borderRadius: BorderRadius.circular(
+                                      TSizes.sm,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            )
+                            .toList(),
+                        // Khoang cach du cac thanh
+                        groupsSpace: TSizes.spaceBtwItems,
+                        // Co the tuong tac voi du lieu va hien thi
+                        barTouchData: BarTouchData(
+                          touchTooltipData: BarTouchTooltipData(
+                            getTooltipColor: (_) => TColors.secondary,
+                          ),
+                          touchCallback: TDeviceUtils.isDesktopScreen(context)
+                              ? (barTouchEvent, barTouchResponse) {}
+                              : null,
+                        ),
                       ),
-                    )
-                    .toList(),
-                // Khoang cach du cac thanh
-                groupsSpace: TSizes.spaceBtwItems,
-                // Co the tuong tac voi du lieu va hien thi
-                barTouchData: BarTouchData(
-                  touchTooltipData: BarTouchTooltipData(
-                    getTooltipColor: (_) => TColors.secondary,
+                    ),
+                  )
+                : const SizedBox(
+                    height: 400,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [TLoaderAnimation()],
+                    ),
                   ),
-                  touchCallback: TDeviceUtils.isDesktopScreen(context)
-                      ? (barTouchEvent, barTouchResponse) {}
-                      : null,
-                ),
-              ),
-            ),
           ),
         ],
       ),
     );
   }
 
-  FlTitlesData buildFlTitlesData() {
+  FlTitlesData buildFlTitlesData(List<double> weeklySales) {
+    double maxOrder = weeklySales.reduce((a, b) => a > b ? a : b).toDouble();
+    double stepHeight = (maxOrder / 10).ceilToDouble();
     return FlTitlesData(
       show: true,
       bottomTitles: AxisTitles(
@@ -100,10 +127,10 @@ class TWeeklySalesGraph extends StatelessWidget {
           },
         ),
       ),
-      leftTitles: const AxisTitles(
+      leftTitles: AxisTitles(
         sideTitles: SideTitles(
           showTitles: true,
-          interval: 200,
+          interval: stepHeight <= 0 ? 500 : stepHeight,
           reservedSize: 50,
         ),
       ),

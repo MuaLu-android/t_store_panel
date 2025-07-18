@@ -42,7 +42,7 @@ class OrderRows extends DataTableSource {
             ),
             backgroundColor: THelperFunctions.getOrderStatusColor(
               orders.status,
-            ).withAlpha(128),
+            ).withAlpha(100),
             child: Text(
               orders.status.name.capitalize.toString(),
               style: TextStyle(

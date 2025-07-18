@@ -1,10 +1,14 @@
 import 'package:admin_t_store/common/widgets/custom_shapes/container/circular_container.dart';
 import 'package:admin_t_store/common/widgets/custom_shapes/container/rounded_container.dart';
+import 'package:admin_t_store/common/widgets/icons/t_circular_icon.dart';
+import 'package:admin_t_store/common/widgets/layouts/templates/loader_animation.dart';
 import 'package:admin_t_store/features/shop/controllers/dashboard/dashboard_controller.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:admin_t_store/utils/helpers/helper_functions.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
+import 'package:iconsax/iconsax.dart';
 
 class OrderStatusPiechart extends StatelessWidget {
   const OrderStatusPiechart({super.key});
@@ -19,82 +23,108 @@ class OrderStatusPiechart extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'Order Status',
-            style: Theme.of(context).textTheme.headlineSmall,
+          Row(
+            children: [
+              TCircularIcon(
+                icon: Iconsax.status,
+                backgroundColor: Colors.amber.withAlpha(100),
+                color: Colors.amber,
+                size: TSizes.md,
+              ),
+              const SizedBox(width: TSizes.spaceBtwItems),
+              Text(
+                'Order Status',
+                style: Theme.of(context).textTheme.headlineSmall,
+              ),
+            ],
           ),
           const SizedBox(height: TSizes.spaceBtwItems),
           // Graph
-          SizedBox(
-            height: 400,
-            child: PieChart(
-              // Bieu do du lieu trang thai hinh tron
-              PieChartData(
-                sections: controller.orderStatusData.entries.map((entry) {
-                  final status = entry.key;
-                  final count = entry.value;
-                  return PieChartSectionData(
-                    title: count.toString(),
-                    value: count.toDouble(),
-                    radius: 100,
-                    color: THelperFunctions.getOrderStatusColor(status),
-                    titleStyle: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
+          Obx(
+            () => controller.orderStatusData.isNotEmpty
+                ? SizedBox(
+                    height: 400,
+                    child: PieChart(
+                      // Bieu do du lieu trang thai hinh tron
+                      PieChartData(
+                        sections: controller.orderStatusData.entries.map((
+                          entry,
+                        ) {
+                          final status = entry.key;
+                          final count = entry.value;
+                          return PieChartSectionData(
+                            title: count.toString(),
+                            value: count.toDouble(),
+                            radius: 100,
+                            color: THelperFunctions.getOrderStatusColor(status),
+                            titleStyle: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          );
+                        }).toList(), // chuyển Map.entries thanh mot List
+                        pieTouchData: PieTouchData(
+                          touchCallback:
+                              (FlTouchEvent event, pieTouchResponse) {},
+                          enabled: true,
+                        ),
+                      ),
                     ),
-                  );
-                }).toList(), // chuyển Map.entries thanh mot List
-                pieTouchData: PieTouchData(
-                  touchCallback: (FlTouchEvent event, pieTouchResponse) {},
-                  enabled: true,
-                ),
-              ),
-            ),
+                  )
+                : const SizedBox(
+                    height: 400,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [TLoaderAnimation()],
+                    ),
+                  ),
           ),
           // Show status and Color Meta
           SizedBox(
             width: double.infinity,
-            child: DataTable(
-              columns: const [
-                DataColumn(label: Text('Status')),
-                DataColumn(label: Text('Orders')),
-                DataColumn(label: Text('Total')),
-              ],
-              rows: controller.orderStatusData.entries.map((entry) {
-                final status = entry.key;
-                final count = entry.value;
-                final totalAmount = controller.totalAmounts[status] ?? 0;
-                return DataRow(
-                  cells: [
-                    DataCell(
-                      Row(
-                        children: [
-                          TCircularContainer(
-                            width: 20,
-                            height: 20,
-                            backgroundColor:
-                                THelperFunctions.getOrderStatusColor(status),
-                          ),
-                          Flexible(
-                            child: Text(
-                              ' ${controller.getDisplayStatusName(status)}',
-                              overflow: TextOverflow.ellipsis,
+            child: Obx(
+              () => DataTable(
+                columns: const [
+                  DataColumn(label: Text('Status')),
+                  DataColumn(label: Text('Orders')),
+                  DataColumn(label: Text('Total')),
+                ],
+                rows: controller.orderStatusData.entries.map((entry) {
+                  final status = entry.key;
+                  final count = entry.value;
+                  final totalAmount = controller.totalAmounts[status] ?? 0;
+                  return DataRow(
+                    cells: [
+                      DataCell(
+                        Row(
+                          children: [
+                            TCircularContainer(
+                              width: 20,
+                              height: 20,
+                              backgroundColor:
+                                  THelperFunctions.getOrderStatusColor(status),
                             ),
-                          ),
-                        ],
+                            Flexible(
+                              child: Text(
+                                ' ${controller.getDisplayStatusName(status)}',
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                    DataCell(Text(' $count')),
-                    DataCell(
-                      Text(
-                        ' \$${totalAmount.toStringAsFixed(2)}',
-                        overflow: TextOverflow.ellipsis,
+                      DataCell(Text(' $count')),
+                      DataCell(
+                        Text(
+                          ' \$${totalAmount.toStringAsFixed(2)}',
+                          overflow: TextOverflow.ellipsis,
+                        ),
                       ),
-                    ),
-                  ],
-                );
-              }).toList(),
+                    ],
+                  );
+                }).toList(),
+              ),
             ),
           ),
         ],

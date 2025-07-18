@@ -1,7 +1,9 @@
 import 'package:admin_t_store/common/widgets/custom_shapes/container/rounded_container.dart';
+import 'package:admin_t_store/common/widgets/icons/t_circular_icon.dart';
 import 'package:admin_t_store/features/shop/screens/dashboard/table/data_table.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 
 class TRecentOrderScreen extends StatelessWidget {
   const TRecentOrderScreen({super.key});
@@ -12,9 +14,20 @@ class TRecentOrderScreen extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'Recent Orders',
-            style: Theme.of(context).textTheme.headlineSmall,
+          Row(
+            children: [
+              TCircularIcon(
+                icon: Iconsax.receipt_discount,
+                backgroundColor: Colors.green.withAlpha(100),
+                color: Colors.green,
+                size: TSizes.md,
+              ),
+              const SizedBox(width: TSizes.spaceBtwItems),
+              Text(
+                'Recent Orders',
+                style: Theme.of(context).textTheme.headlineSmall,
+              ),
+            ],
           ),
           const SizedBox(height: TSizes.spaceBtwItems),
           const DashboardOrderTable(),
