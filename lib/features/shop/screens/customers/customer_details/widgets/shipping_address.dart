@@ -1,6 +1,10 @@
 import 'package:admin_t_store/common/widgets/custom_shapes/container/rounded_container.dart';
+import 'package:admin_t_store/common/widgets/layouts/templates/loader_animation.dart';
+import 'package:admin_t_store/features/shop/controllers/customer/customer_details_controller.dart';
+import 'package:admin_t_store/features/shop/models/address_model.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ShippingAddress extends StatelessWidget {
   const ShippingAddress({super.key});
@@ -8,77 +12,89 @@ class ShippingAddress extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // implement build
-    return TRoundedContainer(
-      padding: const EdgeInsets.all(TSizes.defaultSpace),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'Shipping Address',
-            style: Theme.of(context).textTheme.headlineMedium,
-          ),
-          const SizedBox(height: TSizes.spaceBtwSections),
-          // Meta data
-          Row(
-            children: [
-              const SizedBox(width: 120, child: Text('Name')),
-              const Text(':'),
-              const SizedBox(width: TSizes.spaceBtwItems / 2),
-              Expanded(
-                child: Text(
-                  'Coding with T',
-                  style: Theme.of(context).textTheme.titleMedium,
+    final controller = CustomerDetailController.instance;
+    controller.getCustomerAddresses();
+    return Obx(() {
+      if (controller.addressesLoading.value) return const TLoaderAnimation();
+      AddressModel selectedAddress = AddressModel.empty();
+      if (controller.customer.value.addresses != null) {
+        if (controller.customer.value.addresses!.isNotEmpty) {
+          selectedAddress = controller.customer.value.addresses!
+              .where((element) => element.selectedAddress)
+              .single;
+        }
+      }
+      return TRoundedContainer(
+        padding: const EdgeInsets.all(TSizes.defaultSpace),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('Address', style: Theme.of(context).textTheme.headlineMedium),
+            const SizedBox(height: TSizes.spaceBtwSections),
+            // Meta data
+            Row(
+              children: [
+                const SizedBox(width: 120, child: Text('Name')),
+                const Text(':'),
+                const SizedBox(width: TSizes.spaceBtwItems / 2),
+                Expanded(
+                  child: Text(
+                    selectedAddress.name,
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
                 ),
-              ),
-            ],
-          ),
-          const SizedBox(height: TSizes.spaceBtwSections),
-          // Meta data
-          Row(
-            children: [
-              const SizedBox(width: 120, child: Text('Country')),
-              const Text(':'),
-              const SizedBox(width: TSizes.spaceBtwItems / 2),
-              Expanded(
-                child: Text(
-                  'Coding with T',
-                  style: Theme.of(context).textTheme.titleMedium,
+              ],
+            ),
+            const SizedBox(height: TSizes.spaceBtwSections),
+            // Meta data
+            Row(
+              children: [
+                const SizedBox(width: 120, child: Text('Country')),
+                const Text(':'),
+                const SizedBox(width: TSizes.spaceBtwItems / 2),
+                Expanded(
+                  child: Text(
+                    selectedAddress.country,
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
                 ),
-              ),
-            ],
-          ),
-          const SizedBox(height: TSizes.spaceBtwSections),
-          // Meta data
-          Row(
-            children: [
-              const SizedBox(width: 120, child: Text('Phone Number')),
-              const Text(':'),
-              const SizedBox(width: TSizes.spaceBtwItems / 2),
-              Expanded(
-                child: Text(
-                  'Coding with T',
-                  style: Theme.of(context).textTheme.titleMedium,
+              ],
+            ),
+            const SizedBox(height: TSizes.spaceBtwSections),
+            // Meta data
+            Row(
+              children: [
+                const SizedBox(width: 120, child: Text('Phone Number')),
+                const Text(':'),
+                const SizedBox(width: TSizes.spaceBtwItems / 2),
+                Expanded(
+                  child: Text(
+                    selectedAddress.phoneNumber,
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
                 ),
-              ),
-            ],
-          ),
-          const SizedBox(height: TSizes.spaceBtwSections),
-          // Meta data
-          Row(
-            children: [
-              const SizedBox(width: 120, child: Text('Address')),
-              const Text(':'),
-              const SizedBox(width: TSizes.spaceBtwItems / 2),
-              Expanded(
-                child: Text(
-                  '61 Bride Street, KingTon, Viet Nam',
-                  style: Theme.of(context).textTheme.titleMedium,
+              ],
+            ),
+            const SizedBox(height: TSizes.spaceBtwSections),
+            // Meta data
+            Row(
+              children: [
+                const SizedBox(width: 120, child: Text('Address')),
+                const Text(':'),
+                const SizedBox(width: TSizes.spaceBtwItems / 2),
+                Expanded(
+                  child: Text(
+                    selectedAddress.id.isNotEmpty
+                        ? selectedAddress.toString()
+                        : '...',
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
                 ),
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
+              ],
+            ),
+          ],
+        ),
+      );
+    });
   }
 }

@@ -44,7 +44,7 @@ class TSizebar extends StatelessWidget {
                     child: Obx(
                       () => Text(
                         controller.settings.value.appName,
-                        style: Theme.of(context).textTheme.headlineLarge,
+                        style: Theme.of(context).textTheme.headlineMedium,
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),

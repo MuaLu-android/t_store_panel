@@ -14,7 +14,7 @@ class OrderDesktopScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // implement build
-    final controller = Get.put(OrderController());
+    final controller = OrderController.instance;
     return Scaffold(
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(TSizes.defaultSpace),

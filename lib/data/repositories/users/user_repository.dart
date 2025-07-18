@@ -1,4 +1,5 @@
 import 'package:admin_t_store/data/repositories/authentication/authentication_repository.dart';
+import 'package:admin_t_store/features/shop/models/order_model.dart';
 import 'package:admin_t_store/features/shop/models/user_model.dart';
 import 'package:admin_t_store/utils/exceptions/firebase_auth_exceptions.dart';
 import 'package:admin_t_store/utils/exceptions/format_exceptions.dart';
@@ -16,6 +17,26 @@ class UserRepository extends GetxController {
   Future<void> createUser(UserModel user) async {
     try {
       await _db.collection('Users').doc(user.id).set(user.toJson());
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FormatException catch (_) {
+      throw TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again';
+    }
+  }
+
+  Future<List<UserModel>> fetchAllUser() async {
+    try {
+      final docSnapsnot = await _db
+          .collection('Users')
+          .orderBy('FirstName')
+          .get();
+      return docSnapsnot.docs
+          .map((doc) => UserModel.fromSnapshot(doc))
+          .toList();
     } on FirebaseAuthException catch (e) {
       throw TFirebaseAuthException(e.code).message;
     } on FormatException catch (_) {
@@ -86,6 +107,40 @@ class UserRepository extends GetxController {
       } else {
         return UserModel.empty();
       }
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FormatException catch (_) {
+      throw TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again';
+    }
+  }
+
+  Future<List<OrderModel>> fetchUserOrders(String userId) async {
+    try {
+      final docSnapsnot = await _db
+          .collection('Orders')
+          .where('userId', isEqualTo: userId)
+          .get();
+      return docSnapsnot.docs
+          .map((item) => OrderModel.fromSnapshot(item))
+          .toList();
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FormatException catch (_) {
+      throw TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong. Please try again';
+    }
+  }
+
+  Future<void> deleteUser(String userId) async {
+    try {
+      await _db.collection('Users').doc(userId).delete();
     } on FirebaseAuthException catch (e) {
       throw TFirebaseAuthException(e.code).message;
     } on FormatException catch (_) {

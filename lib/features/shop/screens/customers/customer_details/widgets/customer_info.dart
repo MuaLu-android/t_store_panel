@@ -16,6 +16,7 @@ class CustomerInfo extends StatelessWidget {
     return TRoundedContainer(
       padding: const EdgeInsets.all(TSizes.defaultSpace),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             'Customer Information',
@@ -25,11 +26,15 @@ class CustomerInfo extends StatelessWidget {
           // Personal Info Card
           Row(
             children: [
-              const TRoundedImage(
+              TRoundedImage(
                 padding: 0,
                 backgroundColor: TColors.primaryBackground,
-                imageUrl: TImages.user,
-                imageType: ImageType.asset,
+                imageUrl: customer.profilePicture.isNotEmpty
+                    ? customer.profilePicture
+                    : TImages.user,
+                imageType: customer.profilePicture.isNotEmpty
+                    ? ImageType.network
+                    : ImageType.asset,
               ),
               const SizedBox(width: TSizes.spaceBtwItems),
               Expanded(
@@ -38,13 +43,13 @@ class CustomerInfo extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Coding With T',
+                      customer.fullName,
                       style: Theme.of(context).textTheme.titleLarge,
                       overflow: TextOverflow.ellipsis,
                       maxLines: 1,
                     ),
                     Text(
-                      'support@codingwitht.com',
+                      customer.email,
                       overflow: TextOverflow.ellipsis,
                       maxLines: 1,
                     ),
@@ -62,7 +67,7 @@ class CustomerInfo extends StatelessWidget {
               const SizedBox(width: TSizes.spaceBtwItems / 2),
               Expanded(
                 child: Text(
-                  'cwt',
+                  customer.username,
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
               ),
@@ -90,7 +95,7 @@ class CustomerInfo extends StatelessWidget {
               const SizedBox(width: TSizes.spaceBtwItems / 2),
               Expanded(
                 child: Text(
-                  '+44-7456-285429',
+                  customer.formattedPhoneNumber,
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
               ),
@@ -143,7 +148,7 @@ class CustomerInfo extends StatelessWidget {
                       'Registerred',
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
-                    const Text('2025-04-09'),
+                    Text(customer.formattedAtDate),
                   ],
                 ),
               ),
@@ -156,7 +161,7 @@ class CustomerInfo extends StatelessWidget {
                       'Email Marketing',
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
-                    const Text('support@codingwitht.com'),
+                    Text('Subscribed'),
                   ],
                 ),
               ),

@@ -11,6 +11,7 @@ class CustomerDeatilsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // implement build
     final customer = Get.arguments;
+    final customerId = Get.parameters['customerId'];
     return TSizeTemplate(
       desktop: CustomerDetailsDesktopScreen(customer: customer),
       mobile: CustomerDetailsMobileScreen(customer: customer),

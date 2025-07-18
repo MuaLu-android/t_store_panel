@@ -1,4 +1,5 @@
 import 'package:admin_t_store/common/widgets/breadcrumbs/breadcrumb_with_heading.dart';
+import 'package:admin_t_store/features/shop/controllers/customer/customer_details_controller.dart';
 import 'package:admin_t_store/features/shop/models/user_model.dart';
 import 'package:admin_t_store/features/shop/screens/customers/customer_details/widgets/customer_info.dart';
 import 'package:admin_t_store/features/shop/screens/customers/customer_details/widgets/customer_order.dart';
@@ -6,6 +7,7 @@ import 'package:admin_t_store/features/shop/screens/customers/customer_details/w
 import 'package:admin_t_store/route/route.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CustomerDetailsDesktopScreen extends StatelessWidget {
   const CustomerDetailsDesktopScreen({super.key, required this.customer});
@@ -13,6 +15,8 @@ class CustomerDetailsDesktopScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // implement build
+    final controller = Get.put(CustomerDetailController());
+    controller.customer.value = customer;
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
@@ -24,6 +28,7 @@ class CustomerDetailsDesktopScreen extends StatelessWidget {
               TBreadcrumbWithHeading(
                 heading: customer.fullName,
                 breadcrumbItems: [TRoutes.customers, 'Details'],
+                returnToPreviousScreen: true,
               ),
               const SizedBox(height: TSizes.spaceBtwSections),
               Row(
