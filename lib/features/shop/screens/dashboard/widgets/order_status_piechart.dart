@@ -3,6 +3,7 @@ import 'package:admin_t_store/common/widgets/custom_shapes/container/rounded_con
 import 'package:admin_t_store/common/widgets/icons/t_circular_icon.dart';
 import 'package:admin_t_store/common/widgets/layouts/templates/loader_animation.dart';
 import 'package:admin_t_store/features/shop/controllers/dashboard/dashboard_controller.dart';
+import 'package:admin_t_store/l10n/app_localizations.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:admin_t_store/utils/helpers/helper_functions.dart';
 import 'package:fl_chart/fl_chart.dart';
@@ -19,6 +20,7 @@ class OrderStatusPiechart extends StatelessWidget {
     /* quan ly singleton là cách tổ chức controller/service theo singleton, 
     nhưng sử dụng GetX để truy cập dễ dàng và tự động thay vì tự viết quản lý thủ công.*/
     final controller = DashboardController.instance;
+    final local = AppLocalizations.of(context)!;
     return TRoundedContainer(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -33,7 +35,7 @@ class OrderStatusPiechart extends StatelessWidget {
               ),
               const SizedBox(width: TSizes.spaceBtwItems),
               Text(
-                'Order Status',
+                local.orderStatusChart,
                 style: Theme.of(context).textTheme.headlineSmall,
               ),
             ],
@@ -83,47 +85,53 @@ class OrderStatusPiechart extends StatelessWidget {
           // Show status and Color Meta
           SizedBox(
             width: double.infinity,
-            child: Obx(
-              () => DataTable(
-                columns: const [
-                  DataColumn(label: Text('Status')),
-                  DataColumn(label: Text('Orders')),
-                  DataColumn(label: Text('Total')),
-                ],
-                rows: controller.orderStatusData.entries.map((entry) {
-                  final status = entry.key;
-                  final count = entry.value;
-                  final totalAmount = controller.totalAmounts[status] ?? 0;
-                  return DataRow(
-                    cells: [
-                      DataCell(
-                        Row(
-                          children: [
-                            TCircularContainer(
-                              width: 20,
-                              height: 20,
-                              backgroundColor:
-                                  THelperFunctions.getOrderStatusColor(status),
-                            ),
-                            Flexible(
-                              child: Text(
-                                ' ${controller.getDisplayStatusName(status)}',
-                                overflow: TextOverflow.ellipsis,
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Obx(
+                () => DataTable(
+                  columns: [
+                    DataColumn(label: Text(local.orderStatus)),
+                    DataColumn(label: Text(local.orderCount)),
+                    DataColumn(label: Text(local.orderTotal)),
+                  ],
+                  rows: controller.orderStatusData.entries.map((entry) {
+                    final status = entry.key;
+                    final count = entry.value;
+                    final totalAmount = controller.totalAmounts[status] ?? 0;
+                    return DataRow(
+                      cells: [
+                        DataCell(
+                          Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              TCircularContainer(
+                                width: 20,
+                                height: 20,
+                                backgroundColor:
+                                    THelperFunctions.getOrderStatusColor(
+                                      status,
+                                    ),
                               ),
-                            ),
-                          ],
+                              const SizedBox(width: TSizes.xs),
+                              Text(
+                                ' ${THelperFunctions.getStatusText(controller.getDisplayStatusName(status).trim())}',
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 1,
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                      DataCell(Text(' $count')),
-                      DataCell(
-                        Text(
-                          ' \$${totalAmount.toStringAsFixed(2)}',
-                          overflow: TextOverflow.ellipsis,
+                        DataCell(Text(' $count')),
+                        DataCell(
+                          Text(
+                            ' \$${totalAmount.toStringAsFixed(2)}',
+                            overflow: TextOverflow.ellipsis,
+                          ),
                         ),
-                      ),
-                    ],
-                  );
-                }).toList(),
+                      ],
+                    );
+                  }).toList(),
+                ),
               ),
             ),
           ),

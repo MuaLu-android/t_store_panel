@@ -168,7 +168,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get homeAppbarSubTitle => 'Taimoor Sikander';
 
   @override
-  String get menu => 'Menu';
+  String get menu => 'MENU';
 
   @override
   String get other => 'OTHER';
@@ -213,7 +213,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get salesTotal => 'Sales Total';
 
   @override
-  String get averageOrder => 'Average Order';
+  String get averageOrder => 'Average';
 
   @override
   String get totalOrders => 'Total Orders';
@@ -223,4 +223,67 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get comparedTo => 'Compared to Dec 2025';
+
+  @override
+  String get weeklySales => 'Weekly Sales';
+
+  @override
+  String get monday => 'Mon';
+
+  @override
+  String get tuesday => 'Tue';
+
+  @override
+  String get wednesday => 'Wed';
+
+  @override
+  String get thursday => 'Thu';
+
+  @override
+  String get friday => 'Fri';
+
+  @override
+  String get saturday => 'Sat';
+
+  @override
+  String get sunday => 'Sun';
+
+  @override
+  String get recentOrders => 'Recent Orders';
+
+  @override
+  String get orderId => 'Order ID';
+
+  @override
+  String get orderDate => 'Order Date';
+
+  @override
+  String get orderItems => 'Items';
+
+  @override
+  String get orderStatus => 'Status';
+
+  @override
+  String get orderTotal => 'Total';
+
+  @override
+  String get statusPending => 'Pending';
+
+  @override
+  String get statusProcessing => 'Processing';
+
+  @override
+  String get statusShipped => 'Shipped';
+
+  @override
+  String get statusDelivered => 'Delivered';
+
+  @override
+  String get statusCancelled => 'Cancelled';
+
+  @override
+  String get orderStatusChart => 'Order Status';
+
+  @override
+  String get orderCount => 'Orders';
 }

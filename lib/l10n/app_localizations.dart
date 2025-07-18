@@ -416,7 +416,7 @@ abstract class AppLocalizations {
   /// Sidebar menu title
   ///
   /// In en, this message translates to:
-  /// **'Menu'**
+  /// **'MENU'**
   String get menu;
 
   /// Sidebar other section title
@@ -506,7 +506,7 @@ abstract class AppLocalizations {
   /// Title for average order card
   ///
   /// In en, this message translates to:
-  /// **'Average Order'**
+  /// **'Average'**
   String get averageOrder;
 
   /// Title for total orders card
@@ -526,6 +526,132 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Compared to Dec 2025'**
   String get comparedTo;
+
+  /// Title for the weekly sales graph
+  ///
+  /// In en, this message translates to:
+  /// **'Weekly Sales'**
+  String get weeklySales;
+
+  /// Short for Monday
+  ///
+  /// In en, this message translates to:
+  /// **'Mon'**
+  String get monday;
+
+  /// Short for Tuesday
+  ///
+  /// In en, this message translates to:
+  /// **'Tue'**
+  String get tuesday;
+
+  /// Short for Wednesday
+  ///
+  /// In en, this message translates to:
+  /// **'Wed'**
+  String get wednesday;
+
+  /// Short for Thursday
+  ///
+  /// In en, this message translates to:
+  /// **'Thu'**
+  String get thursday;
+
+  /// Short for Friday
+  ///
+  /// In en, this message translates to:
+  /// **'Fri'**
+  String get friday;
+
+  /// Short for Saturday
+  ///
+  /// In en, this message translates to:
+  /// **'Sat'**
+  String get saturday;
+
+  /// Short for Sunday
+  ///
+  /// In en, this message translates to:
+  /// **'Sun'**
+  String get sunday;
+
+  /// Title for recent orders section
+  ///
+  /// In en, this message translates to:
+  /// **'Recent Orders'**
+  String get recentOrders;
+
+  /// Order ID column
+  ///
+  /// In en, this message translates to:
+  /// **'Order ID'**
+  String get orderId;
+
+  /// Order date column
+  ///
+  /// In en, this message translates to:
+  /// **'Order Date'**
+  String get orderDate;
+
+  /// Order items column
+  ///
+  /// In en, this message translates to:
+  /// **'Items'**
+  String get orderItems;
+
+  /// Order status column
+  ///
+  /// In en, this message translates to:
+  /// **'Status'**
+  String get orderStatus;
+
+  /// Order total column
+  ///
+  /// In en, this message translates to:
+  /// **'Total'**
+  String get orderTotal;
+
+  /// Order status: Pending
+  ///
+  /// In en, this message translates to:
+  /// **'Pending'**
+  String get statusPending;
+
+  /// Order status: Processing
+  ///
+  /// In en, this message translates to:
+  /// **'Processing'**
+  String get statusProcessing;
+
+  /// Order status: Shipped
+  ///
+  /// In en, this message translates to:
+  /// **'Shipped'**
+  String get statusShipped;
+
+  /// Order status: Delivered
+  ///
+  /// In en, this message translates to:
+  /// **'Delivered'**
+  String get statusDelivered;
+
+  /// Order status: Cancelled
+  ///
+  /// In en, this message translates to:
+  /// **'Cancelled'**
+  String get statusCancelled;
+
+  /// Title for order status pie chart
+  ///
+  /// In en, this message translates to:
+  /// **'Order Status'**
+  String get orderStatusChart;
+
+  /// Order count column
+  ///
+  /// In en, this message translates to:
+  /// **'Orders'**
+  String get orderCount;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

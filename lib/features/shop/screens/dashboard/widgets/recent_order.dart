@@ -1,6 +1,7 @@
 import 'package:admin_t_store/common/widgets/custom_shapes/container/rounded_container.dart';
 import 'package:admin_t_store/common/widgets/icons/t_circular_icon.dart';
 import 'package:admin_t_store/features/shop/screens/dashboard/table/data_table.dart';
+import 'package:admin_t_store/l10n/app_localizations.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
@@ -10,6 +11,7 @@ class TRecentOrderScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final local = AppLocalizations.of(context)!;
     return TRoundedContainer(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -24,7 +26,7 @@ class TRecentOrderScreen extends StatelessWidget {
               ),
               const SizedBox(width: TSizes.spaceBtwItems),
               Text(
-                'Recent Orders',
+                local.recentOrders,
                 style: Theme.of(context).textTheme.headlineSmall,
               ),
             ],

@@ -212,7 +212,7 @@
     "@homeAppbarSubTitle": {
         "description": "Home app bar subtitle"
     },
-    "menu": "Menu",
+    "menu": "MENU",
     "@menu": {
         "description": "Sidebar menu title"
     },
@@ -287,5 +287,89 @@
     "comparedTo": "Compared to Dec 2025",
     "@comparedTo": {
         "description": "Text for comparison period"
+    },
+    "weeklySales": "Weekly Sales",
+    "@weeklySales": {
+        "description": "Title for the weekly sales graph"
+    },
+    "monday": "Mon",
+    "@monday": {
+        "description": "Short for Monday"
+    },
+    "tuesday": "Tue",
+    "@tuesday": {
+        "description": "Short for Tuesday"
+    },
+    "wednesday": "Wed",
+    "@wednesday": {
+        "description": "Short for Wednesday"
+    },
+    "thursday": "Thu",
+    "@thursday": {
+        "description": "Short for Thursday"
+    },
+    "friday": "Fri",
+    "@friday": {
+        "description": "Short for Friday"
+    },
+    "saturday": "Sat",
+    "@saturday": {
+        "description": "Short for Saturday"
+    },
+    "sunday": "Sun",
+    "@sunday": {
+        "description": "Short for Sunday"
+    },
+    "recentOrders": "Recent Orders",
+    "@recentOrders": {
+        "description": "Title for recent orders section"
+    },
+    "orderId": "Order ID",
+    "@orderId": {
+        "description": "Order ID column"
+    },
+    "orderDate": "Order Date",
+    "@orderDate": {
+        "description": "Order date column"
+    },
+    "orderItems": "Items",
+    "@orderItems": {
+        "description": "Order items column"
+    },
+    "orderStatus": "Status",
+    "@orderStatus": {
+        "description": "Order status column"
+    },
+    "orderTotal": "Total",
+    "@orderTotal": {
+        "description": "Order total column"
+    },
+    "statusPending": "Pending",
+    "@statusPending": {
+        "description": "Order status: Pending"
+    },
+    "statusProcessing": "Processing",
+    "@statusProcessing": {
+        "description": "Order status: Processing"
+    },
+    "statusShipped": "Shipped",
+    "@statusShipped": {
+        "description": "Order status: Shipped"
+    },
+    "statusDelivered": "Delivered",
+    "@statusDelivered": {
+        "description": "Order status: Delivered"
+    },
+    "statusCancelled": "Cancelled",
+    "@statusCancelled": {
+        "description": "Order status: Cancelled"
+    },
+    "orderStatusChart": "Order Status",
+    "@orderStatusChart": {
+        "description": "Title for order status pie chart"
+    },
+    "orderCount": "Orders",
+    "@orderCount": {
+        "description": "Order count column"
     }
 }

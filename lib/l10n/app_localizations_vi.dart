@@ -168,7 +168,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get homeAppbarSubTitle => 'Taimoor Sikander';
 
   @override
-  String get menu => 'Danh mục';
+  String get menu => 'DANH MỤC';
 
   @override
   String get other => 'KHÁC';
@@ -213,7 +213,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get salesTotal => 'Tổng doanh số';
 
   @override
-  String get averageOrder => 'Đơn hàng trung bình';
+  String get averageOrder => 'Trung bình';
 
   @override
   String get totalOrders => 'Tổng số đơn hàng';
@@ -223,4 +223,67 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get comparedTo => 'So với tháng 12/2025';
+
+  @override
+  String get weeklySales => 'Doanh số tuần';
+
+  @override
+  String get monday => 'T2';
+
+  @override
+  String get tuesday => 'T3';
+
+  @override
+  String get wednesday => 'T4';
+
+  @override
+  String get thursday => 'T5';
+
+  @override
+  String get friday => 'T6';
+
+  @override
+  String get saturday => 'T7';
+
+  @override
+  String get sunday => 'CN';
+
+  @override
+  String get recentOrders => 'Đơn hàng gần đây';
+
+  @override
+  String get orderId => 'Mã đơn';
+
+  @override
+  String get orderDate => 'Ngày đặt';
+
+  @override
+  String get orderItems => 'Số lượng';
+
+  @override
+  String get orderStatus => 'Trạng thái';
+
+  @override
+  String get orderTotal => 'Tổng tiền';
+
+  @override
+  String get statusPending => 'Chờ xử lý';
+
+  @override
+  String get statusProcessing => 'Đang xử lý';
+
+  @override
+  String get statusShipped => 'Đã gửi';
+
+  @override
+  String get statusDelivered => 'Đã giao';
+
+  @override
+  String get statusCancelled => 'Đã hủy';
+
+  @override
+  String get orderStatusChart => 'Trạng thái đơn hàng';
+
+  @override
+  String get orderCount => 'Số đơn';
 }

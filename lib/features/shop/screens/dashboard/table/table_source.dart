@@ -8,7 +8,6 @@ import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
-import 'package:get/get_utils/get_utils.dart';
 
 class OrderRows extends DataTableSource {
   final controller = OrderController.instance;
@@ -46,7 +45,7 @@ class OrderRows extends DataTableSource {
               orders.status,
             ).withAlpha(100),
             child: Text(
-              orders.status.name.capitalize.toString(),
+              THelperFunctions.getStatusText(orders.status.name.trim()),
               style: TextStyle(
                 color: THelperFunctions.getOrderStatusColor(orders.status),
               ),

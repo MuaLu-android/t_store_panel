@@ -212,7 +212,7 @@
     "@homeAppbarSubTitle": {
         "description": "Home app bar subtitle"
     },
-    "menu": "Danh mục",
+    "menu": "DANH MỤC",
     "@menu": {
         "description": "Sidebar menu title"
     },
@@ -287,5 +287,89 @@
     "comparedTo": "So với tháng 12/2025",
     "@comparedTo": {
         "description": "Nội dung so sánh kỳ trước"
+    },
+    "weeklySales": "Doanh số tuần",
+    "@weeklySales": {
+        "description": "Tiêu đề cho biểu đồ doanh số tuần"
+    },
+    "monday": "T2",
+    "@monday": {
+        "description": "Viết tắt Thứ Hai"
+    },
+    "tuesday": "T3",
+    "@tuesday": {
+        "description": "Viết tắt Thứ Ba"
+    },
+    "wednesday": "T4",
+    "@wednesday": {
+        "description": "Viết tắt Thứ Tư"
+    },
+    "thursday": "T5",
+    "@thursday": {
+        "description": "Viết tắt Thứ Năm"
+    },
+    "friday": "T6",
+    "@friday": {
+        "description": "Viết tắt Thứ Sáu"
+    },
+    "saturday": "T7",
+    "@saturday": {
+        "description": "Viết tắt Thứ Bảy"
+    },
+    "sunday": "CN",
+    "@sunday": {
+        "description": "Viết tắt Chủ Nhật"
+    },
+    "recentOrders": "Đơn hàng gần đây",
+    "@recentOrders": {
+        "description": "Tiêu đề đơn hàng gần đây"
+    },
+    "orderId": "Mã đơn",
+    "@orderId": {
+        "description": "Cột mã đơn hàng"
+    },
+    "orderDate": "Ngày đặt",
+    "@orderDate": {
+        "description": "Cột ngày đặt hàng"
+    },
+    "orderItems": "Số lượng",
+    "@orderItems": {
+        "description": "Cột số lượng sản phẩm"
+    },
+    "orderStatus": "Trạng thái",
+    "@orderStatus": {
+        "description": "Cột trạng thái đơn hàng"
+    },
+    "orderTotal": "Tổng tiền",
+    "@orderTotal": {
+        "description": "Cột tổng tiền đơn hàng"
+    },
+    "statusPending": "Chờ xử lý",
+    "@statusPending": {
+        "description": "Trạng thái: Chờ xử lý"
+    },
+    "statusProcessing": "Đang xử lý",
+    "@statusProcessing": {
+        "description": "Trạng thái: Đang xử lý"
+    },
+    "statusShipped": "Đã gửi",
+    "@statusShipped": {
+        "description": "Trạng thái: Đã gửi"
+    },
+    "statusDelivered": "Đã giao",
+    "@statusDelivered": {
+        "description": "Trạng thái: Đã giao"
+    },
+    "statusCancelled": "Đã hủy",
+    "@statusCancelled": {
+        "description": "Trạng thái: Đã hủy"
+    },
+    "orderStatusChart": "Trạng thái đơn hàng",
+    "@orderStatusChart": {
+        "description": "Tiêu đề biểu đồ trạng thái đơn hàng"
+    },
+    "orderCount": "Số đơn",
+    "@orderCount": {
+        "description": "Cột số lượng đơn hàng"
     }
 }

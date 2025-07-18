@@ -2,6 +2,7 @@ import 'package:admin_t_store/common/widgets/custom_shapes/container/rounded_con
 import 'package:admin_t_store/common/widgets/icons/t_circular_icon.dart';
 import 'package:admin_t_store/common/widgets/layouts/templates/loader_animation.dart';
 import 'package:admin_t_store/features/shop/controllers/dashboard/dashboard_controller.dart';
+import 'package:admin_t_store/l10n/app_localizations.dart';
 import 'package:admin_t_store/utils/constants/colors.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:admin_t_store/utils/devices/device_utility.dart';
@@ -17,6 +18,7 @@ class TWeeklySalesGraph extends StatelessWidget {
   Widget build(BuildContext context) {
     // implement build
     final controller = Get.put(DashboardController());
+    final local = AppLocalizations.of(context)!;
     return TRoundedContainer(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -31,7 +33,7 @@ class TWeeklySalesGraph extends StatelessWidget {
               ),
               const SizedBox(width: TSizes.spaceBtwItems),
               Text(
-                'Weekly Sales',
+                local.weeklySales,
                 style: Theme.of(context).textTheme.headlineSmall,
               ),
             ],
@@ -46,7 +48,10 @@ class TWeeklySalesGraph extends StatelessWidget {
                     child: BarChart(
                       // Bieu do du lieu
                       BarChartData(
-                        titlesData: buildFlTitlesData(controller.weeklySales),
+                        titlesData: buildFlTitlesData(
+                          controller.weeklySales,
+                          context,
+                        ),
                         borderData: FlBorderData(
                           show: true,
                           border: Border(
@@ -118,9 +123,22 @@ class TWeeklySalesGraph extends StatelessWidget {
     );
   }
 
-  FlTitlesData buildFlTitlesData(List<double> weeklySales) {
+  FlTitlesData buildFlTitlesData(
+    List<double> weeklySales,
+    BuildContext context,
+  ) {
     double maxOrder = weeklySales.reduce((a, b) => a > b ? a : b).toDouble();
     double stepHeight = (maxOrder / 10).ceilToDouble();
+    final localizations = AppLocalizations.of(context)!;
+    final days = [
+      localizations.monday,
+      localizations.tuesday,
+      localizations.wednesday,
+      localizations.thursday,
+      localizations.friday,
+      localizations.saturday,
+      localizations.sunday,
+    ];
     return FlTitlesData(
       show: true,
       bottomTitles: AxisTitles(
@@ -128,8 +146,6 @@ class TWeeklySalesGraph extends StatelessWidget {
           showTitles: true,
           // Hien thi thanh tieu de
           getTitlesWidget: (value, meta) {
-            // Map index to the desired dat of the week
-            final days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
             // Calulate the index and ensure it wraps around for the correct day
             final index = value.toInt() % days.length;
             // Get the day corresponding to the calculated index

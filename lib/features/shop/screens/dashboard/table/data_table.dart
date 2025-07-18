@@ -1,6 +1,7 @@
 import 'package:admin_t_store/common/widgets/data_table/paginated_data_table.dart';
 import 'package:admin_t_store/features/shop/controllers/order/oder_controller.dart';
 import 'package:admin_t_store/features/shop/screens/dashboard/table/table_source.dart';
+import 'package:admin_t_store/l10n/app_localizations.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:admin_t_store/utils/devices/device_utility.dart';
 import 'package:data_table_2/data_table_2.dart';
@@ -12,6 +13,7 @@ class DashboardOrderTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final local = AppLocalizations.of(context)!;
     // implement build
     final controller = OrderController.instance;
     return Obx(() {
@@ -25,17 +27,17 @@ class DashboardOrderTable extends StatelessWidget {
         dataRowHeight: TSizes.xl * 1.2,
         columns: [
           DataColumn2(
-            label: Text('Order ID'),
+            label: Text(local.orderId),
             onSort: (columnIndex, ascending) =>
                 controller.sortById(columnIndex, ascending),
           ),
-          const DataColumn2(label: Text('Date')),
-          const DataColumn2(label: Text('Items')),
+          DataColumn2(label: Text(local.orderDate)),
+          DataColumn2(label: Text(local.orderItems)),
           DataColumn2(
-            label: Text('Status'),
+            label: Text(local.orderStatus),
             fixedWidth: TDeviceUtils.isMobileScreen(context) ? 120 : null,
           ),
-          const DataColumn2(label: Text('Amount')),
+          DataColumn2(label: Text(local.orderTotal)),
         ],
         source: OrderRows(),
       );

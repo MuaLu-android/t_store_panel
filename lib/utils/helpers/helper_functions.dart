@@ -1,3 +1,4 @@
+import 'package:admin_t_store/l10n/app_localizations.dart';
 import 'package:admin_t_store/utils/constants/enums.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -34,6 +35,25 @@ class THelperFunctions {
       return Colors.red;
     } else {
       return Colors.grey;
+    }
+  }
+
+  // Hàm lấy trạng thái đã dịch
+  static String getStatusText(String status) {
+    final local = AppLocalizations.of(Get.context!)!;
+    switch (status.toLowerCase()) {
+      case 'pending':
+        return local.statusPending;
+      case 'processing':
+        return local.statusProcessing;
+      case 'shipped':
+        return local.statusShipped;
+      case 'delivered':
+        return local.statusDelivered;
+      case 'cancelled':
+        return local.statusCancelled;
+      default:
+        return status;
     }
   }
 
