@@ -490,6 +490,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Logout'**
   String get logout;
+
+  /// Title for the dashboard screen
+  ///
+  /// In en, this message translates to:
+  /// **'Dashboard'**
+  String get dashboardTitle;
+
+  /// Title for total sales card
+  ///
+  /// In en, this message translates to:
+  /// **'Sales Total'**
+  String get salesTotal;
+
+  /// Title for average order card
+  ///
+  /// In en, this message translates to:
+  /// **'Average Order'**
+  String get averageOrder;
+
+  /// Title for total orders card
+  ///
+  /// In en, this message translates to:
+  /// **'Total Orders'**
+  String get totalOrders;
+
+  /// Title for visitors card
+  ///
+  /// In en, this message translates to:
+  /// **'Visitors'**
+  String get visitors;
+
+  /// Text for comparison period
+  ///
+  /// In en, this message translates to:
+  /// **'Compared to Dec 2025'**
+  String get comparedTo;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

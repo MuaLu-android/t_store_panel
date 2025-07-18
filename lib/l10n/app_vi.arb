@@ -263,5 +263,29 @@
     "logout": "Đăng xuất",
     "@logout": {
         "description": "Logout menu item"
+    },
+    "dashboardTitle": "Bảng điều khiển",
+    "@dashboardTitle": {
+        "description": "Tiêu đề cho màn hình bảng điều khiển"
+    },
+    "salesTotal": "Tổng doanh số",
+    "@salesTotal": {
+        "description": "Tiêu đề cho thẻ tổng doanh số"
+    },
+    "averageOrder": "Trung bình",
+    "@averageOrder": {
+        "description": "Tiêu đề cho thẻ đơn hàng trung bình"
+    },
+    "totalOrders": "Tổng số đơn hàng",
+    "@totalOrders": {
+        "description": "Tiêu đề cho thẻ tổng số đơn hàng"
+    },
+    "visitors": "Khách truy cập",
+    "@visitors": {
+        "description": "Tiêu đề cho thẻ khách truy cập"
+    },
+    "comparedTo": "So với tháng 12/2025",
+    "@comparedTo": {
+        "description": "Nội dung so sánh kỳ trước"
     }
 }

@@ -3,6 +3,7 @@ import 'package:admin_t_store/features/shop/screens/dashboard/widgets/dashboard_
 import 'package:admin_t_store/features/shop/screens/dashboard/widgets/order_status_piechart.dart';
 import 'package:admin_t_store/features/shop/screens/dashboard/widgets/recent_order.dart';
 import 'package:admin_t_store/features/shop/screens/dashboard/widgets/week_sales.dart';
+import 'package:admin_t_store/l10n/app_localizations.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -14,6 +15,7 @@ class DashboardDesktopScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(DashboardController());
+    final local = AppLocalizations.of(context)!;
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
@@ -23,7 +25,7 @@ class DashboardDesktopScreen extends StatelessWidget {
             children: [
               // Heding
               Text(
-                'Dashboard',
+                local.dashboardTitle,
                 style: Theme.of(context).textTheme.headlineLarge,
               ),
               const SizedBox(height: TSizes.spaceBtwSections),
@@ -37,8 +39,9 @@ class DashboardDesktopScreen extends StatelessWidget {
                         headingIconColors: Colors.blue,
                         headingIconBgColor: Colors.blue.withAlpha(50),
                         context: context,
+                        comparedText: local.comparedTo,
                         stas: 25,
-                        title: 'Sales total',
+                        title: local.salesTotal,
                         subtitle:
                             '\$${controller.orderController.allItems.fold(0.0, (previousValue, element) => previousValue + element.totalAmount).toStringAsFixed(2)}',
                       ),
@@ -52,8 +55,9 @@ class DashboardDesktopScreen extends StatelessWidget {
                         headingIconColors: Colors.green,
                         headingIconBgColor: Colors.green.withAlpha(50),
                         context: context,
+                        comparedText: local.comparedTo,
                         stas: 15,
-                        title: 'Average Order',
+                        title: local.averageOrder,
                         subtitle:
                             '\$${(controller.orderController.allItems.fold(0.0, (previousValue, element) => previousValue + element.totalAmount) / controller.orderController.allItems.length).toStringAsFixed(2)}',
                       ),
@@ -67,8 +71,9 @@ class DashboardDesktopScreen extends StatelessWidget {
                         headingIconColors: Colors.deepPurple,
                         headingIconBgColor: Colors.deepPurple.withAlpha(50),
                         context: context,
+                        comparedText: local.comparedTo,
                         stas: 45,
-                        title: 'Total Oiders',
+                        title: local.totalOrders,
                         subtitle:
                             '\$${controller.orderController.allItems.length}',
                       ),
@@ -83,7 +88,8 @@ class DashboardDesktopScreen extends StatelessWidget {
                         headingIconBgColor: Colors.deepOrange.withAlpha(50),
                         context: context,
                         stas: 2,
-                        title: 'Visitors',
+                        title: local.visitors,
+                        comparedText: local.comparedTo,
                         subtitle:
                             '\$${controller.customerContrller.allItems.length.toString()}',
                       ),
@@ -116,46 +122,6 @@ class DashboardDesktopScreen extends StatelessWidget {
                   Expanded(child: OrderStatusPiechart()),
                 ],
               ),
-              // Search
-              // TextFormField(
-              //   controller: controller.searchTextController,
-              //   onChanged: (query) => controller.searchQuery(query),
-              //   decoration: const InputDecoration(
-              //     hintText: 'Search',
-              //     prefixIcon: Icon(Iconsax.search_normal),
-              //   ),
-              // ),
-              // const SizedBox(height: TSizes.spaceBtwSections),
-
-              // /// Data Table2
-              // Obx(() {
-              //   // Order and selected Rows are hidden => fust to update the ui => Obx => ProductRows
-              //   Visibility(
-              //     visible: false,
-              //     child: Text(controller.filtereddataList.length.toString()),
-              //   );
-              //   return TPaginateDataTable(
-              //     dataRowHeight: 56,
-              //     // Sorting
-              //     sortAscending: controller.sortAscending.value,
-              //     sortColumnIndex: controller.sortColumnIndex.value,
-              //     columns: [
-              //       DataColumn(label: Text('Colunm 1')),
-              //       DataColumn(
-              //         label: Text('Colunm 2'),
-              //         onSort: (columnIndex, ascending) =>
-              //             controller.sortById(columnIndex, ascending),
-              //       ),
-              //       DataColumn(label: Text('Colunm 3')),
-              //       DataColumn(
-              //         label: Text('Colunm 4'),
-              //         onSort: (columnIndex, ascending) =>
-              //             controller.sortById(columnIndex, ascending),
-              //       ),
-              //     ],
-              //     source: MyData(),
-              //   );
-              // }),
             ],
           ),
         ),
@@ -163,92 +129,3 @@ class DashboardDesktopScreen extends StatelessWidget {
     );
   }
 }
-
-// class MyData extends DataTableSource {
-//   final controller = Get.put(DashboardController());
-//   @override
-//   DataRow? getRow(int index) {
-//     final data = controller.filtereddataList[index];
-//     return DataRow2(
-//       onTap: () {},
-//       selected: controller.selectedRows[index],
-//       onSelectChanged: (value) =>
-//           controller.selectedRows[index] = value ?? false,
-//       cells: [
-//         DataCell(Text(data['column1'] ?? '')),
-//         DataCell(Text(data['column2'] ?? '')),
-//         DataCell(Text(data['column3'] ?? '')),
-//         DataCell(Text(data['column4'] ?? '')),
-//       ],
-//     );
-//   }
-
-//   @override
-//   bool get isRowCountApproximate => false;
-
-//   @override
-//   int get rowCount => controller.filtereddataList.length;
-
-//   @override
-//   int get selectedRowCount => 0;
-// }
-
-// class DashboardController extends GetxController {
-//   static DashboardController get instance => Get.find();
-//   var filtereddataList = <Map<String, String>>[].obs;
-//   var dataList = <Map<String, String>>[].obs;
-//   RxList<bool> selectedRows = <bool>[].obs;
-//   RxInt sortColumnIndex =
-//       1.obs; // Observable for traking the index of the column for sorting
-//   RxBool sortAscending = true
-//       .obs; // Observer for tracking the sorting order (ascending or descending)
-//   final searchTextController = TextEditingController();
-//   @override
-//   void onInit() {
-//     super.onInit();
-//     fetchDummyData();
-//     filtereddataList.assignAll(dataList);
-//   }
-
-//   void sortById(int sortColumIndex, bool ascending) {
-//     sortAscending.value = ascending;
-//     filtereddataList.sort((a, b) {
-//       if (ascending) {
-//         return filtereddataList[0]['column1']
-//             .toString()
-//             .toLowerCase()
-//             .compareTo(filtereddataList[0]['column1'].toString().toLowerCase());
-//       } else {
-//         return filtereddataList[0]['column1']
-//             .toString()
-//             .toLowerCase()
-//             .compareTo(filtereddataList[0]['column1'].toString().toLowerCase());
-//       }
-//     });
-//     sortColumnIndex.value = sortColumIndex;
-//   }
-
-//   // search
-//   void searchQuery(String query) {
-//     filtereddataList.assignAll(
-//       dataList.where(
-//         (item) => item['column1']!.trim().contains(query.toLowerCase().trim()),
-//       ),
-//     );
-//   }
-
-//   void fetchDummyData() {
-//     selectedRows.assignAll(List.generate(36, (inedx) => false));
-//     dataList.addAll(
-//       List.generate(
-//         36,
-//         (index) => {
-//           'column1': 'Data ${index + 1}-1',
-//           'column2': 'Data ${index + 1}-2',
-//           'column3': 'Data ${index + 1}-3',
-//           'column4': 'Data ${index + 1}-4',
-//         },
-//       ),
-//     );
-//   }
-// }

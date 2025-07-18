@@ -19,9 +19,10 @@ class TDashbosrCard extends StatelessWidget {
     required this.headingIcons,
     required this.headingIconColors,
     required this.headingIconBgColor,
+    required this.comparedText,
   });
   final BuildContext context;
-  final String title, subtitle;
+  final String title, subtitle, comparedText;
   final IconData icon, headingIcons;
   final Color color, headingIconColors, headingIconBgColor;
   final int stas;
@@ -77,7 +78,7 @@ class TDashbosrCard extends StatelessWidget {
                       ],
                     ),
                     Text(
-                      'Compared to Dec 2025',
+                      comparedText,
                       style: Theme.of(context).textTheme.labelMedium,
                       overflow: TextOverflow.ellipsis,
                     ),

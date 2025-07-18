@@ -205,4 +205,22 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get logout => 'Đăng xuất';
+
+  @override
+  String get dashboardTitle => 'Bảng điều khiển';
+
+  @override
+  String get salesTotal => 'Tổng doanh số';
+
+  @override
+  String get averageOrder => 'Đơn hàng trung bình';
+
+  @override
+  String get totalOrders => 'Tổng số đơn hàng';
+
+  @override
+  String get visitors => 'Khách truy cập';
+
+  @override
+  String get comparedTo => 'So với tháng 12/2025';
 }

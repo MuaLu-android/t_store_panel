@@ -3,6 +3,7 @@ import 'package:admin_t_store/features/shop/screens/dashboard/widgets/dashboard_
 import 'package:admin_t_store/features/shop/screens/dashboard/widgets/order_status_piechart.dart';
 import 'package:admin_t_store/features/shop/screens/dashboard/widgets/recent_order.dart';
 import 'package:admin_t_store/features/shop/screens/dashboard/widgets/week_sales.dart';
+import 'package:admin_t_store/l10n/app_localizations.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -14,6 +15,7 @@ class DashboardTabletScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // implement build
     final controller = Get.put(DashboardController());
+    final local = AppLocalizations.of(context)!;
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
@@ -23,7 +25,7 @@ class DashboardTabletScreen extends StatelessWidget {
             children: [
               // Heding
               Text(
-                'Dashboard',
+                local.dashboardTitle,
                 style: Theme.of(context).textTheme.headlineLarge,
               ),
               const SizedBox(height: TSizes.spaceBtwSections),
@@ -37,8 +39,9 @@ class DashboardTabletScreen extends StatelessWidget {
                         headingIconColors: Colors.blue,
                         headingIconBgColor: Colors.blue.withAlpha(50),
                         context: context,
+                        comparedText: local.comparedTo,
                         stas: 25,
-                        title: 'Sales total',
+                        title: local.salesTotal,
                         subtitle:
                             '\$${controller.orderController.allItems.fold(0.0, (previousValue, element) => previousValue + element.totalAmount).toStringAsFixed(2)}',
                       ),
@@ -52,8 +55,9 @@ class DashboardTabletScreen extends StatelessWidget {
                         headingIconColors: Colors.green,
                         headingIconBgColor: Colors.green.withAlpha(50),
                         context: context,
+                        comparedText: local.comparedTo,
                         stas: 15,
-                        title: 'Average Order Value',
+                        title: local.averageOrder,
                         subtitle:
                             '\$${(controller.orderController.allItems.fold(0.0, (previousValue, element) => previousValue + element.totalAmount) / controller.orderController.allItems.length).toStringAsFixed(2)}',
                       ),
@@ -71,8 +75,9 @@ class DashboardTabletScreen extends StatelessWidget {
                         headingIconColors: Colors.deepPurple,
                         headingIconBgColor: Colors.deepPurple.withAlpha(50),
                         context: context,
+                        comparedText: local.comparedTo,
                         stas: 45,
-                        title: 'Total Oiders',
+                        title: local.totalOrders,
                         subtitle:
                             '\$${controller.orderController.allItems.length}',
                       ),
@@ -86,8 +91,9 @@ class DashboardTabletScreen extends StatelessWidget {
                         headingIconColors: Colors.deepOrange,
                         headingIconBgColor: Colors.deepOrange.withAlpha(50),
                         context: context,
+                        comparedText: local.comparedTo,
                         stas: 2,
-                        title: 'Visitors',
+                        title: local.visitors,
                         subtitle:
                             '\$${controller.customerContrller.allItems.length.toString()}',
                       ),

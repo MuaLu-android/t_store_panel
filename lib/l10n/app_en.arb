@@ -263,5 +263,29 @@
     "logout": "Logout",
     "@logout": {
         "description": "Logout menu item"
+    },
+    "dashboardTitle": "Dashboard",
+    "@dashboardTitle": {
+        "description": "Title for the dashboard screen"
+    },
+    "salesTotal": "Sales Total",
+    "@salesTotal": {
+        "description": "Title for total sales card"
+    },
+    "averageOrder": "Average",
+    "@averageOrder": {
+        "description": "Title for average order card"
+    },
+    "totalOrders": "Total Orders",
+    "@totalOrders": {
+        "description": "Title for total orders card"
+    },
+    "visitors": "Visitors",
+    "@visitors": {
+        "description": "Title for visitors card"
+    },
+    "comparedTo": "Compared to Dec 2025",
+    "@comparedTo": {
+        "description": "Text for comparison period"
     }
 }

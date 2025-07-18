@@ -205,4 +205,22 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get logout => 'Logout';
+
+  @override
+  String get dashboardTitle => 'Dashboard';
+
+  @override
+  String get salesTotal => 'Sales Total';
+
+  @override
+  String get averageOrder => 'Average Order';
+
+  @override
+  String get totalOrders => 'Total Orders';
+
+  @override
+  String get visitors => 'Visitors';
+
+  @override
+  String get comparedTo => 'Compared to Dec 2025';
 }
