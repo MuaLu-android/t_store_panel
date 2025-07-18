@@ -86,6 +86,17 @@ class TWeeklySalesGraph extends StatelessWidget {
                         barTouchData: BarTouchData(
                           touchTooltipData: BarTouchTooltipData(
                             getTooltipColor: (_) => TColors.secondary,
+                            getTooltipItem: (group, groupIndex, rod, rodIndex) {
+                              return BarTooltipItem(
+                                rod.toY.toStringAsFixed(
+                                  2,
+                                ), // Hiển thị 2 chữ số thập phân
+                                TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              );
+                            },
                           ),
                           touchCallback: TDeviceUtils.isDesktopScreen(context)
                               ? (barTouchEvent, barTouchResponse) {}

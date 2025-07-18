@@ -53,7 +53,7 @@ class DashboardDesktopScreen extends StatelessWidget {
                         headingIconBgColor: Colors.green.withAlpha(50),
                         context: context,
                         stas: 15,
-                        title: 'Average Order Value',
+                        title: 'Average Order',
                         subtitle:
                             '\$${(controller.orderController.allItems.fold(0.0, (previousValue, element) => previousValue + element.totalAmount) / controller.orderController.allItems.length).toStringAsFixed(2)}',
                       ),

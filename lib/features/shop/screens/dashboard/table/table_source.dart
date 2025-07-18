@@ -16,7 +16,11 @@ class OrderRows extends DataTableSource {
   DataRow? getRow(int index) {
     final orders = controller.filteredItems[index];
     return DataRow2(
-      onTap: () => Get.toNamed(TRoutes.detailsOrders, arguments: orders),
+      onTap: () => Get.toNamed(
+        TRoutes.detailsOrders,
+        arguments: orders,
+        parameters: {'orderId': orders.docId},
+      ),
       selected: controller.selectedRows[index],
       onSelectChanged: (value) =>
           controller.selectedRows[index] = value ?? false,
