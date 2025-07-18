@@ -1,11 +1,8 @@
 import 'package:admin_t_store/common/widgets/breadcrumbs/breadcrumb_with_heading.dart';
-import 'package:admin_t_store/features/authentication/controllers/user_controller.dart';
 import 'package:admin_t_store/features/personalization/screen/profiles/widgets/image_and_meta.dart';
 import 'package:admin_t_store/features/personalization/screen/profiles/widgets/profile_form.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/state_manager.dart';
 
 class ProfileDesktopScreen extends StatelessWidget {
   const ProfileDesktopScreen({super.key});
