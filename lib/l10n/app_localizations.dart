@@ -6,7 +6,6 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
 
 import 'app_localizations_en.dart';
-import 'app_localizations_hmn.dart';
 import 'app_localizations_vi.dart';
 
 // ignore_for_file: type=lint
@@ -93,7 +92,6 @@ abstract class AppLocalizations {
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
     Locale('en'),
-    Locale('hmn'),
     Locale('vi')
   ];
 
@@ -414,6 +412,84 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Taimoor Sikander'**
   String get homeAppbarSubTitle;
+
+  /// Sidebar menu title
+  ///
+  /// In en, this message translates to:
+  /// **'Menu'**
+  String get menu;
+
+  /// Sidebar other section title
+  ///
+  /// In en, this message translates to:
+  /// **'OTHER'**
+  String get other;
+
+  /// Dashboard menu item
+  ///
+  /// In en, this message translates to:
+  /// **'Dashboard'**
+  String get dashboard;
+
+  /// Media menu item
+  ///
+  /// In en, this message translates to:
+  /// **'Media'**
+  String get media;
+
+  /// Categories menu item
+  ///
+  /// In en, this message translates to:
+  /// **'Categories'**
+  String get categories;
+
+  /// Products menu item
+  ///
+  /// In en, this message translates to:
+  /// **'Products'**
+  String get products;
+
+  /// Customers menu item
+  ///
+  /// In en, this message translates to:
+  /// **'Customers'**
+  String get customers;
+
+  /// Banners menu item
+  ///
+  /// In en, this message translates to:
+  /// **'Banners'**
+  String get banners;
+
+  /// Orders menu item
+  ///
+  /// In en, this message translates to:
+  /// **'Orders'**
+  String get orders;
+
+  /// Brands menu item
+  ///
+  /// In en, this message translates to:
+  /// **'Brands'**
+  String get brands;
+
+  /// Profile menu item
+  ///
+  /// In en, this message translates to:
+  /// **'Profile'**
+  String get profile;
+
+  /// Settings menu item
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get settings;
+
+  /// Logout menu item
+  ///
+  /// In en, this message translates to:
+  /// **'Logout'**
+  String get logout;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
@@ -425,7 +501,7 @@ class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> 
   }
 
   @override
-  bool isSupported(Locale locale) => <String>['en', 'hmn', 'vi'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>['en', 'vi'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
@@ -437,7 +513,6 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
     case 'en': return AppLocalizationsEn();
-    case 'hmn': return AppLocalizationsHmn();
     case 'vi': return AppLocalizationsVi();
   }
 

@@ -166,4 +166,43 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get homeAppbarSubTitle => 'Taimoor Sikander';
+
+  @override
+  String get menu => 'Menu';
+
+  @override
+  String get other => 'OTHER';
+
+  @override
+  String get dashboard => 'Dashboard';
+
+  @override
+  String get media => 'Media';
+
+  @override
+  String get categories => 'Categories';
+
+  @override
+  String get products => 'Products';
+
+  @override
+  String get customers => 'Customers';
+
+  @override
+  String get banners => 'Banners';
+
+  @override
+  String get orders => 'Orders';
+
+  @override
+  String get brands => 'Brands';
+
+  @override
+  String get profile => 'Profile';
+
+  @override
+  String get settings => 'Settings';
+
+  @override
+  String get logout => 'Logout';
 }

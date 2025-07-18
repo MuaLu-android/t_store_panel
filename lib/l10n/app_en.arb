@@ -211,5 +211,57 @@
     "homeAppbarSubTitle": "Taimoor Sikander",
     "@homeAppbarSubTitle": {
         "description": "Home app bar subtitle"
+    },
+    "menu": "Menu",
+    "@menu": {
+        "description": "Sidebar menu title"
+    },
+    "other": "OTHER",
+    "@other": {
+        "description": "Sidebar other section title"
+    },
+    "dashboard": "Dashboard",
+    "@dashboard": {
+        "description": "Dashboard menu item"
+    },
+    "media": "Media",
+    "@media": {
+        "description": "Media menu item"
+    },
+    "categories": "Categories",
+    "@categories": {
+        "description": "Categories menu item"
+    },
+    "products": "Products",
+    "@products": {
+        "description": "Products menu item"
+    },
+    "customers": "Customers",
+    "@customers": {
+        "description": "Customers menu item"
+    },
+    "banners": "Banners",
+    "@banners": {
+        "description": "Banners menu item"
+    },
+    "orders": "Orders",
+    "@orders": {
+        "description": "Orders menu item"
+    },
+    "brands": "Brands",
+    "@brands": {
+        "description": "Brands menu item"
+    },
+    "profile": "Profile",
+    "@profile": {
+        "description": "Profile menu item"
+    },
+    "settings": "Settings",
+    "@settings": {
+        "description": "Settings menu item"
+    },
+    "logout": "Logout",
+    "@logout": {
+        "description": "Logout menu item"
     }
 }

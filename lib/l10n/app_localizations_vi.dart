@@ -166,4 +166,43 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get homeAppbarSubTitle => 'Taimoor Sikander';
+
+  @override
+  String get menu => 'Danh mục';
+
+  @override
+  String get other => 'KHÁC';
+
+  @override
+  String get dashboard => 'Bảng điều khiển';
+
+  @override
+  String get media => 'Thư viện';
+
+  @override
+  String get categories => 'Danh mục';
+
+  @override
+  String get products => 'Sản phẩm';
+
+  @override
+  String get customers => 'Khách hàng';
+
+  @override
+  String get banners => 'Banner';
+
+  @override
+  String get orders => 'Đơn hàng';
+
+  @override
+  String get brands => 'Thương hiệu';
+
+  @override
+  String get profile => 'Hồ sơ';
+
+  @override
+  String get settings => 'Cài đặt';
+
+  @override
+  String get logout => 'Đăng xuất';
 }

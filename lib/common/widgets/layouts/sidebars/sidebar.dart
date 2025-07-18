@@ -1,6 +1,7 @@
 import 'package:admin_t_store/common/widgets/images/t_circular_image.dart';
 import 'package:admin_t_store/common/widgets/layouts/sidebars/menu/menu_item.dart';
 import 'package:admin_t_store/features/shop/controllers/settings/setting_controller.dart';
+import 'package:admin_t_store/l10n/app_localizations.dart';
 import 'package:admin_t_store/utils/constants/colors.dart';
 import 'package:admin_t_store/utils/constants/enums.dart';
 import 'package:admin_t_store/utils/constants/image_strings.dart';
@@ -16,6 +17,7 @@ class TSizebar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = SettingsController.instance;
+    final local = AppLocalizations.of(context)!;
     return Drawer(
       shape: BeveledRectangleBorder(),
       child: Container(
@@ -59,73 +61,73 @@ class TSizebar extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      'Menu',
+                      local.menu,
                       style: Theme.of(
                         context,
                       ).textTheme.bodySmall!.apply(letterSpacingDelta: 1.2),
                     ),
                     // menu Items
-                    const TMenuTem(
+                    TMenuTem(
                       route: TRoutes.dashboard,
                       icon: Iconsax.status,
-                      itemName: 'Dashboard',
+                      itemName: local.dashboard,
                     ),
-                    const TMenuTem(
+                    TMenuTem(
                       route: TRoutes.media,
                       icon: Iconsax.image,
-                      itemName: 'Media',
+                      itemName: local.media,
                     ),
-                    const TMenuTem(
+                    TMenuTem(
                       route: TRoutes.categories,
                       icon: Iconsax.category,
-                      itemName: 'Categories',
+                      itemName: local.categories,
                     ),
-                    const TMenuTem(
+                    TMenuTem(
                       route: TRoutes.products,
                       icon: Iconsax.shopping_bag,
-                      itemName: 'Products',
+                      itemName: local.products,
                     ),
-                    const TMenuTem(
+                    TMenuTem(
                       route: TRoutes.customers,
                       icon: Iconsax.profile_2user,
-                      itemName: 'Customers',
+                      itemName: local.customers,
                     ),
-                    const TMenuTem(
+                    TMenuTem(
                       route: TRoutes.banners,
                       icon: Iconsax.picture_frame,
-                      itemName: 'Banners',
+                      itemName: local.banners,
                     ),
-                    const TMenuTem(
+                    TMenuTem(
                       route: TRoutes.orders,
                       icon: Iconsax.box,
-                      itemName: 'Orders',
+                      itemName: local.orders,
                     ),
-                    const TMenuTem(
+                    TMenuTem(
                       route: TRoutes.brands,
                       icon: Iconsax.dcube,
-                      itemName: 'Brands',
+                      itemName: local.brands,
                     ),
                     // Other Menu Items
                     Text(
-                      'OTHER',
+                      local.other,
                       style: Theme.of(
                         context,
                       ).textTheme.bodySmall!.apply(letterSpacingDelta: 1.2),
                     ),
-                    const TMenuTem(
+                    TMenuTem(
                       route: TRoutes.profile,
                       icon: Iconsax.user,
-                      itemName: 'Profile',
+                      itemName: local.profile,
                     ),
-                    const TMenuTem(
+                    TMenuTem(
                       route: TRoutes.settings,
                       icon: Iconsax.setting_2,
-                      itemName: 'Settings',
+                      itemName: local.settings,
                     ),
-                    const TMenuTem(
-                      route: 'logout',
+                    TMenuTem(
+                      route: TRoutes.logout,
                       icon: Iconsax.logout,
-                      itemName: 'Logout',
+                      itemName: local.logout,
                     ),
                   ],
                 ),

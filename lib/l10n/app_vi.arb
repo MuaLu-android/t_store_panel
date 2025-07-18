@@ -211,5 +211,57 @@
     "homeAppbarSubTitle": "Taimoor Sikander",
     "@homeAppbarSubTitle": {
         "description": "Home app bar subtitle"
+    },
+    "menu": "Danh mục",
+    "@menu": {
+        "description": "Sidebar menu title"
+    },
+    "other": "KHÁC",
+    "@other": {
+        "description": "Sidebar other section title"
+    },
+    "dashboard": "Bảng điều khiển",
+    "@dashboard": {
+        "description": "Dashboard menu item"
+    },
+    "media": "Thư viện",
+    "@media": {
+        "description": "Media menu item"
+    },
+    "categories": "Danh mục",
+    "@categories": {
+        "description": "Categories menu item"
+    },
+    "products": "Sản phẩm",
+    "@products": {
+        "description": "Products menu item"
+    },
+    "customers": "Khách hàng",
+    "@customers": {
+        "description": "Customers menu item"
+    },
+    "banners": "Banner",
+    "@banners": {
+        "description": "Banners menu item"
+    },
+    "orders": "Đơn hàng",
+    "@orders": {
+        "description": "Orders menu item"
+    },
+    "brands": "Thương hiệu",
+    "@brands": {
+        "description": "Brands menu item"
+    },
+    "profile": "Hồ sơ",
+    "@profile": {
+        "description": "Profile menu item"
+    },
+    "settings": "Cài đặt",
+    "@settings": {
+        "description": "Settings menu item"
+    },
+    "logout": "Đăng xuất",
+    "@logout": {
+        "description": "Logout menu item"
     }
 }
