@@ -1,6 +1,8 @@
 import 'package:admin_t_store/common/widgets/custom_shapes/container/rounded_container.dart';
+import 'package:admin_t_store/features/shop/controllers/settings/setting_controller.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class SettingForm extends StatelessWidget {
@@ -9,6 +11,7 @@ class SettingForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //  implement build
+    final controller = SettingsController.instance;
     return Column(
       children: [
         TRoundedContainer(
@@ -16,75 +19,92 @@ class SettingForm extends StatelessWidget {
             vertical: TSizes.lg,
             horizontal: TSizes.md,
           ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'App Settings',
-                style: Theme.of(context).textTheme.headlineSmall,
-              ),
-              const SizedBox(height: TSizes.spaceBtwSections),
-              // App Name
-              TextFormField(
-                decoration: const InputDecoration(
-                  hintText: 'App Name',
-                  label: Text('App Name'),
-                  prefixIcon: Icon(Iconsax.user),
+          child: Form(
+            key: controller.formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'App Settings',
+                  style: Theme.of(context).textTheme.headlineSmall,
                 ),
-              ),
-              const SizedBox(height: TSizes.spaceBtwInputFields),
-              // First and Last name
-              Form(
-                child: Column(
-                  children: [
-                    // Email and Phone
-                    Row(
-                      children: [
-                        // Fisrt name
-                        Expanded(
-                          child: TextFormField(
-                            decoration: const InputDecoration(
-                              hintText: 'Tax %',
-                              label: Text('Tax Rate (%)'),
-                              prefixIcon: Icon(Iconsax.tag),
+                const SizedBox(height: TSizes.spaceBtwSections),
+                // App Name
+                TextFormField(
+                  controller: controller.appNameController,
+                  decoration: const InputDecoration(
+                    hintText: 'App Name',
+                    label: Text('App Name'),
+                    prefixIcon: Icon(Iconsax.user),
+                  ),
+                ),
+                const SizedBox(height: TSizes.spaceBtwInputFields),
+                // First and Last name
+                Form(
+                  child: Column(
+                    children: [
+                      // Email and Phone
+                      Row(
+                        children: [
+                          // Fisrt name
+                          Expanded(
+                            child: TextFormField(
+                              controller: controller.taxController,
+                              decoration: const InputDecoration(
+                                hintText: 'Tax %',
+                                label: Text('Tax Rate (%)'),
+                                prefixIcon: Icon(Iconsax.tag),
+                              ),
                             ),
                           ),
-                        ),
-                        const SizedBox(width: TSizes.spaceBtwItems),
-                        // Fisrt name
-                        Expanded(
-                          child: TextFormField(
-                            decoration: const InputDecoration(
-                              hintText: 'Shipping const',
-                              label: Text('Shipping const (\$)'),
-                              prefixIcon: Icon(Iconsax.ship),
+                          const SizedBox(width: TSizes.spaceBtwItems),
+                          // Fisrt name
+                          Expanded(
+                            child: TextFormField(
+                              controller: controller.shippingController,
+                              decoration: const InputDecoration(
+                                hintText: 'Shipping const',
+                                label: Text('Shipping const (\$)'),
+                                prefixIcon: Icon(Iconsax.ship),
+                              ),
                             ),
                           ),
-                        ),
-                        const SizedBox(width: TSizes.spaceBtwItems),
-                        Expanded(
-                          child: TextFormField(
-                            decoration: const InputDecoration(
-                              hintText: 'Free Shipping after',
-                              label: Text('Free Shipping after'),
-                              prefixIcon: Icon(Iconsax.ship),
+                          const SizedBox(width: TSizes.spaceBtwItems),
+                          Expanded(
+                            child: TextFormField(
+                              controller:
+                                  controller.freeShippingThresholdController,
+                              decoration: const InputDecoration(
+                                hintText: 'Free Shipping after',
+                                label: Text('Free Shipping after'),
+                                prefixIcon: Icon(Iconsax.ship),
+                              ),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: TSizes.spaceBtwSections),
-                    SizedBox(
-                      width: double.infinity,
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        child: const Text('Update App Setting'),
+                        ],
                       ),
-                    ),
-                  ],
+                      const SizedBox(height: TSizes.spaceBtwSections),
+                      Obx(
+                        () => SizedBox(
+                          width: double.infinity,
+                          child: ElevatedButton(
+                            onPressed: () => controller.loading.value
+                                ? () {}
+                                : controller.updateSettingInformations(),
+                            child: controller.loading.value
+                                ? const CircularProgressIndicator(
+                                    color: Colors.white,
+                                    strokeWidth: 2,
+                                  )
+                                : const Text('Update App Setting'),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ],

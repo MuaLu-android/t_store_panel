@@ -10,6 +10,7 @@ class OrdersDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // implement build
     final order = Get.arguments;
+    final orderId = Get.parameters['orderId'];
     return TSizeTemplate(desktop: OrderDetailsDesktop(orderModel: order));
   }
 }

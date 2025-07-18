@@ -94,7 +94,7 @@ class OrderCustomer extends StatelessWidget {
                 Text(
                   controller.users.value.formattedPhoneNumber.isNotEmpty
                       ? controller.users.value.formattedPhoneNumber
-                      : '(+44) *** ****',
+                      : '(+84) *** ****',
                   style: Theme.of(context).textTheme.titleSmall,
                 ),
                 const SizedBox(height: TSizes.spaceBtwItems / 2),
@@ -104,28 +104,30 @@ class OrderCustomer extends StatelessWidget {
         ),
         const SizedBox(height: TSizes.spaceBtwSections),
         // Context Info
-        SizedBox(
-          width: double.infinity,
-          child: TRoundedContainer(
-            padding: const EdgeInsets.all(TSizes.defaultSpace),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Shipping Address',
-                  style: Theme.of(context).textTheme.headlineMedium,
-                ),
-                const SizedBox(height: TSizes.spaceBtwSections),
-                Text(
-                  'Taimoor Sikander LTD',
-                  style: Theme.of(context).textTheme.titleSmall,
-                ),
-                const SizedBox(height: TSizes.spaceBtwItems / 2),
-                Text(
-                  '61 Gridge Street. Kingtop, United Kingdom',
-                  style: Theme.of(context).textTheme.titleSmall,
-                ),
-              ],
+        Obx(
+          () => SizedBox(
+            width: double.infinity,
+            child: TRoundedContainer(
+              padding: const EdgeInsets.all(TSizes.defaultSpace),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Shipping Address',
+                    style: Theme.of(context).textTheme.headlineMedium,
+                  ),
+                  const SizedBox(height: TSizes.spaceBtwSections),
+                  Text(
+                    'Taimoor Sikander LTD',
+                    style: Theme.of(context).textTheme.titleSmall,
+                  ),
+                  const SizedBox(height: TSizes.spaceBtwItems / 2),
+                  Text(
+                    '61 Gridge Street. Kingtop, United Kingdom',
+                    style: Theme.of(context).textTheme.titleSmall,
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -144,12 +146,16 @@ class OrderCustomer extends StatelessWidget {
                 ),
                 const SizedBox(height: TSizes.spaceBtwSections),
                 Text(
-                  'Taimoor Sikander LTD',
+                  orders.shippingAddress != null
+                      ? orders.shippingAddress!.name
+                      : '',
                   style: Theme.of(context).textTheme.titleSmall,
                 ),
                 const SizedBox(height: TSizes.spaceBtwItems / 2),
                 Text(
-                  '61 Gridge Street. Kingtop, United Kingdom',
+                  orders.shippingAddress != null
+                      ? orders.shippingAddress!.toString()
+                      : '',
                   style: Theme.of(context).textTheme.titleSmall,
                 ),
               ],

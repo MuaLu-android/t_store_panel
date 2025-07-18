@@ -64,7 +64,7 @@ class OrderTransactions extends StatelessWidget {
                       style: Theme.of(context).textTheme.labelMedium,
                     ),
                     Text(
-                      'April 21, 2025',
+                      orders.formattedOrderDate,
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                   ],

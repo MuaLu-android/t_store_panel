@@ -15,7 +15,7 @@ class ProductImagesController extends GetxController {
   // Pick Thumbnail Image from Media
   void selectedThumbnailImage() async {
     final controller = Get.put(MediaController());
-    List<ImageModel>? selectedImages = await controller.selectImageFromMedia();
+    List<ImageModel>? selectedImages = await controller.selectImagesFromMedia();
     // handle the selected images
     if (selectedImages != null && selectedImages.isNotEmpty) {
       // Set the selected image to the main iage or perform any other action
@@ -28,7 +28,7 @@ class ProductImagesController extends GetxController {
   // Pick Thumbnail Image from Media
   void selectedVariationsImage(ProductVariationModel variations) async {
     final controller = Get.put(MediaController());
-    List<ImageModel>? selectedImages = await controller.selectImageFromMedia();
+    List<ImageModel>? selectedImages = await controller.selectImagesFromMedia();
     // handle the selected images
     if (selectedImages != null && selectedImages.isNotEmpty) {
       // Set the selected image to the main iage or perform any other action
@@ -41,7 +41,7 @@ class ProductImagesController extends GetxController {
   // Pick Multiple Images from Media
   void selectedMultipleproductImages() async {
     final controller = Get.put(MediaController());
-    List<ImageModel>? selectedImages = await controller.selectImageFromMedia(
+    List<ImageModel>? selectedImages = await controller.selectImagesFromMedia(
       multipleSelection: true,
       selectedUrls: additionalProductImagesUrl,
     );

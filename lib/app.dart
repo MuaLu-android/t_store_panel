@@ -29,7 +29,6 @@ class App extends StatelessWidget {
         page: () => const Scaffold(body: Center(child: Text('Page Not Found'))),
       ),
       // i18n
-      // i18n
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       locale: const Locale('vi'),

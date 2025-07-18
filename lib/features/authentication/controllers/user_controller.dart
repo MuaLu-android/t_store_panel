@@ -1,6 +1,11 @@
+import 'package:admin_t_store/features/media/controllers/media_controllet.dart';
+import 'package:admin_t_store/features/media/models/image_modle.dart';
 import 'package:admin_t_store/features/shop/models/user_model.dart';
 import 'package:admin_t_store/data/repositories/users/user_repository.dart';
+import 'package:admin_t_store/utils/helpers/network_manager.dart';
+import 'package:admin_t_store/utils/popups/full_screen_loader.dart';
 import 'package:admin_t_store/utils/popups/loaders.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 class UserController extends GetxController {
@@ -8,6 +13,10 @@ class UserController extends GetxController {
 
   RxBool loading = false.obs;
   Rx<UserModel> user = UserModel.empty().obs;
+  final formKey = GlobalKey<FormState>();
+  final firstNameController = TextEditingController();
+  final lastNameController = TextEditingController();
+  final phoneController = TextEditingController();
   final userRepository = Get.put(UserRepository());
 
   @override
@@ -32,6 +41,73 @@ class UserController extends GetxController {
         message: e.toString(),
       );
       return UserModel.empty();
+    }
+  }
+
+  void uploadUserProfilePicture() async {
+    try {
+      loading.value = true;
+      final controller = Get.put(MediaController());
+      List<ImageModel>? selectedImages = await controller
+          .selectImagesFromMedia();
+
+      // Handle the selected images
+      if (selectedImages != null && selectedImages.isNotEmpty) {
+        // Set the selected image to the main image or perform any other action
+        ImageModel selectedImage = selectedImages.first;
+
+        // Update Profile in Firestore
+        await userRepository.updateSingleField({
+          'ProfilePicture': selectedImage.url,
+        });
+
+        // Update the main image using the selectedImage
+        user.value.profilePicture = selectedImage.url;
+        user.refresh();
+
+        TLoaders.successSnackBar(
+          title: 'Congratulations',
+          message: 'Your Profile Picture has been updated.',
+        );
+      }
+      loading.value = false;
+    } catch (e) {
+      loading.value = false;
+      TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
+    }
+  }
+
+  void updateUserInformation() async {
+    try {
+      loading.value = true;
+      // Check Internet Connectivity
+      final isConnected = await NetworkManager.instance.isConnected();
+      if (!isConnected) {
+        TFullScreenLoader.stopLoading();
+        return;
+      }
+
+      // Form Validation
+      if (!formKey.currentState!.validate()) {
+        TFullScreenLoader.stopLoading();
+        return;
+      }
+
+      user.value.firstName = firstNameController.text.trim();
+      user.value.lastName = lastNameController.text.trim();
+      user.value.phoneNumber = phoneController.text.trim();
+
+      await userRepository.updateUserDetials(user.value);
+      user.refresh();
+
+      loading.value = false;
+      TLoaders.successSnackBar(
+        title: 'Congratulations',
+        message: 'Your Profile has been updated.',
+      );
+    } catch (e) {
+      loading.value = false;
+      TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
     }
   }
 }

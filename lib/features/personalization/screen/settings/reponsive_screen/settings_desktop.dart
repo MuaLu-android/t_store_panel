@@ -29,7 +29,7 @@ class SettingsDesktopScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // Profile Pic and Meta
-                  Expanded(child: Chip(label: SettingImageMeta())),
+                  Expanded(child: SettingImageMeta()),
                   const SizedBox(width: TSizes.spaceBtwItems),
                   // From
                   Expanded(flex: 2, child: SettingForm()),

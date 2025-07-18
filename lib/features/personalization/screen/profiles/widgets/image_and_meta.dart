@@ -1,9 +1,12 @@
 import 'package:admin_t_store/common/widgets/custom_shapes/container/rounded_container.dart';
+import 'package:admin_t_store/features/authentication/controllers/user_controller.dart';
 import 'package:admin_t_store/features/shop/screens/category/create_categories/widgets/image_loader.dart';
 import 'package:admin_t_store/utils/constants/enums.dart';
 import 'package:admin_t_store/utils/constants/image_strings.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:iconsax/iconsax.dart';
 
 class ImageAndMeta extends StatelessWidget {
@@ -12,6 +15,7 @@ class ImageAndMeta extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // implement build
+    final controller = Get.put(UserController());
     return TRoundedContainer(
       padding: const EdgeInsets.symmetric(
         vertical: TSizes.lg,
@@ -20,28 +24,37 @@ class ImageAndMeta extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Column(
-            children: [
-              //User image
-              const TImageUpLoader(
-                right: 10,
-                bottom: 20,
-                left: null,
-                width: 200,
-                height: 200,
-                cricular: true,
-                icon: Iconsax.camera,
-                imageType: ImageType.asset,
-                image: TImages.user,
-              ),
-              const SizedBox(height: TSizes.spaceBtwItems),
-              Text(
-                'Coding with T',
-                style: Theme.of(context).textTheme.headlineLarge,
-              ),
-              const Text('support@codingwitht.com'),
-              const SizedBox(height: TSizes.spaceBtwSections),
-            ],
+          Obx(
+            () => Column(
+              children: [
+                //User image
+                TImageUpLoader(
+                  right: 10,
+                  bottom: 20,
+                  left: null,
+                  width: 200,
+                  height: 200,
+                  cricular: true,
+                  loading: controller.loading.value,
+                  icon: Iconsax.camera,
+                  imageType: controller.user.value.profilePicture.isNotEmpty
+                      ? ImageType.network
+                      : ImageType.asset,
+                  image: controller.user.value.profilePicture.isNotEmpty
+                      ? controller.user.value.profilePicture
+                      : TImages.user,
+                  onIconButtonPressed: () =>
+                      controller.uploadUserProfilePicture(),
+                ),
+                const SizedBox(height: TSizes.spaceBtwItems),
+                Text(
+                  controller.user.value.fullName,
+                  style: Theme.of(context).textTheme.headlineLarge,
+                ),
+                Text(controller.user.value.email),
+                const SizedBox(height: TSizes.spaceBtwSections),
+              ],
+            ),
           ),
         ],
       ),

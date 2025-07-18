@@ -321,7 +321,7 @@ class MediaController extends GetxController {
   }
 
   // Image Selection Bootom Sheet
-  Future<List<ImageModel>?> selectImageFromMedia({
+  Future<List<ImageModel>?> selectImagesFromMedia({
     List<String>? selectedUrls,
     bool allowSelection = true,
     bool multipleSelection = false,

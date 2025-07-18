@@ -1,7 +1,9 @@
 import 'package:admin_t_store/common/widgets/custom_shapes/container/rounded_container.dart';
+import 'package:admin_t_store/features/authentication/controllers/user_controller.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:admin_t_store/utils/validators/validation.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class ProfileForm extends StatelessWidget {
@@ -10,6 +12,7 @@ class ProfileForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // implement build
+    final controller = UserController.instance;
     return Column(
       children: [
         TRoundedContainer(
@@ -27,6 +30,7 @@ class ProfileForm extends StatelessWidget {
               const SizedBox(height: TSizes.spaceBtwInputFields),
               // First and Last name
               Form(
+                key: controller.formKey,
                 child: Column(
                   children: [
                     Row(
@@ -34,9 +38,10 @@ class ProfileForm extends StatelessWidget {
                         // Fisrt name
                         Expanded(
                           child: TextFormField(
-                            decoration: const InputDecoration(
+                            controller: controller.firstNameController,
+                            decoration: InputDecoration(
                               hintText: 'Frist Name',
-                              label: Text('Frist Name'),
+                              label: Text(controller.user.value.firstName),
                               prefixIcon: Icon(Iconsax.user),
                             ),
                             validator: (value) => TValidator.validateEmptyText(
@@ -48,9 +53,10 @@ class ProfileForm extends StatelessWidget {
                         const SizedBox(width: TSizes.spaceBtwItems),
                         Expanded(
                           child: TextFormField(
-                            decoration: const InputDecoration(
+                            controller: controller.lastNameController,
+                            decoration: InputDecoration(
                               hintText: 'Last Name',
-                              label: Text('Last Name'),
+                              label: Text(controller.user.value.lastName),
                               prefixIcon: Icon(Iconsax.user),
                             ),
                             validator: (value) => TValidator.validateEmptyText(
@@ -68,9 +74,9 @@ class ProfileForm extends StatelessWidget {
                         // Fisrt name
                         Expanded(
                           child: TextFormField(
-                            decoration: const InputDecoration(
+                            decoration: InputDecoration(
                               hintText: 'Email',
-                              label: Text('Email'),
+                              label: Text(controller.user.value.email),
                               prefixIcon: Icon(Iconsax.forward),
                               enabled: false,
                             ),
@@ -79,22 +85,36 @@ class ProfileForm extends StatelessWidget {
                         const SizedBox(width: TSizes.spaceBtwItems),
                         Expanded(
                           child: TextFormField(
-                            decoration: const InputDecoration(
+                            controller: controller.phoneController,
+                            decoration: InputDecoration(
                               hintText: 'Phone Number',
-                              label: Text('Phone Number'),
+                              label:
+                                  controller.user.value.phoneNumber.isNotEmpty
+                                  ? Text(controller.user.value.phoneNumber)
+                                  : const Text('Phone Number'),
                               prefixIcon: Icon(Iconsax.mobile),
-                              enabled: false,
                             ),
+                            validator: (value) =>
+                                TValidator.validatePhoneNumber(value),
                           ),
                         ),
                       ],
                     ),
                     const SizedBox(height: TSizes.spaceBtwSections),
-                    SizedBox(
-                      width: double.infinity,
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        child: const Text('Update Profile'),
+                    Obx(
+                      () => SizedBox(
+                        width: double.infinity,
+                        child: ElevatedButton(
+                          onPressed: () => controller.loading.value
+                              ? () {}
+                              : controller.updateUserInformation(),
+                          child: controller.loading.value
+                              ? const CircularProgressIndicator(
+                                  color: Colors.white,
+                                  strokeWidth: 2,
+                                )
+                              : const Text('Update Profile'),
+                        ),
                       ),
                     ),
                   ],

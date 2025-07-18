@@ -77,7 +77,7 @@ class EditBannerController extends GetxController {
   // pick Image
   void pickImage() async {
     final controller = Get.put(MediaController());
-    List<ImageModel>? selectedImages = await controller.selectImageFromMedia();
+    List<ImageModel>? selectedImages = await controller.selectImagesFromMedia();
     // Handle the selected image
     if (selectedImages != null && selectedImages.isNotEmpty) {
       // Set the selected image to the main image or perform any pther action

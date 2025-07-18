@@ -1,4 +1,6 @@
 import 'package:admin_t_store/common/widgets/custom_shapes/container/rounded_container.dart';
+import 'package:admin_t_store/common/widgets/shimmer/shimmer.dart';
+import 'package:admin_t_store/features/shop/controllers/order/oder_controller.dart';
 import 'package:admin_t_store/features/shop/models/order_model.dart';
 import 'package:admin_t_store/utils/constants/enums.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
@@ -14,6 +16,8 @@ class OrderInfoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // implement build
+    final controller = OrderController.instance;
+    controller.orderStatus.value = orderModel.status;
     return TRoundedContainer(
       padding: const EdgeInsets.all(TSizes.defaultSpace),
       child: Column(
@@ -56,34 +60,49 @@ class OrderInfoScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text('Status'),
-                    TRoundedContainer(
-                      radius: TSizes.cardRadiusSm,
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: TSizes.sm,
-                        vertical: 0,
-                      ),
-                      backgroundColor: THelperFunctions.getOrderStatusColor(
-                        OrderStatus.pending,
-                      ).withAlpha(128),
-                      child: DropdownButton<OrderStatus>(
-                        padding: const EdgeInsets.symmetric(vertical: 0),
-                        value: OrderStatus.pending,
-                        items: OrderStatus.values.map((OrderStatus status) {
-                          return DropdownMenuItem<OrderStatus>(
-                            value: status,
-                            child: Text(
-                              status.name.capitalize.toString(),
-                              style: TextStyle(
-                                color: THelperFunctions.getOrderStatusColor(
-                                  OrderStatus.pending,
+                    Obx(() {
+                      if (controller.statusLoader.value) {
+                        return const TShimmerEffect(
+                          width: double.infinity,
+                          height: 55,
+                        );
+                      }
+                      return TRoundedContainer(
+                        radius: TSizes.cardRadiusSm,
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: TSizes.sm,
+                          vertical: 0,
+                        ),
+                        backgroundColor: THelperFunctions.getOrderStatusColor(
+                          controller.orderStatus.value,
+                        ).withAlpha(128),
+                        child: DropdownButton<OrderStatus>(
+                          padding: const EdgeInsets.symmetric(vertical: 0),
+                          value: controller.orderStatus.value,
+                          items: OrderStatus.values.map((OrderStatus status) {
+                            return DropdownMenuItem<OrderStatus>(
+                              value: status,
+                              child: Text(
+                                status.name.capitalize.toString(),
+                                style: TextStyle(
+                                  color: THelperFunctions.getOrderStatusColor(
+                                    controller.orderStatus.value,
+                                  ),
                                 ),
                               ),
-                            ),
-                          );
-                        }).toList(),
-                        onChanged: (OrderStatus? newValue) {},
-                      ),
-                    ),
+                            );
+                          }).toList(),
+                          onChanged: (OrderStatus? newStatus) {
+                            if (newStatus != null) {
+                              controller.updateOrderStatus(
+                                orderModel,
+                                newStatus,
+                              );
+                            }
+                          },
+                        ),
+                      );
+                    }),
                   ],
                 ),
               ),

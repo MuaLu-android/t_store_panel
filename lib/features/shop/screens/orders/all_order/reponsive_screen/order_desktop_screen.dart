@@ -7,7 +7,6 @@ import 'package:admin_t_store/features/shop/screens/orders/all_order/tables/orde
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/get_core.dart';
 
 class OrderDesktopScreen extends StatelessWidget {
   const OrderDesktopScreen({super.key});

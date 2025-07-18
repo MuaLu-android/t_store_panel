@@ -1,9 +1,11 @@
 import 'package:admin_t_store/common/widgets/images/t_circular_image.dart';
 import 'package:admin_t_store/common/widgets/layouts/sidebars/menu/menu_item.dart';
+import 'package:admin_t_store/features/shop/controllers/settings/setting_controller.dart';
 import 'package:admin_t_store/utils/constants/colors.dart';
 import 'package:admin_t_store/utils/constants/enums.dart';
 import 'package:admin_t_store/utils/constants/image_strings.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
+import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import '../../../../../route/route.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
@@ -13,6 +15,7 @@ class TSizebar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = SettingsController.instance;
     return Drawer(
       shape: BeveledRectangleBorder(),
       child: Container(
@@ -23,11 +26,30 @@ class TSizebar extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              TCircularImage(
-                imageType: ImageType.asset,
-                image: TImages.darkAppLogo,
-                width: 100,
-                height: 100,
+              Row(
+                children: [
+                  Obx(
+                    () => TCircularImage(
+                      imageType: controller.settings.value.appLogo.isNotEmpty
+                          ? ImageType.network
+                          : ImageType.asset,
+                      image: controller.settings.value.appLogo.isNotEmpty
+                          ? controller.settings.value.appLogo
+                          : TImages.darkAppLogo,
+                      width: 100,
+                      height: 100,
+                    ),
+                  ),
+                  Expanded(
+                    child: Obx(
+                      () => Text(
+                        controller.settings.value.appName,
+                        style: Theme.of(context).textTheme.headlineLarge,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ),
+                ],
               ),
               const SizedBox(height: TSizes.spaceBtwSections),
               Padding(

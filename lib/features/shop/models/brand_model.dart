@@ -34,6 +34,7 @@ class BrandModel {
   // Convert Models to Json structure so that you can store data in Firebase
   Map<String, dynamic> toJson() {
     return {
+      'Id': id,
       'Name': name,
       'Image': image,
       'IsFeatures': isFeatured,

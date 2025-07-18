@@ -1,5 +1,6 @@
 import 'dart:typed_data';
 
+import 'package:admin_t_store/common/widgets/custom_shapes/container/circular_container.dart';
 import 'package:admin_t_store/common/widgets/icons/t_circular_icon.dart';
 import 'package:admin_t_store/common/widgets/images/t_circular_image.dart';
 import 'package:admin_t_store/common/widgets/images/t_rounded_image.dart';
@@ -24,6 +25,7 @@ class TImageUpLoader extends StatelessWidget {
     this.right,
     this.left = 0,
     this.onIconButtonPressed,
+    this.loading = false,
   });
 
   final bool cricular;
@@ -35,6 +37,7 @@ class TImageUpLoader extends StatelessWidget {
   final IconData icon;
   final double? top, bottom, right, left;
   final void Function()? onIconButtonPressed;
+  final bool loading;
   @override
   Widget build(BuildContext context) {
     // implement build
@@ -64,13 +67,23 @@ class TImageUpLoader extends StatelessWidget {
           left: left,
           right: right,
           bottom: bottom,
-          child: TCircularIcon(
-            icon: icon,
-            size: TSizes.md,
-            color: Colors.white,
-            onPressed: onIconButtonPressed,
-            backgroundColor: TColors.primary.withAlpha(245),
-          ),
+          child: loading
+              ? const TCircularContainer(
+                  width: TSizes.xl,
+                  height: TSizes.xl,
+                  child: CircularProgressIndicator(
+                    strokeWidth: 2,
+                    backgroundColor: TColors.primary,
+                    color: Colors.white,
+                  ),
+                )
+              : TCircularIcon(
+                  icon: icon,
+                  size: TSizes.md,
+                  color: Colors.white,
+                  onPressed: onIconButtonPressed,
+                  backgroundColor: TColors.primary.withAlpha(245),
+                ),
         ),
       ],
     );

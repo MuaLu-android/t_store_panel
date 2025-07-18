@@ -79,7 +79,7 @@ class OrderItems extends StatelessWidget {
                   SizedBox(
                     width: TSizes.xl * 2,
                     child: Text(
-                      '\$item.price',
+                      '\$${item.price.toStringAsFixed(1)}',
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                   ),
@@ -88,7 +88,7 @@ class OrderItems extends StatelessWidget {
                         ? TSizes.xl * 1.4
                         : TSizes.xl * 2,
                     child: Text(
-                      '\$item.price',
+                      item.quantity.toString(),
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                   ),
@@ -97,7 +97,7 @@ class OrderItems extends StatelessWidget {
                         ? TSizes.xl * 1.4
                         : TSizes.xl * 2,
                     child: Text(
-                      '\$item.price',
+                      '\$${item.totalAmount}',
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                   ),
@@ -145,7 +145,7 @@ class OrderItems extends StatelessWidget {
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     Text(
-                      '\$${TPricingCalculator.calculateShippingCost(subTotal, '')}',
+                      '\$${orderModel.shippingCost.toStringAsFixed(2)}',
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                   ],
@@ -156,7 +156,7 @@ class OrderItems extends StatelessWidget {
                   children: [
                     Text('Tax', style: Theme.of(context).textTheme.titleLarge),
                     Text(
-                      '\$$subTotal',
+                      '\$${TPricingCalculator.calculateTotalPrice(subTotal, '')}',
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                   ],
@@ -172,7 +172,7 @@ class OrderItems extends StatelessWidget {
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     Text(
-                      '\$${TPricingCalculator.calculateTotalPrice(subTotal, '')}',
+                      '\$${orderModel.totalAmount.toStringAsFixed(2)}',
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                   ],

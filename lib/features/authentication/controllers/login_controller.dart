@@ -1,4 +1,6 @@
 import 'package:admin_t_store/data/repositories/authentication/authentication_repository.dart';
+import 'package:admin_t_store/data/repositories/settings/setting_repository.dart';
+import 'package:admin_t_store/features/shop/models/setting_model.dart';
 import 'package:admin_t_store/features/shop/models/user_model.dart';
 import 'package:admin_t_store/data/repositories/users/user_repository.dart';
 import 'package:admin_t_store/features/authentication/controllers/user_controller.dart';
@@ -105,9 +107,14 @@ class LoginController extends GetxController {
         localStorage.write('RRMEMBER_ME_EMAIL', email.text.trim());
         localStorage.write('REMEMBER_ME_PASSWORD', password.text.trim());
       }
+      // Register user with Email and password
+      await AuthenticationRepository.instance.registerWithEmailAndPassword(
+        email.text.trim(),
+        password.text.trim(),
+      );
       // Create admin record in the Firebase
       final userRepository = Get.put(UserRepository());
-      await userRepository.ceateUser(
+      await userRepository.createUser(
         UserModel(
           id: AuthenticationRepository.instance.authUser!.uid,
           firstName: 'CWT',
@@ -117,12 +124,23 @@ class LoginController extends GetxController {
           createdAt: DateTime.now(),
         ),
       );
+      // Create setting revord in the Firebase
+      final settingRepository = Get.put(SettingsRepository());
+      await settingRepository.registerSettings(
+        SettingsModel(
+          appLogo: '',
+          appName: 'My App',
+          taxRate: 0,
+          shippingCost: 0,
+        ),
+      );
       // Remove Loader
       TFullScreenLoader.stopLoading();
       // Redirect
       AuthenticationRepository.instance.screenRedirext();
     } catch (e) {
       TFullScreenLoader.stopLoading();
+      print(e.toString());
       TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
     }
   }

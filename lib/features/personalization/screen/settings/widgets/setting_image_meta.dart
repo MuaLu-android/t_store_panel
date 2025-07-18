@@ -1,9 +1,11 @@
 import 'package:admin_t_store/common/widgets/custom_shapes/container/rounded_container.dart';
+import 'package:admin_t_store/features/shop/controllers/settings/setting_controller.dart';
 import 'package:admin_t_store/features/shop/screens/category/create_categories/widgets/image_loader.dart';
 import 'package:admin_t_store/utils/constants/enums.dart';
 import 'package:admin_t_store/utils/constants/image_strings.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class SettingImageMeta extends StatelessWidget {
@@ -12,6 +14,7 @@ class SettingImageMeta extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // implement build
+    final controller = SettingsController.instance;
     return TRoundedContainer(
       padding: const EdgeInsets.symmetric(
         vertical: TSizes.lg,
@@ -23,19 +26,32 @@ class SettingImageMeta extends StatelessWidget {
           Column(
             children: [
               //User image
-              const TImageUpLoader(
-                right: 10,
-                bottom: 20,
-                left: null,
-                width: 200,
-                height: 200,
-                cricular: true,
-                icon: Iconsax.camera,
-                imageType: ImageType.asset,
-                image: TImages.user,
+              Obx(
+                () => TImageUpLoader(
+                  right: 10,
+                  bottom: 20,
+                  left: null,
+                  width: 200,
+                  height: 200,
+                  cricular: true,
+                  loading: controller.loading.value,
+                  onIconButtonPressed: () => controller.updateAppLogo(),
+                  icon: Iconsax.camera,
+                  imageType: controller.settings.value.appLogo.isNotEmpty
+                      ? ImageType.network
+                      : ImageType.asset,
+                  image: controller.settings.value.appLogo.isNotEmpty
+                      ? controller.settings.value.appLogo
+                      : TImages.user,
+                ),
               ),
               const SizedBox(height: TSizes.spaceBtwItems),
-              Text('T_STORE', style: Theme.of(context).textTheme.headlineLarge),
+              Obx(
+                () => Text(
+                  controller.settings.value.appName,
+                  style: Theme.of(context).textTheme.headlineLarge,
+                ),
+              ),
               const SizedBox(height: TSizes.spaceBtwSections),
             ],
           ),
