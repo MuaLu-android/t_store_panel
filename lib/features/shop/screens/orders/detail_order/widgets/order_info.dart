@@ -48,7 +48,7 @@ class OrderInfoScreen extends StatelessWidget {
                   children: [
                     const Text('Items'),
                     Text(
-                      orderModel.formattedOrderDate,
+                      '${orderModel.items.length} Items',
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                   ],
@@ -75,7 +75,7 @@ class OrderInfoScreen extends StatelessWidget {
                         ),
                         backgroundColor: THelperFunctions.getOrderStatusColor(
                           controller.orderStatus.value,
-                        ).withAlpha(128),
+                        ).withAlpha(100),
                         child: DropdownButton<OrderStatus>(
                           padding: const EdgeInsets.symmetric(vertical: 0),
                           value: controller.orderStatus.value,

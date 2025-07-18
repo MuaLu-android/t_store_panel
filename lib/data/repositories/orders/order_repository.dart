@@ -26,6 +26,8 @@ class OrderRepository extends GetxController {
           .map((documentSnapshot) => OrderModel.fromSnapshot(documentSnapshot))
           .toList();
     } on FirebaseException catch (e) {
+      print('FirebaseException: ${e.code} - ${e.message}');
+      print(e.message);
       throw TFirebaseException(e.code).message;
     } on FormatException catch (_) {
       throw const TFormatException();
@@ -58,28 +60,6 @@ class OrderRepository extends GetxController {
   ) async {
     try {
       await _db.collection('Orders').doc(orderId).update(data);
-    } on FirebaseException catch (e) {
-      throw TFirebaseException(e.code).message;
-    } on FormatException catch (_) {
-      throw const TFormatException();
-    } on PlatformException catch (e) {
-      throw TPlatformException(e.code).message;
-    } catch (e) {
-      throw 'Something went wrong. Please try again';
-    }
-  }
-
-  // Get user orders by user ID
-  Future<List<OrderModel>> getUserOrders(String userId) async {
-    try {
-      final result = await _db
-          .collection('Orders')
-          .where('userId', isEqualTo: userId)
-          .orderBy('orderDate', descending: true)
-          .get();
-      return result.docs
-          .map((documentSnapshot) => OrderModel.fromSnapshot(documentSnapshot))
-          .toList();
     } on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message;
     } on FormatException catch (_) {

@@ -25,6 +25,7 @@ class OrderDetailsDesktop extends StatelessWidget {
               returnToPreviousScreen: true,
               heading: orderModel.id,
               breadcrumbItems: const [TRoutes.orders, 'Details'],
+              titleSmall: true,
             ),
             // Body
             Row(

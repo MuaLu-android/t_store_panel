@@ -27,11 +27,10 @@ class OrderItems extends StatelessWidget {
         children: [
           Text('Items', style: Theme.of(context).textTheme.headlineMedium),
           const SizedBox(height: TSizes.spaceBtwSections),
-          //Itmes
+          //Items
           ListView.separated(
             shrinkWrap: true,
             itemCount: orderModel.items.length,
-
             physics: const NeverScrollableScrollPhysics(),
             separatorBuilder: (_, __) =>
                 const SizedBox(height: TSizes.spaceBtwItems),
@@ -168,7 +167,7 @@ class OrderItems extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Totel',
+                      'Total',
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     Text(

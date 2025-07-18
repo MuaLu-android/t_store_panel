@@ -25,7 +25,7 @@ class THelperFunctions {
     if (OrderStatus.pending == value) {
       return Colors.blue;
     } else if (OrderStatus.processing == value) {
-      return Colors.orange;
+      return Colors.amberAccent;
     } else if (OrderStatus.shipped == value) {
       return Colors.purple;
     } else if (OrderStatus.delivered == value) {

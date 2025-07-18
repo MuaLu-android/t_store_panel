@@ -11,6 +11,7 @@ class TBreadcrumbWithHeading extends StatelessWidget {
     required this.heading,
     required this.breadcrumbItems,
     this.returnToPreviousScreen = false,
+    this.titleSmall = false,
   });
   // The heaging for the page
   final String heading;
@@ -18,6 +19,7 @@ class TBreadcrumbWithHeading extends StatelessWidget {
   final List<String> breadcrumbItems;
   // Flag indicating whether to include a button to return to the previons screen
   final bool returnToPreviousScreen;
+  final bool titleSmall;
   @override
   Widget build(BuildContext context) {
     // implement build
@@ -75,7 +77,7 @@ class TBreadcrumbWithHeading extends StatelessWidget {
               ),
             if (returnToPreviousScreen)
               const SizedBox(width: TSizes.spaceBtwItems),
-            TPageHeading(heading: heading),
+            TPageHeading(heading: heading, titleSmall: titleSmall),
           ],
         ),
       ],

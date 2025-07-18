@@ -65,15 +65,15 @@ class OrderModel {
     return {
       'id': id,
       'userId': userId,
-      'status': status.toString().split('.').last,
+      'status': status.toString(),
       'totalAmount': totalAmount,
-      'orderDate': orderDate.toIso8601String(),
+      'orderDate': orderDate,
       'paymentMethod': paymentMethod,
       'shippingAddress': shippingAddress?.toJson(),
       'billingAddress': billingAddress?.toJson(),
       'shippingCost': shippingCost,
       'taxCost': taxCost,
-      'deliveryDate': deliveryDate?.toIso8601String(),
+      'deliveryDate': formattedDeliveryDate,
       'items': items.map((item) => item.toJson()).toList(),
       'billingAddressSameAsShipping': billingAddressSameAsShipping,
     };
@@ -114,7 +114,6 @@ class OrderModel {
   // Factory method to create a OrderModel from a Firebase document snapshot
   factory OrderModel.fromSnapshot(DocumentSnapshot snapshot) {
     final data = snapshot.data() as Map<String, dynamic>;
-
     return OrderModel(
       docId: snapshot.id,
       id: data.containsKey('id') ? data['id'] as String : '',

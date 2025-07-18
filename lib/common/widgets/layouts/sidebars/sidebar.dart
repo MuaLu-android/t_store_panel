@@ -36,8 +36,8 @@ class TSizebar extends StatelessWidget {
                       image: controller.settings.value.appLogo.isNotEmpty
                           ? controller.settings.value.appLogo
                           : TImages.darkAppLogo,
-                      width: 100,
-                      height: 100,
+                      width: 60,
+                      height: 60,
                     ),
                   ),
                   Expanded(

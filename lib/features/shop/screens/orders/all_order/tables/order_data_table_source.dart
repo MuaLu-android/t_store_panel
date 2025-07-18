@@ -9,7 +9,7 @@ import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class OrderDataTableSource extends DataTableSource {
+class OrderRows extends DataTableSource {
   final controller = OrderController.instance;
   @override
   DataRow? getRow(int index) {
@@ -18,7 +18,7 @@ class OrderDataTableSource extends DataTableSource {
       onTap: () => Get.toNamed(
         TRoutes.detailsOrders,
         arguments: orders,
-        parameters: {'orderId': orders.id},
+        parameters: {'orderId': orders.docId},
       ),
       selected: controller.selectedRows[index],
       onSelectChanged: (value) => controller.selectedRows[index] == value,
@@ -59,7 +59,7 @@ class OrderDataTableSource extends DataTableSource {
             onViewPressed: () => Get.toNamed(
               TRoutes.detailsOrders,
               arguments: orders,
-              parameters: {'orderId': orders.id},
+              parameters: {'orderId': orders.docId},
             ),
             onDeletePressed: () => controller.confirmAndDeleteItem(orders),
           ),

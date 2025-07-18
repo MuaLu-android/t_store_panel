@@ -32,10 +32,14 @@ class OrderTableScreen extends StatelessWidget {
             label: Text('Status'),
             fixedWidth: TDeviceUtils.isMobileScreen(context) ? 120 : null,
           ),
-          const DataColumn2(label: Text('Amount')),
+          DataColumn2(
+            label: Text('Amount'),
+            onSort: (columnIndex, ascending) =>
+                controller.sortById(columnIndex, ascending),
+          ),
           const DataColumn2(label: Text('Action'), fixedWidth: 100),
         ],
-        source: OrderDataTableSource(),
+        source: OrderRows(),
       );
     });
   }
