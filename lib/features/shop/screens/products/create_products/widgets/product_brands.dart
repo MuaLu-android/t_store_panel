@@ -1,8 +1,8 @@
-import 'package:admin_t_store/common/widgets/custom_shapes/container/rounded_container.dart';
-import 'package:admin_t_store/common/widgets/shimmer/shimmer.dart';
-import 'package:admin_t_store/features/shop/controllers/brands/brand_controller.dart';
-import 'package:admin_t_store/features/shop/controllers/products/create_product_controller.dart';
-import 'package:admin_t_store/utils/constants/sizes.dart';
+import 'package:admin_hmoob_store/common/widgets/custom_shapes/container/rounded_container.dart';
+import 'package:admin_hmoob_store/common/widgets/shimmer/shimmer.dart';
+import 'package:admin_hmoob_store/features/shop/controllers/brands/brand_controller.dart';
+import 'package:admin_hmoob_store/features/shop/controllers/products/create_product_controller.dart';
+import 'package:admin_hmoob_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:get/get.dart';

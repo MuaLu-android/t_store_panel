@@ -1,5 +1,5 @@
-import 'package:admin_t_store/data/repositories/authentication/authentication_repository.dart';
-import 'package:admin_t_store/route/route.dart';
+import 'package:admin_hmoob_store/data/repositories/authentication/authentication_repository.dart';
+import 'package:admin_hmoob_store/route/route.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 

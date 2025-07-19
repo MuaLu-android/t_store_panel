@@ -1,7 +1,7 @@
-import 'package:admin_t_store/common/widgets/custom_shapes/container/rounded_container.dart';
-import 'package:admin_t_store/features/shop/controllers/products/create_product_controller.dart';
-import 'package:admin_t_store/utils/constants/sizes.dart';
-import 'package:admin_t_store/utils/validators/validation.dart';
+import 'package:admin_hmoob_store/common/widgets/custom_shapes/container/rounded_container.dart';
+import 'package:admin_hmoob_store/features/shop/controllers/products/create_product_controller.dart';
+import 'package:admin_hmoob_store/utils/constants/sizes.dart';
+import 'package:admin_hmoob_store/utils/validators/validation.dart';
 import 'package:flutter/material.dart';
 
 class ProductTitleAndDescription extends StatelessWidget {

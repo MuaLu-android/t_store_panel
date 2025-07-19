@@ -1,7 +1,7 @@
-import 'package:admin_t_store/common/widgets/responsive/reponsive_design.dart';
-import 'package:admin_t_store/common/widgets/responsive/screen/desktop_layout.dart';
-import 'package:admin_t_store/common/widgets/responsive/screen/mobile_layout.dart';
-import 'package:admin_t_store/common/widgets/responsive/screen/tablet_layout.dart';
+import 'package:admin_hmoob_store/common/widgets/responsive/reponsive_design.dart';
+import 'package:admin_hmoob_store/common/widgets/responsive/screen/desktop_layout.dart';
+import 'package:admin_hmoob_store/common/widgets/responsive/screen/mobile_layout.dart';
+import 'package:admin_hmoob_store/common/widgets/responsive/screen/tablet_layout.dart';
 import 'package:flutter/material.dart';
 
 class TSizeTemplate extends StatelessWidget {

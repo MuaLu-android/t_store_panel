@@ -1,21 +1,22 @@
 import 'dart:io';
 import 'dart:typed_data';
 
-import 'package:admin_t_store/data/repositories/media/media_repository.dart';
-import 'package:admin_t_store/features/media/models/image_modle.dart';
-import 'package:admin_t_store/features/media/screens/media/widgets/media_content.dart';
-import 'package:admin_t_store/features/media/screens/media/widgets/media_uploader.dart';
-import 'package:admin_t_store/utils/constants/colors.dart';
-import 'package:admin_t_store/utils/constants/enums.dart';
-import 'package:admin_t_store/utils/constants/image_strings.dart';
-import 'package:admin_t_store/utils/constants/sizes.dart';
-import 'package:admin_t_store/utils/constants/text_strings.dart';
-import 'package:admin_t_store/utils/exceptions/firebase_exceptions.dart';
-import 'package:admin_t_store/utils/exceptions/format_exceptions.dart';
-import 'package:admin_t_store/utils/loaders/circular_loader.dart';
-import 'package:admin_t_store/utils/popups/dialogs.dart';
-import 'package:admin_t_store/utils/popups/full_screen_loader.dart';
-import 'package:admin_t_store/utils/popups/loaders.dart';
+import 'package:admin_hmoob_store/data/repositories/media/media_repository.dart';
+import 'package:admin_hmoob_store/features/media/models/image_modle.dart';
+import 'package:admin_hmoob_store/features/media/screens/media/widgets/media_content.dart';
+import 'package:admin_hmoob_store/features/media/screens/media/widgets/media_uploader.dart';
+import 'package:admin_hmoob_store/l10n/app_localizations.dart';
+import 'package:admin_hmoob_store/utils/constants/colors.dart';
+import 'package:admin_hmoob_store/utils/constants/enums.dart';
+import 'package:admin_hmoob_store/utils/constants/image_strings.dart';
+import 'package:admin_hmoob_store/utils/constants/sizes.dart';
+import 'package:admin_hmoob_store/utils/constants/text_strings.dart';
+import 'package:admin_hmoob_store/utils/exceptions/firebase_exceptions.dart';
+import 'package:admin_hmoob_store/utils/exceptions/format_exceptions.dart';
+import 'package:admin_hmoob_store/utils/loaders/circular_loader.dart';
+import 'package:admin_hmoob_store/utils/popups/dialogs.dart';
+import 'package:admin_hmoob_store/utils/popups/full_screen_loader.dart';
+import 'package:admin_hmoob_store/utils/popups/loaders.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dropzone/flutter_dropzone.dart';
@@ -72,8 +73,8 @@ class MediaController extends GetxController {
     } catch (e) {
       loading.value = false;
       TLoaders.errorSnackBar(
-        title: 'Oh snap',
-        message: 'Unable to fetch Images, Something wrnt wrong. Try again',
+        title: AppLocalizations.of(Get.context!)!.media_error_title,
+        message: AppLocalizations.of(Get.context!)!.media_error_fetch,
       );
     }
   }
@@ -111,8 +112,8 @@ class MediaController extends GetxController {
     } catch (e) {
       loading.value = false;
       TLoaders.errorSnackBar(
-        title: 'Oh snap',
-        message: 'Unable to fetch Images, Something wrnt wrong. Try again',
+        title: AppLocalizations.of(Get.context!)!.media_error_title,
+        message: AppLocalizations.of(Get.context!)!.media_error_fetch,
       );
     }
   }
@@ -142,18 +143,20 @@ class MediaController extends GetxController {
   void uploadImagesConfirmation() {
     if (selectedPath.value == MediaCategory.folders) {
       TLoaders.warningSnackBar(
-        title: 'Select Folder',
-        message: 'Please select the Folder in Order to upload the Images.',
+        title: AppLocalizations.of(Get.context!)!.media_select_folder_title,
+        message: AppLocalizations.of(Get.context!)!.media_select_folder_message,
       );
       return;
     }
     TDialogs.defaultDialog(
       context: Get.context!,
-      title: 'Upload Images',
-      confirmText: 'Upload',
+      title: AppLocalizations.of(Get.context!)!.media_upload_confirm_title,
+      confirmText: AppLocalizations.of(
+        Get.context!,
+      )!.media_upload_confirm_button,
       onConfirm: () async => await uploadImages(),
       content:
-          'Are you sure you want to upload all the Image in ${selectedPath.value.name.toLowerCase()} folder',
+          '${AppLocalizations.of(Get.context!)!.media_upload_confirm_message} ${selectedPath.value.name.toLowerCase()} folder',
     );
   }
 
@@ -239,7 +242,7 @@ class MediaController extends GetxController {
       builder: (context) => PopScope(
         canPop: false,
         child: AlertDialog(
-          title: const Text('Uplloading Images'),
+          title: Text(AppLocalizations.of(context)!.media_uploading_title),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -249,7 +252,7 @@ class MediaController extends GetxController {
                 width: 300,
               ),
               const SizedBox(height: TSizes.spaceBtwItems),
-              const Text('Sit Tight, Your images are uploading'),
+              Text(AppLocalizations.of(context)!.media_uploading_content),
             ],
           ),
         ),

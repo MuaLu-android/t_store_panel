@@ -379,4 +379,50 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get header_search_hint => 'Search anything...';
+
+  @override
+  String get media_error_title => 'Oh snap';
+
+  @override
+  String get media_error_fetch => 'Unable to fetch Images, Something went wrong. Try again';
+
+  @override
+  String get media_select_folder_title => 'Select Folder';
+
+  @override
+  String get media_select_folder_message => 'Please select the Folder in Order to upload the Images.';
+
+  @override
+  String get media_upload_confirm_title => 'Upload Images';
+
+  @override
+  String media_upload_confirm_message(Object folder) {
+    return 'Are you sure you want to upload all the Image in $folder folder';
+  }
+
+  @override
+  String get media_upload_confirm_button => 'Upload';
+
+  @override
+  String get media_uploading_title => 'Uploading Images';
+
+  @override
+  String get media_uploading_content => 'Sit Tight, Your images are uploading';
+
+  @override
+  String get media_error_upload_title => 'Error Uploading Images';
+
+  @override
+  String media_error_upload_message(Object error) {
+    return 'Something went wrong while uploading your images: $error';
+  }
+
+  @override
+  String get media_delete_confirm => 'Are you sure you want to delete this image?';
+
+  @override
+  String get media_delete_success_title => 'Image Deleted';
+
+  @override
+  String get media_delete_success_message => 'Image successfully deleted from your cloud storage';
 }

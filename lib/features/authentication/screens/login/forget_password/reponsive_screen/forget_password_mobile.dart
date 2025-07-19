@@ -1,5 +1,5 @@
-import 'package:admin_t_store/features/authentication/screens/login/forget_password/widgets/header_from.dart';
-import 'package:admin_t_store/utils/constants/sizes.dart';
+import 'package:admin_hmoob_store/features/authentication/screens/login/forget_password/widgets/header_from.dart';
+import 'package:admin_hmoob_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
 class ForgetPasswordMobile extends StatelessWidget {

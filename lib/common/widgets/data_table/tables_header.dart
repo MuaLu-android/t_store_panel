@@ -1,4 +1,4 @@
-import 'package:admin_t_store/utils/devices/device_utility.dart';
+import 'package:admin_hmoob_store/utils/devices/device_utility.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 

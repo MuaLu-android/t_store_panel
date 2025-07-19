@@ -1,6 +1,6 @@
-import 'package:admin_t_store/features/shop/controllers/products/products_variation_controller.dart';
-import 'package:admin_t_store/features/shop/models/product_attribute_model.dart';
-import 'package:admin_t_store/utils/popups/dialogs.dart';
+import 'package:admin_hmoob_store/features/shop/controllers/products/products_variation_controller.dart';
+import 'package:admin_hmoob_store/features/shop/models/product_attribute_model.dart';
+import 'package:admin_hmoob_store/utils/popups/dialogs.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 

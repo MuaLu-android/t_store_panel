@@ -1,10 +1,10 @@
-import 'package:admin_t_store/common/widgets/breadcrumbs/breadcrumb_with_heading.dart';
-import 'package:admin_t_store/features/media/controllers/media_controllet.dart';
-import 'package:admin_t_store/features/media/screens/media/widgets/media_content.dart';
-import 'package:admin_t_store/features/media/screens/media/widgets/media_uploader.dart';
-import 'package:admin_t_store/l10n/app_localizations.dart';
-import 'package:admin_t_store/utils/constants/breadcrumb_item.dart';
-import 'package:admin_t_store/utils/constants/sizes.dart';
+import 'package:admin_hmoob_store/common/widgets/breadcrumbs/breadcrumb_with_heading.dart';
+import 'package:admin_hmoob_store/features/media/controllers/media_controllet.dart';
+import 'package:admin_hmoob_store/features/media/screens/media/widgets/media_content.dart';
+import 'package:admin_hmoob_store/features/media/screens/media/widgets/media_uploader.dart';
+import 'package:admin_hmoob_store/l10n/app_localizations.dart';
+import 'package:admin_hmoob_store/utils/constants/breadcrumb_item.dart';
+import 'package:admin_hmoob_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';

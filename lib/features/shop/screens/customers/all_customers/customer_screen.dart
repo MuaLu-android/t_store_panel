@@ -1,5 +1,5 @@
-import 'package:admin_t_store/common/widgets/layouts/templates/site_layouts.dart';
-import 'package:admin_t_store/features/shop/screens/customers/all_customers/reponsive_screen/customer_desktop.dart';
+import 'package:admin_hmoob_store/common/widgets/layouts/templates/site_layouts.dart';
+import 'package:admin_hmoob_store/features/shop/screens/customers/all_customers/reponsive_screen/customer_desktop.dart';
 import 'package:flutter/material.dart';
 
 class CustomerScreen extends StatelessWidget {

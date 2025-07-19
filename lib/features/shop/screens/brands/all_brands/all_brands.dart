@@ -1,5 +1,5 @@
-import 'package:admin_t_store/common/widgets/layouts/templates/site_layouts.dart';
-import 'package:admin_t_store/features/shop/screens/brands/all_brands/responsive_screen/brands_desktop_screen.dart';
+import 'package:admin_hmoob_store/common/widgets/layouts/templates/site_layouts.dart';
+import 'package:admin_hmoob_store/features/shop/screens/brands/all_brands/responsive_screen/brands_desktop_screen.dart';
 import 'package:flutter/material.dart';
 
 class BrandsScreen extends StatelessWidget {

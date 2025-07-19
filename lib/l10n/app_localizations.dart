@@ -838,6 +838,90 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Search anything...'**
   String get header_search_hint;
+
+  /// Title for error snackbar in media
+  ///
+  /// In en, this message translates to:
+  /// **'Oh snap'**
+  String get media_error_title;
+
+  /// Message for error fetching images
+  ///
+  /// In en, this message translates to:
+  /// **'Unable to fetch Images, Something went wrong. Try again'**
+  String get media_error_fetch;
+
+  /// Title for select folder warning
+  ///
+  /// In en, this message translates to:
+  /// **'Select Folder'**
+  String get media_select_folder_title;
+
+  /// Message for select folder warning
+  ///
+  /// In en, this message translates to:
+  /// **'Please select the Folder in Order to upload the Images.'**
+  String get media_select_folder_message;
+
+  /// Title for upload images confirmation dialog
+  ///
+  /// In en, this message translates to:
+  /// **'Upload Images'**
+  String get media_upload_confirm_title;
+
+  /// Content for upload images confirmation dialog
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to upload all the Image in {folder} folder'**
+  String media_upload_confirm_message(Object folder);
+
+  /// Confirm button for upload images
+  ///
+  /// In en, this message translates to:
+  /// **'Upload'**
+  String get media_upload_confirm_button;
+
+  /// Title for uploading images dialog
+  ///
+  /// In en, this message translates to:
+  /// **'Uploading Images'**
+  String get media_uploading_title;
+
+  /// Content for uploading images dialog
+  ///
+  /// In en, this message translates to:
+  /// **'Sit Tight, Your images are uploading'**
+  String get media_uploading_content;
+
+  /// Title for error uploading images
+  ///
+  /// In en, this message translates to:
+  /// **'Error Uploading Images'**
+  String get media_error_upload_title;
+
+  /// Message for error uploading images
+  ///
+  /// In en, this message translates to:
+  /// **'Something went wrong while uploading your images: {error}'**
+  String media_error_upload_message(Object error);
+
+  /// Confirmation message for deleting image
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete this image?'**
+  String get media_delete_confirm;
+
+  /// Title for successful image deletion
+  ///
+  /// In en, this message translates to:
+  /// **'Image Deleted'**
+  String get media_delete_success_title;
+
+  /// Message for successful image deletion
+  ///
+  /// In en, this message translates to:
+  /// **'Image successfully deleted from your cloud storage'**
+  String get media_delete_success_message;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

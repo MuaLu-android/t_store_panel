@@ -495,5 +495,61 @@
     "header_search_hint": "Tìm kiếm...",
     "@header_search_hint": {
         "description": "Gợi ý cho ô tìm kiếm ở header"
+    },
+    "media_error_title": "Có lỗi",
+    "@media_error_title": {
+        "description": "Tiêu đề snackbar lỗi trong media"
+    },
+    "media_error_fetch": "Không thể tải ảnh, đã xảy ra lỗi. Vui lòng thử lại",
+    "@media_error_fetch": {
+        "description": "Thông báo lỗi khi tải ảnh"
+    },
+    "media_select_folder_title": "Chọn thư mục",
+    "@media_select_folder_title": {
+        "description": "Tiêu đề cảnh báo chọn thư mục"
+    },
+    "media_select_folder_message": "Vui lòng chọn thư mục để tải ảnh lên.",
+    "@media_select_folder_message": {
+        "description": "Thông báo cảnh báo chọn thư mục"
+    },
+    "media_upload_confirm_title": "Tải ảnh lên",
+    "@media_upload_confirm_title": {
+        "description": "Tiêu đề xác nhận tải ảnh lên"
+    },
+    "media_upload_confirm_message": "Bạn có chắc muốn tải tất cả ảnh vào thư mục {folder} không?",
+    "@media_upload_confirm_message": {
+        "description": "Nội dung xác nhận tải ảnh lên"
+    },
+    "media_upload_confirm_button": "Tải lên",
+    "@media_upload_confirm_button": {
+        "description": "Nút xác nhận tải ảnh lên"
+    },
+    "media_uploading_title": "Đang tải ảnh lên",
+    "@media_uploading_title": {
+        "description": "Tiêu đề dialog đang tải ảnh lên"
+    },
+    "media_uploading_content": "Vui lòng chờ, ảnh của bạn đang được tải lên",
+    "@media_uploading_content": {
+        "description": "Nội dung dialog đang tải ảnh lên"
+    },
+    "media_error_upload_title": "Lỗi tải ảnh",
+    "@media_error_upload_title": {
+        "description": "Tiêu đề lỗi tải ảnh"
+    },
+    "media_error_upload_message": "Có lỗi khi tải ảnh: {error}",
+    "@media_error_upload_message": {
+        "description": "Thông báo lỗi khi tải ảnh"
+    },
+    "media_delete_confirm": "Bạn có chắc muốn xóa ảnh này không?",
+    "@media_delete_confirm": {
+        "description": "Xác nhận xóa ảnh"
+    },
+    "media_delete_success_title": "Đã xóa ảnh",
+    "@media_delete_success_title": {
+        "description": "Tiêu đề xóa ảnh thành công"
+    },
+    "media_delete_success_message": "Ảnh đã được xóa khỏi lưu trữ đám mây",
+    "@media_delete_success_message": {
+        "description": "Thông báo xóa ảnh thành công"
     }
 }

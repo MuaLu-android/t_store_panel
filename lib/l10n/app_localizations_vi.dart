@@ -379,4 +379,50 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get header_search_hint => 'Tìm kiếm...';
+
+  @override
+  String get media_error_title => 'Có lỗi';
+
+  @override
+  String get media_error_fetch => 'Không thể tải ảnh, đã xảy ra lỗi. Vui lòng thử lại';
+
+  @override
+  String get media_select_folder_title => 'Chọn thư mục';
+
+  @override
+  String get media_select_folder_message => 'Vui lòng chọn thư mục để tải ảnh lên.';
+
+  @override
+  String get media_upload_confirm_title => 'Tải ảnh lên';
+
+  @override
+  String media_upload_confirm_message(Object folder) {
+    return 'Bạn có chắc muốn tải tất cả ảnh vào thư mục $folder không?';
+  }
+
+  @override
+  String get media_upload_confirm_button => 'Tải lên';
+
+  @override
+  String get media_uploading_title => 'Đang tải ảnh lên';
+
+  @override
+  String get media_uploading_content => 'Vui lòng chờ, ảnh của bạn đang được tải lên';
+
+  @override
+  String get media_error_upload_title => 'Lỗi tải ảnh';
+
+  @override
+  String media_error_upload_message(Object error) {
+    return 'Có lỗi khi tải ảnh: $error';
+  }
+
+  @override
+  String get media_delete_confirm => 'Bạn có chắc muốn xóa ảnh này không?';
+
+  @override
+  String get media_delete_success_title => 'Đã xóa ảnh';
+
+  @override
+  String get media_delete_success_message => 'Ảnh đã được xóa khỏi lưu trữ đám mây';
 }

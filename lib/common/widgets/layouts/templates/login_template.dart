@@ -1,7 +1,7 @@
-import 'package:admin_t_store/common/styles/spacing_style.dart';
-import 'package:admin_t_store/utils/constants/colors.dart';
-import 'package:admin_t_store/utils/constants/sizes.dart';
-import 'package:admin_t_store/utils/helpers/helper_functions.dart';
+import 'package:admin_hmoob_store/common/styles/spacing_style.dart';
+import 'package:admin_hmoob_store/utils/constants/colors.dart';
+import 'package:admin_hmoob_store/utils/constants/sizes.dart';
+import 'package:admin_hmoob_store/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 
 class TLoginTemplate extends StatelessWidget {

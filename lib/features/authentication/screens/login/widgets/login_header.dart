@@ -1,5 +1,5 @@
-import 'package:admin_t_store/utils/constants/image_strings.dart';
-import 'package:admin_t_store/utils/constants/sizes.dart';
+import 'package:admin_hmoob_store/utils/constants/image_strings.dart';
+import 'package:admin_hmoob_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../l10n/app_localizations.dart';
@@ -16,9 +16,9 @@ class TLoginHeader extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Image(
-            image: AssetImage(TImages.darkAppLogo),
-            width: 100,
-            height: 100,
+            image: AssetImage(TImages.hmoobLogos),
+            width: 130,
+            height: 130,
           ),
           const SizedBox(height: TSizes.spaceBtwSections),
           Text(

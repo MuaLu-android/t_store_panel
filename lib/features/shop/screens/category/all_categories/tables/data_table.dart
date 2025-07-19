@@ -1,6 +1,6 @@
-import 'package:admin_t_store/common/widgets/data_table/paginated_data_table.dart';
-import 'package:admin_t_store/features/shop/controllers/categories/category_controller.dart';
-import 'package:admin_t_store/features/shop/screens/category/all_categories/tables/table_source.dart';
+import 'package:admin_hmoob_store/common/widgets/data_table/paginated_data_table.dart';
+import 'package:admin_hmoob_store/features/shop/controllers/categories/category_controller.dart';
+import 'package:admin_hmoob_store/features/shop/screens/category/all_categories/tables/table_source.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/state_manager.dart';

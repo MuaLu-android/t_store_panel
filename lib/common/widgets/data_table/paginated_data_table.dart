@@ -1,7 +1,7 @@
-import 'package:admin_t_store/utils/constants/colors.dart';
-import 'package:admin_t_store/utils/constants/image_strings.dart';
-import 'package:admin_t_store/utils/constants/sizes.dart';
-import 'package:admin_t_store/utils/loaders/animation_loader.dart';
+import 'package:admin_hmoob_store/utils/constants/colors.dart';
+import 'package:admin_hmoob_store/utils/constants/image_strings.dart';
+import 'package:admin_hmoob_store/utils/constants/sizes.dart';
+import 'package:admin_hmoob_store/utils/loaders/animation_loader.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';

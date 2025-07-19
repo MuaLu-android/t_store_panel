@@ -1,12 +1,12 @@
-import 'package:admin_t_store/data/repositories/banners/banner_repository.dart';
-import 'package:admin_t_store/features/media/controllers/media_controllet.dart';
-import 'package:admin_t_store/features/media/models/image_modle.dart';
-import 'package:admin_t_store/features/shop/controllers/banner/banner_controller.dart';
-import 'package:admin_t_store/features/shop/models/banner_model.dart';
-import 'package:admin_t_store/route/route.dart';
-import 'package:admin_t_store/utils/helpers/network_manager.dart';
-import 'package:admin_t_store/utils/popups/full_screen_loader.dart';
-import 'package:admin_t_store/utils/popups/loaders.dart';
+import 'package:admin_hmoob_store/data/repositories/banners/banner_repository.dart';
+import 'package:admin_hmoob_store/features/media/controllers/media_controllet.dart';
+import 'package:admin_hmoob_store/features/media/models/image_modle.dart';
+import 'package:admin_hmoob_store/features/shop/controllers/banner/banner_controller.dart';
+import 'package:admin_hmoob_store/features/shop/models/banner_model.dart';
+import 'package:admin_hmoob_store/route/route.dart';
+import 'package:admin_hmoob_store/utils/helpers/network_manager.dart';
+import 'package:admin_hmoob_store/utils/popups/full_screen_loader.dart';
+import 'package:admin_hmoob_store/utils/popups/loaders.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
