@@ -1,6 +1,8 @@
 import 'package:admin_t_store/common/widgets/breadcrumbs/breadcrumb_with_heading.dart';
 import 'package:admin_t_store/features/personalization/screen/profiles/widgets/image_and_meta.dart';
 import 'package:admin_t_store/features/personalization/screen/profiles/widgets/profile_form.dart';
+import 'package:admin_t_store/l10n/app_localizations.dart';
+import 'package:admin_t_store/utils/constants/breadcrumb_item.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +12,7 @@ class ProfileTabletsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // implement build
+    final local = AppLocalizations.of(context)!;
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
@@ -19,8 +22,8 @@ class ProfileTabletsScreen extends StatelessWidget {
             children: [
               // Breandcrumbs
               TBreadcrumbWithHeading(
-                heading: 'Profile',
-                breadcrumbItems: ['Profile'],
+                heading: local.profile,
+                breadcrumbItems: [BreadcrumbItem(local.profile)],
               ),
               SizedBox(height: TSizes.spaceBtwSections),
 

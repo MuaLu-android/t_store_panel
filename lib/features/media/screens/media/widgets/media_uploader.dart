@@ -6,6 +6,7 @@ import 'package:admin_t_store/common/widgets/custom_shapes/container/rounded_con
 import 'package:admin_t_store/common/widgets/images/t_rounded_image.dart';
 import 'package:admin_t_store/features/media/controllers/media_controllet.dart';
 import 'package:admin_t_store/features/media/screens/media/widgets/folder_dropdown.dart';
+import 'package:admin_t_store/l10n/app_localizations.dart';
 import 'package:admin_t_store/utils/constants/colors.dart';
 import 'package:admin_t_store/utils/constants/enums.dart';
 import 'package:admin_t_store/utils/constants/image_strings.dart';
@@ -23,6 +24,7 @@ class MediaUploader extends StatelessWidget {
     // implement build
     // goi truc tiep bo diue khien phuogn tien, truong hop nay vi
     final controller = MediaController.instance;
+    final local = AppLocalizations.of(context)!;
     return Obx(
       () => controller.showImagesUploaderSection.value
           ? Column(
@@ -88,12 +90,12 @@ class MediaUploader extends StatelessWidget {
                                   height: 50,
                                 ),
                                 const SizedBox(height: TSizes.spaceBtwItems),
-                                const Text('Drag and Drop Images here'),
+                                Text(local.dragDropImagesHere),
                                 const SizedBox(height: TSizes.spaceBtwItems),
                                 OutlinedButton(
                                   onPressed: () =>
                                       controller.selectLocalImages(),
-                                  child: const Text('Select Images'),
+                                  child: Text(local.selectImages),
                                 ),
                               ],
                             ),
@@ -117,7 +119,7 @@ class MediaUploader extends StatelessWidget {
                             Row(
                               children: [
                                 Text(
-                                  'Gallery Folder',
+                                  local.galleryFolder,
                                   style: Theme.of(
                                     context,
                                   ).textTheme.headlineSmall,
@@ -138,7 +140,7 @@ class MediaUploader extends StatelessWidget {
                                   onPressed: () => controller
                                       .selectedImagesTopUpload
                                       .clear(),
-                                  child: const Text('Remove All'),
+                                  child: Text(local.removeAll),
                                 ),
                                 const SizedBox(width: TSizes.spaceBtwItems),
                                 TDeviceUtils.isMobileScreen(context)
@@ -148,7 +150,7 @@ class MediaUploader extends StatelessWidget {
                                         child: ElevatedButton(
                                           onPressed: () => controller
                                               .uploadImagesConfirmation(),
-                                          child: const Text('Upload'),
+                                          child: Text(local.upload),
                                         ),
                                       ),
                               ],
@@ -183,7 +185,7 @@ class MediaUploader extends StatelessWidget {
                                 child: ElevatedButton(
                                   onPressed: () =>
                                       controller.uploadImagesConfirmation(),
-                                  child: Text('Upload'),
+                                  child: Text(local.upload),
                                 ),
                               )
                             : const SizedBox.shrink(),

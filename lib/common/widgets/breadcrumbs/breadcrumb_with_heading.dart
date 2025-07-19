@@ -1,5 +1,7 @@
 import 'package:admin_t_store/common/widgets/layouts/headers/page_heading.dart';
+import 'package:admin_t_store/l10n/app_localizations.dart';
 import 'package:admin_t_store/route/route.dart';
+import 'package:admin_t_store/utils/constants/breadcrumb_item.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,13 +18,14 @@ class TBreadcrumbWithHeading extends StatelessWidget {
   // The heaging for the page
   final String heading;
   // List of breacrumb items representing the navigation path
-  final List<String> breadcrumbItems;
+  final List<BreadcrumbItem> breadcrumbItems;
   // Flag indicating whether to include a button to return to the previons screen
   final bool returnToPreviousScreen;
   final bool titleSmall;
   @override
   Widget build(BuildContext context) {
     // implement build
+    final local = AppLocalizations.of(context)!;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -34,7 +37,7 @@ class TBreadcrumbWithHeading extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(TSizes.xs),
                 child: Text(
-                  'Dashboard',
+                  local.dashboard,
                   style: Theme.of(
                     context,
                   ).textTheme.bodySmall!.apply(fontWeightDelta: -1),
@@ -48,13 +51,13 @@ class TBreadcrumbWithHeading extends StatelessWidget {
                   InkWell(
                     onTap: i == breadcrumbItems.length - 1
                         ? null
-                        : () => Get.offAllNamed(breadcrumbItems[i]),
+                        : () => Get.offAllNamed(breadcrumbItems[i].route!),
                     child: Padding(
                       padding: const EdgeInsets.all(TSizes.xs),
                       child: Text(
                         i == breadcrumbItems.length - 1
-                            ? breadcrumbItems[i].capitalize.toString()
-                            : capitalize(breadcrumbItems[i].substring(1)),
+                            ? breadcrumbItems[i].label.capitalize.toString()
+                            : capitalize(breadcrumbItems[i].label.substring(1)),
                         style: Theme.of(context).textTheme.bodySmall!.apply(
                           fontWeightDelta: -1,
                           overflow: TextOverflow.ellipsis,

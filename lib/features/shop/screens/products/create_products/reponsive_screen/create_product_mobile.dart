@@ -11,7 +11,9 @@ import 'package:admin_t_store/features/shop/screens/products/create_products/wid
 import 'package:admin_t_store/features/shop/screens/products/create_products/widgets/product_type_widget.dart';
 import 'package:admin_t_store/features/shop/screens/products/create_products/widgets/product_variations.dart';
 import 'package:admin_t_store/features/shop/screens/products/create_products/widgets/product_visibility_widgets.dart';
+import 'package:admin_t_store/l10n/app_localizations.dart';
 import 'package:admin_t_store/route/route.dart';
+import 'package:admin_t_store/utils/constants/breadcrumb_item.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
@@ -22,6 +24,7 @@ class CreateProductMobileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // implement build
+    final local = AppLocalizations.of(context)!;
     return Scaffold(
       bottomNavigationBar: const ProductBottomNavigationButton(),
       body: SingleChildScrollView(
@@ -31,10 +34,16 @@ class CreateProductMobileScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Breandcrumbs
-              const TBreadcrumbWithHeading(
+              TBreadcrumbWithHeading(
                 returnToPreviousScreen: true,
-                heading: 'Create Products',
-                breadcrumbItems: [TRoutes.products, 'Create Products'],
+                heading: local.productCreateHeading,
+                breadcrumbItems: [
+                  BreadcrumbItem(
+                    local.productsStoragePath,
+                    route: TRoutes.products,
+                  ),
+                  BreadcrumbItem(local.productCreateHeading),
+                ],
               ),
               const SizedBox(height: TSizes.spaceBtwSections),
               // Create Products

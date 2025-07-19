@@ -4,7 +4,9 @@ import 'package:admin_t_store/features/shop/models/user_model.dart';
 import 'package:admin_t_store/features/shop/screens/customers/customer_details/widgets/customer_info.dart';
 import 'package:admin_t_store/features/shop/screens/customers/customer_details/widgets/customer_order.dart';
 import 'package:admin_t_store/features/shop/screens/customers/customer_details/widgets/shipping_address.dart';
+import 'package:admin_t_store/l10n/app_localizations.dart';
 import 'package:admin_t_store/route/route.dart';
+import 'package:admin_t_store/utils/constants/breadcrumb_item.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,6 +18,7 @@ class CustomerDetailsDesktopScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // implement build
     final controller = Get.put(CustomerDetailController());
+    final local = AppLocalizations.of(context)!;
     controller.customer.value = customer;
     return Scaffold(
       body: SingleChildScrollView(
@@ -27,7 +30,13 @@ class CustomerDetailsDesktopScreen extends StatelessWidget {
               // Breandcrumbs
               TBreadcrumbWithHeading(
                 heading: customer.fullName,
-                breadcrumbItems: [TRoutes.customers, 'Details'],
+                breadcrumbItems: [
+                  BreadcrumbItem(
+                    local.usersStoragePath,
+                    route: TRoutes.customers,
+                  ),
+                  BreadcrumbItem(local.customerDetailsBreadcrumb),
+                ],
                 returnToPreviousScreen: true,
               ),
               const SizedBox(height: TSizes.spaceBtwSections),

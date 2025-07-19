@@ -30,6 +30,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get usersStoragePath => '/Users';
 
   @override
+  String get settingStoragePath => '/Settings';
+
+  @override
+  String get users => 'Users';
+
+  @override
   String get and => 'and';
 
   @override
@@ -285,5 +291,92 @@ class AppLocalizationsEn extends AppLocalizations {
   String get orderStatusChart => 'Order Status';
 
   @override
-  String get orderCount => 'Orders';
+  String get details => 'Details';
+
+  @override
+  String get uploadImages => 'Upload Images';
+
+  @override
+  String get dragDropImagesHere => 'Drag and Drop Images here';
+
+  @override
+  String get selectImages => 'Select Images';
+
+  @override
+  String get galleryFolder => 'Gallery Folder';
+
+  @override
+  String get removeAll => 'Remove All';
+
+  @override
+  String get upload => 'Upload';
+
+  @override
+  String get mediaFolderAll => 'Folders';
+
+  @override
+  String get mediaNoMediaFound => 'No media found.';
+
+  @override
+  String get mediaSearchHint => 'Search images...';
+
+  @override
+  String get mediaEmptySelection => 'No image selected.';
+
+  @override
+  String get mediaSelect => 'Mores';
+
+  @override
+  String get mediaCancel => 'Cancel';
+
+  @override
+  String get mediaDelete => 'Delete';
+
+  @override
+  String get mediaConfirmDelete => 'Are you sure you want to delete this image?';
+
+  @override
+  String get mediaYes => 'Yes';
+
+  @override
+  String get mediaNo => 'No';
+
+  @override
+  String get productCreateHeading => 'Create Product';
+
+  @override
+  String get productEditHeading => 'Edit Product';
+
+  @override
+  String get bannerCreateHeading => 'Create Banner';
+
+  @override
+  String get bannerEditHeading => 'Update Banner';
+
+  @override
+  String get brandCreateHeading => 'Create Brand';
+
+  @override
+  String get brandEditHeading => 'Update Brand';
+
+  @override
+  String get customerDetailsBreadcrumb => 'Customer Details';
+
+  @override
+  String get orderDetailsBreadcrumb => 'Order Details';
+
+  @override
+  String get categoryBreadcrumbCreate => 'Create Category';
+
+  @override
+  String get categoryBreadcrumbEdit => 'Update Category';
+
+  @override
+  String get categoryCreateHeading => 'Create Category';
+
+  @override
+  String get categoryEditHeading => 'Update Category';
+
+  @override
+  String get header_search_hint => 'Search anything...';
 }

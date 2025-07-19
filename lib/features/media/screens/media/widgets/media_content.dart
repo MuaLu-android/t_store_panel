@@ -5,6 +5,7 @@ import 'package:admin_t_store/features/media/controllers/media_controllet.dart';
 import 'package:admin_t_store/features/media/models/image_modle.dart';
 import 'package:admin_t_store/features/media/screens/media/widgets/folder_dropdown.dart';
 import 'package:admin_t_store/features/media/screens/media/widgets/view_image_details.dart';
+import 'package:admin_t_store/l10n/app_localizations.dart';
 import 'package:admin_t_store/utils/constants/colors.dart';
 import 'package:admin_t_store/utils/constants/enums.dart';
 import 'package:admin_t_store/utils/constants/image_strings.dart';
@@ -32,6 +33,7 @@ class MediaContent extends StatelessWidget {
     //implement build
     var loadedPreviousSection = false;
     final controller = MediaController.instance;
+    final local = AppLocalizations.of(context)!;
     return TRoundedContainer(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,7 +45,7 @@ class MediaContent extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    'Select Folder',
+                    local.galleryFolder,
                     style: Theme.of(context).textTheme.headlineSmall,
                   ),
                   const SizedBox(width: TSizes.spaceBtwItems),
@@ -57,7 +59,7 @@ class MediaContent extends StatelessWidget {
                   ),
                 ],
               ),
-              if (allowSelection) builAddSelectImagesButton(),
+              if (allowSelection) builAddSelectImagesButton(local),
             ],
           ),
           const SizedBox(height: TSizes.spaceBtwSections),
@@ -89,7 +91,9 @@ class MediaContent extends StatelessWidget {
               return const TLoaderAnimation();
             }
             // Empty Widget
-            if (images.isEmpty) return _builEmptyAnimationWidget(context);
+            if (images.isEmpty) {
+              return _builEmptyAnimationWidget(context, local);
+            }
             return Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -145,7 +149,7 @@ class MediaContent extends StatelessWidget {
                           width: TSizes.buttonWidth,
                           child: ElevatedButton.icon(
                             onPressed: () => controller.loadMoreMediaImages(),
-                            label: const Text('Load More'),
+                            label: Text(local.mediaSelect),
                             icon: const Icon(Iconsax.arrow_down),
                           ),
                         ),
@@ -186,13 +190,16 @@ class MediaContent extends StatelessWidget {
     return images;
   }
 
-  Widget _builEmptyAnimationWidget(BuildContext context) {
+  Widget _builEmptyAnimationWidget(
+    BuildContext context,
+    AppLocalizations local,
+  ) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: TSizes.lg * 3),
       child: TAnimationLoaderWidget(
         width: 300,
         height: 300,
-        text: 'Select ypur Desired Folder',
+        text: local.mediaNoMediaFound,
         animation: TImages.packageAnimation,
         style: Theme.of(context).textTheme.titleLarge,
       ),
@@ -255,13 +262,13 @@ class MediaContent extends StatelessWidget {
     );
   }
 
-  Widget builAddSelectImagesButton() {
+  Widget builAddSelectImagesButton(AppLocalizations local) {
     return Row(
       children: [
         SizedBox(
           width: 120,
           child: OutlinedButton.icon(
-            label: const Text('Close'),
+            label: Text(local.mediaCancel),
             icon: Icon(Iconsax.close_circle),
             onPressed: () => Get.back(),
           ),
@@ -271,7 +278,7 @@ class MediaContent extends StatelessWidget {
           width: 120,
           child: ElevatedButton.icon(
             onPressed: () => Get.back(result: selectedImages),
-            label: const Text('Add'),
+            label: Text(local.mediaSelect),
             icon: const Icon(Iconsax.image),
           ),
         ),

@@ -13,7 +13,9 @@ import 'package:admin_t_store/features/shop/screens/products/edit_products/widge
 import 'package:admin_t_store/features/shop/screens/products/edit_products/widgets/edit_stock_pricing.dart';
 import 'package:admin_t_store/features/shop/screens/products/edit_products/widgets/edit_title_and_description.dart';
 import 'package:admin_t_store/features/shop/screens/products/edit_products/widgets/edit_type_widget.dart';
+import 'package:admin_t_store/l10n/app_localizations.dart';
 import 'package:admin_t_store/route/route.dart';
+import 'package:admin_t_store/utils/constants/breadcrumb_item.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:admin_t_store/utils/devices/device_utility.dart';
 import 'package:flutter/material.dart';
@@ -24,6 +26,7 @@ class EditProductDesktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // implement build
+    final local = AppLocalizations.of(context)!;
     final productImagesController = ProductImagesController.instance;
     return Scaffold(
       bottomNavigationBar: EditProductBottomNavigationButton(product: product),
@@ -34,10 +37,16 @@ class EditProductDesktop extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Breandcrumbs
-              const TBreadcrumbWithHeading(
+              TBreadcrumbWithHeading(
                 returnToPreviousScreen: true,
-                heading: 'Update Products',
-                breadcrumbItems: [TRoutes.products, 'Update Products'],
+                heading: local.productEditHeading,
+                breadcrumbItems: [
+                  BreadcrumbItem(
+                    local.productsStoragePath,
+                    route: TRoutes.products,
+                  ),
+                  BreadcrumbItem(local.productEditHeading),
+                ],
               ),
               const SizedBox(height: TSizes.spaceBtwSections),
               // Create Products

@@ -4,7 +4,9 @@ import 'package:admin_t_store/features/shop/screens/orders/detail_order/widgets/
 import 'package:admin_t_store/features/shop/screens/orders/detail_order/widgets/order_info.dart';
 import 'package:admin_t_store/features/shop/screens/orders/detail_order/widgets/order_items.dart';
 import 'package:admin_t_store/features/shop/screens/orders/detail_order/widgets/order_transactions.dart';
+import 'package:admin_t_store/l10n/app_localizations.dart';
 import 'package:admin_t_store/route/route.dart';
+import 'package:admin_t_store/utils/constants/breadcrumb_item.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
@@ -14,6 +16,7 @@ class OrderDetailsDesktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // implement build
+    final local = AppLocalizations.of(context)!;
     return Scaffold(
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(TSizes.defaultSpace),
@@ -24,7 +27,10 @@ class OrderDetailsDesktop extends StatelessWidget {
             TBreadcrumbWithHeading(
               returnToPreviousScreen: true,
               heading: orderModel.id,
-              breadcrumbItems: const [TRoutes.orders, 'Details'],
+              breadcrumbItems: [
+                BreadcrumbItem(local.brandsStoragePath, route: TRoutes.orders),
+                BreadcrumbItem(local.orderDetailsBreadcrumb),
+              ],
               titleSmall: true,
             ),
             // Body

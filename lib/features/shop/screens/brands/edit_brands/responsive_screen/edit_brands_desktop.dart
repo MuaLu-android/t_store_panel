@@ -1,7 +1,9 @@
 import 'package:admin_t_store/common/widgets/breadcrumbs/breadcrumb_with_heading.dart';
 import 'package:admin_t_store/features/shop/models/brand_model.dart';
 import 'package:admin_t_store/features/shop/screens/brands/edit_brands/widgets/edit_brands_form.dart';
+import 'package:admin_t_store/l10n/app_localizations.dart';
 import 'package:admin_t_store/route/route.dart';
+import 'package:admin_t_store/utils/constants/breadcrumb_item.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
@@ -11,6 +13,7 @@ class EditBrandsDesktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // implement build
+    final local = AppLocalizations.of(context)!;
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
@@ -21,8 +24,14 @@ class EditBrandsDesktop extends StatelessWidget {
               //Bread crumb
               TBreadcrumbWithHeading(
                 returnToPreviousScreen: true,
-                heading: 'Update Brands',
-                breadcrumbItems: [TRoutes.brands, 'Update brands'],
+                heading: local.brandEditHeading,
+                breadcrumbItems: [
+                  BreadcrumbItem(
+                    local.brandsStoragePath,
+                    route: TRoutes.brands,
+                  ),
+                  BreadcrumbItem(local.brandEditHeading),
+                ],
               ),
               const SizedBox(height: TSizes.spaceBtwSections),
               // From

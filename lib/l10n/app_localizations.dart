@@ -137,6 +137,18 @@ abstract class AppLocalizations {
   /// **'/Users'**
   String get usersStoragePath;
 
+  /// Storage path for users
+  ///
+  /// In en, this message translates to:
+  /// **'/Settings'**
+  String get settingStoragePath;
+
+  /// Storage path for users
+  ///
+  /// In en, this message translates to:
+  /// **'Users'**
+  String get users;
+
   /// The word 'and'
   ///
   /// In en, this message translates to:
@@ -647,11 +659,185 @@ abstract class AppLocalizations {
   /// **'Order Status'**
   String get orderStatusChart;
 
-  /// Order count column
+  /// Breadcrumb details for media
   ///
   /// In en, this message translates to:
-  /// **'Orders'**
-  String get orderCount;
+  /// **'Details'**
+  String get details;
+
+  /// Button to upload images
+  ///
+  /// In en, this message translates to:
+  /// **'Upload Images'**
+  String get uploadImages;
+
+  /// Instruction for drag and drop area
+  ///
+  /// In en, this message translates to:
+  /// **'Drag and Drop Images here'**
+  String get dragDropImagesHere;
+
+  /// Button to select images
+  ///
+  /// In en, this message translates to:
+  /// **'Select Images'**
+  String get selectImages;
+
+  /// Label for gallery folder dropdown
+  ///
+  /// In en, this message translates to:
+  /// **'Gallery Folder'**
+  String get galleryFolder;
+
+  /// Button to remove all selected images
+  ///
+  /// In en, this message translates to:
+  /// **'Remove All'**
+  String get removeAll;
+
+  /// Button to upload selected images
+  ///
+  /// In en, this message translates to:
+  /// **'Upload'**
+  String get upload;
+
+  /// Option for all media folders
+  ///
+  /// In en, this message translates to:
+  /// **'Folders'**
+  String get mediaFolderAll;
+
+  /// Message when no media is found
+  ///
+  /// In en, this message translates to:
+  /// **'No media found.'**
+  String get mediaNoMediaFound;
+
+  /// Hint text for searching images
+  ///
+  /// In en, this message translates to:
+  /// **'Search images...'**
+  String get mediaSearchHint;
+
+  /// Message when no image is selected
+  ///
+  /// In en, this message translates to:
+  /// **'No image selected.'**
+  String get mediaEmptySelection;
+
+  /// Button to select
+  ///
+  /// In en, this message translates to:
+  /// **'Mores'**
+  String get mediaSelect;
+
+  /// Button to cancel
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get mediaCancel;
+
+  /// Button to delete
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get mediaDelete;
+
+  /// Confirmation message for deleting image
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete this image?'**
+  String get mediaConfirmDelete;
+
+  /// Button for yes/confirm
+  ///
+  /// In en, this message translates to:
+  /// **'Yes'**
+  String get mediaYes;
+
+  /// Button for no/cancel
+  ///
+  /// In en, this message translates to:
+  /// **'No'**
+  String get mediaNo;
+
+  /// Heading for create product page
+  ///
+  /// In en, this message translates to:
+  /// **'Create Product'**
+  String get productCreateHeading;
+
+  /// Heading for edit product page
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Product'**
+  String get productEditHeading;
+
+  /// Heading for create banner page
+  ///
+  /// In en, this message translates to:
+  /// **'Create Banner'**
+  String get bannerCreateHeading;
+
+  /// Heading for update/edit banner page
+  ///
+  /// In en, this message translates to:
+  /// **'Update Banner'**
+  String get bannerEditHeading;
+
+  /// Heading for create brand page
+  ///
+  /// In en, this message translates to:
+  /// **'Create Brand'**
+  String get brandCreateHeading;
+
+  /// Heading for update/edit brand page
+  ///
+  /// In en, this message translates to:
+  /// **'Update Brand'**
+  String get brandEditHeading;
+
+  /// Breadcrumb for customer details page
+  ///
+  /// In en, this message translates to:
+  /// **'Customer Details'**
+  String get customerDetailsBreadcrumb;
+
+  /// Breadcrumb for order details page
+  ///
+  /// In en, this message translates to:
+  /// **'Order Details'**
+  String get orderDetailsBreadcrumb;
+
+  /// Breadcrumb for create category page
+  ///
+  /// In en, this message translates to:
+  /// **'Create Category'**
+  String get categoryBreadcrumbCreate;
+
+  /// Breadcrumb for update/edit category page
+  ///
+  /// In en, this message translates to:
+  /// **'Update Category'**
+  String get categoryBreadcrumbEdit;
+
+  /// Heading for create category page
+  ///
+  /// In en, this message translates to:
+  /// **'Create Category'**
+  String get categoryCreateHeading;
+
+  /// Heading for update/edit category page
+  ///
+  /// In en, this message translates to:
+  /// **'Update Category'**
+  String get categoryEditHeading;
+
+  /// Hint text for the search field in the header
+  ///
+  /// In en, this message translates to:
+  /// **'Search anything...'**
+  String get header_search_hint;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

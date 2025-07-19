@@ -4,6 +4,8 @@ import 'package:admin_t_store/common/widgets/data_table/tables_header.dart';
 import 'package:admin_t_store/common/widgets/layouts/templates/loader_animation.dart';
 import 'package:admin_t_store/features/shop/controllers/customer/customer_controller.dart';
 import 'package:admin_t_store/features/shop/screens/customers/all_customers/table/customer_tablet.dart';
+import 'package:admin_t_store/l10n/app_localizations.dart';
+import 'package:admin_t_store/utils/constants/breadcrumb_item.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -15,6 +17,7 @@ class CustomerDesktopScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // implement build
     final controller = Get.put(CustomerController());
+    final local = AppLocalizations.of(context)!;
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
@@ -24,8 +27,8 @@ class CustomerDesktopScreen extends StatelessWidget {
             children: [
               // Breandcrumbs
               TBreadcrumbWithHeading(
-                heading: 'Customers',
-                breadcrumbItems: ['Customers'],
+                heading: local.customers,
+                breadcrumbItems: [BreadcrumbItem(local.customers)],
               ),
               const SizedBox(height: TSizes.spaceBtwSections),
               TRoundedContainer(

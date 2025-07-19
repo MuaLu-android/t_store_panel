@@ -91,7 +91,7 @@ class OrderStatusPiechart extends StatelessWidget {
                 () => DataTable(
                   columns: [
                     DataColumn(label: Text(local.orderStatus)),
-                    DataColumn(label: Text(local.orderCount)),
+                    DataColumn(label: Text(local.orderItems)),
                     DataColumn(label: Text(local.orderTotal)),
                   ],
                   rows: controller.orderStatusData.entries.map((entry) {

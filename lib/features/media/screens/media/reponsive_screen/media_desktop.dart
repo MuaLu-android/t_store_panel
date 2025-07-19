@@ -3,7 +3,7 @@ import 'package:admin_t_store/features/media/controllers/media_controllet.dart';
 import 'package:admin_t_store/features/media/screens/media/widgets/media_content.dart';
 import 'package:admin_t_store/features/media/screens/media/widgets/media_uploader.dart';
 import 'package:admin_t_store/l10n/app_localizations.dart';
-import 'package:admin_t_store/route/route.dart';
+import 'package:admin_t_store/utils/constants/breadcrumb_item.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -31,8 +31,8 @@ class MediaDesktopScreen extends StatelessWidget {
                 children: [
                   // Breadcrumbs
                   TBreadcrumbWithHeading(
-                    heading: 'Media',
-                    breadcrumbItems: [TRoutes.media, 'details'],
+                    heading: local.media,
+                    breadcrumbItems: [BreadcrumbItem(local.media)],
                   ),
                   // Toggle Images Section Button
                   Flexible(
@@ -43,7 +43,7 @@ class MediaDesktopScreen extends StatelessWidget {
                             controller.showImagesUploaderSection.value =
                                 !controller.showImagesUploaderSection.value,
                         icon: const Icon(Iconsax.cloud_add),
-                        label: const Text('Upload Images'),
+                        label: Text(local.uploadImages),
                       ),
                     ),
                   ),

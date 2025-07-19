@@ -1,6 +1,7 @@
 import 'package:admin_t_store/common/widgets/images/t_rounded_image.dart';
 import 'package:admin_t_store/common/widgets/shimmer/shimmer.dart';
 import 'package:admin_t_store/features/authentication/controllers/user_controller.dart';
+import 'package:admin_t_store/l10n/app_localizations.dart';
 import 'package:admin_t_store/utils/constants/colors.dart';
 import 'package:admin_t_store/utils/constants/enums.dart';
 import 'package:admin_t_store/utils/constants/image_strings.dart';
@@ -18,6 +19,7 @@ class THeader extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     // implement build
     final controller = UserController.instance;
+    final local = AppLocalizations.of(context)!;
     return Container(
       decoration: const BoxDecoration(
         color: TColors.white,
@@ -44,9 +46,9 @@ class THeader extends StatelessWidget implements PreferredSizeWidget {
             ? SizedBox(
                 width: 400,
                 child: TextFormField(
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     prefixIcon: Icon(Iconsax.search_normal),
-                    hintText: 'Seardch anything...',
+                    hintText: local.header_search_hint,
                   ),
                 ),
               )

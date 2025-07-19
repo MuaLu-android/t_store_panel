@@ -8,24 +8,32 @@
     "@adminPassword": {
         "description": "Default admin password"
     },
-    "bannersStoragePath": "/Banners",
+    "bannersStoragePath": "/Banner",
     "@bannersStoragePath": {
         "description": "Storage path for banners"
     },
-    "brandsStoragePath": "/Brands",
+    "brandsStoragePath": "/Thương hiệu",
     "@brandsStoragePath": {
         "description": "Storage path for brands"
     },
-    "categoriesStoragePath": "/Categories",
+    "categoriesStoragePath": "/Danh mục",
     "@categoriesStoragePath": {
         "description": "Storage path for categories"
     },
-    "productsStoragePath": "/Products",
+    "productsStoragePath": "/Sản phẩm",
     "@productsStoragePath": {
         "description": "Storage path for products"
     },
-    "usersStoragePath": "/Users",
+    "usersStoragePath": "/Người dùng",
     "@usersStoragePath": {
+        "description": "Storage path for users"
+    },
+    "settingStoragePath": "/Cài đặt",
+    "@settingStoragePath": {
+        "description": "Storage path for users"
+    },
+    "users": "Người dùng",
+    "@users": {
         "description": "Storage path for users"
     },
     "and": "và",
@@ -368,8 +376,124 @@
     "@orderStatusChart": {
         "description": "Tiêu đề biểu đồ trạng thái đơn hàng"
     },
-    "orderCount": "Số đơn",
-    "@orderCount": {
-        "description": "Cột số lượng đơn hàng"
+    "details": "Chi tiết",
+    "@details": {
+        "description": "Breadcrumb chi tiết cho thư viện"
+    },
+    "uploadImages": "Tải ảnh lên",
+    "@uploadImages": {
+        "description": "Nút tải ảnh lên"
+    },
+    "dragDropImagesHere": "Kéo và thả ảnh vào đây",
+    "@dragDropImagesHere": {
+        "description": "Hướng dẫn cho khu vực kéo thả ảnh"
+    },
+    "selectImages": "Chọn ảnh",
+    "@selectImages": {
+        "description": "Nút chọn ảnh"
+    },
+    "galleryFolder": "Thư mục ảnh",
+    "@galleryFolder": {
+        "description": "Nhãn cho dropdown thư mục ảnh"
+    },
+    "removeAll": "Xóa tất cả",
+    "@removeAll": {
+        "description": "Nút xóa tất cả ảnh đã chọn"
+    },
+    "upload": "Tải lên",
+    "@upload": {
+        "description": "Nút tải ảnh đã chọn lên"
+    },
+    "mediaFolderAll": "Thư mục",
+    "@mediaFolderAll": {
+        "description": "Tùy chọn tất cả thư mục ảnh"
+    },
+    "mediaNoMediaFound": "Không tìm thấy ảnh.",
+    "@mediaNoMediaFound": {
+        "description": "Thông báo không tìm thấy ảnh"
+    },
+    "mediaSearchHint": "Tìm kiếm ảnh...",
+    "@mediaSearchHint": {
+        "description": "Gợi ý tìm kiếm ảnh"
+    },
+    "mediaEmptySelection": "Chưa chọn ảnh nào.",
+    "@mediaEmptySelection": {
+        "description": "Thông báo chưa chọn ảnh"
+    },
+    "mediaSelect": "Xem thêm",
+    "@mediaSelect": {
+        "description": "Nút chọn"
+    },
+    "mediaCancel": "Hủ",
+    "@mediaCancel": {
+        "description": "Nút hủy"
+    },
+    "mediaDelete": "Xóa",
+    "@mediaDelete": {
+        "description": "Nút xóa"
+    },
+    "mediaConfirmDelete": "Bạn có chắc muốn xóa ảnh này không?",
+    "@mediaConfirmDelete": {
+        "description": "Xác nhận xóa ảnh"
+    },
+    "mediaYes": "Có",
+    "@mediaYes": {
+        "description": "Nút đồng ý"
+    },
+    "mediaNo": "Không",
+    "@mediaNo": {
+        "description": "Nút không đồng ý"
+    },
+    "productCreateHeading": "Tạo sản phẩm",
+    "@productCreateHeading": {
+        "description": "Tiêu đề trang tạo sản phẩm"
+    },
+    "productEditHeading": "Chỉnh sửa sản phẩm",
+    "@productEditHeading": {
+        "description": "Tiêu đề trang chỉnh sửa sản phẩm"
+    },
+    "bannerCreateHeading": "Tạo banner",
+    "@bannerCreateHeading": {
+        "description": "Tiêu đề trang tạo banner"
+    },
+    "bannerEditHeading": "Cập nhật banner",
+    "@bannerEditHeading": {
+        "description": "Tiêu đề trang cập nhật/chỉnh sửa banner"
+    },
+    "brandCreateHeading": "Tạo thương hiệu",
+    "@brandCreateHeading": {
+        "description": "Tiêu đề trang tạo thương hiệu"
+    },
+    "brandEditHeading": "Cập nhật thương hiệu",
+    "@brandEditHeading": {
+        "description": "Tiêu đề trang cập nhật/chỉnh sửa thương hiệu"
+    },
+    "customerDetailsBreadcrumb": "Chi tiết khách hàng",
+    "@customerDetailsBreadcrumb": {
+        "description": "Breadcrumb cho trang chi tiết khách hàng"
+    },
+    "orderDetailsBreadcrumb": "Chi tiết đơn hàng",
+    "@orderDetailsBreadcrumb": {
+        "description": "Breadcrumb cho trang chi tiết đơn hàng"
+    },
+    "categoryBreadcrumbCreate": "Tạo danh mục",
+    "@categoryBreadcrumbCreate": {
+        "description": "Breadcrumb cho trang tạo danh mục"
+    },
+    "categoryBreadcrumbEdit": "Cập nhật danh mục",
+    "@categoryBreadcrumbEdit": {
+        "description": "Breadcrumb cho trang cập nhật/chỉnh sửa danh mục"
+    },
+    "categoryCreateHeading": "Tạo danh mục",
+    "@categoryCreateHeading": {
+        "description": "Tiêu đề trang tạo danh mục"
+    },
+    "categoryEditHeading": "Cập nhật danh mục",
+    "@categoryEditHeading": {
+        "description": "Tiêu đề trang cập nhật/chỉnh sửa danh mục"
+    },
+    "header_search_hint": "Tìm kiếm...",
+    "@header_search_hint": {
+        "description": "Gợi ý cho ô tìm kiếm ở header"
     }
 }

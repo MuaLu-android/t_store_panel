@@ -4,6 +4,8 @@ import 'package:admin_t_store/common/widgets/data_table/tables_header.dart';
 import 'package:admin_t_store/common/widgets/layouts/templates/loader_animation.dart';
 import 'package:admin_t_store/features/shop/controllers/order/oder_controller.dart';
 import 'package:admin_t_store/features/shop/screens/orders/all_order/tables/order_table_screen.dart';
+import 'package:admin_t_store/l10n/app_localizations.dart';
+import 'package:admin_t_store/utils/constants/breadcrumb_item.dart';
 import 'package:admin_t_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -15,6 +17,7 @@ class OrderDesktopScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // implement build
     final controller = OrderController.instance;
+    final local = AppLocalizations.of(context)!;
     return Scaffold(
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(TSizes.defaultSpace),
@@ -23,8 +26,8 @@ class OrderDesktopScreen extends StatelessWidget {
           children: [
             // Breand crumbs
             TBreadcrumbWithHeading(
-              heading: 'Orders',
-              breadcrumbItems: ['Orders'],
+              heading: local.orders,
+              breadcrumbItems: [BreadcrumbItem(local.orders)],
             ),
             const SizedBox(height: TSizes.spaceBtwSections),
             // Table Body

@@ -15,19 +15,25 @@ class AppLocalizationsVi extends AppLocalizations {
   String get adminPassword => 'Admin@123';
 
   @override
-  String get bannersStoragePath => '/Banners';
+  String get bannersStoragePath => '/Banner';
 
   @override
-  String get brandsStoragePath => '/Brands';
+  String get brandsStoragePath => '/Thương hiệu';
 
   @override
-  String get categoriesStoragePath => '/Categories';
+  String get categoriesStoragePath => '/Danh mục';
 
   @override
-  String get productsStoragePath => '/Products';
+  String get productsStoragePath => '/Sản phẩm';
 
   @override
-  String get usersStoragePath => '/Users';
+  String get usersStoragePath => '/Người dùng';
+
+  @override
+  String get settingStoragePath => '/Cài đặt';
+
+  @override
+  String get users => 'Người dùng';
 
   @override
   String get and => 'và';
@@ -285,5 +291,92 @@ class AppLocalizationsVi extends AppLocalizations {
   String get orderStatusChart => 'Trạng thái đơn hàng';
 
   @override
-  String get orderCount => 'Số đơn';
+  String get details => 'Chi tiết';
+
+  @override
+  String get uploadImages => 'Tải ảnh lên';
+
+  @override
+  String get dragDropImagesHere => 'Kéo và thả ảnh vào đây';
+
+  @override
+  String get selectImages => 'Chọn ảnh';
+
+  @override
+  String get galleryFolder => 'Thư mục ảnh';
+
+  @override
+  String get removeAll => 'Xóa tất cả';
+
+  @override
+  String get upload => 'Tải lên';
+
+  @override
+  String get mediaFolderAll => 'Thư mục';
+
+  @override
+  String get mediaNoMediaFound => 'Không tìm thấy ảnh.';
+
+  @override
+  String get mediaSearchHint => 'Tìm kiếm ảnh...';
+
+  @override
+  String get mediaEmptySelection => 'Chưa chọn ảnh nào.';
+
+  @override
+  String get mediaSelect => 'Xem thêm';
+
+  @override
+  String get mediaCancel => 'Hủ';
+
+  @override
+  String get mediaDelete => 'Xóa';
+
+  @override
+  String get mediaConfirmDelete => 'Bạn có chắc muốn xóa ảnh này không?';
+
+  @override
+  String get mediaYes => 'Có';
+
+  @override
+  String get mediaNo => 'Không';
+
+  @override
+  String get productCreateHeading => 'Tạo sản phẩm';
+
+  @override
+  String get productEditHeading => 'Chỉnh sửa sản phẩm';
+
+  @override
+  String get bannerCreateHeading => 'Tạo banner';
+
+  @override
+  String get bannerEditHeading => 'Cập nhật banner';
+
+  @override
+  String get brandCreateHeading => 'Tạo thương hiệu';
+
+  @override
+  String get brandEditHeading => 'Cập nhật thương hiệu';
+
+  @override
+  String get customerDetailsBreadcrumb => 'Chi tiết khách hàng';
+
+  @override
+  String get orderDetailsBreadcrumb => 'Chi tiết đơn hàng';
+
+  @override
+  String get categoryBreadcrumbCreate => 'Tạo danh mục';
+
+  @override
+  String get categoryBreadcrumbEdit => 'Cập nhật danh mục';
+
+  @override
+  String get categoryCreateHeading => 'Tạo danh mục';
+
+  @override
+  String get categoryEditHeading => 'Cập nhật danh mục';
+
+  @override
+  String get header_search_hint => 'Tìm kiếm...';
 }
