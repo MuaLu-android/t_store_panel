@@ -425,4 +425,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get media_delete_success_message => 'Image successfully deleted from your cloud storage';
+
+  @override
+  String get language => 'Language';
 }

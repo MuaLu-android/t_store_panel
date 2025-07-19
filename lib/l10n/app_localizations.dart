@@ -922,6 +922,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Image successfully deleted from your cloud storage'**
   String get media_delete_success_message;
+
+  /// Menu item for changing language
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get language;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -516,7 +516,7 @@
     "@media_upload_confirm_title": {
         "description": "Tiêu đề xác nhận tải ảnh lên"
     },
-    "media_upload_confirm_message": "Bạn có chắc muốn tải tất cả ảnh vào thư mục {folder} không?",
+    "media_upload_confirm_message": "Bạn có chắc muốn tải tất cả ảnh vào thư mục  không?",
     "@media_upload_confirm_message": {
         "description": "Nội dung xác nhận tải ảnh lên"
     },
@@ -536,7 +536,7 @@
     "@media_error_upload_title": {
         "description": "Tiêu đề lỗi tải ảnh"
     },
-    "media_error_upload_message": "Có lỗi khi tải ảnh: {error}",
+    "media_error_upload_message": "Có lỗi khi tải ảnh:",
     "@media_error_upload_message": {
         "description": "Thông báo lỗi khi tải ảnh"
     },
@@ -551,5 +551,9 @@
     "media_delete_success_message": "Ảnh đã được xóa khỏi lưu trữ đám mây",
     "@media_delete_success_message": {
         "description": "Thông báo xóa ảnh thành công"
+    },
+    "language": "Ngôn ngữ",
+    "@language": {
+        "description": "Menu đổi ngôn ngữ"
     }
 }

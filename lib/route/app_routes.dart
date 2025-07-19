@@ -1,5 +1,6 @@
 import 'package:admin_hmoob_store/features/authentication/screens/login/forget_password/forget_password.dart';
 import 'package:admin_hmoob_store/features/authentication/screens/login/login.dart';
+import 'package:admin_hmoob_store/features/authentication/screens/logouts/logout.dart';
 import 'package:admin_hmoob_store/features/authentication/screens/reset_password/reset_password.dart';
 import 'package:admin_hmoob_store/features/media/screens/media/media.dart';
 import 'package:admin_hmoob_store/features/personalization/screen/settings/settings.dart';
@@ -15,6 +16,7 @@ import 'package:admin_hmoob_store/features/shop/screens/category/edit_categories
 import 'package:admin_hmoob_store/features/shop/screens/customers/all_customers/customer_screen.dart';
 import 'package:admin_hmoob_store/features/shop/screens/customers/customer_details/customer_details_screen.dart';
 import 'package:admin_hmoob_store/features/shop/screens/dashboard/dashboard_screen.dart';
+import 'package:admin_hmoob_store/features/shop/screens/language/language.dart';
 import 'package:admin_hmoob_store/features/shop/screens/orders/all_order/order_screen.dart';
 import 'package:admin_hmoob_store/features/shop/screens/orders/detail_order/orders_details_screen.dart';
 import 'package:admin_hmoob_store/features/shop/screens/products/all_products/product_screen.dart';
@@ -131,6 +133,16 @@ class TAppRoute {
     GetPage(
       name: TRoutes.editProduct,
       page: () => const EditProductsScreen(),
+      middlewares: [TRouteMiddleware()],
+    ),
+    GetPage(
+      name: TRoutes.logout,
+      page: () => const LogoutScreen(),
+      middlewares: [TRouteMiddleware()],
+    ),
+    GetPage(
+      name: TRoutes.language,
+      page: () => const LanguageScreen(),
       middlewares: [TRouteMiddleware()],
     ),
   ];

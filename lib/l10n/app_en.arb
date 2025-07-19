@@ -516,7 +516,7 @@
     "@media_upload_confirm_title": {
         "description": "Title for upload images confirmation dialog"
     },
-    "media_upload_confirm_message": "Are you sure you want to upload all the Image in {folder} folder",
+    "media_upload_confirm_message": "Are you sure you want to upload all the Image in ",
     "@media_upload_confirm_message": {
         "description": "Content for upload images confirmation dialog"
     },
@@ -536,7 +536,7 @@
     "@media_error_upload_title": {
         "description": "Title for error uploading images"
     },
-    "media_error_upload_message": "Something went wrong while uploading your images: {error}",
+    "media_error_upload_message": "Something went wrong while uploading your images:",
     "@media_error_upload_message": {
         "description": "Message for error uploading images"
     },
@@ -551,5 +551,9 @@
     "media_delete_success_message": "Image successfully deleted from your cloud storage",
     "@media_delete_success_message": {
         "description": "Message for successful image deletion"
+    },
+    "language": "Language",
+    "@language": {
+        "description": "Menu item for changing language"
     }
 }

@@ -125,6 +125,11 @@ class TSizebar extends StatelessWidget {
                       itemName: local.settings,
                     ),
                     TMenuTem(
+                      route: TRoutes.language,
+                      icon: Iconsax.global,
+                      itemName: local.language,
+                    ),
+                    TMenuTem(
                       route: TRoutes.logout,
                       icon: Iconsax.logout,
                       itemName: local.logout,

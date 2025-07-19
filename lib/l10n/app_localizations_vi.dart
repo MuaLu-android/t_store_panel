@@ -425,4 +425,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get media_delete_success_message => 'Ảnh đã được xóa khỏi lưu trữ đám mây';
+
+  @override
+  String get language => 'Ngôn ngữ';
 }
