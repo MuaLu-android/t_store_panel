@@ -37,7 +37,7 @@ class ProductDesktopSreen extends StatelessWidget {
                 child: Column(
                   children: [
                     TTableHeader(
-                      buttonText: 'App Product',
+                      buttonText: local.addProduct,
                       onPressed: () => Get.toNamed(TRoutes.createProduct),
                       seatrchController: controller.searchTextController,
                       searchOnChanged: (query) => controller.searchQuery(query),

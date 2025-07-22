@@ -2,6 +2,7 @@ import 'package:admin_hmoob_store/common/widgets/custom_shapes/container/rounded
 import 'package:admin_hmoob_store/common/widgets/shimmer/shimmer.dart';
 import 'package:admin_hmoob_store/features/shop/controllers/categories/category_controller.dart';
 import 'package:admin_hmoob_store/features/shop/controllers/products/create_product_controller.dart';
+import 'package:admin_hmoob_store/l10n/app_localizations.dart';
 import 'package:admin_hmoob_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,6 +17,7 @@ class ProductCategoriesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // implement build
     final categoryController = Get.put(CategoryController());
+    final local = AppLocalizations.of(context)!;
     if (categoryController.allItems.isEmpty) {
       categoryController.fetchItems();
     }
@@ -24,15 +26,18 @@ class ProductCategoriesScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Categories label
-          Text('Categories', style: Theme.of(context).textTheme.headlineSmall),
+          Text(
+            local.categories,
+            style: Theme.of(context).textTheme.headlineSmall,
+          ),
           const SizedBox(height: TSizes.spaceBtwItems),
           // MultiSelectDialogField for selecting categories
           Obx(
             () => categoryController.isLoading.value
                 ? const TShimmerEffect(width: double.infinity, height: 50)
                 : MultiSelectDialogField(
-                    buttonText: const Text('Select Categories'),
-                    title: const Text('Categories'),
+                    buttonText: Text(local.selectCategories),
+                    title: Text(local.categories),
                     items: categoryController.allItems
                         .map((item) => MultiSelectItem(item, item.name))
                         .toList(),

@@ -2,6 +2,7 @@ import 'package:admin_hmoob_store/common/widgets/custom_shapes/container/rounded
 import 'package:admin_hmoob_store/common/widgets/shimmer/shimmer.dart';
 import 'package:admin_hmoob_store/features/shop/controllers/brands/brand_controller.dart';
 import 'package:admin_hmoob_store/features/shop/controllers/products/create_product_controller.dart';
+import 'package:admin_hmoob_store/l10n/app_localizations.dart';
 import 'package:admin_hmoob_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
@@ -15,6 +16,7 @@ class ProductBrandsScreen extends StatelessWidget {
     // implement build
     final controller = Get.put(CreateProductController());
     final brandsController = Get.put(BrandController());
+    final local = AppLocalizations.of(context)!;
     if (brandsController.allItems.isEmpty) {
       brandsController.fetchItems();
     }
@@ -23,7 +25,7 @@ class ProductBrandsScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Brand label
-          Text('Brand', style: Theme.of(context).textTheme.headlineSmall),
+          Text(local.brand, style: Theme.of(context).textTheme.headlineSmall),
           const SizedBox(height: TSizes.spaceBtwItems),
           // TypeAheadFiela for brand selection
           Obx(
@@ -34,10 +36,10 @@ class ProductBrandsScreen extends StatelessWidget {
                       return TextFormField(
                         focusNode: focusNode,
                         controller: controller.brandTextField = ctr,
-                        decoration: const InputDecoration(
-                          border: OutlineInputBorder(),
-                          labelText: 'Select Brand',
-                          suffixIcon: Icon(Iconsax.box),
+                        decoration: InputDecoration(
+                          border: const OutlineInputBorder(),
+                          labelText: local.selectBrand,
+                          suffixIcon: const Icon(Iconsax.box),
                         ),
                       );
                     },

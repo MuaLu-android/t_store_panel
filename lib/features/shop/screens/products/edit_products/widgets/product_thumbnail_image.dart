@@ -1,6 +1,7 @@
 import 'package:admin_hmoob_store/common/widgets/custom_shapes/container/rounded_container.dart';
 import 'package:admin_hmoob_store/common/widgets/images/t_rounded_image.dart';
 import 'package:admin_hmoob_store/features/shop/controllers/products/product_images_controller.dart';
+import 'package:admin_hmoob_store/l10n/app_localizations.dart';
 import 'package:admin_hmoob_store/utils/constants/colors.dart';
 import 'package:admin_hmoob_store/utils/constants/enums.dart';
 import 'package:admin_hmoob_store/utils/constants/image_strings.dart';
@@ -16,13 +17,14 @@ class ProductThumbnailImage extends StatelessWidget {
   Widget build(BuildContext context) {
     // implement build
     final contrroller = Get.put(ProductImagesController());
+    final local = AppLocalizations.of(context)!;
     return TRoundedContainer(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Product Thumbnail Text
           Text(
-            'Product Thumbnail',
+            local.productThumbnail,
             style: Theme.of(context).textTheme.headlineSmall,
           ),
           const SizedBox(height: TSizes.spaceBtwItems),
@@ -61,7 +63,7 @@ class ProductThumbnailImage extends StatelessWidget {
                     width: 200,
                     child: OutlinedButton(
                       onPressed: () => contrroller.selectedThumbnailImage(),
-                      child: const Text('Add Thumbnail'),
+                      child: Text(local.addThumbnail),
                     ),
                   ),
                 ],

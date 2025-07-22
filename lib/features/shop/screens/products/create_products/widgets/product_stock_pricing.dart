@@ -1,4 +1,5 @@
 import 'package:admin_hmoob_store/features/shop/controllers/products/create_product_controller.dart';
+import 'package:admin_hmoob_store/l10n/app_localizations.dart';
 import 'package:admin_hmoob_store/utils/constants/enums.dart';
 import 'package:admin_hmoob_store/utils/constants/sizes.dart';
 import 'package:admin_hmoob_store/utils/validators/validation.dart';
@@ -13,6 +14,7 @@ class ProductStockAndPricing extends StatelessWidget {
   Widget build(BuildContext context) {
     // implement build
     final controller = CreateProductController.instance;
+    final local = AppLocalizations.of(context)!;
     return Obx(
       () => controller.productType.value == ProductType.single
           ? Form(
@@ -25,12 +27,12 @@ class ProductStockAndPricing extends StatelessWidget {
                     widthFactor: 0.45,
                     child: TextFormField(
                       controller: controller.stock,
-                      decoration: const InputDecoration(
-                        labelText: 'Stock',
-                        hintText: 'Add Stock, only numbers are allowed',
+                      decoration: InputDecoration(
+                        labelText: local.stockLabel,
+                        hintText: local.stockHint,
                       ),
                       validator: (value) =>
-                          TValidator.validateEmptyText('Stock', value),
+                          TValidator.validateEmptyText(local.stockLabel, value),
                       keyboardType: TextInputType.number,
                       inputFormatters: <TextInputFormatter>[
                         FilteringTextInputFormatter.digitsOnly,
@@ -45,12 +47,14 @@ class ProductStockAndPricing extends StatelessWidget {
                       Expanded(
                         child: TextFormField(
                           controller: controller.price,
-                          decoration: const InputDecoration(
-                            labelText: 'Price',
-                            hintText: 'Price with up-to 2 decimals',
+                          decoration: InputDecoration(
+                            labelText: local.priceLabel,
+                            hintText: local.priceHint,
                           ),
-                          validator: (value) =>
-                              TValidator.validateEmptyText('Price', value),
+                          validator: (value) => TValidator.validateEmptyText(
+                            local.priceLabel,
+                            value,
+                          ),
                           keyboardType: const TextInputType.numberWithOptions(
                             decimal: true,
                           ),
@@ -66,9 +70,9 @@ class ProductStockAndPricing extends StatelessWidget {
                       Expanded(
                         child: TextFormField(
                           controller: controller.salePrice,
-                          decoration: const InputDecoration(
-                            labelText: 'Discounted Price',
-                            hintText: 'Price with up-to 2 decimals',
+                          decoration: InputDecoration(
+                            labelText: local.discountedPrice,
+                            hintText: local.priceHint,
                           ),
                           keyboardType: const TextInputType.numberWithOptions(
                             decimal: true,

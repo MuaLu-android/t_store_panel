@@ -651,4 +651,136 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get featured => 'Nổi bật';
+
+  @override
+  String get addProduct => 'Thêm sản phẩm';
+
+  @override
+  String get stock => 'Tồn kho';
+
+  @override
+  String get sold => 'Đã bán';
+
+  @override
+  String get price => 'Giá';
+
+  @override
+  String get stockAndPricing => 'Tồn kho & Giá cả';
+
+  @override
+  String get allProductImages => 'Tất cả ảnh sản phẩm';
+
+  @override
+  String get basicInformation => 'Thông tin cơ bản';
+
+  @override
+  String get productTitle => 'Tên sản phẩm';
+
+  @override
+  String get productDescription => 'Mô tả sản phẩm';
+
+  @override
+  String get addProductDescriptionHint => 'Thêm mô tả sản phẩm vào đây...';
+
+  @override
+  String get addAdditionalProductImages => 'Thêm ảnh sản phẩm bổ sung';
+
+  @override
+  String get discard => 'Hủy bỏ';
+
+  @override
+  String get saveChanges => 'Lưu thay đổi';
+
+  @override
+  String get brand => 'Thương hiệu';
+
+  @override
+  String get selectBrand => 'Chọn thương hiệu';
+
+  @override
+  String get addProductAttributes => 'Thêm thuộc tính sản phẩm';
+
+  @override
+  String get add => 'Thêm';
+
+  @override
+  String get attributeName => 'Tên thuộc tính';
+
+  @override
+  String get attributeNameHint => 'Màu sắc, Kích cỡ, Chất liệu';
+
+  @override
+  String get attribute => 'Thuộc tính';
+
+  @override
+  String get attributeHint => 'Thêm thuộc tính cách nhau bằng | Ví dụ: Xanh lá | Xanh dương | Vàng';
+
+  @override
+  String get attributeField => 'Trường thuộc tính';
+
+  @override
+  String get noAttributesAdded => 'Chưa có thuộc tính nào được thêm cho sản phẩm này';
+
+  @override
+  String get generateVariations => 'Tạo biến thể';
+
+  @override
+  String get allAttribute => 'Tất cả thuộc tính';
+
+  @override
+  String get selectCategories => 'Chọn danh mục';
+
+  @override
+  String get stockLabel => 'Tồn kho';
+
+  @override
+  String get stockHint => 'Thêm số lượng tồn kho, chỉ cho phép số';
+
+  @override
+  String get priceLabel => 'Giá';
+
+  @override
+  String get priceHint => 'Giá với tối đa 2 chữ số thập phân';
+
+  @override
+  String get discountedPrice => 'Giá giảm';
+
+  @override
+  String get productThumbnail => 'Ảnh đại diện sản phẩm';
+
+  @override
+  String get addThumbnail => 'Thêm ảnh đại diện';
+
+  @override
+  String get productType => 'Loại sản phẩm';
+
+  @override
+  String get single => 'Đơn lẻ';
+
+  @override
+  String get variable => 'Biến thể';
+
+  @override
+  String get productVariations => 'Biến thể sản phẩm';
+
+  @override
+  String get removeVariations => 'Xóa biến thể';
+
+  @override
+  String get noVariationsMessage => 'Chưa có biến thể nào được thêm cho sản phẩm này';
+
+  @override
+  String get description => 'Mô tả';
+
+  @override
+  String get addDescriptionVariationHint => 'Thêm mô tả cho biến thể này...';
+
+  @override
+  String get visibility => 'Hiển thị';
+
+  @override
+  String get published => 'Đã công bố';
+
+  @override
+  String get hidden => 'Ẩn';
 }

@@ -5,6 +5,7 @@ import 'package:admin_hmoob_store/features/shop/controllers/products/product_ima
 import 'package:admin_hmoob_store/features/shop/controllers/products/products_variation_controller.dart';
 import 'package:admin_hmoob_store/features/shop/models/product_variation_model.dart';
 import 'package:admin_hmoob_store/features/shop/screens/category/create_categories/widgets/image_loader.dart';
+import 'package:admin_hmoob_store/l10n/app_localizations.dart';
 import 'package:admin_hmoob_store/utils/constants/colors.dart';
 import 'package:admin_hmoob_store/utils/constants/enums.dart';
 import 'package:admin_hmoob_store/utils/constants/image_strings.dart';
@@ -20,6 +21,7 @@ class EditProductVariations extends StatelessWidget {
     // implement build
     final controller = ProductVariationController.instance;
     final creteProductCotroller = EditProductController.instance;
+    final localizations = AppLocalizations.of(context)!;
     return Obx(
       () => creteProductCotroller.productType.value == ProductType.variable
           ? TRoundedContainer(
@@ -31,12 +33,12 @@ class EditProductVariations extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Product Variations',
+                        localizations.productVariations,
                         style: Theme.of(context).textTheme.titleSmall,
                       ),
                       TextButton(
                         onPressed: () => controller.removeVariations(context),
-                        child: const Text('Remove Variations'),
+                        child: Text(localizations.removeVariations),
                       ),
                     ],
                   ),
@@ -52,6 +54,7 @@ class EditProductVariations extends StatelessWidget {
                           index,
                           variations,
                           controller,
+                          localizations,
                         );
                       },
                       separatorBuilder: (_, __) =>
@@ -60,7 +63,7 @@ class EditProductVariations extends StatelessWidget {
                     )
                   else
                     // No Variations message
-                    _buildNoVariationsMessage(),
+                    _buildNoVariationsMessage(localizations),
                 ],
               ),
             )
@@ -73,6 +76,7 @@ class EditProductVariations extends StatelessWidget {
     int index,
     ProductVariationModel variations,
     ProductVariationController controller,
+    AppLocalizations localizations,
   ) {
     return ExpansionTile(
       backgroundColor: TColors.lightGrey,
@@ -115,9 +119,9 @@ class EditProductVariations extends StatelessWidget {
                 inputFormatters: <TextInputFormatter>[
                   FilteringTextInputFormatter.digitsOnly,
                 ],
-                decoration: const InputDecoration(
-                  labelText: 'Stock',
-                  hintText: 'Add Stock, only numbers are allowed',
+                decoration: InputDecoration(
+                  labelText: localizations.stockLabel,
+                  hintText: localizations.stockHint,
                 ),
               ),
             ),
@@ -132,9 +136,9 @@ class EditProductVariations extends StatelessWidget {
                 inputFormatters: <TextInputFormatter>[
                   FilteringTextInputFormatter.allow(RegExp(r'^\d+\.?\d{0,2}$')),
                 ],
-                decoration: const InputDecoration(
-                  labelText: 'Price',
-                  hintText: 'Price with up-to 2 decimals',
+                decoration: InputDecoration(
+                  labelText: localizations.priceLabel,
+                  hintText: localizations.priceHint,
                 ),
               ),
             ),
@@ -151,9 +155,9 @@ class EditProductVariations extends StatelessWidget {
                 inputFormatters: <TextInputFormatter>[
                   FilteringTextInputFormatter.allow(RegExp(r'^\d+\.?\d{0,2}$')),
                 ],
-                decoration: const InputDecoration(
-                  labelText: 'Discounted Price',
-                  hintText: 'Discounted Price',
+                decoration: InputDecoration(
+                  labelText: localizations.discountedPrice,
+                  hintText: localizations.discountedPrice,
                 ),
               ),
             ),
@@ -164,9 +168,9 @@ class EditProductVariations extends StatelessWidget {
         TextFormField(
           controller: controller.descriprionControllerList[index][variations],
           onChanged: (value) => variations.description = value,
-          decoration: const InputDecoration(
-            labelText: 'Description',
-            hintText: 'Add description of this variation...',
+          decoration: InputDecoration(
+            labelText: localizations.description,
+            hintText: localizations.addDescriptionVariationHint,
           ),
         ),
         const SizedBox(height: TSizes.spaceBtwSections),
@@ -175,10 +179,10 @@ class EditProductVariations extends StatelessWidget {
   }
 
   // Helper method to build message when there are no variations
-  Widget _buildNoVariationsMessage() {
-    return const Column(
+  Widget _buildNoVariationsMessage(AppLocalizations localizations) {
+    return Column(
       children: [
-        Row(
+        const Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TRoundedImage(
@@ -189,8 +193,8 @@ class EditProductVariations extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(height: TSizes.spaceBtwItems),
-        Text('There are no Variations added for this product'),
+        const SizedBox(height: TSizes.spaceBtwItems),
+        Text(localizations.noVariationsMessage),
       ],
     );
   }

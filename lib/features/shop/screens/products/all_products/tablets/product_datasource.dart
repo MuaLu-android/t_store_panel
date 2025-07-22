@@ -1,6 +1,7 @@
 import 'package:admin_hmoob_store/common/widgets/images/t_rounded_image.dart';
 import 'package:admin_hmoob_store/features/shop/controllers/products/products_controller.dart';
 import 'package:admin_hmoob_store/features/shop/screens/category/all_categories/widgets/tablet_action_button.dart';
+import 'package:admin_hmoob_store/l10n/app_localizations.dart';
 import 'package:admin_hmoob_store/route/route.dart';
 import 'package:admin_hmoob_store/utils/constants/colors.dart';
 import 'package:admin_hmoob_store/utils/constants/enums.dart';
@@ -77,7 +78,13 @@ class ProductDatasource extends DataTableSource {
           ),
         ),
         DataCell(Text('\$${controller.getProductPrice(product)}')),
-        DataCell(Text(product.formattedDate)),
+        DataCell(
+          Text(
+            product.formattedOrderDate(
+              AppLocalizations.of(Get.context!)!.localeName,
+            ),
+          ),
+        ),
         DataCell(
           TTabletActionButtons(
             onEditPressed: () =>

@@ -861,5 +861,181 @@
     "featured": "Featured",
     "@featured": {
         "description": "Label for featured checkbox in forms"
+    },
+    "addProduct": "Add Product",
+    "@addProduct": {
+        "description": "Button text to add/create new product"
+    },
+    "stock": "Stock",
+    "@stock": {
+        "description": "Column header for stock/inventory in product table"
+    },
+    "sold": "Sold",
+    "@sold": {
+        "description": "Column header for sold items in product table"
+    },
+    "price": "Price",
+    "@price": {
+        "description": "Column header for price in product table"
+    },
+    "stockAndPricing": "Stock & Pricing",
+    "@stockAndPricing": {
+        "description": "Section heading for stock and pricing information"
+    },
+    "allProductImages": "All Product Images",
+    "@allProductImages": {
+        "description": "Section heading for all product images"
+    },
+    "basicInformation": "Basic Information",
+    "@basicInformation": {
+        "description": "Basic information section heading"
+    },
+    "productTitle": "Product Title",
+    "@productTitle": {
+        "description": "Product title field label"
+    },
+    "productDescription": "Product Description",
+    "@productDescription": {
+        "description": "Product description field label"
+    },
+    "addProductDescriptionHint": "Add your Product Description here...",
+    "@addProductDescriptionHint": {
+        "description": "Hint text for product description field"
+    },
+    "addAdditionalProductImages": "Add Additional Product images",
+    "@addAdditionalProductImages": {
+        "description": "Text for adding additional product images"
+    },
+    "discard": "Discard",
+    "@discard": {
+        "description": "Discard button text"
+    },
+    "saveChanges": "Save Changes",
+    "@saveChanges": {
+        "description": "Save changes button text"
+    },
+    "brand": "Brand",
+    "@brand": {
+        "description": "Brand section heading"
+    },
+    "selectBrand": "Select Brand",
+    "@selectBrand": {
+        "description": "Select brand field label"
+    },
+    "addProductAttributes": "Add Product Attributes",
+    "@addProductAttributes": {
+        "description": "Add product attributes section heading"
+    },
+    "add": "Add",
+    "@add": {
+        "description": "Add button text"
+    },
+    "attributeName": "Attribute Name",
+    "@attributeName": {
+        "description": "Attribute name field label"
+    },
+    "attributeNameHint": "Colors, Sizes, Material",
+    "@attributeNameHint": {
+        "description": "Hint text for attribute name field"
+    },
+    "attribute": "Attribute",
+    "@attribute": {
+        "description": "Attribute field label"
+    },
+    "attributeHint": "Add attribute separted by | Example: Green | Blue | Yellow",
+    "@attributeHint": {
+        "description": "Hint text for attribute field"
+    },
+    "attributeField": "Attribute Field",
+    "@attributeField": {
+        "description": "Attribute field validation text"
+    },
+    "noAttributesAdded": "There are no attributes added for this products",
+    "@noAttributesAdded": {
+        "description": "Message when no attributes are added"
+    },
+    "generateVariations": "Generate Variations",
+    "@generateVariations": {
+        "description": "Generate variations button text"
+    },
+    "allAttribute": "All Attribute",
+    "@allAttribute": {
+        "description": "All attributes section heading"
+    },
+    "selectCategories": "Select Categories",
+    "@selectCategories": {
+        "description": "Select categories button text"
+    },
+    "stockLabel": "Stock",
+    "@stockLabel": {
+        "description": "Stock field label"
+    },
+    "stockHint": "Add Stock, only numbers are allowed",
+    "@stockHint": {
+        "description": "Stock field hint text"
+    },
+    "priceLabel": "Price",
+    "@priceLabel": {
+        "description": "Price field label"
+    },
+    "priceHint": "Price with up-to 2 decimals",
+    "@priceHint": {
+        "description": "Price field hint text"
+    },
+    "discountedPrice": "Discounted Price",
+    "@discountedPrice": {
+        "description": "Discounted price field label"
+    },
+    "productThumbnail": "Product Thumbnail",
+    "@productThumbnail": {
+        "description": "Product thumbnail section heading"
+    },
+    "addThumbnail": "Add Thumbnail",
+    "@addThumbnail": {
+        "description": "Add thumbnail button text"
+    },
+    "productType": "Product Type",
+    "@productType": {
+        "description": "Product type label"
+    },
+    "single": "Single",
+    "@single": {
+        "description": "Single product type"
+    },
+    "variable": "Variable",
+    "@variable": {
+        "description": "Variable product type"
+    },
+    "productVariations": "Product Variations",
+    "@productVariations": {
+        "description": "Product variations header"
+    },
+    "removeVariations": "Remove Variations",
+    "@removeVariations": {
+        "description": "Button to remove product variations"
+    },
+    "noVariationsMessage": "There are no Variations added for this product",
+    "@noVariationsMessage": {
+        "description": "Message when no variations are added"
+    },
+    "description": "Description",
+    "@description": {
+        "description": "Description label"
+    },
+    "addDescriptionVariationHint": "Add description of this variation...",
+    "@addDescriptionVariationHint": {
+        "description": "Hint for variation description field"
+    },
+    "visibility": "Visibility",
+    "@visibility": {
+        "description": "Product visibility header"
+    },
+    "published": "Published",
+    "@published": {
+        "description": "Published visibility option"
+    },
+    "hidden": "Hidden",
+    "@hidden": {
+        "description": "Hidden visibility option"
     }
 }

@@ -1,5 +1,6 @@
 import 'package:admin_hmoob_store/common/widgets/custom_shapes/container/rounded_container.dart';
 import 'package:admin_hmoob_store/features/shop/screens/category/create_categories/widgets/image_loader.dart';
+import 'package:admin_hmoob_store/l10n/app_localizations.dart';
 import 'package:admin_hmoob_store/utils/constants/colors.dart';
 import 'package:admin_hmoob_store/utils/constants/enums.dart';
 import 'package:admin_hmoob_store/utils/constants/image_strings.dart';
@@ -22,6 +23,7 @@ class ProductAdditionalImages extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // implement build
+    final local = AppLocalizations.of(context)!;
     return Obx(
       () => SizedBox(
         height: 300,
@@ -41,7 +43,7 @@ class ProductAdditionalImages extends StatelessWidget {
                           width: 50,
                           height: 50,
                         ),
-                        const Text('Add Additional Product images'),
+                        Text(local.addAdditionalProductImages),
                       ],
                     ),
                   ),

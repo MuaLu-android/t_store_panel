@@ -1,5 +1,6 @@
 import 'package:admin_hmoob_store/common/widgets/custom_shapes/container/rounded_container.dart';
 import 'package:admin_hmoob_store/features/shop/controllers/products/edit_product_controller.dart';
+import 'package:admin_hmoob_store/l10n/app_localizations.dart';
 import 'package:admin_hmoob_store/utils/constants/sizes.dart';
 import 'package:admin_hmoob_store/utils/validators/validation.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +12,7 @@ class EditProductTitleAndDescription extends StatelessWidget {
   Widget build(BuildContext context) {
     // implement build
     final controller = EditProductController.instance;
+    final localizations = AppLocalizations.of(context)!;
     return TRoundedContainer(
       child: Form(
         key: controller.titleDescriptionFromKey,
@@ -19,16 +21,20 @@ class EditProductTitleAndDescription extends StatelessWidget {
           children: [
             // Basic Information Text
             Text(
-              'Basic Information',
+              localizations.basicInformation,
               style: Theme.of(context).textTheme.headlineSmall,
             ),
             const SizedBox(height: TSizes.spaceBtwItems),
             // Product Title Input Field
             TextFormField(
               controller: controller.title,
-              validator: (value) =>
-                  TValidator.validateEmptyText('Product Rirle', value),
-              decoration: const InputDecoration(labelText: 'Product Title'),
+              validator: (value) => TValidator.validateEmptyText(
+                localizations.productTitle,
+                value,
+              ),
+              decoration: InputDecoration(
+                labelText: localizations.productTitle,
+              ),
             ),
             const SizedBox(height: TSizes.spaceBtwInputFields),
             // Product Description Input Field
@@ -42,11 +48,13 @@ class EditProductTitleAndDescription extends StatelessWidget {
                 textAlign: TextAlign.start,
                 keyboardType: TextInputType.multiline,
                 textAlignVertical: TextAlignVertical.top,
-                validator: (value) =>
-                    TValidator.validateEmptyText('Product Description', value),
-                decoration: const InputDecoration(
-                  labelText: 'Product Description',
-                  hintText: 'Add your Product Description here...',
+                validator: (value) => TValidator.validateEmptyText(
+                  localizations.productDescription,
+                  value,
+                ),
+                decoration: InputDecoration(
+                  labelText: localizations.productDescription,
+                  hintText: localizations.addProductDescriptionHint,
                   alignLabelWithHint: true,
                 ),
               ),

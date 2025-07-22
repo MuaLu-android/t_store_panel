@@ -3,6 +3,7 @@ import 'package:admin_hmoob_store/features/shop/controllers/categories/category_
 import 'package:admin_hmoob_store/features/shop/controllers/products/edit_product_controller.dart';
 import 'package:admin_hmoob_store/features/shop/models/category_model.dart';
 import 'package:admin_hmoob_store/features/shop/models/product_model.dart';
+import 'package:admin_hmoob_store/l10n/app_localizations.dart';
 import 'package:admin_hmoob_store/utils/constants/sizes.dart';
 import 'package:admin_hmoob_store/utils/helpers/cloud_helper_functions.dart';
 import 'package:flutter/material.dart';
@@ -19,12 +20,16 @@ class EditProductCategories extends StatelessWidget {
     // implement build
     final controller = EditProductController.instance;
     final categoryController = CategoryController.instance;
+    final localizations = AppLocalizations.of(context)!;
     return TRoundedContainer(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Categories label
-          Text('Categories', style: Theme.of(context).textTheme.headlineSmall),
+          Text(
+            localizations.categories,
+            style: Theme.of(context).textTheme.headlineSmall,
+          ),
           const SizedBox(height: TSizes.spaceBtwItems),
           // MultiSelectDialogField for selecting categories
           FutureBuilder(
@@ -35,8 +40,8 @@ class EditProductCategories extends StatelessWidget {
               );
               if (widget != null) return widget;
               return MultiSelectDialogField(
-                buttonText: const Text('Select Categories'),
-                title: const Text('Categories'),
+                buttonText: Text(localizations.selectCategories),
+                title: Text(localizations.categories),
                 initialValue: List<CategoryModel>.from(
                   controller.selectedCategories,
                 ),

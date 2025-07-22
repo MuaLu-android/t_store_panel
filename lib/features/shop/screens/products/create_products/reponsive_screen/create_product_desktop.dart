@@ -70,7 +70,7 @@ class CreateProductDesktopScreen extends StatelessWidget {
                             children: [
                               // Heading
                               Text(
-                                'Stock & Pricing',
+                                local.stockAndPricing,
                                 style: Theme.of(
                                   context,
                                 ).textTheme.headlineSmall,
@@ -110,7 +110,7 @@ class CreateProductDesktopScreen extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'All Product Images',
+                                local.allProductImages,
                                 style: Theme.of(
                                   context,
                                 ).textTheme.headlineSmall,

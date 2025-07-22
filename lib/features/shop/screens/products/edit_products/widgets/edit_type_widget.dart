@@ -1,4 +1,5 @@
 import 'package:admin_hmoob_store/features/shop/controllers/products/edit_product_controller.dart';
+import 'package:admin_hmoob_store/l10n/app_localizations.dart';
 import 'package:admin_hmoob_store/utils/constants/enums.dart';
 import 'package:admin_hmoob_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
@@ -11,10 +12,14 @@ class EditProductTypeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     // implement build
     final controller = EditProductController.instance;
+    final localizations = AppLocalizations.of(context)!;
     return Obx(
       () => Row(
         children: [
-          Text('Product Type', style: Theme.of(context).textTheme.bodyMedium),
+          Text(
+            localizations.productType,
+            style: Theme.of(context).textTheme.bodyMedium,
+          ),
           const SizedBox(width: TSizes.spaceBtwItems),
           // Radio button for Single Type
           RadioMenuButton(
@@ -22,7 +27,7 @@ class EditProductTypeWidget extends StatelessWidget {
             groupValue: controller.productType.value,
             onChanged: (value) =>
                 controller.productType.value = value ?? ProductType.single,
-            child: const Text('Single'),
+            child: Text(localizations.single),
           ),
           // Radio button for variable Product type
           RadioMenuButton(
@@ -30,7 +35,7 @@ class EditProductTypeWidget extends StatelessWidget {
             groupValue: controller.productType.value,
             onChanged: (value) =>
                 controller.productType.value = value ?? ProductType.single,
-            child: const Text('Variable'),
+            child: Text(localizations.variable),
           ),
         ],
       ),

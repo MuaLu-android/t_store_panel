@@ -1378,6 +1378,270 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Featured'**
   String get featured;
+
+  /// Button text to add/create new product
+  ///
+  /// In en, this message translates to:
+  /// **'Add Product'**
+  String get addProduct;
+
+  /// Column header for stock/inventory in product table
+  ///
+  /// In en, this message translates to:
+  /// **'Stock'**
+  String get stock;
+
+  /// Column header for sold items in product table
+  ///
+  /// In en, this message translates to:
+  /// **'Sold'**
+  String get sold;
+
+  /// Column header for price in product table
+  ///
+  /// In en, this message translates to:
+  /// **'Price'**
+  String get price;
+
+  /// Section heading for stock and pricing information
+  ///
+  /// In en, this message translates to:
+  /// **'Stock & Pricing'**
+  String get stockAndPricing;
+
+  /// Section heading for all product images
+  ///
+  /// In en, this message translates to:
+  /// **'All Product Images'**
+  String get allProductImages;
+
+  /// Basic information section heading
+  ///
+  /// In en, this message translates to:
+  /// **'Basic Information'**
+  String get basicInformation;
+
+  /// Product title field label
+  ///
+  /// In en, this message translates to:
+  /// **'Product Title'**
+  String get productTitle;
+
+  /// Product description field label
+  ///
+  /// In en, this message translates to:
+  /// **'Product Description'**
+  String get productDescription;
+
+  /// Hint text for product description field
+  ///
+  /// In en, this message translates to:
+  /// **'Add your Product Description here...'**
+  String get addProductDescriptionHint;
+
+  /// Text for adding additional product images
+  ///
+  /// In en, this message translates to:
+  /// **'Add Additional Product images'**
+  String get addAdditionalProductImages;
+
+  /// Discard button text
+  ///
+  /// In en, this message translates to:
+  /// **'Discard'**
+  String get discard;
+
+  /// Save changes button text
+  ///
+  /// In en, this message translates to:
+  /// **'Save Changes'**
+  String get saveChanges;
+
+  /// Brand section heading
+  ///
+  /// In en, this message translates to:
+  /// **'Brand'**
+  String get brand;
+
+  /// Select brand field label
+  ///
+  /// In en, this message translates to:
+  /// **'Select Brand'**
+  String get selectBrand;
+
+  /// Add product attributes section heading
+  ///
+  /// In en, this message translates to:
+  /// **'Add Product Attributes'**
+  String get addProductAttributes;
+
+  /// Add button text
+  ///
+  /// In en, this message translates to:
+  /// **'Add'**
+  String get add;
+
+  /// Attribute name field label
+  ///
+  /// In en, this message translates to:
+  /// **'Attribute Name'**
+  String get attributeName;
+
+  /// Hint text for attribute name field
+  ///
+  /// In en, this message translates to:
+  /// **'Colors, Sizes, Material'**
+  String get attributeNameHint;
+
+  /// Attribute field label
+  ///
+  /// In en, this message translates to:
+  /// **'Attribute'**
+  String get attribute;
+
+  /// Hint text for attribute field
+  ///
+  /// In en, this message translates to:
+  /// **'Add attribute separted by | Example: Green | Blue | Yellow'**
+  String get attributeHint;
+
+  /// Attribute field validation text
+  ///
+  /// In en, this message translates to:
+  /// **'Attribute Field'**
+  String get attributeField;
+
+  /// Message when no attributes are added
+  ///
+  /// In en, this message translates to:
+  /// **'There are no attributes added for this products'**
+  String get noAttributesAdded;
+
+  /// Generate variations button text
+  ///
+  /// In en, this message translates to:
+  /// **'Generate Variations'**
+  String get generateVariations;
+
+  /// All attributes section heading
+  ///
+  /// In en, this message translates to:
+  /// **'All Attribute'**
+  String get allAttribute;
+
+  /// Select categories button text
+  ///
+  /// In en, this message translates to:
+  /// **'Select Categories'**
+  String get selectCategories;
+
+  /// Stock field label
+  ///
+  /// In en, this message translates to:
+  /// **'Stock'**
+  String get stockLabel;
+
+  /// Stock field hint text
+  ///
+  /// In en, this message translates to:
+  /// **'Add Stock, only numbers are allowed'**
+  String get stockHint;
+
+  /// Price field label
+  ///
+  /// In en, this message translates to:
+  /// **'Price'**
+  String get priceLabel;
+
+  /// Price field hint text
+  ///
+  /// In en, this message translates to:
+  /// **'Price with up-to 2 decimals'**
+  String get priceHint;
+
+  /// Discounted price field label
+  ///
+  /// In en, this message translates to:
+  /// **'Discounted Price'**
+  String get discountedPrice;
+
+  /// Product thumbnail section heading
+  ///
+  /// In en, this message translates to:
+  /// **'Product Thumbnail'**
+  String get productThumbnail;
+
+  /// Add thumbnail button text
+  ///
+  /// In en, this message translates to:
+  /// **'Add Thumbnail'**
+  String get addThumbnail;
+
+  /// Product type label
+  ///
+  /// In en, this message translates to:
+  /// **'Product Type'**
+  String get productType;
+
+  /// Single product type
+  ///
+  /// In en, this message translates to:
+  /// **'Single'**
+  String get single;
+
+  /// Variable product type
+  ///
+  /// In en, this message translates to:
+  /// **'Variable'**
+  String get variable;
+
+  /// Product variations header
+  ///
+  /// In en, this message translates to:
+  /// **'Product Variations'**
+  String get productVariations;
+
+  /// Button to remove product variations
+  ///
+  /// In en, this message translates to:
+  /// **'Remove Variations'**
+  String get removeVariations;
+
+  /// Message when no variations are added
+  ///
+  /// In en, this message translates to:
+  /// **'There are no Variations added for this product'**
+  String get noVariationsMessage;
+
+  /// Description label
+  ///
+  /// In en, this message translates to:
+  /// **'Description'**
+  String get description;
+
+  /// Hint for variation description field
+  ///
+  /// In en, this message translates to:
+  /// **'Add description of this variation...'**
+  String get addDescriptionVariationHint;
+
+  /// Product visibility header
+  ///
+  /// In en, this message translates to:
+  /// **'Visibility'**
+  String get visibility;
+
+  /// Published visibility option
+  ///
+  /// In en, this message translates to:
+  /// **'Published'**
+  String get published;
+
+  /// Hidden visibility option
+  ///
+  /// In en, this message translates to:
+  /// **'Hidden'**
+  String get hidden;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

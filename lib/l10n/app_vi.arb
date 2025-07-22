@@ -861,5 +861,181 @@
     "featured": "Nổi bật",
     "@featured": {
         "description": "Nhãn cho checkbox nổi bật trong form"
+    },
+    "addProduct": "Thêm sản phẩm",
+    "@addProduct": {
+        "description": "Nút thêm/tạo sản phẩm mới"
+    },
+    "stock": "Tồn kho",
+    "@stock": {
+        "description": "Tiêu đề cột tồn kho trong bảng sản phẩm"
+    },
+    "sold": "Đã bán",
+    "@sold": {
+        "description": "Tiêu đề cột đã bán trong bảng sản phẩm"
+    },
+    "price": "Giá",
+    "@price": {
+        "description": "Tiêu đề cột giá trong bảng sản phẩm"
+    },
+    "stockAndPricing": "Tồn kho & Giá cả",
+    "@stockAndPricing": {
+        "description": "Tiêu đề phần thông tin tồn kho và giá cả"
+    },
+    "allProductImages": "Tất cả ảnh sản phẩm",
+    "@allProductImages": {
+        "description": "Tiêu đề phần tất cả ảnh sản phẩm"
+    },
+    "basicInformation": "Thông tin cơ bản",
+    "@basicInformation": {
+        "description": "Tiêu đề phần thông tin cơ bản"
+    },
+    "productTitle": "Tên sản phẩm",
+    "@productTitle": {
+        "description": "Nhãn trường tên sản phẩm"
+    },
+    "productDescription": "Mô tả sản phẩm",
+    "@productDescription": {
+        "description": "Nhãn trường mô tả sản phẩm"
+    },
+    "addProductDescriptionHint": "Thêm mô tả sản phẩm vào đây...",
+    "@addProductDescriptionHint": {
+        "description": "Gợi ý cho trường mô tả sản phẩm"
+    },
+    "addAdditionalProductImages": "Thêm ảnh sản phẩm bổ sung",
+    "@addAdditionalProductImages": {
+        "description": "Văn bản cho việc thêm ảnh sản phẩm bổ sung"
+    },
+    "discard": "Hủy bỏ",
+    "@discard": {
+        "description": "Văn bản nút hủy bỏ"
+    },
+    "saveChanges": "Lưu thay đổi",
+    "@saveChanges": {
+        "description": "Văn bản nút lưu thay đổi"
+    },
+    "brand": "Thương hiệu",
+    "@brand": {
+        "description": "Tiêu đề phần thương hiệu"
+    },
+    "selectBrand": "Chọn thương hiệu",
+    "@selectBrand": {
+        "description": "Nhãn trường chọn thương hiệu"
+    },
+    "addProductAttributes": "Thêm thuộc tính sản phẩm",
+    "@addProductAttributes": {
+        "description": "Tiêu đề phần thêm thuộc tính sản phẩm"
+    },
+    "add": "Thêm",
+    "@add": {
+        "description": "Văn bản nút thêm"
+    },
+    "attributeName": "Tên thuộc tính",
+    "@attributeName": {
+        "description": "Nhãn trường tên thuộc tính"
+    },
+    "attributeNameHint": "Màu sắc, Kích cỡ, Chất liệu",
+    "@attributeNameHint": {
+        "description": "Gợi ý cho trường tên thuộc tính"
+    },
+    "attribute": "Thuộc tính",
+    "@attribute": {
+        "description": "Nhãn trường thuộc tính"
+    },
+    "attributeHint": "Thêm thuộc tính cách nhau bằng | Ví dụ: Xanh lá | Xanh dương | Vàng",
+    "@attributeHint": {
+        "description": "Gợi ý cho trường thuộc tính"
+    },
+    "attributeField": "Trường thuộc tính",
+    "@attributeField": {
+        "description": "Văn bản xác thực trường thuộc tính"
+    },
+    "noAttributesAdded": "Chưa có thuộc tính nào được thêm cho sản phẩm này",
+    "@noAttributesAdded": {
+        "description": "Thông báo khi chưa có thuộc tính nào được thêm"
+    },
+    "generateVariations": "Tạo biến thể",
+    "@generateVariations": {
+        "description": "Văn bản nút tạo biến thể"
+    },
+    "allAttribute": "Tất cả thuộc tính",
+    "@allAttribute": {
+        "description": "Tiêu đề phần tất cả thuộc tính"
+    },
+    "selectCategories": "Chọn danh mục",
+    "@selectCategories": {
+        "description": "Văn bản nút chọn danh mục"
+    },
+    "stockLabel": "Tồn kho",
+    "@stockLabel": {
+        "description": "Nhãn trường tồn kho"
+    },
+    "stockHint": "Thêm số lượng tồn kho, chỉ cho phép số",
+    "@stockHint": {
+        "description": "Gợi ý cho trường tồn kho"
+    },
+    "priceLabel": "Giá",
+    "@priceLabel": {
+        "description": "Nhãn trường giá"
+    },
+    "priceHint": "Giá với tối đa 2 chữ số thập phân",
+    "@priceHint": {
+        "description": "Gợi ý cho trường giá"
+    },
+    "discountedPrice": "Giá giảm",
+    "@discountedPrice": {
+        "description": "Nhãn trường giá giảm"
+    },
+    "productThumbnail": "Ảnh đại diện sản phẩm",
+    "@productThumbnail": {
+        "description": "Tiêu đề phần ảnh đại diện sản phẩm"
+    },
+    "addThumbnail": "Thêm ảnh đại diện",
+    "@addThumbnail": {
+        "description": "Văn bản nút thêm ảnh đại diện"
+    },
+    "productType": "Loại sản phẩm",
+    "@productType": {
+        "description": "Nhãn loại sản phẩm"
+    },
+    "single": "Đơn lẻ",
+    "@single": {
+        "description": "Loại sản phẩm đơn lẻ"
+    },
+    "variable": "Biến thể",
+    "@variable": {
+        "description": "Loại sản phẩm có biến thể"
+    },
+    "productVariations": "Biến thể sản phẩm",
+    "@productVariations": {
+        "description": "Tiêu đề biến thể sản phẩm"
+    },
+    "removeVariations": "Xóa biến thể",
+    "@removeVariations": {
+        "description": "Nút xóa biến thể sản phẩm"
+    },
+    "noVariationsMessage": "Chưa có biến thể nào được thêm cho sản phẩm này",
+    "@noVariationsMessage": {
+        "description": "Thông báo khi chưa có biến thể nào được thêm"
+    },
+    "description": "Mô tả",
+    "@description": {
+        "description": "Nhãn mô tả"
+    },
+    "addDescriptionVariationHint": "Thêm mô tả cho biến thể này...",
+    "@addDescriptionVariationHint": {
+        "description": "Gợi ý cho trường mô tả biến thể"
+    },
+    "visibility": "Hiển thị",
+    "@visibility": {
+        "description": "Tiêu đề hiển thị sản phẩm"
+    },
+    "published": "Đã công bố",
+    "@published": {
+        "description": "Tùy chọn hiển thị đã công bố"
+    },
+    "hidden": "Ẩn",
+    "@hidden": {
+        "description": "Tùy chọn hiển thị ẩn"
     }
 }

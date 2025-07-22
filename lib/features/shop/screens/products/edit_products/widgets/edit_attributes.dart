@@ -3,6 +3,7 @@ import 'package:admin_hmoob_store/common/widgets/images/t_rounded_image.dart';
 import 'package:admin_hmoob_store/features/shop/controllers/products/edit_product_controller.dart';
 import 'package:admin_hmoob_store/features/shop/controllers/products/product_attribute_controller.dart';
 import 'package:admin_hmoob_store/features/shop/controllers/products/products_variation_controller.dart';
+import 'package:admin_hmoob_store/l10n/app_localizations.dart';
 import 'package:admin_hmoob_store/utils/constants/colors.dart';
 import 'package:admin_hmoob_store/utils/constants/enums.dart';
 import 'package:admin_hmoob_store/utils/constants/image_strings.dart';
@@ -22,6 +23,7 @@ class EditProductAttributes extends StatelessWidget {
     final controller = EditProductController.instance;
     final attributeController = Get.put(ProductAttributeController());
     final variationController = Get.put(ProductVariationController());
+    final localizations = AppLocalizations.of(context)!;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -36,7 +38,7 @@ class EditProductAttributes extends StatelessWidget {
               : const SizedBox.shrink();
         }),
         Text(
-          'Add Product Attributes',
+          localizations.addProductAttributes,
           style: Theme.of(context).textTheme.headlineSmall,
         ),
         const SizedBox(height: TSizes.spaceBtwItems),
@@ -47,35 +49,54 @@ class EditProductAttributes extends StatelessWidget {
               ? Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Expanded(child: _buildAttrbuteName(attributeController)),
+                    Expanded(
+                      child: _buildAttrbuteName(
+                        attributeController,
+                        localizations,
+                      ),
+                    ),
                     const SizedBox(width: TSizes.spaceBtwItems),
                     Expanded(
                       flex: 2,
-                      child: _buildAttributes(attributeController),
+                      child: _buildAttributes(
+                        attributeController,
+                        localizations,
+                      ),
                     ),
                     const SizedBox(width: TSizes.spaceBtwItems),
-                    _buildAddAttributeButton(attributeController),
+                    _buildAddAttributeButton(
+                      attributeController,
+                      localizations,
+                    ),
                   ],
                 )
               : Column(
                   children: [
-                    _buildAttrbuteName(attributeController),
+                    _buildAttrbuteName(attributeController, localizations),
                     const SizedBox(height: TSizes.spaceBtwItems),
-                    _buildAttributes(attributeController),
+                    _buildAttributes(attributeController, localizations),
                     const SizedBox(height: TSizes.spaceBtwItems),
-                    _buildAddAttributeButton(attributeController),
+                    _buildAddAttributeButton(
+                      attributeController,
+                      localizations,
+                    ),
                   ],
                 ),
         ),
         const SizedBox(height: TSizes.spaceBtwSections),
         // List of added attribute
-        Text('All Attribute', style: Theme.of(context).textTheme.headlineSmall),
+        Text(
+          localizations.allAttribute,
+          style: Theme.of(context).textTheme.headlineSmall,
+        ),
         const SizedBox(height: TSizes.spaceBtwItems),
         // Display added attribute in a rouded container
         TRoundedContainer(
           backgroundColor: TColors.primaryBackground,
           child: Column(
-            children: [buildAttributesList(context, attributeController)],
+            children: [
+              buildAttributesList(context, attributeController, localizations),
+            ],
           ),
         ),
         const SizedBox(height: TSizes.spaceBtwSections),
@@ -90,7 +111,7 @@ class EditProductAttributes extends StatelessWidget {
                     child: ElevatedButton.icon(
                       onPressed: () => variationController
                           .generateVariationsConfirmation(context),
-                      label: const Text('Generate Variations'),
+                      label: Text(localizations.generateVariations),
                       icon: const Icon(Iconsax.activity),
                     ),
                   ),
@@ -102,12 +123,15 @@ class EditProductAttributes extends StatelessWidget {
   }
 
   // Build button to add a new attribute
-  SizedBox _buildAddAttributeButton(ProductAttributeController controller) {
+  SizedBox _buildAddAttributeButton(
+    ProductAttributeController controller,
+    AppLocalizations localizations,
+  ) {
     return SizedBox(
       width: 100,
       child: ElevatedButton.icon(
         onPressed: () => controller.addNewAttributes(),
-        label: const Text('Add'),
+        label: Text(localizations.add),
         icon: const Icon(Iconsax.add),
         style: ElevatedButton.styleFrom(
           foregroundColor: TColors.black,
@@ -119,20 +143,26 @@ class EditProductAttributes extends StatelessWidget {
   }
   // Build text form field for attribute name
 
-  TextFormField _buildAttrbuteName(ProductAttributeController controller) {
+  TextFormField _buildAttrbuteName(
+    ProductAttributeController controller,
+    AppLocalizations localizations,
+  ) {
     return TextFormField(
       controller: controller.attributeNames,
       validator: (value) =>
-          TValidator.validateEmptyText('Attribute Name', value),
-      decoration: const InputDecoration(
-        labelText: 'Attribute Name',
-        hintText: 'Colors, Sizes, Material',
+          TValidator.validateEmptyText(localizations.attributeName, value),
+      decoration: InputDecoration(
+        labelText: localizations.attributeName,
+        hintText: localizations.attributeNameHint,
       ),
     );
   }
   // Build text form field for attribute values
 
-  SizedBox _buildAttributes(ProductAttributeController controller) {
+  SizedBox _buildAttributes(
+    ProductAttributeController controller,
+    AppLocalizations localizations,
+  ) {
     return SizedBox(
       height: 80,
       child: TextFormField(
@@ -143,11 +173,10 @@ class EditProductAttributes extends StatelessWidget {
         keyboardType: TextInputType.multiline,
         textAlignVertical: TextAlignVertical.top,
         validator: (value) =>
-            TValidator.validateEmptyText('Attribute Field', value),
-        decoration: const InputDecoration(
-          labelText: 'Attribute',
-          hintText:
-              'Add attribute separted by | Example: Green | Blue | Yellow',
+            TValidator.validateEmptyText(localizations.attributeField, value),
+        decoration: InputDecoration(
+          labelText: localizations.attribute,
+          hintText: localizations.attributeHint,
           alignLabelWithHint: true,
         ),
       ),
@@ -157,6 +186,7 @@ class EditProductAttributes extends StatelessWidget {
   Widget buildAttributesList(
     BuildContext context,
     ProductAttributeController controller,
+    AppLocalizations localizations,
   ) {
     return Obx(
       () => controller.productAttributes.isNotEmpty
@@ -187,9 +217,9 @@ class EditProductAttributes extends StatelessWidget {
                   const SizedBox(height: TSizes.spaceBtwItems),
               itemCount: controller.productAttributes.length,
             )
-          : const Column(
+          : Column(
               children: [
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     TRoundedImage(
@@ -200,8 +230,8 @@ class EditProductAttributes extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(width: TSizes.spaceBtwItems),
-                Text('There are no attributes added for this products'),
+                const SizedBox(width: TSizes.spaceBtwItems),
+                Text(localizations.noAttributesAdded),
               ],
             ),
     );

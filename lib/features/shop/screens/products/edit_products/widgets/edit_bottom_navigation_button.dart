@@ -1,6 +1,7 @@
 import 'package:admin_hmoob_store/common/widgets/custom_shapes/container/rounded_container.dart';
 import 'package:admin_hmoob_store/features/shop/controllers/products/edit_product_controller.dart';
 import 'package:admin_hmoob_store/features/shop/models/product_model.dart';
+import 'package:admin_hmoob_store/l10n/app_localizations.dart';
 import 'package:admin_hmoob_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -13,6 +14,7 @@ class EditProductBottomNavigationButton extends StatelessWidget {
   Widget build(BuildContext context) {
     // implement build
     final controller = EditProductController.instance;
+    final localizations = AppLocalizations.of(context)!;
     return TRoundedContainer(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
@@ -20,7 +22,7 @@ class EditProductBottomNavigationButton extends StatelessWidget {
           // Discard button
           OutlinedButton(
             onPressed: () => Get.back(),
-            child: const Text('Discard'),
+            child: Text(localizations.discard),
           ),
           const SizedBox(width: TSizes.spaceBtwItems / 2),
           // Save Changes button
@@ -28,7 +30,7 @@ class EditProductBottomNavigationButton extends StatelessWidget {
             width: 160,
             child: ElevatedButton(
               onPressed: () => controller.updateProduct(product),
-              child: const Text('Save Changes'),
+              child: Text(localizations.saveChanges),
             ),
           ),
         ],

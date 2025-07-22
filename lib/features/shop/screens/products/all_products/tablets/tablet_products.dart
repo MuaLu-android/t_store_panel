@@ -1,6 +1,7 @@
 import 'package:admin_hmoob_store/common/widgets/data_table/paginated_data_table.dart';
 import 'package:admin_hmoob_store/features/shop/controllers/products/products_controller.dart';
 import 'package:admin_hmoob_store/features/shop/screens/products/all_products/tablets/product_datasource.dart';
+import 'package:admin_hmoob_store/l10n/app_localizations.dart';
 import 'package:admin_hmoob_store/utils/devices/device_utility.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,7 @@ class TabletProductsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // implement build
     final controller = ProductController.instace;
+    final local = AppLocalizations.of(context)!;
     return Obx(() {
       Visibility(
         visible: false,
@@ -28,29 +30,29 @@ class TabletProductsScreen extends StatelessWidget {
         minWith: 1000,
         columns: [
           DataColumn2(
-            label: const Text('Products'),
+            label: Text(local.products),
             fixedWidth: !TDeviceUtils.isDesktopScreen(context) ? 300 : 400,
             onSort: (columnIndex, ascending) =>
                 controller.sortByName(columnIndex, ascending),
           ),
           DataColumn2(
-            label: Text('Stock'),
+            label: Text(local.stock),
             onSort: (columnIndex, ascending) =>
                 controller.sortByTock(columnIndex, ascending),
           ),
           DataColumn2(
-            label: Text('Sold'),
+            label: Text(local.sold),
             onSort: (columnIndex, ascending) =>
                 controller.sortBySoldItem(columnIndex, ascending),
           ),
-          const DataColumn2(label: Text('Brands')),
+          DataColumn2(label: Text(local.brands)),
           DataColumn2(
-            label: Text('Price'),
+            label: Text(local.price),
             onSort: (columnIndex, ascending) =>
                 controller.sortByPrice(columnIndex, ascending),
           ),
-          const DataColumn2(label: Text('Date')),
-          const DataColumn2(label: Text('Action'), fixedWidth: 100),
+          DataColumn2(label: Text(local.orderDate)),
+          DataColumn2(label: Text(local.action), fixedWidth: 100),
         ],
         source: ProductDatasource(),
       );

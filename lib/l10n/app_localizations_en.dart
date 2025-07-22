@@ -651,4 +651,136 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get featured => 'Featured';
+
+  @override
+  String get addProduct => 'Add Product';
+
+  @override
+  String get stock => 'Stock';
+
+  @override
+  String get sold => 'Sold';
+
+  @override
+  String get price => 'Price';
+
+  @override
+  String get stockAndPricing => 'Stock & Pricing';
+
+  @override
+  String get allProductImages => 'All Product Images';
+
+  @override
+  String get basicInformation => 'Basic Information';
+
+  @override
+  String get productTitle => 'Product Title';
+
+  @override
+  String get productDescription => 'Product Description';
+
+  @override
+  String get addProductDescriptionHint => 'Add your Product Description here...';
+
+  @override
+  String get addAdditionalProductImages => 'Add Additional Product images';
+
+  @override
+  String get discard => 'Discard';
+
+  @override
+  String get saveChanges => 'Save Changes';
+
+  @override
+  String get brand => 'Brand';
+
+  @override
+  String get selectBrand => 'Select Brand';
+
+  @override
+  String get addProductAttributes => 'Add Product Attributes';
+
+  @override
+  String get add => 'Add';
+
+  @override
+  String get attributeName => 'Attribute Name';
+
+  @override
+  String get attributeNameHint => 'Colors, Sizes, Material';
+
+  @override
+  String get attribute => 'Attribute';
+
+  @override
+  String get attributeHint => 'Add attribute separted by | Example: Green | Blue | Yellow';
+
+  @override
+  String get attributeField => 'Attribute Field';
+
+  @override
+  String get noAttributesAdded => 'There are no attributes added for this products';
+
+  @override
+  String get generateVariations => 'Generate Variations';
+
+  @override
+  String get allAttribute => 'All Attribute';
+
+  @override
+  String get selectCategories => 'Select Categories';
+
+  @override
+  String get stockLabel => 'Stock';
+
+  @override
+  String get stockHint => 'Add Stock, only numbers are allowed';
+
+  @override
+  String get priceLabel => 'Price';
+
+  @override
+  String get priceHint => 'Price with up-to 2 decimals';
+
+  @override
+  String get discountedPrice => 'Discounted Price';
+
+  @override
+  String get productThumbnail => 'Product Thumbnail';
+
+  @override
+  String get addThumbnail => 'Add Thumbnail';
+
+  @override
+  String get productType => 'Product Type';
+
+  @override
+  String get single => 'Single';
+
+  @override
+  String get variable => 'Variable';
+
+  @override
+  String get productVariations => 'Product Variations';
+
+  @override
+  String get removeVariations => 'Remove Variations';
+
+  @override
+  String get noVariationsMessage => 'There are no Variations added for this product';
+
+  @override
+  String get description => 'Description';
+
+  @override
+  String get addDescriptionVariationHint => 'Add description of this variation...';
+
+  @override
+  String get visibility => 'Visibility';
+
+  @override
+  String get published => 'Published';
+
+  @override
+  String get hidden => 'Hidden';
 }
