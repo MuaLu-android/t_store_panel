@@ -671,5 +671,81 @@
     "action": "Action",
     "@action": {
         "description": "Label for action column in data tables"
+    },
+    "createBanners": "Create Banners",
+    "@createBanners": {
+        "description": "Button text for creating banners"
+    },
+    "deleteItem": "Delete Item",
+    "@deleteItem": {
+        "description": "Title for delete item dialog"
+    },
+    "deleteItemConfirmation": "Are you sure you want to delete this item?",
+    "@deleteItemConfirmation": {
+        "description": "Confirmation message for deleting item"
+    },
+    "ok": "OK",
+    "@ok": {
+        "description": "OK button text"
+    },
+    "cancel": "Cancel",
+    "@cancel": {
+        "description": "Cancel button text"
+    },
+    "itemDeleted": "Item Deleted",
+    "@itemDeleted": {
+        "description": "Success title when item is deleted"
+    },
+    "itemDeletedMessage": "Your item has been deleted successfully",
+    "@itemDeletedMessage": {
+        "description": "Success message when item is deleted"
+    },
+    "banner": "Banner",
+    "@banner": {
+        "description": "Banner column header in data table"
+    },
+    "redirectScreen": "Redirect Screen",
+    "@redirectScreen": {
+        "description": "Redirect screen column header in banner table"
+    },
+    "active": "Active",
+    "@active": {
+        "description": "Active status column header in data table"
+    },
+    "createNewBanners": "Create New Banners",
+    "@createNewBanners": {
+        "description": "Heading for create new banners form"
+    },
+    "selectedImages": "Select Images",
+    "@selectedImages": {
+        "description": "Button text for selecting images"
+    },
+    "bannerActiveDescription": "Make your Banner Active or Inactive",
+    "@bannerActiveDescription": {
+        "description": "Description text for banner active/inactive setting"
+    },
+    "create": "Create",
+    "@create": {
+        "description": "Create button text"
+    },
+    "congratulations": "Congratulations",
+    "@congratulations": {
+        "description": "Success title message"
+    },
+    "newRecordAdded": "New record has been added",
+    "@newRecordAdded": {
+        "description": "Success message when new record is created"
+    },
+    "updateBanners": "Update Banners",
+    "@updateBanners": {
+        "description": "Heading for update banners form"
+    },
+    "update": "Update",
+    "@update": {
+        "description": "Update button text"
+    },
+    "recordUpdated": "Record has been updated successfully",
+    "@recordUpdated": {
+        "description": "Success message when record is updated"
     }
 }

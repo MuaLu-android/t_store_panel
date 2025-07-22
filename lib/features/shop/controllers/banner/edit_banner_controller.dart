@@ -3,6 +3,7 @@ import 'package:admin_hmoob_store/features/media/controllers/media_controllet.da
 import 'package:admin_hmoob_store/features/media/models/image_modle.dart';
 import 'package:admin_hmoob_store/features/shop/controllers/banner/banner_controller.dart';
 import 'package:admin_hmoob_store/features/shop/models/banner_model.dart';
+import 'package:admin_hmoob_store/l10n/app_localizations.dart';
 import 'package:admin_hmoob_store/route/route.dart';
 import 'package:admin_hmoob_store/utils/helpers/network_manager.dart';
 import 'package:admin_hmoob_store/utils/popups/full_screen_loader.dart';
@@ -64,13 +65,17 @@ class EditBannerController extends GetxController {
       // Back
       Get.back();
       // Success
+      final local = AppLocalizations.of(Get.context!)!;
       TLoaders.successSnackBar(
-        title: 'Congratulations',
-        message: 'New Record has been added',
+        title: local.congratulations,
+        message: local.newRecordAdded,
       );
     } catch (e) {
       TFullScreenLoader.stopLoading();
-      TLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
+      TLoaders.errorSnackBar(
+        title: AppLocalizations.of(Get.context!)!.ohSnap,
+        message: e.toString(),
+      );
     }
   }
 

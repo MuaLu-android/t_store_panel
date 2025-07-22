@@ -511,4 +511,58 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get action => 'Action';
+
+  @override
+  String get createBanners => 'Create Banners';
+
+  @override
+  String get deleteItem => 'Delete Item';
+
+  @override
+  String get deleteItemConfirmation => 'Are you sure you want to delete this item?';
+
+  @override
+  String get ok => 'OK';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get itemDeleted => 'Item Deleted';
+
+  @override
+  String get itemDeletedMessage => 'Your item has been deleted successfully';
+
+  @override
+  String get banner => 'Banner';
+
+  @override
+  String get redirectScreen => 'Redirect Screen';
+
+  @override
+  String get active => 'Active';
+
+  @override
+  String get createNewBanners => 'Create New Banners';
+
+  @override
+  String get selectedImages => 'Select Images';
+
+  @override
+  String get bannerActiveDescription => 'Make your Banner Active or Inactive';
+
+  @override
+  String get create => 'Create';
+
+  @override
+  String get congratulations => 'Congratulations';
+
+  @override
+  String get newRecordAdded => 'New record has been added';
+
+  @override
+  String get updateBanners => 'Update Banners';
+
+  @override
+  String get update => 'Update';
 }

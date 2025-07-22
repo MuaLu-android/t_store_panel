@@ -511,4 +511,58 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get action => 'Hành động';
+
+  @override
+  String get createBanners => 'Tạo Banner';
+
+  @override
+  String get deleteItem => 'Xóa mục';
+
+  @override
+  String get deleteItemConfirmation => 'Bạn có chắc muốn xóa mục này không?';
+
+  @override
+  String get ok => 'Đồng ý';
+
+  @override
+  String get cancel => 'Hủy';
+
+  @override
+  String get itemDeleted => 'Đã xóa mục';
+
+  @override
+  String get itemDeletedMessage => 'Mục của bạn đã được xóa thành công';
+
+  @override
+  String get banner => 'Banner';
+
+  @override
+  String get redirectScreen => 'Màn hình chuyển hướng';
+
+  @override
+  String get active => 'Kích hoạt';
+
+  @override
+  String get createNewBanners => 'Tạo Banner Mới';
+
+  @override
+  String get selectedImages => 'Chọn Ảnh';
+
+  @override
+  String get bannerActiveDescription => 'Đặt Banner của bạn ở trạng thái Kích hoạt hoặc Không kích hoạt';
+
+  @override
+  String get create => 'Tạo';
+
+  @override
+  String get congratulations => 'Chúc mừng';
+
+  @override
+  String get newRecordAdded => 'Đã thêm bản ghi mới';
+
+  @override
+  String get updateBanners => 'Cập nhật Banner';
+
+  @override
+  String get update => 'Cập nhật';
 }

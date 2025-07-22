@@ -1,6 +1,7 @@
 import 'package:admin_hmoob_store/common/widgets/data_table/paginated_data_table.dart';
 import 'package:admin_hmoob_store/features/shop/controllers/banner/banner_controller.dart';
 import 'package:admin_hmoob_store/features/shop/screens/banners/all_banners/tablets/data_source.dart';
+import 'package:admin_hmoob_store/l10n/app_localizations.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
@@ -10,6 +11,7 @@ class BannerTablets extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final local = AppLocalizations.of(context)!;
     // implement build
     final controller = BannerController.instance;
     return Obx(() {
@@ -23,14 +25,14 @@ class BannerTablets extends StatelessWidget {
         dataRowHeight: 110,
         source: BannersForm(),
         columns: [
-          const DataColumn2(label: SelectableText('Banner')),
+          DataColumn2(label: SelectableText(local.banner)),
           DataColumn2(
-            label: const Text('Redirect Screen'),
+            label: Text(local.redirectScreen),
             onSort: (columnIndex, ascending) =>
                 controller.sortByParentRout(columnIndex, ascending),
           ),
-          const DataColumn2(label: Text('Active')),
-          const DataColumn2(label: Text('Action'), fixedWidth: 100),
+          DataColumn2(label: Text(local.active)),
+          DataColumn2(label: Text(local.action), fixedWidth: 100),
         ],
       );
     });

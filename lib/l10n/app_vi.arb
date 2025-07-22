@@ -671,5 +671,81 @@
     "action": "Hành động",
     "@action": {
         "description": "Nhãn cho cột hành động trong bảng dữ liệu"
+    },
+    "createBanners": "Tạo Banner",
+    "@createBanners": {
+        "description": "Văn bản nút để tạo banner"
+    },
+    "deleteItem": "Xóa mục",
+    "@deleteItem": {
+        "description": "Tiêu đề dialog xóa mục"
+    },
+    "deleteItemConfirmation": "Bạn có chắc muốn xóa mục này không?",
+    "@deleteItemConfirmation": {
+        "description": "Thông báo xác nhận xóa mục"
+    },
+    "ok": "Đồng ý",
+    "@ok": {
+        "description": "Nút đồng ý"
+    },
+    "cancel": "Hủy",
+    "@cancel": {
+        "description": "Nút hủy"
+    },
+    "itemDeleted": "Đã xóa mục",
+    "@itemDeleted": {
+        "description": "Tiêu đề thành công khi xóa mục"
+    },
+    "itemDeletedMessage": "Mục của bạn đã được xóa thành công",
+    "@itemDeletedMessage": {
+        "description": "Thông báo thành công khi xóa mục"
+    },
+    "banner": "Banner",
+    "@banner": {
+        "description": "Tiêu đề cột banner trong bảng dữ liệu"
+    },
+    "redirectScreen": "Màn hình chuyển hướng",
+    "@redirectScreen": {
+        "description": "Tiêu đề cột màn hình chuyển hướng trong bảng banner"
+    },
+    "active": "Kích hoạt",
+    "@active": {
+        "description": "Tiêu đề cột trạng thái kích hoạt trong bảng dữ liệu"
+    },
+    "createNewBanners": "Tạo Banner Mới",
+    "@createNewBanners": {
+        "description": "Tiêu đề cho form tạo banner mới"
+    },
+    "selectedImages": "Chọn Ảnh",
+    "@selectedImages": {
+        "description": "Văn bản nút để chọn ảnh"
+    },
+    "bannerActiveDescription": "Đặt Banner của bạn ở trạng thái Kích hoạt hoặc Không kích hoạt",
+    "@bannerActiveDescription": {
+        "description": "Văn bản mô tả cho cài đặt kích hoạt/không kích hoạt banner"
+    },
+    "create": "Tạo",
+    "@create": {
+        "description": "Văn bản nút tạo"
+    },
+    "congratulations": "Chúc mừng",
+    "@congratulations": {
+        "description": "Tiêu đề thông báo thành công"
+    },
+    "newRecordAdded": "Đã thêm bản ghi mới",
+    "@newRecordAdded": {
+        "description": "Thông báo thành công khi tạo bản ghi mới"
+    },
+    "updateBanners": "Cập nhật Banner",
+    "@updateBanners": {
+        "description": "Tiêu đề cho form cập nhật banner"
+    },
+    "update": "Cập nhật",
+    "@update": {
+        "description": "Văn bản nút cập nhật"
+    },
+    "recordUpdated": "Bản ghi đã được cập nhật thành công",
+    "@recordUpdated": {
+        "description": "Thông báo thành công khi cập nhật bản ghi"
     }
 }

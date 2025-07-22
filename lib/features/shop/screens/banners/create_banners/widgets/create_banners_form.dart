@@ -2,6 +2,7 @@ import 'package:admin_hmoob_store/common/widgets/custom_shapes/container/rounded
 import 'package:admin_hmoob_store/common/widgets/images/t_rounded_image.dart';
 import 'package:admin_hmoob_store/features/shop/controllers/banner/banner_controller.dart';
 import 'package:admin_hmoob_store/features/shop/controllers/banner/ceate_banner_controller.dart';
+import 'package:admin_hmoob_store/l10n/app_localizations.dart';
 import 'package:admin_hmoob_store/route/route.dart';
 import 'package:admin_hmoob_store/utils/constants/colors.dart';
 import 'package:admin_hmoob_store/utils/constants/enums.dart';
@@ -15,6 +16,7 @@ class CreateBannersForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final local = AppLocalizations.of(context)!;
     // implement build
     final controller = Get.put(CreateBannerController());
     final bannerController = BannerController.instance;
@@ -29,7 +31,7 @@ class CreateBannersForm extends StatelessWidget {
             // Heading
             SizedBox(height: TSizes.sm),
             Text(
-              'Create New Banners',
+              local.createNewBanners,
               style: Theme.of(context).textTheme.headlineMedium,
             ),
             const SizedBox(height: TSizes.spaceBtwSections),
@@ -53,13 +55,13 @@ class CreateBannersForm extends StatelessWidget {
                 const SizedBox(height: TSizes.spaceBtwItems),
                 TextButton(
                   onPressed: () => controller.pickImage(),
-                  child: const Text('Selected Images'),
+                  child: Text(local.selectedImages),
                 ),
               ],
             ),
             const SizedBox(height: TSizes.spaceBtwInputFields),
             Text(
-              'Make your Banner Active or InActicve',
+              local.bannerActiveDescription,
               style: Theme.of(Get.context!).textTheme.bodyMedium,
             ),
             Obx(
@@ -67,7 +69,7 @@ class CreateBannersForm extends StatelessWidget {
                 value: controller.isActive.value,
                 onChanged: (value) =>
                     controller.isActive.value = value ?? false,
-                child: const Text('Active'),
+                child: Text(local.active),
               ),
             ),
             const SizedBox(height: TSizes.spaceBtwInputFields),
@@ -92,7 +94,7 @@ class CreateBannersForm extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () => controller.createBanners(),
-                child: const Text('Create'),
+                child: Text(local.create),
               ),
             ),
             const SizedBox(height: TSizes.spaceBtwInputFields * 2),

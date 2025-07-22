@@ -1,3 +1,4 @@
+import 'package:admin_hmoob_store/l10n/app_localizations.dart';
 import 'package:admin_hmoob_store/utils/constants/colors.dart';
 import 'package:admin_hmoob_store/utils/constants/sizes.dart';
 import 'package:admin_hmoob_store/utils/popups/full_screen_loader.dart';
@@ -37,7 +38,10 @@ abstract class TBaseController<T> extends GetxController {
       isLoading.value = false;
     } catch (e) {
       isLoading.value = false;
-      TLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
+      TLoaders.errorSnackBar(
+        title: AppLocalizations.of(Get.context!)!.ohSnap,
+        message: e.toString(),
+      );
     } finally {
       isLoading.value = false;
     }
@@ -65,10 +69,11 @@ abstract class TBaseController<T> extends GetxController {
 
   // Delete Categories
   void confirmAndDeleteItem(T item) {
+    final local = AppLocalizations.of(Get.context!)!;
     // show a confirmation dialog
     Get.defaultDialog(
-      title: 'Delete Item',
-      content: const Text('Are you sure you wan to delete this item?'),
+      title: local.deleteItem,
+      content: Text(local.deleteItemConfirmation),
       actions: [
         SizedBox(
           width: 60,
@@ -82,7 +87,7 @@ abstract class TBaseController<T> extends GetxController {
               ),
             ),
             onPressed: () async => await deleteOnConfirm(item),
-            child: const Text('OK'),
+            child: Text(local.ok),
           ),
         ),
         const SizedBox(width: TSizes.spaceBtwInputFields),
@@ -99,7 +104,7 @@ abstract class TBaseController<T> extends GetxController {
               ),
             ),
             onPressed: () => Get.back(),
-            child: const Text('Cancel'),
+            child: Text(local.cancel),
           ),
         ),
       ],
@@ -108,6 +113,7 @@ abstract class TBaseController<T> extends GetxController {
 
   deleteOnConfirm(T item) async {
     try {
+      final local = AppLocalizations.of(Get.context!)!;
       // Loader
       TFullScreenLoader.stopLoading();
       // Start the loader
@@ -117,12 +123,15 @@ abstract class TBaseController<T> extends GetxController {
       removeItemFromLists(item);
       TFullScreenLoader.stopLoading();
       TLoaders.successSnackBar(
-        title: 'Item Daleted',
-        message: 'Ypur Item has been Deletes',
+        title: local.itemDeleted,
+        message: local.itemDeletedMessage,
       );
     } catch (e) {
       TFullScreenLoader.stopLoading();
-      TLoaders.errorSnackBar(title: 'Oh snap!', message: e.toString());
+      TLoaders.errorSnackBar(
+        title: AppLocalizations.of(Get.context!)!.ohSnap,
+        message: e.toString(),
+      );
     }
   }
 

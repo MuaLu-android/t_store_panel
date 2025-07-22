@@ -1102,6 +1102,114 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Action'**
   String get action;
+
+  /// Button text for creating banners
+  ///
+  /// In en, this message translates to:
+  /// **'Create Banners'**
+  String get createBanners;
+
+  /// Title for delete item dialog
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Item'**
+  String get deleteItem;
+
+  /// Confirmation message for deleting item
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to delete this item?'**
+  String get deleteItemConfirmation;
+
+  /// OK button text
+  ///
+  /// In en, this message translates to:
+  /// **'OK'**
+  String get ok;
+
+  /// Cancel button text
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// Success title when item is deleted
+  ///
+  /// In en, this message translates to:
+  /// **'Item Deleted'**
+  String get itemDeleted;
+
+  /// Success message when item is deleted
+  ///
+  /// In en, this message translates to:
+  /// **'Your item has been deleted successfully'**
+  String get itemDeletedMessage;
+
+  /// Banner column header in data table
+  ///
+  /// In en, this message translates to:
+  /// **'Banner'**
+  String get banner;
+
+  /// Redirect screen column header in banner table
+  ///
+  /// In en, this message translates to:
+  /// **'Redirect Screen'**
+  String get redirectScreen;
+
+  /// Active status column header in data table
+  ///
+  /// In en, this message translates to:
+  /// **'Active'**
+  String get active;
+
+  /// Heading for create new banners form
+  ///
+  /// In en, this message translates to:
+  /// **'Create New Banners'**
+  String get createNewBanners;
+
+  /// Button text for selecting images
+  ///
+  /// In en, this message translates to:
+  /// **'Select Images'**
+  String get selectedImages;
+
+  /// Description text for banner active/inactive setting
+  ///
+  /// In en, this message translates to:
+  /// **'Make your Banner Active or Inactive'**
+  String get bannerActiveDescription;
+
+  /// Create button text
+  ///
+  /// In en, this message translates to:
+  /// **'Create'**
+  String get create;
+
+  /// Success title message
+  ///
+  /// In en, this message translates to:
+  /// **'Congratulations'**
+  String get congratulations;
+
+  /// Success message when new record is created
+  ///
+  /// In en, this message translates to:
+  /// **'New record has been added'**
+  String get newRecordAdded;
+
+  /// Heading for update banners form
+  ///
+  /// In en, this message translates to:
+  /// **'Update Banners'**
+  String get updateBanners;
+
+  /// Update button text
+  ///
+  /// In en, this message translates to:
+  /// **'Update'**
+  String get update;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

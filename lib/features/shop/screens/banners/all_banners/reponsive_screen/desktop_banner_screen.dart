@@ -37,7 +37,7 @@ class DesktopBannerScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     TTableHeader(
-                      buttonText: 'Create Banners',
+                      buttonText: local.createBanners,
                       onPressed: () => Get.toNamed(TRoutes.createBanner),
                       seatrchController: controller.searchTextController,
                       searchOnChanged: (query) => controller.searchQuery(query),
