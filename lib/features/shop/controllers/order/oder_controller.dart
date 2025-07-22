@@ -1,8 +1,12 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:admin_hmoob_store/data/abstract/base_data_table_controller.dart';
 import 'package:admin_hmoob_store/data/repositories/orders/order_repository.dart';
 import 'package:admin_hmoob_store/features/shop/models/order_model.dart';
+import 'package:admin_hmoob_store/l10n/app_localizations.dart';
 import 'package:admin_hmoob_store/utils/constants/enums.dart';
 import 'package:admin_hmoob_store/utils/popups/loaders.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class OrderController extends TBaseController<OrderModel> {
@@ -48,8 +52,10 @@ class OrderController extends TBaseController<OrderModel> {
   Future<void> updateOrderStatus(
     OrderModel order,
     OrderStatus newStatus,
+    BuildContext context,
   ) async {
     try {
+      final local = AppLocalizations.of(context)!;
       statusLoader.value = true;
       order.status = newStatus;
       await _orderRepository.updateOrderSpecificValue(order.docId, {
@@ -58,11 +64,14 @@ class OrderController extends TBaseController<OrderModel> {
       updateItemFormList(order);
       orderStatus.value = newStatus;
       TLoaders.successSnackBar(
-        title: 'Updated',
-        message: 'Order Status Updated',
+        title: local.updated,
+        message: local.orderStatusUpdated,
       );
     } catch (e) {
-      TLoaders.warningSnackBar(title: 'Oh Snap!', message: e.toString());
+      TLoaders.warningSnackBar(
+        title: AppLocalizations.of(context)!.ohSnap,
+        message: e.toString(),
+      );
     } finally {
       statusLoader.value = false;
     }

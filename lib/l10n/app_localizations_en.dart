@@ -30,6 +30,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get usersStoragePath => '/Users';
 
   @override
+  String get ordersStoragePath => '/Orders';
+
+  @override
   String get settingStoragePath => '/Settings';
 
   @override
@@ -463,4 +466,49 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get formValidationErrorMessage => 'Please fill in all required fields correctly';
+
+  @override
+  String get orderInformation => 'Order Information';
+
+  @override
+  String get updated => 'Updated';
+
+  @override
+  String get orderStatusUpdated => 'Order Status Updated';
+
+  @override
+  String get items => 'Items';
+
+  @override
+  String get subtotal => 'Subtotal';
+
+  @override
+  String get discount => 'Discount';
+
+  @override
+  String get shipping => 'Shipping';
+
+  @override
+  String get tax => 'Tax';
+
+  @override
+  String get transactions => 'Transactions';
+
+  @override
+  String get paymentVia => 'Payment via';
+
+  @override
+  String get fee => 'fee';
+
+  @override
+  String get contactPerson => 'Contact Person';
+
+  @override
+  String get shippingAddress => 'Shipping Address';
+
+  @override
+  String get billingAddress => 'Billing Address';
+
+  @override
+  String get action => 'Action';
 }

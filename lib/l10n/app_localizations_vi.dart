@@ -30,6 +30,9 @@ class AppLocalizationsVi extends AppLocalizations {
   String get usersStoragePath => '/Người dùng';
 
   @override
+  String get ordersStoragePath => '/Đơn hàng';
+
+  @override
   String get settingStoragePath => '/Cài đặt';
 
   @override
@@ -463,4 +466,49 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get formValidationErrorMessage => 'Vui lòng điền đúng tất cả các trường bắt buộc';
+
+  @override
+  String get orderInformation => 'Thông tin đơn hàng';
+
+  @override
+  String get updated => 'Đã cập nhật';
+
+  @override
+  String get orderStatusUpdated => 'Trạng thái đơn hàng đã được cập nhật';
+
+  @override
+  String get items => 'Sản phẩm';
+
+  @override
+  String get subtotal => 'Tạm tính';
+
+  @override
+  String get discount => 'Giảm giá';
+
+  @override
+  String get shipping => 'Phí vận chuyển';
+
+  @override
+  String get tax => 'Thuế';
+
+  @override
+  String get transactions => 'Giao dịch';
+
+  @override
+  String get paymentVia => 'Thanh toán qua';
+
+  @override
+  String get fee => 'phí';
+
+  @override
+  String get contactPerson => 'Người liên hệ';
+
+  @override
+  String get shippingAddress => 'Địa chỉ giao hàng';
+
+  @override
+  String get billingAddress => 'Địa chỉ thanh toán';
+
+  @override
+  String get action => 'Hành động';
 }

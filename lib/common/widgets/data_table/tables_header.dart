@@ -1,3 +1,4 @@
+import 'package:admin_hmoob_store/l10n/app_localizations.dart';
 import 'package:admin_hmoob_store/utils/devices/device_utility.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
@@ -20,6 +21,7 @@ class TTableHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // implement build
+    final local = AppLocalizations.of(context)!;
     return Row(
       children: [
         Expanded(
@@ -43,8 +45,8 @@ class TTableHeader extends StatelessWidget {
           child: TextFormField(
             controller: seatrchController,
             onChanged: searchOnChanged,
-            decoration: const InputDecoration(
-              hintText: 'Search here...',
+            decoration: InputDecoration(
+              hintText: local.header_search_hint,
               prefixIcon: Icon(Iconsax.search_normal),
             ),
           ),

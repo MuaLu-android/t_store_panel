@@ -28,6 +28,10 @@
     "@usersStoragePath": {
         "description": "Storage path for users"
     },
+    "ordersStoragePath": "/Đơn hàng",
+    "@ordersStoragePath": {
+        "description": "Storage path for users"
+    },
     "settingStoragePath": "/Cài đặt",
     "@settingStoragePath": {
         "description": "Storage path for users"
@@ -607,5 +611,65 @@
     "formValidationErrorMessage": "Vui lòng điền đúng tất cả các trường bắt buộc",
     "@formValidationErrorMessage": {
         "description": "Thông báo lỗi xác thực form"
+    },
+    "orderInformation": "Thông tin đơn hàng",
+    "@orderInformation": {
+        "description": "Tiêu đề cho phần thông tin đơn hàng"
+    },
+    "updated": "Đã cập nhật",
+    "@updated": {
+        "description": "Tiêu đề cho cập nhật thành công"
+    },
+    "orderStatusUpdated": "Trạng thái đơn hàng đã được cập nhật",
+    "@orderStatusUpdated": {
+        "description": "Thông báo khi trạng thái đơn hàng được cập nhật thành công"
+    },
+    "items": "Sản phẩm",
+    "@items": {
+        "description": "Tiêu đề cho phần sản phẩm"
+    },
+    "subtotal": "Tạm tính",
+    "@subtotal": {
+        "description": "Nhãn cho số tiền tạm tính"
+    },
+    "discount": "Giảm giá",
+    "@discount": {
+        "description": "Nhãn cho số tiền giảm giá"
+    },
+    "shipping": "Phí vận chuyển",
+    "@shipping": {
+        "description": "Nhãn cho phí vận chuyển"
+    },
+    "tax": "Thuế",
+    "@tax": {
+        "description": "Nhãn cho số tiền thuế"
+    },
+    "transactions": "Giao dịch",
+    "@transactions": {
+        "description": "Tiêu đề cho phần giao dịch"
+    },
+    "paymentVia": "Thanh toán qua",
+    "@paymentVia": {
+        "description": "Tiền tố cho văn bản phương thức thanh toán"
+    },
+    "fee": "phí",
+    "@fee": {
+        "description": "Hậu tố cho phí phương thức thanh toán"
+    },
+    "contactPerson": "Người liên hệ",
+    "@contactPerson": {
+        "description": "Tiêu đề cho phần người liên hệ"
+    },
+    "shippingAddress": "Địa chỉ giao hàng",
+    "@shippingAddress": {
+        "description": "Tiêu đề cho phần địa chỉ giao hàng"
+    },
+    "billingAddress": "Địa chỉ thanh toán",
+    "@billingAddress": {
+        "description": "Tiêu đề cho phần địa chỉ thanh toán"
+    },
+    "action": "Hành động",
+    "@action": {
+        "description": "Nhãn cho cột hành động trong bảng dữ liệu"
     }
 }

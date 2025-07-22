@@ -2,6 +2,7 @@ import 'package:admin_hmoob_store/common/widgets/custom_shapes/container/rounded
 import 'package:admin_hmoob_store/common/widgets/images/t_rounded_image.dart';
 import 'package:admin_hmoob_store/features/shop/controllers/order/order_detail_controller.dart';
 import 'package:admin_hmoob_store/features/shop/models/order_model.dart';
+import 'package:admin_hmoob_store/l10n/app_localizations.dart';
 import 'package:admin_hmoob_store/utils/constants/colors.dart';
 import 'package:admin_hmoob_store/utils/constants/enums.dart';
 import 'package:admin_hmoob_store/utils/constants/image_strings.dart';
@@ -18,6 +19,7 @@ class OrderCustomer extends StatelessWidget {
     final controller = Get.put(OrderDetailController());
     controller.order.value = orders;
     controller.getCustomerOfCurrentOrder();
+    final local = AppLocalizations.of(context)!;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -28,7 +30,7 @@ class OrderCustomer extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Customer',
+                local.customers,
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
               const SizedBox(height: TSizes.spaceBtwSections),
@@ -81,7 +83,7 @@ class OrderCustomer extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Contact Person',
+                    local.contactPerson,
                     style: Theme.of(context).textTheme.headlineMedium,
                   ),
                   const SizedBox(height: TSizes.spaceBtwSections),
@@ -117,7 +119,7 @@ class OrderCustomer extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Shipping Address',
+                  local.shippingAddress,
                   style: Theme.of(context).textTheme.headlineMedium,
                 ),
                 const SizedBox(height: TSizes.spaceBtwSections),
@@ -149,7 +151,7 @@ class OrderCustomer extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Dilling Address',
+                  local.billingAddress,
                   style: Theme.of(context).textTheme.headlineMedium,
                 ),
                 const SizedBox(height: TSizes.spaceBtwSections),

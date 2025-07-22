@@ -22,7 +22,7 @@ class OrderTransactions extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Transactions',
+            local.transactions,
             style: Theme.of(context).textTheme.headlineMedium,
           ),
           const SizedBox(height: TSizes.spaceBtwSections),
@@ -43,12 +43,12 @@ class OrderTransactions extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Payment via ${orders.paymentMethod.capitalize}',
+                            '${local.paymentVia} ${orders.paymentMethod.capitalize}',
                             style: Theme.of(context).textTheme.labelLarge,
                           ),
                           // Adjust your Payment Method Fee if any
                           Text(
-                            '${orders.paymentMethod.capitalize} fee \$25',
+                            '${orders.paymentMethod.capitalize} ${local.fee} \$25',
                             style: Theme.of(context).textTheme.labelMedium,
                           ),
                         ],
@@ -62,7 +62,7 @@ class OrderTransactions extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Date',
+                      local.orderDate,
                       style: Theme.of(context).textTheme.labelMedium,
                     ),
                     Text(
@@ -77,7 +77,7 @@ class OrderTransactions extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Total',
+                      local.orderTotal,
                       style: Theme.of(context).textTheme.labelMedium,
                     ),
                     Text(

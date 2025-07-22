@@ -1,6 +1,7 @@
 import 'package:admin_hmoob_store/common/widgets/custom_shapes/container/rounded_container.dart';
 import 'package:admin_hmoob_store/common/widgets/images/t_rounded_image.dart';
 import 'package:admin_hmoob_store/features/shop/models/order_model.dart';
+import 'package:admin_hmoob_store/l10n/app_localizations.dart';
 import 'package:admin_hmoob_store/utils/constants/colors.dart';
 import 'package:admin_hmoob_store/utils/constants/enums.dart';
 import 'package:admin_hmoob_store/utils/constants/image_strings.dart';
@@ -15,6 +16,7 @@ class OrderItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // implement build
+    final local = AppLocalizations.of(context)!;
     final subTotal = orderModel.items.fold(
       0.0,
       (previousValue, element) =>
@@ -25,7 +27,7 @@ class OrderItems extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Items', style: Theme.of(context).textTheme.headlineMedium),
+          Text(local.items, style: Theme.of(context).textTheme.headlineMedium),
           const SizedBox(height: TSizes.spaceBtwSections),
           //Items
           ListView.separated(
@@ -115,7 +117,7 @@ class OrderItems extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Subtotal',
+                      local.subtotal,
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     Text(
@@ -129,10 +131,13 @@ class OrderItems extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Discount',
+                      local.discount,
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
-                    Text('0.00', style: Theme.of(context).textTheme.titleLarge),
+                    Text(
+                      '\$0.00',
+                      style: Theme.of(context).textTheme.titleLarge,
+                    ),
                   ],
                 ),
                 const SizedBox(height: TSizes.spaceBtwItems),
@@ -140,7 +145,7 @@ class OrderItems extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Shipping',
+                      local.shipping,
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     Text(
@@ -153,9 +158,12 @@ class OrderItems extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Tax', style: Theme.of(context).textTheme.titleLarge),
                     Text(
-                      '\$${TPricingCalculator.calculateTotalPrice(subTotal, '')}',
+                      local.tax,
+                      style: Theme.of(context).textTheme.titleLarge,
+                    ),
+                    Text(
+                      '\$${TPricingCalculator.calculateTax(subTotal, '')}',
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                   ],
@@ -167,7 +175,7 @@ class OrderItems extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Total',
+                      local.orderTotal,
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     Text(

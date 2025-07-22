@@ -28,6 +28,10 @@
     "@usersStoragePath": {
         "description": "Storage path for users"
     },
+    "ordersStoragePath": "/Orders",
+    "@ordersStoragePath": {
+        "description": "Storage path for users"
+    },
     "settingStoragePath": "/Settings",
     "@settingStoragePath": {
         "description": "Storage path for users"
@@ -607,5 +611,65 @@
     "formValidationErrorMessage": "Please fill in all required fields correctly",
     "@formValidationErrorMessage": {
         "description": "Form validation error message"
+    },
+    "orderInformation": "Order Information",
+    "@orderInformation": {
+        "description": "Title for order information section"
+    },
+    "updated": "Updated",
+    "@updated": {
+        "description": "Title for successful update"
+    },
+    "orderStatusUpdated": "Order Status Updated",
+    "@orderStatusUpdated": {
+        "description": "Message when order status is successfully updated"
+    },
+    "items": "Items",
+    "@items": {
+        "description": "Title for items section"
+    },
+    "subtotal": "Subtotal",
+    "@subtotal": {
+        "description": "Label for subtotal amount"
+    },
+    "discount": "Discount",
+    "@discount": {
+        "description": "Label for discount amount"
+    },
+    "shipping": "Shipping",
+    "@shipping": {
+        "description": "Label for shipping cost"
+    },
+    "tax": "Tax",
+    "@tax": {
+        "description": "Label for tax amount"
+    },
+    "transactions": "Transactions",
+    "@transactions": {
+        "description": "Title for transactions section"
+    },
+    "paymentVia": "Payment via",
+    "@paymentVia": {
+        "description": "Prefix for payment method text"
+    },
+    "fee": "fee",
+    "@fee": {
+        "description": "Suffix for payment method fee"
+    },
+    "contactPerson": "Contact Person",
+    "@contactPerson": {
+        "description": "Title for contact person section"
+    },
+    "shippingAddress": "Shipping Address",
+    "@shippingAddress": {
+        "description": "Title for shipping address section"
+    },
+    "billingAddress": "Billing Address",
+    "@billingAddress": {
+        "description": "Title for billing address section"
+    },
+    "action": "Action",
+    "@action": {
+        "description": "Label for action column in data tables"
     }
 }

@@ -26,7 +26,7 @@ class OrderInfoScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Order Information',
+            local.orderInformation,
             style: Theme.of(context).textTheme.headlineMedium,
           ),
           const SizedBox(height: TSizes.spaceBtwSections),
@@ -36,7 +36,7 @@ class OrderInfoScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('Date'),
+                    Text(local.orderDate),
                     Text(
                       orderModel.formattedOrderDate(local.localeName),
                       style: Theme.of(context).textTheme.bodyLarge,
@@ -48,9 +48,9 @@ class OrderInfoScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('Items'),
+                    Text(local.orderItems),
                     Text(
-                      '${orderModel.items.length} Items',
+                      '${orderModel.items.length}',
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                   ],
@@ -61,7 +61,7 @@ class OrderInfoScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('Status'),
+                    Text(local.orderStatus),
                     Obx(() {
                       if (controller.statusLoader.value) {
                         return const TShimmerEffect(
@@ -85,7 +85,9 @@ class OrderInfoScreen extends StatelessWidget {
                             return DropdownMenuItem<OrderStatus>(
                               value: status,
                               child: Text(
-                                status.name.capitalize.toString(),
+                                THelperFunctions.getStatusText(
+                                  status.name.capitalize.toString(),
+                                ),
                                 style: TextStyle(
                                   color: THelperFunctions.getOrderStatusColor(
                                     controller.orderStatus.value,
@@ -99,6 +101,7 @@ class OrderInfoScreen extends StatelessWidget {
                               controller.updateOrderStatus(
                                 orderModel,
                                 newStatus,
+                                context,
                               );
                             }
                           },
@@ -112,7 +115,7 @@ class OrderInfoScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('Totals'),
+                    Text(local.orderTotal),
                     Text(
                       '\$${orderModel.totalAmount}',
                       style: Theme.of(context).textTheme.bodyLarge,

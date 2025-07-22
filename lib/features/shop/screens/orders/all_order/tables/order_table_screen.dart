@@ -1,6 +1,7 @@
 import 'package:admin_hmoob_store/common/widgets/data_table/paginated_data_table.dart';
 import 'package:admin_hmoob_store/features/shop/controllers/order/oder_controller.dart';
 import 'package:admin_hmoob_store/features/shop/screens/orders/all_order/tables/order_data_table_source.dart';
+import 'package:admin_hmoob_store/l10n/app_localizations.dart';
 import 'package:admin_hmoob_store/utils/devices/device_utility.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,7 @@ class OrderTableScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // implement build
     final controller = OrderController.instance;
+    final local = AppLocalizations.of(context)!;
     return Obx(() {
       Text(controller.filteredItems.length.toString());
       Text(controller.selectedRows.length.toString());
@@ -21,23 +23,23 @@ class OrderTableScreen extends StatelessWidget {
         sortColumnIndex: controller.sortColumnIndex.value,
         minWith: 700,
         columns: [
-          const DataColumn2(label: Text('Order ID')),
+          DataColumn2(label: Text(local.orderId)),
           DataColumn2(
-            label: Text('Date'),
+            label: Text(local.orderDate),
             onSort: (columnIndex, ascending) =>
                 controller.sortByDate(columnIndex, ascending),
           ),
-          const DataColumn2(label: Text('Items')),
+          DataColumn2(label: Text(local.orderItems)),
           DataColumn2(
-            label: Text('Status'),
+            label: Text(local.orderStatus),
             fixedWidth: TDeviceUtils.isMobileScreen(context) ? 120 : null,
           ),
           DataColumn2(
-            label: Text('Amount'),
+            label: Text(local.orderTotal),
             onSort: (columnIndex, ascending) =>
                 controller.sortById(columnIndex, ascending),
           ),
-          const DataColumn2(label: Text('Action'), fixedWidth: 100),
+          DataColumn2(label: Text(local.action), fixedWidth: 100),
         ],
         source: OrderRows(),
       );

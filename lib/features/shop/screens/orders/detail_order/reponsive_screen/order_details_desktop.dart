@@ -28,7 +28,7 @@ class OrderDetailsDesktop extends StatelessWidget {
               returnToPreviousScreen: true,
               heading: orderModel.id,
               breadcrumbItems: [
-                BreadcrumbItem(local.brandsStoragePath, route: TRoutes.orders),
+                BreadcrumbItem(local.ordersStoragePath, route: TRoutes.orders),
                 BreadcrumbItem(local.orderDetailsBreadcrumb),
               ],
               titleSmall: true,

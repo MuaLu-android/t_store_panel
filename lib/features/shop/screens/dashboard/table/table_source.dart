@@ -34,7 +34,7 @@ class OrderRows extends DataTableSource {
           ),
         ),
         DataCell(Text(orders.formattedOrderDate(local.localeName))),
-        DataCell(Text('${orders.items.length} ${local.orderItems}')),
+        DataCell(Text('${orders.items.length}')),
         DataCell(
           TRoundedContainer(
             radius: TSizes.cardRadiusSm,
