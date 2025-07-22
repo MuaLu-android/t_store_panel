@@ -3,6 +3,7 @@ import 'package:admin_hmoob_store/features/media/controllers/media_controllet.da
 import 'package:admin_hmoob_store/features/media/models/image_modle.dart';
 import 'package:admin_hmoob_store/features/shop/controllers/categories/category_controller.dart';
 import 'package:admin_hmoob_store/features/shop/models/category_model.dart';
+import 'package:admin_hmoob_store/l10n/app_localizations.dart';
 import 'package:admin_hmoob_store/utils/helpers/network_manager.dart';
 import 'package:admin_hmoob_store/utils/popups/full_screen_loader.dart';
 import 'package:admin_hmoob_store/utils/popups/loaders.dart';
@@ -66,12 +67,15 @@ class CreateCategoryController extends GetxController {
       Get.back();
       // Success
       TLoaders.successSnackBar(
-        title: 'Congratulations',
-        message: 'New Record has been added',
+        title: AppLocalizations.of(Get.context!)!.congratulations,
+        message: AppLocalizations.of(Get.context!)!.newRecordAdded,
       );
     } catch (e) {
       TFullScreenLoader.stopLoading();
-      TLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
+      TLoaders.errorSnackBar(
+        title: AppLocalizations.of(Get.context!)!.ohSnap,
+        message: e.toString(),
+      );
     }
   }
 

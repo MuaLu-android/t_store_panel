@@ -150,7 +150,8 @@ class THelperFunctions {
     String format = 'dd MMM yyyy',
     String? locale,
   }) {
-    return DateFormat(format, locale).format(date);
+    final onlyTime = DateFormat('hh:mm').format(date);
+    return '${DateFormat(format, locale).format(date)} $onlyTime';
   }
 
   static List<T> removeDuplicates<T>(List<T> list) {

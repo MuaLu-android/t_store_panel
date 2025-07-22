@@ -38,7 +38,7 @@ class CategoriesDesktopScreen extends StatelessWidget {
                   children: [
                     // Table Header
                     TTableHeader(
-                      buttonText: 'Create New Category',
+                      buttonText: local.createNewCategory,
                       onPressed: () => Get.toNamed(TRoutes.createCategory),
                       seatrchController: controller.searchTextController,
                       searchOnChanged: (query) => controller.searchQuery(query),

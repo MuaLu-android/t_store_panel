@@ -1,6 +1,7 @@
 import 'package:admin_hmoob_store/common/widgets/images/t_rounded_image.dart';
 import 'package:admin_hmoob_store/features/shop/controllers/categories/category_controller.dart';
 import 'package:admin_hmoob_store/features/shop/screens/category/all_categories/widgets/tablet_action_button.dart';
+import 'package:admin_hmoob_store/l10n/app_localizations.dart';
 import 'package:admin_hmoob_store/route/route.dart';
 import 'package:admin_hmoob_store/utils/constants/colors.dart';
 import 'package:admin_hmoob_store/utils/constants/enums.dart';
@@ -12,6 +13,7 @@ import 'package:iconsax/iconsax.dart';
 
 class CategoryRows extends DataTableSource {
   final controller = CategoryController.instance;
+  final local = AppLocalizations.of(Get.context!)!;
   @override
   DataRow? getRow(int index) {
     final category = controller.filteredItems[index];
@@ -55,7 +57,13 @@ class CategoryRows extends DataTableSource {
               ? const Icon(Iconsax.heart5, color: TColors.primary)
               : const Icon(Iconsax.heart),
         ),
-        DataCell(Text(category.createAt == null ? '' : category.formattedDate)),
+        DataCell(
+          Text(
+            category.createAt == null
+                ? ''
+                : category.formattedOrderDate(local.localeName),
+          ),
+        ),
         DataCell(
           TTabletActionButtons(
             onEditPressed: () =>

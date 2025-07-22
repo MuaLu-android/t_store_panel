@@ -1318,6 +1318,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Search Orders'**
   String get searchOrders;
+
+  /// Button text for creating a new category
+  ///
+  /// In en, this message translates to:
+  /// **'Create New Category'**
+  String get createNewCategory;
+
+  /// Category column header in data table
+  ///
+  /// In en, this message translates to:
+  /// **'Category'**
+  String get categoryColumn;
+
+  /// Parent category column header in data table
+  ///
+  /// In en, this message translates to:
+  /// **'Parent Category'**
+  String get parentCategoryColumn;
+
+  /// Featured column header in data table
+  ///
+  /// In en, this message translates to:
+  /// **'Featured'**
+  String get featuredColumn;
+
+  /// Date column header in data table
+  ///
+  /// In en, this message translates to:
+  /// **'Date'**
+  String get dateColumn;
+
+  /// Heading for update category form
+  ///
+  /// In en, this message translates to:
+  /// **'Update Category'**
+  String get updateCategory;
+
+  /// Label for category name field
+  ///
+  /// In en, this message translates to:
+  /// **'Category Name'**
+  String get categoryName;
+
+  /// Success message when updating a record
+  ///
+  /// In en, this message translates to:
+  /// **'Record has been updated successfully'**
+  String get recordUpdatedSuccessfully;
+
+  /// Label for parent category dropdown in forms
+  ///
+  /// In en, this message translates to:
+  /// **'Parent Category'**
+  String get parentCategory;
+
+  /// Label for featured checkbox in forms
+  ///
+  /// In en, this message translates to:
+  /// **'Featured'**
+  String get featured;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

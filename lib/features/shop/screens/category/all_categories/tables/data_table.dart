@@ -1,6 +1,7 @@
 import 'package:admin_hmoob_store/common/widgets/data_table/paginated_data_table.dart';
 import 'package:admin_hmoob_store/features/shop/controllers/categories/category_controller.dart';
 import 'package:admin_hmoob_store/features/shop/screens/category/all_categories/tables/table_source.dart';
+import 'package:admin_hmoob_store/l10n/app_localizations.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/state_manager.dart';
@@ -10,6 +11,7 @@ class TCategoryTablets extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final local = AppLocalizations.of(context)!;
     // implement build
     final controller = CategoryController.instance;
     return Obx(() {
@@ -22,18 +24,18 @@ class TCategoryTablets extends StatelessWidget {
         source: CategoryRows(),
         columns: [
           DataColumn2(
-            label: const Text('Category'),
+            label: Text(local.categoryColumn),
             onSort: (columnIndex, ascending) =>
                 controller.sortByName(columnIndex, ascending),
           ),
           DataColumn2(
-            label: const Text('Parent Category'),
+            label: Text(local.parentCategoryColumn),
             onSort: (columnIndex, ascending) =>
                 controller.sortByParentName(columnIndex, ascending),
           ),
-          const DataColumn2(label: Text('Featured')),
-          const DataColumn2(label: Text('Date')),
-          const DataColumn2(label: Text('Action'), fixedWidth: 100),
+          DataColumn2(label: Text(local.featuredColumn)),
+          DataColumn2(label: Text(local.dateColumn)),
+          DataColumn2(label: Text(local.action), fixedWidth: 100),
         ],
       );
     });

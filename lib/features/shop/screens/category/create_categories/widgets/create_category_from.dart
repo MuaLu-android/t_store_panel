@@ -3,6 +3,7 @@ import 'package:admin_hmoob_store/common/widgets/shimmer/shimmer.dart';
 import 'package:admin_hmoob_store/features/shop/controllers/categories/category_controller.dart';
 import 'package:admin_hmoob_store/features/shop/controllers/categories/create_category_controller.dart';
 import 'package:admin_hmoob_store/features/shop/screens/category/create_categories/widgets/image_loader.dart';
+import 'package:admin_hmoob_store/l10n/app_localizations.dart';
 import 'package:admin_hmoob_store/utils/constants/enums.dart';
 import 'package:admin_hmoob_store/utils/constants/image_strings.dart';
 import 'package:admin_hmoob_store/utils/constants/sizes.dart';
@@ -19,6 +20,7 @@ class CreateCategoryFrom extends StatelessWidget {
     // implement build
     final controller = Get.put(CreateCategoryController());
     final categoryController = CategoryController.instance;
+    final local = AppLocalizations.of(context)!;
     return TRoundedContainer(
       width: 500,
       padding: EdgeInsets.all(TSizes.defaultSpace),
@@ -30,7 +32,7 @@ class CreateCategoryFrom extends StatelessWidget {
             // Heading
             SizedBox(height: TSizes.sm),
             Text(
-              'Create New Category',
+              local.createNewCategory,
               style: Theme.of(context).textTheme.headlineMedium,
             ),
             const SizedBox(height: TSizes.spaceBtwSections),
@@ -38,8 +40,8 @@ class CreateCategoryFrom extends StatelessWidget {
             TextFormField(
               controller: controller.name,
               validator: (value) => TValidator.validateEmptyText('Name', value),
-              decoration: const InputDecoration(
-                labelText: 'Category Name',
+              decoration: InputDecoration(
+                labelText: local.categoryName,
                 prefixIcon: Icon(Iconsax.category),
               ),
             ),
@@ -50,9 +52,9 @@ class CreateCategoryFrom extends StatelessWidget {
               () => categoryController.isLoading.value
                   ? const TShimmerEffect(width: double.infinity, height: 55)
                   : DropdownButtonFormField(
-                      decoration: const InputDecoration(
-                        hintText: 'Parent Category',
-                        labelText: 'Parent Category',
+                      decoration: InputDecoration(
+                        hintText: local.parentCategory,
+                        labelText: local.parentCategory,
                         prefixIcon: Icon(Iconsax.bezier),
                       ),
                       items: categoryController.allItems
@@ -90,7 +92,7 @@ class CreateCategoryFrom extends StatelessWidget {
                 value: controller.isFeatured.value,
                 onChanged: (value) =>
                     controller.isFeatured.value = value ?? false,
-                child: const Text('Featured'),
+                child: Text(local.featured),
               ),
             ),
             const SizedBox(height: TSizes.spaceBtwInputFields * 2),
@@ -98,7 +100,7 @@ class CreateCategoryFrom extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () => controller.createCategory(),
-                child: const Text('Create'),
+                child: Text(local.create),
               ),
             ),
             const SizedBox(height: TSizes.spaceBtwInputFields * 2),

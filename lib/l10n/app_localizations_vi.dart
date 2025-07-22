@@ -621,4 +621,34 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get searchOrders => 'Tìm kiếm đơn hàng';
+
+  @override
+  String get createNewCategory => 'Tạo danh mục mới';
+
+  @override
+  String get categoryColumn => 'Danh mục';
+
+  @override
+  String get parentCategoryColumn => 'Danh mục cha';
+
+  @override
+  String get featuredColumn => 'Nổi bật';
+
+  @override
+  String get dateColumn => 'Ngày';
+
+  @override
+  String get updateCategory => 'Cập nhật danh mục';
+
+  @override
+  String get categoryName => 'Tên danh mục';
+
+  @override
+  String get recordUpdatedSuccessfully => 'Bản ghi đã được cập nhật thành công';
+
+  @override
+  String get parentCategory => 'Danh mục cha';
+
+  @override
+  String get featured => 'Nổi bật';
 }

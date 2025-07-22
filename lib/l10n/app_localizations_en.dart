@@ -621,4 +621,34 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get searchOrders => 'Search Orders';
+
+  @override
+  String get createNewCategory => 'Create New Category';
+
+  @override
+  String get categoryColumn => 'Category';
+
+  @override
+  String get parentCategoryColumn => 'Parent Category';
+
+  @override
+  String get featuredColumn => 'Featured';
+
+  @override
+  String get dateColumn => 'Date';
+
+  @override
+  String get updateCategory => 'Update Category';
+
+  @override
+  String get categoryName => 'Category Name';
+
+  @override
+  String get recordUpdatedSuccessfully => 'Record has been updated successfully';
+
+  @override
+  String get parentCategory => 'Parent Category';
+
+  @override
+  String get featured => 'Featured';
 }

@@ -821,5 +821,45 @@
     "searchOrders": "Tìm kiếm đơn hàng",
     "@searchOrders": {
         "description": "Văn bản gợi ý để tìm kiếm đơn hàng"
+    },
+    "createNewCategory": "Tạo danh mục mới",
+    "@createNewCategory": {
+        "description": "Văn bản nút để tạo danh mục mới"
+    },
+    "categoryColumn": "Danh mục",
+    "@categoryColumn": {
+        "description": "Tiêu đề cột danh mục trong bảng dữ liệu"
+    },
+    "parentCategoryColumn": "Danh mục cha",
+    "@parentCategoryColumn": {
+        "description": "Tiêu đề cột danh mục cha trong bảng dữ liệu"
+    },
+    "featuredColumn": "Nổi bật",
+    "@featuredColumn": {
+        "description": "Tiêu đề cột nổi bật trong bảng dữ liệu"
+    },
+    "dateColumn": "Ngày",
+    "@dateColumn": {
+        "description": "Tiêu đề cột ngày trong bảng dữ liệu"
+    },
+    "updateCategory": "Cập nhật danh mục",
+    "@updateCategory": {
+        "description": "Tiêu đề cho form cập nhật danh mục"
+    },
+    "categoryName": "Tên danh mục",
+    "@categoryName": {
+        "description": "Nhãn cho trường tên danh mục"
+    },
+    "recordUpdatedSuccessfully": "Bản ghi đã được cập nhật thành công",
+    "@recordUpdatedSuccessfully": {
+        "description": "Thông báo thành công khi cập nhật bản ghi"
+    },
+    "parentCategory": "Danh mục cha",
+    "@parentCategory": {
+        "description": "Nhãn cho dropdown danh mục cha trong form"
+    },
+    "featured": "Nổi bật",
+    "@featured": {
+        "description": "Nhãn cho checkbox nổi bật trong form"
     }
 }

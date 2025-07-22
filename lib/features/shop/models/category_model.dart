@@ -1,4 +1,5 @@
 import 'package:admin_hmoob_store/utils/formatters/formatter.dart';
+import 'package:admin_hmoob_store/utils/helpers/helper_functions.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class CategoryModel {
@@ -18,6 +19,8 @@ class CategoryModel {
     this.createAt,
     this.updateAt,
   });
+  String formattedOrderDate([String? locale]) =>
+      THelperFunctions.getFormattedDate(createAt!, locale: locale);
   String get formattedDate => TFormatter.formatDate(createAt);
   // ignore: non_constant_identifier_names
   String get FormattedUpdate => TFormatter.formatDate(updateAt);

@@ -821,5 +821,45 @@
     "searchOrders": "Search Orders",
     "@searchOrders": {
         "description": "Hint text for searching orders"
+    },
+    "createNewCategory": "Create New Category",
+    "@createNewCategory": {
+        "description": "Button text for creating a new category"
+    },
+    "categoryColumn": "Category",
+    "@categoryColumn": {
+        "description": "Category column header in data table"
+    },
+    "parentCategoryColumn": "Parent Category",
+    "@parentCategoryColumn": {
+        "description": "Parent category column header in data table"
+    },
+    "featuredColumn": "Featured",
+    "@featuredColumn": {
+        "description": "Featured column header in data table"
+    },
+    "dateColumn": "Date",
+    "@dateColumn": {
+        "description": "Date column header in data table"
+    },
+    "updateCategory": "Update Category",
+    "@updateCategory": {
+        "description": "Heading for update category form"
+    },
+    "categoryName": "Category Name",
+    "@categoryName": {
+        "description": "Label for category name field"
+    },
+    "recordUpdatedSuccessfully": "Record has been updated successfully",
+    "@recordUpdatedSuccessfully": {
+        "description": "Success message when updating a record"
+    },
+    "parentCategory": "Parent Category",
+    "@parentCategory": {
+        "description": "Label for parent category dropdown in forms"
+    },
+    "featured": "Featured",
+    "@featured": {
+        "description": "Label for featured checkbox in forms"
     }
 }
