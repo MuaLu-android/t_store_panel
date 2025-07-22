@@ -672,6 +672,10 @@
     "@action": {
         "description": "Nhãn cho cột hành động trong bảng dữ liệu"
     },
+    "registered": "Đã đăng ký",
+    "@registered": {
+        "description": "Nhãn cho cột ngày đăng ký trong bảng khách hàng"
+    },
     "createBanners": "Tạo Banner",
     "@createBanners": {
         "description": "Văn bản nút để tạo banner"
@@ -747,5 +751,75 @@
     "recordUpdated": "Bản ghi đã được cập nhật thành công",
     "@recordUpdated": {
         "description": "Thông báo thành công khi cập nhật bản ghi"
+    },
+    "customerInformation": "Thông tin khách hàng",
+    "@customerInformation": {
+        "description": "Tiêu đề cho phần thông tin khách hàng"
+    },
+    "country": "Quốc gia",
+    "@country": {
+        "description": "Nhãn cho trường quốc gia"
+    },
+    "phoneNumber": "Số điện thoại",
+    "@phoneNumber": {
+        "description": "Nhãn cho trường số điện thoại"
+    },
+    "lastOrder": "Đơn hàng cuối",
+    "@lastOrder": {
+        "description": "Nhãn cho thông tin đơn hàng cuối cùng"
+    },
+    "averageOrderValue": "Tiền trung bình",
+    "@averageOrderValue": {
+        "description": "Nhãn cho giá trị đơn hàng trung bình"
+    },
+    "emailMarketing": "Email Marketing",
+    "@emailMarketing": {
+        "description": "Nhãn cho trạng thái email marketing"
+    },
+    "subscribed": "Đã đăng ký",
+    "@subscribed": {
+        "description": "Trạng thái cho biết người dùng đã đăng ký email marketing"
+    },
+    "vietnamCountry": "Việt Nam",
+    "@vietnamCountry": {
+        "description": "Tên quốc gia Việt Nam"
+    },
+    "daysAgoOrder": "7 ngày trước, #[36d54]",
+    "@daysAgoOrder": {
+        "description": "Văn bản mẫu cho thông tin đơn hàng cuối cùng"
+    },
+    "address": "Địa chỉ",
+    "@address": {
+        "description": "Nhãn cho phần địa chỉ hoặc trường địa chỉ"
+    },
+    "name": "Tên",
+    "@name": {
+        "description": "Nhãn cho trường tên"
+    },
+    "noOrdersFound": "Không tìm thấy đơn hàng",
+    "@noOrdersFound": {
+        "description": "Thông báo khi không tìm thấy đơn hàng nào của khách hàng"
+    },
+    "order": "Đơn hàng",
+    "@order": {
+        "description": "Nhãn cho phần đơn hàng hoặc đơn hàng đơn lẻ"
+    },
+    "totalSpent": "Tổng chi tiêu",
+    "@totalSpent": {
+        "description": "Nhãn cho tổng số tiền đã chi tiêu của khách hàng"
+    },
+    "onOrders": "cho {count} đơn hàng",
+    "@onOrders": {
+        "description": "Văn bản hiển thị số lượng đơn hàng",
+        "placeholders": {
+            "count": {
+                "type": "int",
+                "example": "5"
+            }
+        }
+    },
+    "searchOrders": "Tìm kiếm đơn hàng",
+    "@searchOrders": {
+        "description": "Văn bản gợi ý để tìm kiếm đơn hàng"
     }
 }

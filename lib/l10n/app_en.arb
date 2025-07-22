@@ -672,6 +672,10 @@
     "@action": {
         "description": "Label for action column in data tables"
     },
+    "registered": "Registered",
+    "@registered": {
+        "description": "Label for registered date column in customer table"
+    },
     "createBanners": "Create Banners",
     "@createBanners": {
         "description": "Button text for creating banners"
@@ -747,5 +751,75 @@
     "recordUpdated": "Record has been updated successfully",
     "@recordUpdated": {
         "description": "Success message when record is updated"
+    },
+    "customerInformation": "Customer Information",
+    "@customerInformation": {
+        "description": "Title for customer information section"
+    },
+    "country": "Country",
+    "@country": {
+        "description": "Label for country field"
+    },
+    "phoneNumber": "Phone Number",
+    "@phoneNumber": {
+        "description": "Label for phone number field"
+    },
+    "lastOrder": "Last Order",
+    "@lastOrder": {
+        "description": "Label for last order information"
+    },
+    "averageOrderValue": "Average Order Value",
+    "@averageOrderValue": {
+        "description": "Label for average order value"
+    },
+    "emailMarketing": "Email Marketing",
+    "@emailMarketing": {
+        "description": "Label for email marketing status"
+    },
+    "subscribed": "Subscribed",
+    "@subscribed": {
+        "description": "Status indicating user is subscribed to email marketing"
+    },
+    "vietnamCountry": "Viet Nam",
+    "@vietnamCountry": {
+        "description": "Country name for Vietnam"
+    },
+    "daysAgoOrder": "7 Days Ago, #[36d54]",
+    "@daysAgoOrder": {
+        "description": "Sample text for last order information"
+    },
+    "address": "Address",
+    "@address": {
+        "description": "Label for address section or field"
+    },
+    "name": "Name",
+    "@name": {
+        "description": "Label for name field"
+    },
+    "noOrdersFound": "No Orders Found",
+    "@noOrdersFound": {
+        "description": "Message when no orders are found for customer"
+    },
+    "order": "Order",
+    "@order": {
+        "description": "Label for order section or single order"
+    },
+    "totalSpent": "Total Spent",
+    "@totalSpent": {
+        "description": "Label for total amount spent by customer"
+    },
+    "onOrders": "on {count} Order",
+    "@onOrders": {
+        "description": "Text showing number of orders",
+        "placeholders": {
+            "count": {
+                "type": "int",
+                "example": "5"
+            }
+        }
+    },
+    "searchOrders": "Search Orders",
+    "@searchOrders": {
+        "description": "Hint text for searching orders"
     }
 }

@@ -36,7 +36,7 @@ class CustomerDataTableSource extends DataTableSource {
           ),
         ),
         DataCell(Text(order.formattedOrderDate(local.localeName))),
-        DataCell(Text('${order.items.length} Items')),
+        DataCell(Text('${order.items.length}')),
         DataCell(
           TRoundedContainer(
             radius: TSizes.cardRadiusSm,
@@ -48,7 +48,9 @@ class CustomerDataTableSource extends DataTableSource {
               order.status,
             ).withAlpha(100),
             child: Text(
-              order.status.name.capitalize.toString(),
+              THelperFunctions.getStatusText(
+                order.status.name.capitalize.toString(),
+              ),
               style: TextStyle(
                 color: THelperFunctions.getOrderStatusColor(order.status),
               ),

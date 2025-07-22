@@ -1103,6 +1103,12 @@ abstract class AppLocalizations {
   /// **'Action'**
   String get action;
 
+  /// Label for registered date column in customer table
+  ///
+  /// In en, this message translates to:
+  /// **'Registered'**
+  String get registered;
+
   /// Button text for creating banners
   ///
   /// In en, this message translates to:
@@ -1210,6 +1216,108 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Update'**
   String get update;
+
+  /// Success message when record is updated
+  ///
+  /// In en, this message translates to:
+  /// **'Record has been updated successfully'**
+  String get recordUpdated;
+
+  /// Title for customer information section
+  ///
+  /// In en, this message translates to:
+  /// **'Customer Information'**
+  String get customerInformation;
+
+  /// Label for country field
+  ///
+  /// In en, this message translates to:
+  /// **'Country'**
+  String get country;
+
+  /// Label for phone number field
+  ///
+  /// In en, this message translates to:
+  /// **'Phone Number'**
+  String get phoneNumber;
+
+  /// Label for last order information
+  ///
+  /// In en, this message translates to:
+  /// **'Last Order'**
+  String get lastOrder;
+
+  /// Label for average order value
+  ///
+  /// In en, this message translates to:
+  /// **'Average Order Value'**
+  String get averageOrderValue;
+
+  /// Label for email marketing status
+  ///
+  /// In en, this message translates to:
+  /// **'Email Marketing'**
+  String get emailMarketing;
+
+  /// Status indicating user is subscribed to email marketing
+  ///
+  /// In en, this message translates to:
+  /// **'Subscribed'**
+  String get subscribed;
+
+  /// Country name for Vietnam
+  ///
+  /// In en, this message translates to:
+  /// **'Viet Nam'**
+  String get vietnamCountry;
+
+  /// Sample text for last order information
+  ///
+  /// In en, this message translates to:
+  /// **'7 Days Ago, #[36d54]'**
+  String get daysAgoOrder;
+
+  /// Label for address section or field
+  ///
+  /// In en, this message translates to:
+  /// **'Address'**
+  String get address;
+
+  /// Label for name field
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get name;
+
+  /// Message when no orders are found for customer
+  ///
+  /// In en, this message translates to:
+  /// **'No Orders Found'**
+  String get noOrdersFound;
+
+  /// Label for order section or single order
+  ///
+  /// In en, this message translates to:
+  /// **'Order'**
+  String get order;
+
+  /// Label for total amount spent by customer
+  ///
+  /// In en, this message translates to:
+  /// **'Total Spent'**
+  String get totalSpent;
+
+  /// Text showing number of orders
+  ///
+  /// In en, this message translates to:
+  /// **'on {count} Order'**
+  String onOrders(int count);
+
+  /// Hint text for searching orders
+  ///
+  /// In en, this message translates to:
+  /// **'Search Orders'**
+  String get searchOrders;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

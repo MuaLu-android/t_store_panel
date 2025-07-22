@@ -2,6 +2,7 @@ import 'package:admin_hmoob_store/common/widgets/custom_shapes/container/rounded
 import 'package:admin_hmoob_store/common/widgets/layouts/templates/loader_animation.dart';
 import 'package:admin_hmoob_store/features/shop/controllers/customer/customer_details_controller.dart';
 import 'package:admin_hmoob_store/features/shop/models/address_model.dart';
+import 'package:admin_hmoob_store/l10n/app_localizations.dart';
 import 'package:admin_hmoob_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -13,6 +14,7 @@ class ShippingAddress extends StatelessWidget {
   Widget build(BuildContext context) {
     // implement build
     final controller = CustomerDetailController.instance;
+    final local = AppLocalizations.of(context)!;
     controller.getCustomerAddresses();
     return Obx(() {
       if (controller.addressesLoading.value) return const TLoaderAnimation();
@@ -29,12 +31,15 @@ class ShippingAddress extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Address', style: Theme.of(context).textTheme.headlineMedium),
+            Text(
+              local.address,
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
             const SizedBox(height: TSizes.spaceBtwSections),
             // Meta data
             Row(
               children: [
-                const SizedBox(width: 120, child: Text('Name')),
+                SizedBox(width: 120, child: Text(local.name)),
                 const Text(':'),
                 const SizedBox(width: TSizes.spaceBtwItems / 2),
                 Expanded(
@@ -49,7 +54,7 @@ class ShippingAddress extends StatelessWidget {
             // Meta data
             Row(
               children: [
-                const SizedBox(width: 120, child: Text('Country')),
+                SizedBox(width: 120, child: Text(local.country)),
                 const Text(':'),
                 const SizedBox(width: TSizes.spaceBtwItems / 2),
                 Expanded(
@@ -64,7 +69,7 @@ class ShippingAddress extends StatelessWidget {
             // Meta data
             Row(
               children: [
-                const SizedBox(width: 120, child: Text('Phone Number')),
+                SizedBox(width: 120, child: Text(local.phoneNumber)),
                 const Text(':'),
                 const SizedBox(width: TSizes.spaceBtwItems / 2),
                 Expanded(
@@ -79,7 +84,7 @@ class ShippingAddress extends StatelessWidget {
             // Meta data
             Row(
               children: [
-                const SizedBox(width: 120, child: Text('Address')),
+                SizedBox(width: 120, child: Text(local.address)),
                 const Text(':'),
                 const SizedBox(width: TSizes.spaceBtwItems / 2),
                 Expanded(

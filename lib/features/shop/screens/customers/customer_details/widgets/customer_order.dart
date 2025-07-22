@@ -2,6 +2,7 @@ import 'package:admin_hmoob_store/common/widgets/custom_shapes/container/rounded
 import 'package:admin_hmoob_store/common/widgets/layouts/templates/loader_animation.dart';
 import 'package:admin_hmoob_store/features/shop/controllers/customer/customer_details_controller.dart';
 import 'package:admin_hmoob_store/features/shop/screens/customers/customer_details/tables/customer_tables_order.dart';
+import 'package:admin_hmoob_store/l10n/app_localizations.dart';
 import 'package:admin_hmoob_store/utils/constants/colors.dart';
 import 'package:admin_hmoob_store/utils/constants/image_strings.dart';
 import 'package:admin_hmoob_store/utils/constants/sizes.dart';
@@ -17,6 +18,7 @@ class CustomerOrders extends StatelessWidget {
   Widget build(BuildContext context) {
     // implement build
     final controller = CustomerDetailController.instance;
+    final local = AppLocalizations.of(context)!;
     controller.getCustomerOrders();
     return TRoundedContainer(
       padding: const EdgeInsets.all(TSizes.defaultSpace),
@@ -24,7 +26,7 @@ class CustomerOrders extends StatelessWidget {
         if (controller.ordersLoading.value) return const TLoaderAnimation();
         if (controller.allCustomerOrders.isEmpty) {
           return TAnimationLoaderWidget(
-            text: 'No Orders Found',
+            text: local.noOrdersFound,
             animation: TImages.pencilanimation,
           );
         }
@@ -40,13 +42,13 @@ class CustomerOrders extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Order',
+                  local.order,
                   style: Theme.of(context).textTheme.headlineMedium,
                 ),
                 Text.rich(
                   TextSpan(
                     children: [
-                      const TextSpan(text: 'Totel Spent '),
+                      TextSpan(text: '${local.totalSpent} '),
                       TextSpan(
                         text: '\$${totalAmount.toStringAsFixed(2)}',
                         style: Theme.of(
@@ -55,7 +57,7 @@ class CustomerOrders extends StatelessWidget {
                       ),
                       TextSpan(
                         text:
-                            ' on ${controller.allCustomerOrders.length} Order',
+                            ' ${local.onOrders(controller.allCustomerOrders.length)}',
                         style: Theme.of(context).textTheme.bodyLarge,
                       ),
                     ],
@@ -67,9 +69,9 @@ class CustomerOrders extends StatelessWidget {
             TextFormField(
               controller: controller.searchTextController,
               onChanged: (query) => controller.searchQuery(query),
-              decoration: const InputDecoration(
-                hintText: 'Search Orders',
-                prefixIcon: Icon(Iconsax.search_normal),
+              decoration: InputDecoration(
+                hintText: local.searchOrders,
+                prefixIcon: const Icon(Iconsax.search_normal),
               ),
             ),
             const SizedBox(height: TSizes.spaceBtwSections),

@@ -513,6 +513,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get action => 'Action';
 
   @override
+  String get registered => 'Registered';
+
+  @override
   String get createBanners => 'Create Banners';
 
   @override
@@ -565,4 +568,57 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get update => 'Update';
+
+  @override
+  String get recordUpdated => 'Record has been updated successfully';
+
+  @override
+  String get customerInformation => 'Customer Information';
+
+  @override
+  String get country => 'Country';
+
+  @override
+  String get phoneNumber => 'Phone Number';
+
+  @override
+  String get lastOrder => 'Last Order';
+
+  @override
+  String get averageOrderValue => 'Average Order Value';
+
+  @override
+  String get emailMarketing => 'Email Marketing';
+
+  @override
+  String get subscribed => 'Subscribed';
+
+  @override
+  String get vietnamCountry => 'Viet Nam';
+
+  @override
+  String get daysAgoOrder => '7 Days Ago, #[36d54]';
+
+  @override
+  String get address => 'Address';
+
+  @override
+  String get name => 'Name';
+
+  @override
+  String get noOrdersFound => 'No Orders Found';
+
+  @override
+  String get order => 'Order';
+
+  @override
+  String get totalSpent => 'Total Spent';
+
+  @override
+  String onOrders(int count) {
+    return 'on $count Order';
+  }
+
+  @override
+  String get searchOrders => 'Search Orders';
 }

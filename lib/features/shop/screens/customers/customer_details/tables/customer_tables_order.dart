@@ -1,6 +1,7 @@
 import 'package:admin_hmoob_store/common/widgets/data_table/paginated_data_table.dart';
 import 'package:admin_hmoob_store/features/shop/controllers/customer/customer_details_controller.dart';
 import 'package:admin_hmoob_store/features/shop/screens/customers/customer_details/tables/customer_data_table_source.dart';
+import 'package:admin_hmoob_store/l10n/app_localizations.dart';
 import 'package:admin_hmoob_store/utils/devices/device_utility.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,7 @@ class CustomerOrderTablets extends StatelessWidget {
   Widget build(BuildContext context) {
     // implement build
     final controller = CustomerDetailController.instance;
+    final local = AppLocalizations.of(context)!;
     return Obx(() {
       Visibility(
         visible: false,
@@ -30,17 +32,17 @@ class CustomerOrderTablets extends StatelessWidget {
         dataRowHeight: kMinInteractiveDimension,
         columns: [
           DataColumn2(
-            label: Text('Order Id'),
+            label: Text(local.orderId),
             onSort: (columnIndex, ascending) =>
                 controller.sortById(columnIndex, ascending),
           ),
-          const DataColumn2(label: Text('Date')),
-          const DataColumn2(label: Text('Items')),
+          DataColumn2(label: Text(local.orderDate)),
+          DataColumn2(label: Text(local.orderItems)),
           DataColumn2(
-            label: Text('Status'),
+            label: Text(local.orderStatus),
             fixedWidth: TDeviceUtils.isMobileScreen(context) ? 100 : null,
           ),
-          const DataColumn2(label: Text('Amount'), numeric: true),
+          DataColumn2(label: Text(local.orderTotal), numeric: true),
         ],
         source: CustomerDataTableSource(),
       );

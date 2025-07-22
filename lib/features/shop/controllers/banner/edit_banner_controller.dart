@@ -68,7 +68,7 @@ class EditBannerController extends GetxController {
       final local = AppLocalizations.of(Get.context!)!;
       TLoaders.successSnackBar(
         title: local.congratulations,
-        message: local.newRecordAdded,
+        message: local.recordUpdated,
       );
     } catch (e) {
       TFullScreenLoader.stopLoading();

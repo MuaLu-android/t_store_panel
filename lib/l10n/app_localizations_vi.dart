@@ -513,6 +513,9 @@ class AppLocalizationsVi extends AppLocalizations {
   String get action => 'Hành động';
 
   @override
+  String get registered => 'Đã đăng ký';
+
+  @override
   String get createBanners => 'Tạo Banner';
 
   @override
@@ -565,4 +568,57 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get update => 'Cập nhật';
+
+  @override
+  String get recordUpdated => 'Bản ghi đã được cập nhật thành công';
+
+  @override
+  String get customerInformation => 'Thông tin khách hàng';
+
+  @override
+  String get country => 'Quốc gia';
+
+  @override
+  String get phoneNumber => 'Số điện thoại';
+
+  @override
+  String get lastOrder => 'Đơn hàng cuối';
+
+  @override
+  String get averageOrderValue => 'Tiền trung bình';
+
+  @override
+  String get emailMarketing => 'Email Marketing';
+
+  @override
+  String get subscribed => 'Đã đăng ký';
+
+  @override
+  String get vietnamCountry => 'Việt Nam';
+
+  @override
+  String get daysAgoOrder => '7 ngày trước, #[36d54]';
+
+  @override
+  String get address => 'Địa chỉ';
+
+  @override
+  String get name => 'Tên';
+
+  @override
+  String get noOrdersFound => 'Không tìm thấy đơn hàng';
+
+  @override
+  String get order => 'Đơn hàng';
+
+  @override
+  String get totalSpent => 'Tổng chi tiêu';
+
+  @override
+  String onOrders(int count) {
+    return 'cho $count đơn hàng';
+  }
+
+  @override
+  String get searchOrders => 'Tìm kiếm đơn hàng';
 }

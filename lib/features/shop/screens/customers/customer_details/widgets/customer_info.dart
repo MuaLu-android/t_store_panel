@@ -1,6 +1,7 @@
 import 'package:admin_hmoob_store/common/widgets/custom_shapes/container/rounded_container.dart';
 import 'package:admin_hmoob_store/common/widgets/images/t_rounded_image.dart';
 import 'package:admin_hmoob_store/features/shop/models/user_model.dart';
+import 'package:admin_hmoob_store/l10n/app_localizations.dart';
 import 'package:admin_hmoob_store/utils/constants/colors.dart';
 import 'package:admin_hmoob_store/utils/constants/enums.dart';
 import 'package:admin_hmoob_store/utils/constants/image_strings.dart';
@@ -13,13 +14,14 @@ class CustomerInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // implement build
+    final local = AppLocalizations.of(context)!;
     return TRoundedContainer(
       padding: const EdgeInsets.all(TSizes.defaultSpace),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Customer Information',
+            local.customerInformation,
             style: Theme.of(context).textTheme.headlineMedium,
           ),
           const SizedBox(height: TSizes.spaceBtwSections),
@@ -62,7 +64,7 @@ class CustomerInfo extends StatelessWidget {
           // Meta data
           Row(
             children: [
-              const SizedBox(width: 120, child: Text('Username')),
+              SizedBox(width: 120, child: Text(local.username)),
               const Text(':'),
               const SizedBox(width: TSizes.spaceBtwItems / 2),
               Expanded(
@@ -76,12 +78,12 @@ class CustomerInfo extends StatelessWidget {
           const SizedBox(height: TSizes.spaceBtwItems),
           Row(
             children: [
-              const SizedBox(width: 120, child: Text('Country')),
+              SizedBox(width: 120, child: Text(local.country)),
               const Text(':'),
               const SizedBox(width: TSizes.spaceBtwItems / 2),
               Expanded(
                 child: Text(
-                  'Viet Nam',
+                  local.vietnamCountry,
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
               ),
@@ -90,7 +92,7 @@ class CustomerInfo extends StatelessWidget {
           const SizedBox(height: TSizes.spaceBtwItems),
           Row(
             children: [
-              const SizedBox(width: 120, child: Text('Phone Number')),
+              SizedBox(width: 120, child: Text(local.phoneNumber)),
               const Text(':'),
               const SizedBox(width: TSizes.spaceBtwItems / 2),
               Expanded(
@@ -114,10 +116,10 @@ class CustomerInfo extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Last Order',
+                      local.lastOrder,
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
-                    const Text('7 Dats Ago, #[36d54]'),
+                    Text(local.daysAgoOrder),
                   ],
                 ),
               ),
@@ -127,7 +129,7 @@ class CustomerInfo extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Average Order Value',
+                      local.averageOrderValue,
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     const Text('\$352'),
@@ -145,7 +147,7 @@ class CustomerInfo extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Registerred',
+                      local.registered,
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     Text(customer.formattedAtDate),
@@ -158,10 +160,10 @@ class CustomerInfo extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Email Marketing',
+                      local.emailMarketing,
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
-                    Text('Subscribed'),
+                    Text(local.subscribed),
                   ],
                 ),
               ),
