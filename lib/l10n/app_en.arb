@@ -12,7 +12,7 @@
     "@bannersStoragePath": {
         "description": "Storage path for banners"
     },
-    "brandsStoragePath": "/Brands",
+    "brandsStoragePath": "/Communitys",
     "@brandsStoragePath": {
         "description": "Storage path for brands"
     },
@@ -256,7 +256,7 @@
     "@orders": {
         "description": "Orders menu item"
     },
-    "brands": "Brands",
+    "brands": "Communitys",
     "@brands": {
         "description": "Brands menu item"
     },
@@ -555,5 +555,57 @@
     "language": "Language",
     "@language": {
         "description": "Menu item for changing language"
+    },
+    "loginLoadingMessage": "Logging Admin account...",
+    "@loginLoadingMessage": {
+        "description": "Loading message during login"
+    },
+    "registerLoadingMessage": "Registering Admin account...",
+    "@registerLoadingMessage": {
+        "description": "Loading message during registration"
+    },
+    "notAuthorized": "Not Authorized",
+    "@notAuthorized": {
+        "description": "Title for authorization error"
+    },
+    "notAuthorizedMessage": "You are not authorized or do not have access. Contact Admin",
+    "@notAuthorizedMessage": {
+        "description": "Message for authorization error"
+    },
+    "ohSnap": "Oh Snap",
+    "@ohSnap": {
+        "description": "Generic error title"
+    },
+    "adminAccountCreated": "Admin Account Created",
+    "@adminAccountCreated": {
+        "description": "Success message for admin registration"
+    },
+    "adminAccountCreatedMessage": "Admin account has been successfully created",
+    "@adminAccountCreatedMessage": {
+        "description": "Detailed success message for admin registration"
+    },
+    "loginSuccess": "Login Successful",
+    "@loginSuccess": {
+        "description": "Success message for login"
+    },
+    "loginSuccessMessage": "Welcome back, Admin!",
+    "@loginSuccessMessage": {
+        "description": "Detailed success message for login"
+    },
+    "networkError": "Network Error",
+    "@networkError": {
+        "description": "Network connection error title"
+    },
+    "networkErrorMessage": "Please check your internet connection and try again",
+    "@networkErrorMessage": {
+        "description": "Network connection error message"
+    },
+    "formValidationError": "Form Validation Error",
+    "@formValidationError": {
+        "description": "Form validation error title"
+    },
+    "formValidationErrorMessage": "Please fill in all required fields correctly",
+    "@formValidationErrorMessage": {
+        "description": "Form validation error message"
     }
 }

@@ -18,7 +18,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get bannersStoragePath => '/Banner';
 
   @override
-  String get brandsStoragePath => '/Thương hiệu';
+  String get brandsStoragePath => '/Cộng đồng';
 
   @override
   String get categoriesStoragePath => '/Danh mục';
@@ -201,7 +201,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get orders => 'Đơn hàng';
 
   @override
-  String get brands => 'Thương hiệu';
+  String get brands => 'Cộng đồng';
 
   @override
   String get profile => 'Hồ sơ';
@@ -396,9 +396,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get media_upload_confirm_title => 'Tải ảnh lên';
 
   @override
-  String media_upload_confirm_message(Object folder) {
-    return 'Bạn có chắc muốn tải tất cả ảnh vào thư mục $folder không?';
-  }
+  String get media_upload_confirm_message => 'Bạn có chắc muốn tải tất cả ảnh vào thư mục  không?';
 
   @override
   String get media_upload_confirm_button => 'Tải lên';
@@ -413,9 +411,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get media_error_upload_title => 'Lỗi tải ảnh';
 
   @override
-  String media_error_upload_message(Object error) {
-    return 'Có lỗi khi tải ảnh: $error';
-  }
+  String get media_error_upload_message => 'Có lỗi khi tải ảnh:';
 
   @override
   String get media_delete_confirm => 'Bạn có chắc muốn xóa ảnh này không?';
@@ -428,4 +424,43 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get language => 'Ngôn ngữ';
+
+  @override
+  String get loginLoadingMessage => 'Đang đăng nhập tài khoản Admin...';
+
+  @override
+  String get registerLoadingMessage => 'Đang đăng ký tài khoản Admin...';
+
+  @override
+  String get notAuthorized => 'Không có quyền truy cập';
+
+  @override
+  String get notAuthorizedMessage => 'Bạn không có quyền truy cập hoặc không được phép. Liên hệ Admin';
+
+  @override
+  String get ohSnap => 'Có lỗi';
+
+  @override
+  String get adminAccountCreated => 'Đã tạo tài khoản Admin';
+
+  @override
+  String get adminAccountCreatedMessage => 'Tài khoản Admin đã được tạo thành công';
+
+  @override
+  String get loginSuccess => 'Đăng nhập thành công';
+
+  @override
+  String get loginSuccessMessage => 'Chào mừng trở lại, Admin!';
+
+  @override
+  String get networkError => 'Lỗi mạng';
+
+  @override
+  String get networkErrorMessage => 'Vui lòng kiểm tra kết nối internet và thử lại';
+
+  @override
+  String get formValidationError => 'Lỗi xác thực form';
+
+  @override
+  String get formValidationErrorMessage => 'Vui lòng điền đúng tất cả các trường bắt buộc';
 }

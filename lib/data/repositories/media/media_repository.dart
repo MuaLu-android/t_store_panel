@@ -169,7 +169,7 @@ class MediaRepository extends GetxController {
       //Cloudinary use APi Node js
       final String publicId = image.fullPath!;
       final response = await http.post(
-        Uri.parse('http://localhost:3000/delete-image'),
+        Uri.parse('http://localhost:3000//delete-image'),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({'public_id': publicId}),
       );

@@ -18,7 +18,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get bannersStoragePath => '/Banners';
 
   @override
-  String get brandsStoragePath => '/Brands';
+  String get brandsStoragePath => '/Communitys';
 
   @override
   String get categoriesStoragePath => '/Categories';
@@ -201,7 +201,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get orders => 'Orders';
 
   @override
-  String get brands => 'Brands';
+  String get brands => 'Communitys';
 
   @override
   String get profile => 'Profile';
@@ -396,9 +396,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get media_upload_confirm_title => 'Upload Images';
 
   @override
-  String media_upload_confirm_message(Object folder) {
-    return 'Are you sure you want to upload all the Image in $folder folder';
-  }
+  String get media_upload_confirm_message => 'Are you sure you want to upload all the Image in ';
 
   @override
   String get media_upload_confirm_button => 'Upload';
@@ -413,9 +411,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get media_error_upload_title => 'Error Uploading Images';
 
   @override
-  String media_error_upload_message(Object error) {
-    return 'Something went wrong while uploading your images: $error';
-  }
+  String get media_error_upload_message => 'Something went wrong while uploading your images:';
 
   @override
   String get media_delete_confirm => 'Are you sure you want to delete this image?';
@@ -428,4 +424,43 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get language => 'Language';
+
+  @override
+  String get loginLoadingMessage => 'Logging Admin account...';
+
+  @override
+  String get registerLoadingMessage => 'Registering Admin account...';
+
+  @override
+  String get notAuthorized => 'Not Authorized';
+
+  @override
+  String get notAuthorizedMessage => 'You are not authorized or do not have access. Contact Admin';
+
+  @override
+  String get ohSnap => 'Oh Snap';
+
+  @override
+  String get adminAccountCreated => 'Admin Account Created';
+
+  @override
+  String get adminAccountCreatedMessage => 'Admin account has been successfully created';
+
+  @override
+  String get loginSuccess => 'Login Successful';
+
+  @override
+  String get loginSuccessMessage => 'Welcome back, Admin!';
+
+  @override
+  String get networkError => 'Network Error';
+
+  @override
+  String get networkErrorMessage => 'Please check your internet connection and try again';
+
+  @override
+  String get formValidationError => 'Form Validation Error';
+
+  @override
+  String get formValidationErrorMessage => 'Please fill in all required fields correctly';
 }

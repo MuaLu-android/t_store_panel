@@ -319,6 +319,7 @@ class MediaController extends GetxController {
       );
     } catch (e) {
       TFullScreenLoader.stopLoading();
+      print(e.toString());
       TLoaders.errorSnackBar(title: 'Oh snap', message: e.toString());
     }
   }

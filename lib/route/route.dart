@@ -18,9 +18,9 @@ class TRoutes {
   static const createCategory = '/ceateCategory';
   static const editCategory = '/editCategory';
 
-  static const brands = '/brands';
-  static const createBrand = '/createBrand';
-  static const editbrand = '/editBrand';
+  static const brands = '/communitys';
+  static const createBrand = '/createCommunity';
+  static const editbrand = '/editCommunity';
 
   static const customers = '/customers';
   static const detailsCustomers = '/detailsCustomers';

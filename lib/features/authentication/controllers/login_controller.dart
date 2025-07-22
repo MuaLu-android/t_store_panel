@@ -9,6 +9,7 @@ import 'package:admin_hmoob_store/utils/constants/image_strings.dart';
 import 'package:admin_hmoob_store/utils/helpers/network_manager.dart';
 import 'package:admin_hmoob_store/utils/popups/full_screen_loader.dart';
 import 'package:admin_hmoob_store/utils/popups/loaders.dart';
+import 'package:admin_hmoob_store/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -28,32 +29,44 @@ class LoginController extends GetxController {
   void onInit() {
     // implement onInit
     super.onInit();
-    email.text = localStorage.read('RRMEMBER_ME_EMAIL') ?? '';
+    email.text = localStorage.read('REMEMBER_ME_EMAIL') ?? '';
     password.text = localStorage.read('REMEMBER_ME_PASSWORD') ?? '';
   }
 
   /// handles email and password sign-in process
   Future<void> emailAndPasswordSignIn() async {
     try {
+      // Get current context for localization
+      final context = Get.context!;
+      final localizations = AppLocalizations.of(context)!;
+
       // Start Loading
       TFullScreenLoader.openLoadingDialog(
-        'Registering Admin account...',
+        localizations.loginLoadingMessage,
         TImages.docerAnimation,
       );
       // Check Internet Connectivity
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
         TFullScreenLoader.stopLoading();
+        TLoaders.errorSnackBar(
+          title: localizations.networkError,
+          message: localizations.networkErrorMessage,
+        );
         return;
       }
       // Form validation
       if (!loginFormKey.currentState!.validate()) {
         TFullScreenLoader.stopLoading();
+        TLoaders.errorSnackBar(
+          title: localizations.formValidationError,
+          message: localizations.formValidationErrorMessage,
+        );
         return;
       }
       // Save Data if Remember Me is selected
       if (rememberMe.value) {
-        localStorage.write('RRMEMBER_ME_EMAIL', email.text.trim());
+        localStorage.write('REMEMBER_ME_EMAIL', email.text.trim());
         localStorage.write('REMEMBER_ME_PASSWORD', password.text.trim());
       }
       // Login user with Email and password
@@ -70,41 +83,62 @@ class LoginController extends GetxController {
       if (user.role != AppRole.admin) {
         await AuthenticationRepository.instance.logout();
         TLoaders.errorSnackBar(
-          title: 'Not Authorized',
-          message: 'You are not authorzed or do have access. Contact Admin',
+          title: localizations.notAuthorized,
+          message: localizations.notAuthorizedMessage,
         );
       } else {
+        // Show success message
+        TLoaders.successSnackBar(
+          title: localizations.loginSuccess,
+          message: localizations.loginSuccessMessage,
+        );
         //Redirect
         AuthenticationRepository.instance.screenRedirext();
       }
     } catch (e) {
       TFullScreenLoader.stopLoading();
-      TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
+      final localizations = AppLocalizations.of(Get.context!)!;
+      TLoaders.errorSnackBar(
+        title: localizations.ohSnap,
+        message: e.toString(),
+      );
     }
   }
 
   /// Handles registraion of admin user
   Future<void> registerAdmin() async {
     try {
+      // Get current context for localization
+      final context = Get.context!;
+      final localizations = AppLocalizations.of(context)!;
+
       // Start Loading
       TFullScreenLoader.openLoadingDialog(
-        'Registering Admin account...',
+        localizations.registerLoadingMessage,
         TImages.docerAnimation,
       );
       // Check Internet Connectivity
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) {
         TFullScreenLoader.stopLoading();
+        TLoaders.errorSnackBar(
+          title: localizations.networkError,
+          message: localizations.networkErrorMessage,
+        );
         return;
       }
       // Form validation
       if (!loginFormKey.currentState!.validate()) {
         TFullScreenLoader.stopLoading();
+        TLoaders.errorSnackBar(
+          title: localizations.formValidationError,
+          message: localizations.formValidationErrorMessage,
+        );
         return;
       }
       // Save Data if Remember Me is selected
       if (rememberMe.value) {
-        localStorage.write('RRMEMBER_ME_EMAIL', email.text.trim());
+        localStorage.write('REMEMBER_ME_EMAIL', email.text.trim());
         localStorage.write('REMEMBER_ME_PASSWORD', password.text.trim());
       }
       // Register user with Email and password
@@ -117,7 +151,7 @@ class LoginController extends GetxController {
       await userRepository.createUser(
         UserModel(
           id: AuthenticationRepository.instance.authUser!.uid,
-          firstName: 'CWT',
+          firstName: 'CWL',
           lastName: 'Admin',
           email: email.text.trim(),
           role: AppRole.admin,
@@ -136,12 +170,21 @@ class LoginController extends GetxController {
       );
       // Remove Loader
       TFullScreenLoader.stopLoading();
+      // Show success message
+      TLoaders.successSnackBar(
+        title: localizations.adminAccountCreated,
+        message: localizations.adminAccountCreatedMessage,
+      );
       // Redirect
       AuthenticationRepository.instance.screenRedirext();
     } catch (e) {
       TFullScreenLoader.stopLoading();
+      final localizations = AppLocalizations.of(Get.context!)!;
       print(e.toString());
-      TLoaders.errorSnackBar(title: 'Oh Snap', message: e.toString());
+      TLoaders.errorSnackBar(
+        title: localizations.ohSnap,
+        message: e.toString(),
+      );
     }
   }
 }

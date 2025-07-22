@@ -12,7 +12,7 @@
     "@bannersStoragePath": {
         "description": "Storage path for banners"
     },
-    "brandsStoragePath": "/Thương hiệu",
+    "brandsStoragePath": "/Cộng đồng",
     "@brandsStoragePath": {
         "description": "Storage path for brands"
     },
@@ -256,7 +256,7 @@
     "@orders": {
         "description": "Orders menu item"
     },
-    "brands": "Thương hiệu",
+    "brands": "Cộng đồng",
     "@brands": {
         "description": "Brands menu item"
     },
@@ -555,5 +555,57 @@
     "language": "Ngôn ngữ",
     "@language": {
         "description": "Menu đổi ngôn ngữ"
+    },
+    "loginLoadingMessage": "Đang đăng nhập tài khoản Admin...",
+    "@loginLoadingMessage": {
+        "description": "Thông báo loading khi đăng nhập"
+    },
+    "registerLoadingMessage": "Đang đăng ký tài khoản Admin...",
+    "@registerLoadingMessage": {
+        "description": "Thông báo loading khi đăng ký"
+    },
+    "notAuthorized": "Không có quyền truy cập",
+    "@notAuthorized": {
+        "description": "Tiêu đề lỗi không có quyền"
+    },
+    "notAuthorizedMessage": "Bạn không có quyền truy cập hoặc không được phép. Liên hệ Admin",
+    "@notAuthorizedMessage": {
+        "description": "Thông báo lỗi không có quyền"
+    },
+    "ohSnap": "Có lỗi",
+    "@ohSnap": {
+        "description": "Tiêu đề lỗi chung"
+    },
+    "adminAccountCreated": "Đã tạo tài khoản Admin",
+    "@adminAccountCreated": {
+        "description": "Thông báo thành công khi đăng ký admin"
+    },
+    "adminAccountCreatedMessage": "Tài khoản Admin đã được tạo thành công",
+    "@adminAccountCreatedMessage": {
+        "description": "Thông báo chi tiết thành công khi đăng ký admin"
+    },
+    "loginSuccess": "Đăng nhập thành công",
+    "@loginSuccess": {
+        "description": "Thông báo thành công khi đăng nhập"
+    },
+    "loginSuccessMessage": "Chào mừng trở lại, Admin!",
+    "@loginSuccessMessage": {
+        "description": "Thông báo chi tiết thành công khi đăng nhập"
+    },
+    "networkError": "Lỗi mạng",
+    "@networkError": {
+        "description": "Tiêu đề lỗi kết nối mạng"
+    },
+    "networkErrorMessage": "Vui lòng kiểm tra kết nối internet và thử lại",
+    "@networkErrorMessage": {
+        "description": "Thông báo lỗi kết nối mạng"
+    },
+    "formValidationError": "Lỗi xác thực form",
+    "@formValidationError": {
+        "description": "Tiêu đề lỗi xác thực form"
+    },
+    "formValidationErrorMessage": "Vui lòng điền đúng tất cả các trường bắt buộc",
+    "@formValidationErrorMessage": {
+        "description": "Thông báo lỗi xác thực form"
     }
 }
