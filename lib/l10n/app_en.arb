@@ -588,9 +588,109 @@
     "@adminAccountCreatedMessage": {
         "description": "Detailed success message for admin registration"
     },
+    "createNewBrands": "Create New Brands",
+    "@createNewBrands": {
+        "description": "Button text for creating new brands"
+    },
+    "updateBrands": "Update Brands",
+    "@updateBrands": {
+        "description": "Heading for update brands form"
+    },
+    "profileDetails": "Profile Details",
+    "@profileDetails": {
+        "description": "Heading for profile details section"
+    },
+    "firstNameHint": "First Name",
+    "@firstNameHint": {
+        "description": "Hint text for first name field"
+    },
+    "lastNameHint": "Last Name",
+    "@lastNameHint": {
+        "description": "Hint text for last name field"
+    },
+    "emailHint": "Email",
+    "@emailHint": {
+        "description": "Hint text for email field"
+    },
+    "phoneNumberHint": "Phone Number",
+    "@phoneNumberHint": {
+        "description": "Hint text for phone number field"
+    },
+    "updateProfile": "Update Profile",
+    "@updateProfile": {
+        "description": "Button text for updating profile"
+    },
+    "appSettings": "App Settings",
+    "@appSettings": {
+        "description": "Heading for app settings section"
+    },
+    "appNameHint": "App Name",
+    "@appNameHint": {
+        "description": "Hint text for app name field"
+    },
+    "taxPercentHint": "Tax %",
+    "@taxPercentHint": {
+        "description": "Hint text for tax percentage field"
+    },
+    "taxRateLabel": "Tax Rate (%)",
+    "@taxRateLabel": {
+        "description": "Label for tax rate field"
+    },
+    "shippingCostHint": "Shipping Cost",
+    "@shippingCostHint": {
+        "description": "Hint text for shipping cost field"
+    },
+    "shippingCostLabel": "Shipping Cost ($)",
+    "@shippingCostLabel": {
+        "description": "Label for shipping cost field"
+    },
+    "freeShippingAfter": "Free Shipping After",
+    "@freeShippingAfter": {
+        "description": "Label and hint for free shipping threshold field"
+    },
+    "updateAppSetting": "Update App Setting",
+    "@updateAppSetting": {
+        "description": "Button text for updating app settings"
+    },
+    "selectLanguage": "Select Language",
+    "@selectLanguage": {
+        "description": "Title for language selection screen"
+    },
+    "chooseYourLanguage": "Choose your language",
+    "@chooseYourLanguage": {
+        "description": "Heading for language selection"
+    },
+    "vietnameseLanguage": "Tiếng Việt",
+    "@vietnameseLanguage": {
+        "description": "Vietnamese language option"
+    },
+    "englishLanguage": "English",
+    "@englishLanguage": {
+        "description": "English language option"
+    },
+    "logoutTitle": "Logout",
+    "@logoutTitle": {
+        "description": "Title for logout screen"
+    },
+    "logoutConfirmMessage": "Are you sure you want to logout?",
+    "@logoutConfirmMessage": {
+        "description": "Confirmation message for logout"
+    },
+    "logoutButton": "Logout",
+    "@logoutButton": {
+        "description": "Logout button text"
+    },
     "loginSuccess": "Login Successful",
     "@loginSuccess": {
         "description": "Success message for login"
+    },
+    "brandsName": "Brands Name",
+    "@brandsName": {
+        "description": "Label for brands name input field"
+    },
+    "selectedCategories": "Selected Categories",
+    "@selectedCategories": {
+        "description": "Title for selected categories section"
     },
     "loginSuccessMessage": "Welcome back, Admin!",
     "@loginSuccessMessage": {

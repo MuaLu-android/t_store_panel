@@ -1,3 +1,5 @@
+import 'package:admin_hmoob_store/features/shop/controllers/language/language_controller.dart';
+import 'package:admin_hmoob_store/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -6,11 +8,13 @@ class LanguaneDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final currentLocale = Localizations.localeOf(context).languageCode;
+    final localizations = AppLocalizations.of(context)!;
+    final languageController = Get.put(LanguageController());
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Select Language',
+          localizations.selectLanguage,
           style: Theme.of(context).textTheme.headlineLarge,
         ),
       ),
@@ -25,31 +29,38 @@ class LanguaneDesktop extends StatelessWidget {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const Text(
-                    'Choose your language',
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                  Text(
+                    localizations.chooseYourLanguage,
+                    style: const TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   const SizedBox(height: 32),
-                  ListTile(
-                    leading: const Icon(Icons.language, color: Colors.red),
-                    title: const Text('Tiếng Việt'),
-                    trailing: currentLocale == 'vi'
-                        ? const Icon(Icons.check, color: Colors.green)
-                        : null,
-                    onTap: () {
-                      Get.updateLocale(const Locale('vi'));
-                    },
+                  Obx(
+                    () => ListTile(
+                      leading: const Icon(Icons.language, color: Colors.red),
+                      title: Text(localizations.vietnameseLanguage),
+                      trailing: languageController.currentLanguage == 'vi'
+                          ? const Icon(Icons.check, color: Colors.green)
+                          : null,
+                      onTap: () {
+                        languageController.changeLanguage('vi');
+                      },
+                    ),
                   ),
                   const Divider(),
-                  ListTile(
-                    leading: const Icon(Icons.language, color: Colors.blue),
-                    title: const Text('English'),
-                    trailing: currentLocale == 'en'
-                        ? const Icon(Icons.check, color: Colors.green)
-                        : null,
-                    onTap: () {
-                      Get.updateLocale(const Locale('en'));
-                    },
+                  Obx(
+                    () => ListTile(
+                      leading: const Icon(Icons.language, color: Colors.blue),
+                      title: Text(localizations.englishLanguage),
+                      trailing: languageController.currentLanguage == 'en'
+                          ? const Icon(Icons.check, color: Colors.green)
+                          : null,
+                      onTap: () {
+                        languageController.changeLanguage('en');
+                      },
+                    ),
                   ),
                 ],
               ),

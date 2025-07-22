@@ -4,6 +4,7 @@ import 'package:admin_hmoob_store/features/shop/controllers/brands/edit_brands_c
 import 'package:admin_hmoob_store/features/shop/controllers/categories/category_controller.dart';
 import 'package:admin_hmoob_store/features/shop/models/brand_model.dart';
 import 'package:admin_hmoob_store/features/shop/screens/category/create_categories/widgets/image_loader.dart';
+import 'package:admin_hmoob_store/l10n/app_localizations.dart';
 import 'package:admin_hmoob_store/utils/constants/enums.dart';
 import 'package:admin_hmoob_store/utils/constants/image_strings.dart';
 import 'package:admin_hmoob_store/utils/constants/sizes.dart';
@@ -20,6 +21,7 @@ class EditBrandsForm extends StatelessWidget {
     // implement build
     final controller = Get.put(EditBrandsController());
     final categoryController = CategoryController.instance;
+    final localizations = AppLocalizations.of(context)!;
     controller.init(brands);
     return TRoundedContainer(
       width: 500,
@@ -32,16 +34,17 @@ class EditBrandsForm extends StatelessWidget {
             // Heading
             SizedBox(height: TSizes.sm),
             Text(
-              'Update Brands',
+              localizations.updateBrands,
               style: Theme.of(context).textTheme.headlineMedium,
             ),
             const SizedBox(height: TSizes.spaceBtwSections),
             // Name Text Field
             TextFormField(
               controller: controller.name,
-              validator: (value) => TValidator.validateEmptyText('Name', value),
-              decoration: const InputDecoration(
-                labelText: 'Brands Name',
+              validator: (value) =>
+                  TValidator.validateEmptyText(localizations.name, value),
+              decoration: InputDecoration(
+                labelText: localizations.brandsName,
                 prefixIcon: Icon(Iconsax.category),
               ),
             ),
@@ -49,7 +52,7 @@ class EditBrandsForm extends StatelessWidget {
 
             // Categories
             Text(
-              'Selected Categories',
+              localizations.selectedCategories,
               style: Theme.of(Get.context!).textTheme.titleMedium,
             ),
             const SizedBox(height: TSizes.spaceBtwInputFields / 2),
@@ -93,7 +96,7 @@ class EditBrandsForm extends StatelessWidget {
                 value: controller.isFeatured.value,
                 onChanged: (value) =>
                     controller.isFeatured.value = value ?? false,
-                child: const Text('Featured'),
+                child: Text(localizations.featured),
               ),
             ),
             const SizedBox(height: TSizes.spaceBtwInputFields * 2),
@@ -101,7 +104,7 @@ class EditBrandsForm extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () => controller.updateBrands(brands),
-                child: const Text('Update'),
+                child: Text(localizations.update),
               ),
             ),
             const SizedBox(height: TSizes.spaceBtwInputFields * 2),

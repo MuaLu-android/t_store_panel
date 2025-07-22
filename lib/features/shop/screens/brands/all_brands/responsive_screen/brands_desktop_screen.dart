@@ -38,7 +38,7 @@ class BrandsDesktopScreen extends StatelessWidget {
                   children: [
                     // Tablet Header
                     TTableHeader(
-                      buttonText: 'create New Brands',
+                      buttonText: local.createNewBrands,
                       onPressed: () => Get.toNamed(TRoutes.createBrand),
                       searchOnChanged: (query) => controller.searchQuery(query),
                     ),

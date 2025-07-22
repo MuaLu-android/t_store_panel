@@ -1,4 +1,5 @@
 import 'package:admin_hmoob_store/features/authentication/controllers/logout_controller.dart';
+import 'package:admin_hmoob_store/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -8,9 +9,13 @@ class LogoutDesktopScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(LogoutController());
+    final localizations = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Logout', style: Theme.of(context).textTheme.headlineLarge),
+        title: Text(
+          localizations.logoutTitle,
+          style: Theme.of(context).textTheme.headlineLarge,
+        ),
       ),
       body: Center(
         child: Padding(
@@ -20,15 +25,15 @@ class LogoutDesktopScreen extends StatelessWidget {
             children: [
               const Icon(Icons.logout, size: 64, color: Colors.redAccent),
               const SizedBox(height: 24),
-              const Text(
-                'Are you sure you want to logout?',
-                style: TextStyle(fontSize: 18),
+              Text(
+                localizations.logoutConfirmMessage,
+                style: const TextStyle(fontSize: 18),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 32),
               ElevatedButton.icon(
                 icon: const Icon(Icons.logout),
-                label: const Text('Logout'),
+                label: Text(localizations.logoutButton),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.redAccent,
                   foregroundColor: Colors.white,

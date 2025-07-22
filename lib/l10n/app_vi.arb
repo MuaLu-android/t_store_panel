@@ -592,6 +592,118 @@
     "@loginSuccess": {
         "description": "Thông báo thành công khi đăng nhập"
     },
+    "createNewBrands": "Tạo thương hiệu mới",
+    "@createNewBrands": {
+        "description": "Nút tạo thương hiệu mới"
+    },
+    "updateBrands": "Cập nhật thương hiệu",
+    "@updateBrands": {
+        "description": "Tiêu đề form cập nhật thương hiệu"
+    },
+    "profileDetails": "Chi tiết hồ sơ",
+    "@profileDetails": {
+        "description": "Tiêu đề cho phần chi tiết hồ sơ"
+    },
+    "firstNameHint": "Tên",
+    "@firstNameHint": {
+        "description": "Gợi ý cho trường tên"
+    },
+    "lastNameHint": "Họ",
+    "@lastNameHint": {
+        "description": "Gợi ý cho trường họ"
+    },
+    "emailHint": "Email",
+    "@emailHint": {
+        "description": "Gợi ý cho trường email"
+    },
+    "phoneNumberHint": "Số điện thoại",
+    "@phoneNumberHint": {
+        "description": "Gợi ý cho trường số điện thoại"
+    },
+    "updateProfile": "Cập nhật hồ sơ",
+    "@updateProfile": {
+        "description": "Nút cập nhật hồ sơ"
+    },
+    "appSettings": "Cài đặt ứng dụng",
+    "@appSettings": {
+        "description": "Tiêu đề cho phần cài đặt ứng dụng"
+    },
+    "appNameHint": "Tên ứng dụng",
+    "@appNameHint": {
+        "description": "Gợi ý cho trường tên ứng dụng"
+    },
+    "taxPercentHint": "Thuế %",
+    "@taxPercentHint": {
+        "description": "Gợi ý cho trường phần trăm thuế"
+    },
+    "taxRateLabel": "Thuế suất (%)",
+    "@taxRateLabel": {
+        "description": "Nhãn cho trường thuế suất"
+    },
+    "shippingCostHint": "Phí vận chuyển",
+    "@shippingCostHint": {
+        "description": "Gợi ý cho trường phí vận chuyển"
+    },
+    "shippingCostLabel": "Phí vận chuyển ($)",
+    "@shippingCostLabel": {
+        "description": "Nhãn cho trường phí vận chuyển"
+    },
+    "freeShippingAfter": "Miễn phí vận chuyển sau",
+    "@freeShippingAfter": {
+        "description": "Nhãn và gợi ý cho trường ngưỡng miễn phí vận chuyển"
+    },
+    "updateAppSetting": "Cập nhật cài đặt ứng dụng",
+    "@updateAppSetting": {
+        "description": "Nút cập nhật cài đặt ứng dụng"
+    },
+    "selectLanguage": "Chọn ngôn ngữ",
+    "@selectLanguage": {
+        "description": "Tiêu đề màn hình chọn ngôn ngữ"
+    },
+    "chooseYourLanguage": "Chọn ngôn ngữ của bạn",
+    "@chooseYourLanguage": {
+        "description": "Tiêu đề chọn ngôn ngữ"
+    },
+    "vietnameseLanguage": "Tiếng Việt",
+    "@vietnameseLanguage": {
+        "description": "Tùy chọn ngôn ngữ Việt"
+    },
+    "englishLanguage": "English",
+    "@englishLanguage": {
+        "description": "Tùy chọn ngôn ngữ Anh"
+    },
+    "logoutTitle": "Đăng xuất",
+    "@logoutTitle": {
+        "description": "Tiêu đề màn hình đăng xuất"
+    },
+    "logoutConfirmMessage": "Bạn có chắc chắn muốn đăng xuất không?",
+    "@logoutConfirmMessage": {
+        "description": "Thông báo xác nhận đăng xuất"
+    },
+    "logoutButton": "Đăng xuất",
+    "@logoutButton": {
+        "description": "Nút đăng xuất"
+    },
+    "brandsName": "Tên thương hiệu",
+    "@brandsName": {
+        "description": "Nhãn cho trường nhập tên thương hiệu"
+    },
+    "name": "Tên",
+    "@name": {
+        "description": "Trường tên cho xác thực"
+    },
+    "selectedCategories": "Danh mục đã chọn",
+    "@selectedCategories": {
+        "description": "Tiêu đề cho phần danh mục đã chọn"
+    },
+    "featured": "Nổi bật",
+    "@featured": {
+        "description": "Nhãn cho checkbox nổi bật"
+    },
+    "create": "Tạo",
+    "@create": {
+        "description": "Nút tạo"
+    },
     "loginSuccessMessage": "Chào mừng trở lại, Admin!",
     "@loginSuccessMessage": {
         "description": "Thông báo chi tiết thành công khi đăng nhập"
@@ -728,10 +840,6 @@
     "@bannerActiveDescription": {
         "description": "Văn bản mô tả cho cài đặt kích hoạt/không kích hoạt banner"
     },
-    "create": "Tạo",
-    "@create": {
-        "description": "Văn bản nút tạo"
-    },
     "congratulations": "Chúc mừng",
     "@congratulations": {
         "description": "Tiêu đề thông báo thành công"
@@ -791,10 +899,6 @@
     "address": "Địa chỉ",
     "@address": {
         "description": "Nhãn cho phần địa chỉ hoặc trường địa chỉ"
-    },
-    "name": "Tên",
-    "@name": {
-        "description": "Nhãn cho trường tên"
     },
     "noOrdersFound": "Không tìm thấy đơn hàng",
     "@noOrdersFound": {
@@ -857,10 +961,6 @@
     "parentCategory": "Danh mục cha",
     "@parentCategory": {
         "description": "Nhãn cho dropdown danh mục cha trong form"
-    },
-    "featured": "Nổi bật",
-    "@featured": {
-        "description": "Nhãn cho checkbox nổi bật trong form"
     },
     "addProduct": "Thêm sản phẩm",
     "@addProduct": {

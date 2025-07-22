@@ -1,5 +1,6 @@
 import 'package:admin_hmoob_store/common/widgets/custom_shapes/container/rounded_container.dart';
 import 'package:admin_hmoob_store/features/authentication/controllers/user_controller.dart';
+import 'package:admin_hmoob_store/l10n/app_localizations.dart';
 import 'package:admin_hmoob_store/utils/constants/sizes.dart';
 import 'package:admin_hmoob_store/utils/validators/validation.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,7 @@ class ProfileForm extends StatelessWidget {
   Widget build(BuildContext context) {
     // implement build
     final controller = UserController.instance;
+    final localizations = AppLocalizations.of(context)!;
     return Column(
       children: [
         TRoundedContainer(
@@ -24,7 +26,7 @@ class ProfileForm extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Profile Details',
+                localizations.profileDetails,
                 style: Theme.of(context).textTheme.headlineSmall,
               ),
               const SizedBox(height: TSizes.spaceBtwInputFields),
@@ -40,12 +42,12 @@ class ProfileForm extends StatelessWidget {
                           child: TextFormField(
                             controller: controller.firstNameController,
                             decoration: InputDecoration(
-                              hintText: 'Frist Name',
+                              hintText: localizations.firstNameHint,
                               label: Text(controller.user.value.firstName),
                               prefixIcon: Icon(Iconsax.user),
                             ),
                             validator: (value) => TValidator.validateEmptyText(
-                              'Fisrt Name',
+                              localizations.firstNameHint,
                               value,
                             ),
                           ),
@@ -55,12 +57,12 @@ class ProfileForm extends StatelessWidget {
                           child: TextFormField(
                             controller: controller.lastNameController,
                             decoration: InputDecoration(
-                              hintText: 'Last Name',
+                              hintText: localizations.lastNameHint,
                               label: Text(controller.user.value.lastName),
                               prefixIcon: Icon(Iconsax.user),
                             ),
                             validator: (value) => TValidator.validateEmptyText(
-                              'Last Name',
+                              localizations.lastNameHint,
                               value,
                             ),
                           ),
@@ -75,7 +77,7 @@ class ProfileForm extends StatelessWidget {
                         Expanded(
                           child: TextFormField(
                             decoration: InputDecoration(
-                              hintText: 'Email',
+                              hintText: localizations.emailHint,
                               label: Text(controller.user.value.email),
                               prefixIcon: Icon(Iconsax.forward),
                               enabled: false,
@@ -87,11 +89,11 @@ class ProfileForm extends StatelessWidget {
                           child: TextFormField(
                             controller: controller.phoneController,
                             decoration: InputDecoration(
-                              hintText: 'Phone Number',
+                              hintText: localizations.phoneNumberHint,
                               label:
                                   controller.user.value.phoneNumber.isNotEmpty
                                   ? Text(controller.user.value.phoneNumber)
-                                  : const Text('Phone Number'),
+                                  : Text(localizations.phoneNumberHint),
                               prefixIcon: Icon(Iconsax.mobile),
                             ),
                             validator: (value) =>
@@ -113,7 +115,7 @@ class ProfileForm extends StatelessWidget {
                                   color: Colors.white,
                                   strokeWidth: 2,
                                 )
-                              : const Text('Update Profile'),
+                              : Text(localizations.updateProfile),
                         ),
                       ),
                     ),

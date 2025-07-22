@@ -977,11 +977,161 @@ abstract class AppLocalizations {
   /// **'Admin account has been successfully created'**
   String get adminAccountCreatedMessage;
 
+  /// Button text for creating new brands
+  ///
+  /// In en, this message translates to:
+  /// **'Create New Brands'**
+  String get createNewBrands;
+
+  /// Heading for update brands form
+  ///
+  /// In en, this message translates to:
+  /// **'Update Brands'**
+  String get updateBrands;
+
+  /// Heading for profile details section
+  ///
+  /// In en, this message translates to:
+  /// **'Profile Details'**
+  String get profileDetails;
+
+  /// Hint text for first name field
+  ///
+  /// In en, this message translates to:
+  /// **'First Name'**
+  String get firstNameHint;
+
+  /// Hint text for last name field
+  ///
+  /// In en, this message translates to:
+  /// **'Last Name'**
+  String get lastNameHint;
+
+  /// Hint text for email field
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get emailHint;
+
+  /// Hint text for phone number field
+  ///
+  /// In en, this message translates to:
+  /// **'Phone Number'**
+  String get phoneNumberHint;
+
+  /// Button text for updating profile
+  ///
+  /// In en, this message translates to:
+  /// **'Update Profile'**
+  String get updateProfile;
+
+  /// Heading for app settings section
+  ///
+  /// In en, this message translates to:
+  /// **'App Settings'**
+  String get appSettings;
+
+  /// Hint text for app name field
+  ///
+  /// In en, this message translates to:
+  /// **'App Name'**
+  String get appNameHint;
+
+  /// Hint text for tax percentage field
+  ///
+  /// In en, this message translates to:
+  /// **'Tax %'**
+  String get taxPercentHint;
+
+  /// Label for tax rate field
+  ///
+  /// In en, this message translates to:
+  /// **'Tax Rate (%)'**
+  String get taxRateLabel;
+
+  /// Hint text for shipping cost field
+  ///
+  /// In en, this message translates to:
+  /// **'Shipping Cost'**
+  String get shippingCostHint;
+
+  /// Label for shipping cost field
+  ///
+  /// In en, this message translates to:
+  /// **'Shipping Cost (\$)'**
+  String get shippingCostLabel;
+
+  /// Label and hint for free shipping threshold field
+  ///
+  /// In en, this message translates to:
+  /// **'Free Shipping After'**
+  String get freeShippingAfter;
+
+  /// Button text for updating app settings
+  ///
+  /// In en, this message translates to:
+  /// **'Update App Setting'**
+  String get updateAppSetting;
+
+  /// Title for language selection screen
+  ///
+  /// In en, this message translates to:
+  /// **'Select Language'**
+  String get selectLanguage;
+
+  /// Heading for language selection
+  ///
+  /// In en, this message translates to:
+  /// **'Choose your language'**
+  String get chooseYourLanguage;
+
+  /// Vietnamese language option
+  ///
+  /// In en, this message translates to:
+  /// **'Tiếng Việt'**
+  String get vietnameseLanguage;
+
+  /// English language option
+  ///
+  /// In en, this message translates to:
+  /// **'English'**
+  String get englishLanguage;
+
+  /// Title for logout screen
+  ///
+  /// In en, this message translates to:
+  /// **'Logout'**
+  String get logoutTitle;
+
+  /// Confirmation message for logout
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to logout?'**
+  String get logoutConfirmMessage;
+
+  /// Logout button text
+  ///
+  /// In en, this message translates to:
+  /// **'Logout'**
+  String get logoutButton;
+
   /// Success message for login
   ///
   /// In en, this message translates to:
   /// **'Login Successful'**
   String get loginSuccess;
+
+  /// Label for brands name input field
+  ///
+  /// In en, this message translates to:
+  /// **'Brands Name'**
+  String get brandsName;
+
+  /// Title for selected categories section
+  ///
+  /// In en, this message translates to:
+  /// **'Selected Categories'**
+  String get selectedCategories;
 
   /// Detailed success message for login
   ///

@@ -1,6 +1,7 @@
 import 'package:admin_hmoob_store/common/widgets/data_table/paginated_data_table.dart';
 import 'package:admin_hmoob_store/features/shop/controllers/brands/brand_controller.dart';
 import 'package:admin_hmoob_store/features/shop/screens/brands/all_brands/tablets/data_source.dart';
+import 'package:admin_hmoob_store/l10n/app_localizations.dart';
 import 'package:admin_hmoob_store/utils/devices/device_utility.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +13,7 @@ class BrandTable extends StatelessWidget {
   Widget build(BuildContext context) {
     // implement build
     final controller = Get.put(BrandController());
+    final local = AppLocalizations.of(context)!;
     return Obx(() {
       Text(controller.filteredItems.length.toString());
       Text(controller.selectedRows.length.toString());
@@ -29,22 +31,22 @@ class BrandTable extends StatelessWidget {
         source: BrandsRows(),
         columns: [
           DataColumn2(
-            label: Text('Brand'),
+            label: Text(local.brand),
             fixedWidth: TDeviceUtils.isMobileScreen(Get.context!) ? null : 200,
             onSort: (columnIndex, ascending) =>
                 controller.sortByName(columnIndex, ascending),
           ),
-          DataColumn2(label: Text('Categories')),
+          DataColumn2(label: Text(local.categories)),
           DataColumn2(
-            label: const Text('Featured'),
+            label: Text(local.featured),
             fixedWidth: TDeviceUtils.isMobileScreen(Get.context!) ? null : 100,
           ),
           DataColumn2(
-            label: const Text('Date'),
+            label: Text(local.orderDate),
             fixedWidth: TDeviceUtils.isMobileScreen(Get.context!) ? null : 200,
           ),
           DataColumn2(
-            label: const Text('Action'),
+            label: Text(local.action),
             fixedWidth: TDeviceUtils.isMobileScreen(Get.context!) ? null : 100,
           ),
         ],

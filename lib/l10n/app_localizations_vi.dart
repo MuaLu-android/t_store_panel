@@ -450,7 +450,82 @@ class AppLocalizationsVi extends AppLocalizations {
   String get adminAccountCreatedMessage => 'Tài khoản Admin đã được tạo thành công';
 
   @override
+  String get createNewBrands => 'Tạo thương hiệu mới';
+
+  @override
+  String get updateBrands => 'Cập nhật thương hiệu';
+
+  @override
+  String get profileDetails => 'Chi tiết hồ sơ';
+
+  @override
+  String get firstNameHint => 'Tên';
+
+  @override
+  String get lastNameHint => 'Họ';
+
+  @override
+  String get emailHint => 'Email';
+
+  @override
+  String get phoneNumberHint => 'Số điện thoại';
+
+  @override
+  String get updateProfile => 'Cập nhật hồ sơ';
+
+  @override
+  String get appSettings => 'Cài đặt ứng dụng';
+
+  @override
+  String get appNameHint => 'Tên ứng dụng';
+
+  @override
+  String get taxPercentHint => 'Thuế %';
+
+  @override
+  String get taxRateLabel => 'Thuế suất (%)';
+
+  @override
+  String get shippingCostHint => 'Phí vận chuyển';
+
+  @override
+  String get shippingCostLabel => 'Phí vận chuyển (\$)';
+
+  @override
+  String get freeShippingAfter => 'Miễn phí vận chuyển sau';
+
+  @override
+  String get updateAppSetting => 'Cập nhật cài đặt ứng dụng';
+
+  @override
+  String get selectLanguage => 'Chọn ngôn ngữ';
+
+  @override
+  String get chooseYourLanguage => 'Chọn ngôn ngữ của bạn';
+
+  @override
+  String get vietnameseLanguage => 'Tiếng Việt';
+
+  @override
+  String get englishLanguage => 'English';
+
+  @override
+  String get logoutTitle => 'Đăng xuất';
+
+  @override
+  String get logoutConfirmMessage => 'Bạn có chắc chắn muốn đăng xuất không?';
+
+  @override
+  String get logoutButton => 'Đăng xuất';
+
+  @override
   String get loginSuccess => 'Đăng nhập thành công';
+
+  @override
+  String get brandsName => 'Tên thương hiệu';
+
+  @override
+  String get selectedCategories => 'Danh mục đã chọn';
 
   @override
   String get loginSuccessMessage => 'Chào mừng trở lại, Admin!';

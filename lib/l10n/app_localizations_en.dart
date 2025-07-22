@@ -450,7 +450,82 @@ class AppLocalizationsEn extends AppLocalizations {
   String get adminAccountCreatedMessage => 'Admin account has been successfully created';
 
   @override
+  String get createNewBrands => 'Create New Brands';
+
+  @override
+  String get updateBrands => 'Update Brands';
+
+  @override
+  String get profileDetails => 'Profile Details';
+
+  @override
+  String get firstNameHint => 'First Name';
+
+  @override
+  String get lastNameHint => 'Last Name';
+
+  @override
+  String get emailHint => 'Email';
+
+  @override
+  String get phoneNumberHint => 'Phone Number';
+
+  @override
+  String get updateProfile => 'Update Profile';
+
+  @override
+  String get appSettings => 'App Settings';
+
+  @override
+  String get appNameHint => 'App Name';
+
+  @override
+  String get taxPercentHint => 'Tax %';
+
+  @override
+  String get taxRateLabel => 'Tax Rate (%)';
+
+  @override
+  String get shippingCostHint => 'Shipping Cost';
+
+  @override
+  String get shippingCostLabel => 'Shipping Cost (\$)';
+
+  @override
+  String get freeShippingAfter => 'Free Shipping After';
+
+  @override
+  String get updateAppSetting => 'Update App Setting';
+
+  @override
+  String get selectLanguage => 'Select Language';
+
+  @override
+  String get chooseYourLanguage => 'Choose your language';
+
+  @override
+  String get vietnameseLanguage => 'Tiếng Việt';
+
+  @override
+  String get englishLanguage => 'English';
+
+  @override
+  String get logoutTitle => 'Logout';
+
+  @override
+  String get logoutConfirmMessage => 'Are you sure you want to logout?';
+
+  @override
+  String get logoutButton => 'Logout';
+
+  @override
   String get loginSuccess => 'Login Successful';
+
+  @override
+  String get brandsName => 'Brands Name';
+
+  @override
+  String get selectedCategories => 'Selected Categories';
 
   @override
   String get loginSuccessMessage => 'Welcome back, Admin!';
