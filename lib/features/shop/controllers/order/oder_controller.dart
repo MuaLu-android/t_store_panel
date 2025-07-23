@@ -1,11 +1,11 @@
 // ignore_for_file: use_build_context_synchronously
 
-import 'package:admin_hmoob_store/data/abstract/base_data_table_controller.dart';
-import 'package:admin_hmoob_store/data/repositories/orders/order_repository.dart';
-import 'package:admin_hmoob_store/features/shop/models/order_model.dart';
-import 'package:admin_hmoob_store/l10n/app_localizations.dart';
-import 'package:admin_hmoob_store/utils/constants/enums.dart';
-import 'package:admin_hmoob_store/utils/popups/loaders.dart';
+import 'package:trip_store/data/abstract/base_data_table_controller.dart';
+import 'package:trip_store/data/repositories/orders/order_repository.dart';
+import 'package:trip_store/features/shop/models/order_model.dart';
+import 'package:trip_store/l10n/app_localizations.dart';
+import 'package:trip_store/utils/constants/enums.dart';
+import 'package:trip_store/utils/popups/loaders.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

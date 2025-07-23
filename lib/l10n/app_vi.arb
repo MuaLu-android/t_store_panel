@@ -424,11 +424,11 @@
     "@mediaEmptySelection": {
         "description": "Thông báo chưa chọn ảnh"
     },
-    "mediaSelect": "Xem thêm",
+    "mediaSelect": "Tải lên",
     "@mediaSelect": {
         "description": "Nút chọn"
     },
-    "mediaCancel": "Hủ",
+    "mediaCancel": "Hủy",
     "@mediaCancel": {
         "description": "Nút hủy"
     },
@@ -1137,5 +1137,33 @@
     "hidden": "Ẩn",
     "@hidden": {
         "description": "Tùy chọn hiển thị ẩn"
+    },
+    "media_error_upload_images_title": "Lỗi tải ảnh lên",
+    "@media_error_upload_images_title": {
+        "description": "Tiêu đề lỗi khi tải ảnh lên"
+    },
+    "media_error_upload_images_message": "Có lỗi khi tải ảnh lên",
+    "@media_error_upload_images_message": {
+        "description": "Thông báo lỗi khi tải ảnh lên"
+    },
+    "media_delete_image_confirmation": "Bạn có chắc muốn xóa ảnh này không?",
+    "@media_delete_image_confirmation": {
+        "description": "Thông báo xác nhận xóa ảnh"
+    },
+    "media_image_deleted_title": "Đã xóa ảnh",
+    "@media_image_deleted_title": {
+        "description": "Tiêu đề khi xóa ảnh thành công"
+    },
+    "media_image_deleted_message": "Ảnh đã được xóa khỏi lưu trữ đám mây",
+    "@media_image_deleted_message": {
+        "description": "Thông báo khi xóa ảnh thành công"
+    },
+    "media_error_general_title": "Có lỗi",
+    "@media_error_general_title": {
+        "description": "Tiêu đề lỗi chung"
+    },
+    "media_folder_others": "Khác",
+    "@media_folder_others": {
+        "description": "Tên thư mục mặc định cho ảnh khác"
     }
 }

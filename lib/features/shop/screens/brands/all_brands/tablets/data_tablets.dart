@@ -1,8 +1,8 @@
-import 'package:admin_hmoob_store/common/widgets/data_table/paginated_data_table.dart';
-import 'package:admin_hmoob_store/features/shop/controllers/brands/brand_controller.dart';
-import 'package:admin_hmoob_store/features/shop/screens/brands/all_brands/tablets/data_source.dart';
-import 'package:admin_hmoob_store/l10n/app_localizations.dart';
-import 'package:admin_hmoob_store/utils/devices/device_utility.dart';
+import 'package:trip_store/common/widgets/data_table/paginated_data_table.dart';
+import 'package:trip_store/features/shop/controllers/brands/brand_controller.dart';
+import 'package:trip_store/features/shop/screens/brands/all_brands/tablets/data_source.dart';
+import 'package:trip_store/l10n/app_localizations.dart';
+import 'package:trip_store/utils/devices/device_utility.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

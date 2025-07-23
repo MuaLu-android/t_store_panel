@@ -1,8 +1,8 @@
-import 'package:admin_hmoob_store/common/widgets/layouts/headers/page_heading.dart';
-import 'package:admin_hmoob_store/l10n/app_localizations.dart';
-import 'package:admin_hmoob_store/route/route.dart';
-import 'package:admin_hmoob_store/utils/constants/breadcrumb_item.dart';
-import 'package:admin_hmoob_store/utils/constants/sizes.dart';
+import 'package:trip_store/common/widgets/layouts/headers/page_heading.dart';
+import 'package:trip_store/l10n/app_localizations.dart';
+import 'package:trip_store/route/route.dart';
+import 'package:trip_store/utils/constants/breadcrumb_item.dart';
+import 'package:trip_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';

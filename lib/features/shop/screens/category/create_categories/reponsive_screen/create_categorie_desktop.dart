@@ -1,9 +1,9 @@
-import 'package:admin_hmoob_store/common/widgets/breadcrumbs/breadcrumb_with_heading.dart';
-import 'package:admin_hmoob_store/features/shop/screens/category/create_categories/widgets/create_category_from.dart';
-import 'package:admin_hmoob_store/l10n/app_localizations.dart';
-import 'package:admin_hmoob_store/route/route.dart';
-import 'package:admin_hmoob_store/utils/constants/breadcrumb_item.dart';
-import 'package:admin_hmoob_store/utils/constants/sizes.dart';
+import 'package:trip_store/common/widgets/breadcrumbs/breadcrumb_with_heading.dart';
+import 'package:trip_store/features/shop/screens/category/create_categories/widgets/create_category_from.dart';
+import 'package:trip_store/l10n/app_localizations.dart';
+import 'package:trip_store/route/route.dart';
+import 'package:trip_store/utils/constants/breadcrumb_item.dart';
+import 'package:trip_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
 class CreateCategorieDesktopScreen extends StatelessWidget {

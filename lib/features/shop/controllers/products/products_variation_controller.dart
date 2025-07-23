@@ -1,11 +1,19 @@
-import 'package:admin_hmoob_store/features/shop/controllers/products/product_attribute_controller.dart';
-import 'package:admin_hmoob_store/features/shop/models/product_variation_model.dart';
-import 'package:admin_hmoob_store/utils/popups/dialogs.dart';
+import 'package:trip_store/features/shop/controllers/products/product_attribute_controller.dart';
+import 'package:trip_store/features/shop/models/product_variation_model.dart';
+import 'package:trip_store/utils/popups/dialogs.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ProductVariationController extends GetxController {
   static ProductVariationController get instance => Get.find();
+
+  @override
+  void onInit() {
+    super.onInit();
+    // Listen to changes in productVariations and sync controllers
+    ever(productVariations, (_) => _ensureControllersSync());
+  }
+
   // Obsevable for loading
   final isLoading = false.obs;
   final RxList<ProductVariationModel> productVariations =
@@ -22,14 +30,17 @@ class ProductVariationController extends GetxController {
 
   // instance AttributeController
   final attributeController = Get.put(ProductAttributeController());
-  void initializeVariationController(List<ProductVariationModel> variations) {
-    /// Clear existing list
+
+  // Method to ensure controllers are in sync with variations
+  void _ensureControllersSync() {
+    // Clear existing controllers
     stockControllerList.clear();
     priceControllerList.clear();
     salePriceControllerList.clear();
     descriprionControllerList.clear();
-    // Initialize controllers for each variation
-    for (var variation in variations) {
+
+    // Create controllers for each variation
+    for (var variation in productVariations) {
       // Stock Controllers
       Map<ProductVariationModel, TextEditingController> stockControllers = {};
       stockControllers[variation] = TextEditingController(
@@ -56,10 +67,24 @@ class ProductVariationController extends GetxController {
       Map<ProductVariationModel, TextEditingController> descriptionControllers =
           {};
       descriptionControllers[variation] = TextEditingController(
-        text: variation.description,
+        text: variation.description ?? '',
       );
       descriprionControllerList.add(descriptionControllers);
     }
+  }
+
+  void initializeVariationController(List<ProductVariationModel> variations) {
+    /// Clear existing list
+    stockControllerList.clear();
+    priceControllerList.clear();
+    salePriceControllerList.clear();
+    descriprionControllerList.clear();
+
+    // Assign variations first
+    productVariations.assignAll(variations);
+
+    // Ensure controllers are in sync
+    _ensureControllersSync();
   }
 
   // Function remove variations
@@ -120,39 +145,97 @@ class ProductVariationController extends GetxController {
         );
 
         variations.add(variation);
-
-        // Create controllers
-        final Map<ProductVariationModel, TextEditingController>
-        stockControllers = {};
-        final Map<ProductVariationModel, TextEditingController>
-        priceControllers = {};
-        final Map<ProductVariationModel, TextEditingController>
-        salePriceControllers = {};
-        final Map<ProductVariationModel, TextEditingController>
-        descriptionControllers = {};
-
-        // Assuming variation is your current ProductVariationModel
-        stockControllers[variation] = TextEditingController();
-        priceControllers[variation] = TextEditingController();
-        salePriceControllers[variation] = TextEditingController();
-        descriptionControllers[variation] = TextEditingController();
-
-        // Add the maps to their respective lists
-        stockControllerList.add(stockControllers);
-        priceControllerList.add(priceControllers);
-        salePriceControllerList.add(salePriceControllers);
-        descriprionControllerList.add(descriptionControllers);
       }
     }
+
+    // Assign variations and sync controllers
     productVariations.assignAll(variations);
+    _ensureControllersSync();
   }
 
   void resetAllValues() {
-    priceControllerList.clear();
     stockControllerList.clear();
     priceControllerList.clear();
     salePriceControllerList.clear();
     descriprionControllerList.clear();
+    productVariations.clear();
+  }
+
+  // Method to safely get controller at index
+  TextEditingController? getStockController(
+    int index,
+    ProductVariationModel variation,
+  ) {
+    if (index >= 0 && index < stockControllerList.length) {
+      return stockControllerList[index][variation];
+    }
+    // If index is out of range, sync controllers and try again
+    _ensureControllersSync();
+    if (index >= 0 && index < stockControllerList.length) {
+      return stockControllerList[index][variation];
+    }
+    return null;
+  }
+
+  TextEditingController? getPriceController(
+    int index,
+    ProductVariationModel variation,
+  ) {
+    if (index >= 0 && index < priceControllerList.length) {
+      return priceControllerList[index][variation];
+    }
+    // If index is out of range, sync controllers and try again
+    _ensureControllersSync();
+    if (index >= 0 && index < priceControllerList.length) {
+      return priceControllerList[index][variation];
+    }
+    return null;
+  }
+
+  TextEditingController? getSalePriceController(
+    int index,
+    ProductVariationModel variation,
+  ) {
+    if (index >= 0 && index < salePriceControllerList.length) {
+      return salePriceControllerList[index][variation];
+    }
+    // If index is out of range, sync controllers and try again
+    _ensureControllersSync();
+    if (index >= 0 && index < salePriceControllerList.length) {
+      return salePriceControllerList[index][variation];
+    }
+    return null;
+  }
+
+  TextEditingController? getDescriptionController(
+    int index,
+    ProductVariationModel variation,
+  ) {
+    if (index >= 0 && index < descriprionControllerList.length) {
+      return descriprionControllerList[index][variation];
+    }
+    // If index is out of range, sync controllers and try again
+    _ensureControllersSync();
+    if (index >= 0 && index < descriprionControllerList.length) {
+      return descriprionControllerList[index][variation];
+    }
+    return null;
+  }
+
+  // Debug method to check sync status
+  void debugControllerStatus() {
+    print('ProductVariations count: ${productVariations.length}');
+    print('StockControllerList count: ${stockControllerList.length}');
+    print('PriceControllerList count: ${priceControllerList.length}');
+    print('SalePriceControllerList count: ${salePriceControllerList.length}');
+    print(
+      'DescriptionControllerList count: ${descriprionControllerList.length}',
+    );
+
+    if (productVariations.length != stockControllerList.length) {
+      print('WARNING: Controller lists are out of sync with variations!');
+      _ensureControllersSync();
+    }
   }
 
   List<List<String>> getCombinations(List<List<String>> list) {

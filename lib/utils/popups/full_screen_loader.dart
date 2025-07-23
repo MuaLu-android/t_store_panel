@@ -1,4 +1,4 @@
-import 'package:admin_hmoob_store/utils/loaders/circular_loader.dart';
+import 'package:trip_store/utils/loaders/circular_loader.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../constants/colors.dart';

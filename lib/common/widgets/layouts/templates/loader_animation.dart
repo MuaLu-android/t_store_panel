@@ -1,4 +1,4 @@
-import 'package:admin_hmoob_store/utils/constants/image_strings.dart';
+import 'package:trip_store/utils/constants/image_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 

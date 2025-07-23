@@ -1,6 +1,6 @@
-import 'package:admin_hmoob_store/common/widgets/layouts/templates/login_template.dart';
-import 'package:admin_hmoob_store/features/authentication/screens/login/widgets/login_form.dart';
-import 'package:admin_hmoob_store/features/authentication/screens/login/widgets/login_header.dart';
+import 'package:trip_store/common/widgets/layouts/templates/login_template.dart';
+import 'package:trip_store/features/authentication/screens/login/widgets/login_form.dart';
+import 'package:trip_store/features/authentication/screens/login/widgets/login_header.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreenDesktopTablet extends StatelessWidget {

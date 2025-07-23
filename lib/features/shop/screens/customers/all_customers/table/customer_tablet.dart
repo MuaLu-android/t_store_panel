@@ -1,7 +1,7 @@
-import 'package:admin_hmoob_store/common/widgets/data_table/paginated_data_table.dart';
-import 'package:admin_hmoob_store/features/shop/controllers/customer/customer_controller.dart';
-import 'package:admin_hmoob_store/features/shop/screens/customers/all_customers/table/customer_data_source.dart';
-import 'package:admin_hmoob_store/l10n/app_localizations.dart';
+import 'package:trip_store/common/widgets/data_table/paginated_data_table.dart';
+import 'package:trip_store/features/shop/controllers/customer/customer_controller.dart';
+import 'package:trip_store/features/shop/screens/customers/all_customers/table/customer_data_source.dart';
+import 'package:trip_store/l10n/app_localizations.dart';
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/state_manager.dart';

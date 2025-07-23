@@ -1,22 +1,22 @@
 import 'dart:io';
 import 'dart:typed_data';
 
-import 'package:admin_hmoob_store/data/repositories/media/media_repository.dart';
-import 'package:admin_hmoob_store/features/media/models/image_modle.dart';
-import 'package:admin_hmoob_store/features/media/screens/media/widgets/media_content.dart';
-import 'package:admin_hmoob_store/features/media/screens/media/widgets/media_uploader.dart';
-import 'package:admin_hmoob_store/l10n/app_localizations.dart';
-import 'package:admin_hmoob_store/utils/constants/colors.dart';
-import 'package:admin_hmoob_store/utils/constants/enums.dart';
-import 'package:admin_hmoob_store/utils/constants/image_strings.dart';
-import 'package:admin_hmoob_store/utils/constants/sizes.dart';
-import 'package:admin_hmoob_store/utils/constants/text_strings.dart';
-import 'package:admin_hmoob_store/utils/exceptions/firebase_exceptions.dart';
-import 'package:admin_hmoob_store/utils/exceptions/format_exceptions.dart';
-import 'package:admin_hmoob_store/utils/loaders/circular_loader.dart';
-import 'package:admin_hmoob_store/utils/popups/dialogs.dart';
-import 'package:admin_hmoob_store/utils/popups/full_screen_loader.dart';
-import 'package:admin_hmoob_store/utils/popups/loaders.dart';
+import 'package:trip_store/data/repositories/media/media_repository.dart';
+import 'package:trip_store/features/media/models/image_modle.dart';
+import 'package:trip_store/features/media/screens/media/widgets/media_content.dart';
+import 'package:trip_store/features/media/screens/media/widgets/media_uploader.dart';
+import 'package:trip_store/l10n/app_localizations.dart';
+import 'package:trip_store/utils/constants/colors.dart';
+import 'package:trip_store/utils/constants/enums.dart';
+import 'package:trip_store/utils/constants/image_strings.dart';
+import 'package:trip_store/utils/constants/sizes.dart';
+import 'package:trip_store/utils/constants/text_strings.dart';
+import 'package:trip_store/utils/exceptions/firebase_exceptions.dart';
+import 'package:trip_store/utils/exceptions/format_exceptions.dart';
+import 'package:trip_store/utils/loaders/circular_loader.dart';
+import 'package:trip_store/utils/popups/dialogs.dart';
+import 'package:trip_store/utils/popups/full_screen_loader.dart';
+import 'package:trip_store/utils/popups/loaders.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dropzone/flutter_dropzone.dart';
@@ -225,9 +225,9 @@ class MediaController extends GetxController {
       TFullScreenLoader.stopLoading();
       // Show a warning snack-bar for the error
       TLoaders.warningSnackBar(
-        title: 'Error Uploang Images',
+        title: AppLocalizations.of(Get.context!)!.media_error_upload_title,
         message:
-            'Something went wrong whike uploadong your images:${e.toString()}',
+            '${AppLocalizations.of(Get.context!)!.media_error_upload_message}: ${e.toString()}',
       );
       print('Upload error: $e\n$stackTrace');
     } finally {
@@ -276,7 +276,7 @@ class MediaController extends GetxController {
     // Delete Confirmation
     TDialogs.defaultDialog(
       context: Get.context!,
-      content: 'Are you sure you want to delete this image?',
+      content: AppLocalizations.of(Get.context!)!.media_delete_confirm,
       onConfirm: () {
         Get.back();
         removeClouImage(image);
@@ -314,13 +314,18 @@ class MediaController extends GetxController {
       update();
       TFullScreenLoader.stopLoading();
       TLoaders.successSnackBar(
-        title: 'Image Deleted',
-        message: 'Image successfully deleted from your cloud storage',
+        title: AppLocalizations.of(Get.context!)!.media_delete_success_title,
+        message: AppLocalizations.of(
+          Get.context!,
+        )!.media_delete_success_message,
       );
     } catch (e) {
       TFullScreenLoader.stopLoading();
       print(e.toString());
-      TLoaders.errorSnackBar(title: 'Oh snap', message: e.toString());
+      TLoaders.errorSnackBar(
+        title: AppLocalizations.of(Get.context!)!.ohSnap,
+        message: e.toString(),
+      );
     }
   }
 

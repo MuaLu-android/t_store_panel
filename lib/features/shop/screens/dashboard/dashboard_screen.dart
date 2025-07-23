@@ -1,7 +1,7 @@
-import 'package:admin_hmoob_store/common/widgets/layouts/templates/site_layouts.dart';
-import 'package:admin_hmoob_store/features/shop/screens/dashboard/reponsive_screen/dashboard_desktop_screen.dart';
-import 'package:admin_hmoob_store/features/shop/screens/dashboard/reponsive_screen/dashboard_mobile_screen.dart';
-import 'package:admin_hmoob_store/features/shop/screens/dashboard/reponsive_screen/dashboard_tablet_screen.dart';
+import 'package:trip_store/common/widgets/layouts/templates/site_layouts.dart';
+import 'package:trip_store/features/shop/screens/dashboard/reponsive_screen/dashboard_desktop_screen.dart';
+import 'package:trip_store/features/shop/screens/dashboard/reponsive_screen/dashboard_mobile_screen.dart';
+import 'package:trip_store/features/shop/screens/dashboard/reponsive_screen/dashboard_tablet_screen.dart';
 import 'package:flutter/material.dart';
 
 class DashBoardScreen extends StatelessWidget {

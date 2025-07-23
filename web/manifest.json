@@ -1,6 +1,6 @@
 {
-    "name": "admin_hmoob_store",
-    "short_name": "admin_hmoob_store",
+    "name": "Trip Store",
+    "short_name": "Trip Store",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

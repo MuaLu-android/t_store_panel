@@ -1,4 +1,4 @@
-import 'package:admin_hmoob_store/utils/devices/device_utility.dart';
+import 'package:trip_store/utils/devices/device_utility.dart';
 import '../../../../../route/route.dart';
 import 'package:get/get.dart';
 

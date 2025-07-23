@@ -1,6 +1,6 @@
-import 'package:admin_hmoob_store/features/media/controllers/media_controllet.dart';
-import 'package:admin_hmoob_store/features/media/models/image_modle.dart';
-import 'package:admin_hmoob_store/features/shop/models/product_variation_model.dart';
+import 'package:trip_store/features/media/controllers/media_controllet.dart';
+import 'package:trip_store/features/media/models/image_modle.dart';
+import 'package:trip_store/features/shop/models/product_variation_model.dart';
 import 'package:get/get.dart';
 
 class ProductImagesController extends GetxController {

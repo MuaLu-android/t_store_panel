@@ -1,6 +1,6 @@
-import 'package:admin_hmoob_store/features/authentication/screens/login/widgets/login_form.dart';
-import 'package:admin_hmoob_store/features/authentication/screens/login/widgets/login_header.dart';
-import 'package:admin_hmoob_store/utils/constants/sizes.dart';
+import 'package:trip_store/features/authentication/screens/login/widgets/login_form.dart';
+import 'package:trip_store/features/authentication/screens/login/widgets/login_header.dart';
+import 'package:trip_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreenMobile extends StatelessWidget {

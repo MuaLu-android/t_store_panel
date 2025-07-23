@@ -1,4 +1,4 @@
-import 'package:admin_hmoob_store/utils/constants/sizes.dart';
+import 'package:trip_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
 class TResponsiveWidget extends StatelessWidget {

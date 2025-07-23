@@ -1,4 +1,4 @@
-import 'package:admin_hmoob_store/data/repositories/authentication/authentication_repository.dart';
+import 'package:trip_store/data/repositories/authentication/authentication_repository.dart';
 import 'package:get/get.dart';
 
 class LogoutController extends GetxController {

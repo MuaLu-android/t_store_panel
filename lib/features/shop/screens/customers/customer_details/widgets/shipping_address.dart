@@ -1,9 +1,9 @@
-import 'package:admin_hmoob_store/common/widgets/custom_shapes/container/rounded_container.dart';
-import 'package:admin_hmoob_store/common/widgets/layouts/templates/loader_animation.dart';
-import 'package:admin_hmoob_store/features/shop/controllers/customer/customer_details_controller.dart';
-import 'package:admin_hmoob_store/features/shop/models/address_model.dart';
-import 'package:admin_hmoob_store/l10n/app_localizations.dart';
-import 'package:admin_hmoob_store/utils/constants/sizes.dart';
+import 'package:trip_store/common/widgets/custom_shapes/container/rounded_container.dart';
+import 'package:trip_store/common/widgets/layouts/templates/loader_animation.dart';
+import 'package:trip_store/features/shop/controllers/customer/customer_details_controller.dart';
+import 'package:trip_store/features/shop/models/address_model.dart';
+import 'package:trip_store/l10n/app_localizations.dart';
+import 'package:trip_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

@@ -1,9 +1,9 @@
-import 'package:admin_hmoob_store/common/widgets/breadcrumbs/breadcrumb_with_heading.dart';
-import 'package:admin_hmoob_store/features/personalization/screen/profiles/widgets/image_and_meta.dart';
-import 'package:admin_hmoob_store/features/personalization/screen/profiles/widgets/profile_form.dart';
-import 'package:admin_hmoob_store/l10n/app_localizations.dart';
-import 'package:admin_hmoob_store/utils/constants/breadcrumb_item.dart';
-import 'package:admin_hmoob_store/utils/constants/sizes.dart';
+import 'package:trip_store/common/widgets/breadcrumbs/breadcrumb_with_heading.dart';
+import 'package:trip_store/features/personalization/screen/profiles/widgets/image_and_meta.dart';
+import 'package:trip_store/features/personalization/screen/profiles/widgets/profile_form.dart';
+import 'package:trip_store/l10n/app_localizations.dart';
+import 'package:trip_store/utils/constants/breadcrumb_item.dart';
+import 'package:trip_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
 class ProfileTabletsScreen extends StatelessWidget {

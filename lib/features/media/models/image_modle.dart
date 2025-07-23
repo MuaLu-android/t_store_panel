@@ -1,5 +1,5 @@
 import 'dart:typed_data';
-import 'package:admin_hmoob_store/utils/formatters/formatter.dart';
+import 'package:trip_store/utils/formatters/formatter.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:get/get.dart';

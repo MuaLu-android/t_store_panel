@@ -1,23 +1,23 @@
-import 'package:admin_hmoob_store/common/widgets/breadcrumbs/breadcrumb_with_heading.dart';
-import 'package:admin_hmoob_store/common/widgets/custom_shapes/container/rounded_container.dart';
-import 'package:admin_hmoob_store/features/shop/controllers/products/product_images_controller.dart';
-import 'package:admin_hmoob_store/features/shop/models/product_model.dart';
-import 'package:admin_hmoob_store/features/shop/screens/products/create_products/widgets/product_additional_images.dart';
-import 'package:admin_hmoob_store/features/shop/screens/products/create_products/widgets/product_thumbnail_image.dart';
-import 'package:admin_hmoob_store/features/shop/screens/products/create_products/widgets/product_visibility_widgets.dart';
-import 'package:admin_hmoob_store/features/shop/screens/products/edit_products/widgets/edit_attributes.dart';
-import 'package:admin_hmoob_store/features/shop/screens/products/edit_products/widgets/edit_bottom_navigation_button.dart';
-import 'package:admin_hmoob_store/features/shop/screens/products/edit_products/widgets/edit_product_brands.dart';
-import 'package:admin_hmoob_store/features/shop/screens/products/edit_products/widgets/edit_product_categories.dart';
-import 'package:admin_hmoob_store/features/shop/screens/products/edit_products/widgets/edit_product_variations.dart';
-import 'package:admin_hmoob_store/features/shop/screens/products/edit_products/widgets/edit_stock_pricing.dart';
-import 'package:admin_hmoob_store/features/shop/screens/products/edit_products/widgets/edit_title_and_description.dart';
-import 'package:admin_hmoob_store/features/shop/screens/products/edit_products/widgets/edit_type_widget.dart';
-import 'package:admin_hmoob_store/l10n/app_localizations.dart';
-import 'package:admin_hmoob_store/route/route.dart';
-import 'package:admin_hmoob_store/utils/constants/breadcrumb_item.dart';
-import 'package:admin_hmoob_store/utils/constants/sizes.dart';
-import 'package:admin_hmoob_store/utils/devices/device_utility.dart';
+import 'package:trip_store/common/widgets/breadcrumbs/breadcrumb_with_heading.dart';
+import 'package:trip_store/common/widgets/custom_shapes/container/rounded_container.dart';
+import 'package:trip_store/features/shop/controllers/products/product_images_controller.dart';
+import 'package:trip_store/features/shop/models/product_model.dart';
+import 'package:trip_store/features/shop/screens/products/create_products/widgets/product_additional_images.dart';
+import 'package:trip_store/features/shop/screens/products/create_products/widgets/product_thumbnail_image.dart';
+import 'package:trip_store/features/shop/screens/products/create_products/widgets/product_visibility_widgets.dart';
+import 'package:trip_store/features/shop/screens/products/edit_products/widgets/edit_attributes.dart';
+import 'package:trip_store/features/shop/screens/products/edit_products/widgets/edit_bottom_navigation_button.dart';
+import 'package:trip_store/features/shop/screens/products/edit_products/widgets/edit_product_brands.dart';
+import 'package:trip_store/features/shop/screens/products/edit_products/widgets/edit_product_categories.dart';
+import 'package:trip_store/features/shop/screens/products/edit_products/widgets/edit_product_variations.dart';
+import 'package:trip_store/features/shop/screens/products/edit_products/widgets/edit_stock_pricing.dart';
+import 'package:trip_store/features/shop/screens/products/edit_products/widgets/edit_title_and_description.dart';
+import 'package:trip_store/features/shop/screens/products/edit_products/widgets/edit_type_widget.dart';
+import 'package:trip_store/l10n/app_localizations.dart';
+import 'package:trip_store/route/route.dart';
+import 'package:trip_store/utils/constants/breadcrumb_item.dart';
+import 'package:trip_store/utils/constants/sizes.dart';
+import 'package:trip_store/utils/devices/device_utility.dart';
 import 'package:flutter/material.dart';
 
 class EditProductDesktop extends StatelessWidget {
@@ -68,7 +68,7 @@ class EditProductDesktop extends StatelessWidget {
                             children: [
                               // Heading
                               Text(
-                                'Stock & Pricing',
+                                local.stockAndPricing,
                                 style: Theme.of(
                                   context,
                                 ).textTheme.headlineSmall,
@@ -108,7 +108,7 @@ class EditProductDesktop extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'All Product Images',
+                                local.allProductImages,
                                 style: Theme.of(
                                   context,
                                 ).textTheme.headlineSmall,

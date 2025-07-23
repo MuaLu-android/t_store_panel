@@ -1,6 +1,6 @@
-import 'package:admin_hmoob_store/common/widgets/layouts/headers/header.dart';
-import 'package:admin_hmoob_store/common/widgets/layouts/sidebars/sidebar.dart';
-import 'package:admin_hmoob_store/utils/constants/colors.dart';
+import 'package:trip_store/common/widgets/layouts/headers/header.dart';
+import 'package:trip_store/common/widgets/layouts/sidebars/sidebar.dart';
+import 'package:trip_store/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 class TabletLayout extends StatelessWidget {

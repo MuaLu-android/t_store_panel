@@ -1,9 +1,9 @@
-import 'package:admin_hmoob_store/data/abstract/base_data_table_controller.dart';
-import 'package:admin_hmoob_store/features/shop/controllers/customer/customer_controller.dart';
-import 'package:admin_hmoob_store/features/shop/controllers/order/oder_controller.dart';
-import 'package:admin_hmoob_store/features/shop/models/order_model.dart';
-import 'package:admin_hmoob_store/utils/constants/enums.dart';
-import 'package:admin_hmoob_store/utils/helpers/helper_functions.dart';
+import 'package:trip_store/data/abstract/base_data_table_controller.dart';
+import 'package:trip_store/features/shop/controllers/customer/customer_controller.dart';
+import 'package:trip_store/features/shop/controllers/order/oder_controller.dart';
+import 'package:trip_store/features/shop/models/order_model.dart';
+import 'package:trip_store/utils/constants/enums.dart';
+import 'package:trip_store/utils/helpers/helper_functions.dart';
 import 'package:get/get.dart';
 
 class DashboardController extends TBaseController<OrderModel> {

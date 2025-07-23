@@ -1,7 +1,7 @@
-import 'package:admin_hmoob_store/features/shop/models/address_model.dart';
-import 'package:admin_hmoob_store/features/shop/models/cart_item_model.dart';
-import 'package:admin_hmoob_store/utils/constants/enums.dart';
-import 'package:admin_hmoob_store/utils/helpers/helper_functions.dart';
+import 'package:trip_store/features/shop/models/address_model.dart';
+import 'package:trip_store/features/shop/models/cart_item_model.dart';
+import 'package:trip_store/utils/constants/enums.dart';
+import 'package:trip_store/utils/helpers/helper_functions.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class OrderModel {

@@ -1,10 +1,10 @@
-import 'package:admin_hmoob_store/common/widgets/custom_shapes/container/rounded_container.dart';
-import 'package:admin_hmoob_store/features/shop/screens/category/create_categories/widgets/image_loader.dart';
-import 'package:admin_hmoob_store/l10n/app_localizations.dart';
-import 'package:admin_hmoob_store/utils/constants/colors.dart';
-import 'package:admin_hmoob_store/utils/constants/enums.dart';
-import 'package:admin_hmoob_store/utils/constants/image_strings.dart';
-import 'package:admin_hmoob_store/utils/constants/sizes.dart';
+import 'package:trip_store/common/widgets/custom_shapes/container/rounded_container.dart';
+import 'package:trip_store/features/shop/screens/category/create_categories/widgets/image_loader.dart';
+import 'package:trip_store/l10n/app_localizations.dart';
+import 'package:trip_store/utils/constants/colors.dart';
+import 'package:trip_store/utils/constants/enums.dart';
+import 'package:trip_store/utils/constants/image_strings.dart';
+import 'package:trip_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/state_manager.dart';
 import 'package:iconsax/iconsax.dart';

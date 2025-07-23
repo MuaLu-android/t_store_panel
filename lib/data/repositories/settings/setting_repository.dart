@@ -1,7 +1,7 @@
-import 'package:admin_hmoob_store/features/shop/models/setting_model.dart';
-import 'package:admin_hmoob_store/utils/exceptions/firebase_auth_exceptions.dart';
-import 'package:admin_hmoob_store/utils/exceptions/format_exceptions.dart';
-import 'package:admin_hmoob_store/utils/exceptions/platform_exceptions.dart';
+import 'package:trip_store/features/shop/models/setting_model.dart';
+import 'package:trip_store/utils/exceptions/firebase_auth_exceptions.dart';
+import 'package:trip_store/utils/exceptions/format_exceptions.dart';
+import 'package:trip_store/utils/exceptions/platform_exceptions.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';

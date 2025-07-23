@@ -1,6 +1,6 @@
-import 'package:admin_hmoob_store/data/abstract/base_data_table_controller.dart';
-import 'package:admin_hmoob_store/data/repositories/categories/category_reponsitory.dart';
-import 'package:admin_hmoob_store/features/shop/models/category_model.dart';
+import 'package:trip_store/data/abstract/base_data_table_controller.dart';
+import 'package:trip_store/data/repositories/categories/category_reponsitory.dart';
+import 'package:trip_store/features/shop/models/category_model.dart';
 import 'package:get/get.dart';
 
 class CategoryController extends TBaseController<CategoryModel> {

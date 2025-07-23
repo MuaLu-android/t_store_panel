@@ -1,10 +1,10 @@
-import 'package:admin_hmoob_store/data/repositories/settings/setting_repository.dart';
-import 'package:admin_hmoob_store/features/media/controllers/media_controllet.dart';
-import 'package:admin_hmoob_store/features/media/models/image_modle.dart';
-import 'package:admin_hmoob_store/features/shop/models/setting_model.dart';
-import 'package:admin_hmoob_store/utils/helpers/network_manager.dart';
-import 'package:admin_hmoob_store/utils/popups/full_screen_loader.dart';
-import 'package:admin_hmoob_store/utils/popups/loaders.dart';
+import 'package:trip_store/data/repositories/settings/setting_repository.dart';
+import 'package:trip_store/features/media/controllers/media_controllet.dart';
+import 'package:trip_store/features/media/models/image_modle.dart';
+import 'package:trip_store/features/shop/models/setting_model.dart';
+import 'package:trip_store/utils/helpers/network_manager.dart';
+import 'package:trip_store/utils/popups/full_screen_loader.dart';
+import 'package:trip_store/utils/popups/loaders.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

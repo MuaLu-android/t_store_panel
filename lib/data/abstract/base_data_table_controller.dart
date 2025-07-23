@@ -1,8 +1,8 @@
-import 'package:admin_hmoob_store/l10n/app_localizations.dart';
-import 'package:admin_hmoob_store/utils/constants/colors.dart';
-import 'package:admin_hmoob_store/utils/constants/sizes.dart';
-import 'package:admin_hmoob_store/utils/popups/full_screen_loader.dart';
-import 'package:admin_hmoob_store/utils/popups/loaders.dart';
+import 'package:trip_store/l10n/app_localizations.dart';
+import 'package:trip_store/utils/constants/colors.dart';
+import 'package:trip_store/utils/constants/sizes.dart';
+import 'package:trip_store/utils/popups/full_screen_loader.dart';
+import 'package:trip_store/utils/popups/loaders.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

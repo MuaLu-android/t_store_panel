@@ -1,8 +1,8 @@
-import 'package:admin_hmoob_store/features/shop/controllers/products/edit_product_controller.dart';
-import 'package:admin_hmoob_store/l10n/app_localizations.dart';
-import 'package:admin_hmoob_store/utils/constants/enums.dart';
-import 'package:admin_hmoob_store/utils/constants/sizes.dart';
-import 'package:admin_hmoob_store/utils/validators/validation.dart';
+import 'package:trip_store/features/shop/controllers/products/edit_product_controller.dart';
+import 'package:trip_store/l10n/app_localizations.dart';
+import 'package:trip_store/utils/constants/enums.dart';
+import 'package:trip_store/utils/constants/sizes.dart';
+import 'package:trip_store/utils/validators/validation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';

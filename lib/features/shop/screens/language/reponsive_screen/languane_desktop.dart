@@ -1,5 +1,5 @@
-import 'package:admin_hmoob_store/features/shop/controllers/language/language_controller.dart';
-import 'package:admin_hmoob_store/l10n/app_localizations.dart';
+import 'package:trip_store/features/shop/controllers/language/language_controller.dart';
+import 'package:trip_store/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

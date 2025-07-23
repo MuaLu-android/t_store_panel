@@ -1,11 +1,11 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:admin_hmoob_store/features/media/models/image_modle.dart';
-import 'package:admin_hmoob_store/utils/constants/enums.dart';
-import 'package:admin_hmoob_store/utils/exceptions/firebase_exceptions.dart';
-import 'package:admin_hmoob_store/utils/exceptions/format_exceptions.dart';
-import 'package:admin_hmoob_store/utils/exceptions/platform_exceptions.dart';
+import 'package:trip_store/features/media/models/image_modle.dart';
+import 'package:trip_store/utils/constants/enums.dart';
+import 'package:trip_store/utils/exceptions/firebase_exceptions.dart';
+import 'package:trip_store/utils/exceptions/format_exceptions.dart';
+import 'package:trip_store/utils/exceptions/platform_exceptions.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/services.dart';
@@ -169,7 +169,7 @@ class MediaRepository extends GetxController {
       //Cloudinary use APi Node js
       final String publicId = image.fullPath!;
       final response = await http.post(
-        Uri.parse('http://localhost:3000//delete-image'),
+        Uri.parse('http://localhost:3000/delete-image'),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({'public_id': publicId}),
       );

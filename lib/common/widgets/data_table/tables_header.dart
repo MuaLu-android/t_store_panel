@@ -1,5 +1,5 @@
-import 'package:admin_hmoob_store/l10n/app_localizations.dart';
-import 'package:admin_hmoob_store/utils/devices/device_utility.dart';
+import 'package:trip_store/l10n/app_localizations.dart';
+import 'package:trip_store/utils/devices/device_utility.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 

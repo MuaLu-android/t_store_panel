@@ -1,15 +1,15 @@
-import 'package:admin_hmoob_store/common/widgets/custom_shapes/container/rounded_container.dart';
-import 'package:admin_hmoob_store/common/widgets/images/t_rounded_image.dart';
-import 'package:admin_hmoob_store/features/shop/controllers/products/create_product_controller.dart';
-import 'package:admin_hmoob_store/features/shop/controllers/products/product_images_controller.dart';
-import 'package:admin_hmoob_store/features/shop/controllers/products/products_variation_controller.dart';
-import 'package:admin_hmoob_store/features/shop/models/product_variation_model.dart';
-import 'package:admin_hmoob_store/features/shop/screens/category/create_categories/widgets/image_loader.dart';
-import 'package:admin_hmoob_store/l10n/app_localizations.dart';
-import 'package:admin_hmoob_store/utils/constants/colors.dart';
-import 'package:admin_hmoob_store/utils/constants/enums.dart';
-import 'package:admin_hmoob_store/utils/constants/image_strings.dart';
-import 'package:admin_hmoob_store/utils/constants/sizes.dart';
+import 'package:trip_store/common/widgets/custom_shapes/container/rounded_container.dart';
+import 'package:trip_store/common/widgets/images/t_rounded_image.dart';
+import 'package:trip_store/features/shop/controllers/products/create_product_controller.dart';
+import 'package:trip_store/features/shop/controllers/products/product_images_controller.dart';
+import 'package:trip_store/features/shop/controllers/products/products_variation_controller.dart';
+import 'package:trip_store/features/shop/models/product_variation_model.dart';
+import 'package:trip_store/features/shop/screens/category/create_categories/widgets/image_loader.dart';
+import 'package:trip_store/l10n/app_localizations.dart';
+import 'package:trip_store/utils/constants/colors.dart';
+import 'package:trip_store/utils/constants/enums.dart';
+import 'package:trip_store/utils/constants/image_strings.dart';
+import 'package:trip_store/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/state_manager.dart';
@@ -114,7 +114,9 @@ class ProductVariations extends StatelessWidget {
             Expanded(
               child: TextFormField(
                 onChanged: (value) => variations.stock = int.parse(value),
-                controller: controller.stockControllerList[index][variations],
+                controller:
+                    controller.getStockController(index, variations) ??
+                    TextEditingController(),
                 keyboardType: TextInputType.number,
                 inputFormatters: <TextInputFormatter>[
                   FilteringTextInputFormatter.digitsOnly,
@@ -129,7 +131,9 @@ class ProductVariations extends StatelessWidget {
             Expanded(
               child: TextFormField(
                 onChanged: (value) => variations.price = double.parse(value),
-                controller: controller.priceControllerList[index][variations],
+                controller:
+                    controller.getPriceController(index, variations) ??
+                    TextEditingController(),
                 keyboardType: TextInputType.numberWithOptions(decimal: true),
                 inputFormatters: <TextInputFormatter>[
                   FilteringTextInputFormatter.allow(RegExp(r'^\d+\.?\d{0,2}$')),
@@ -146,7 +150,8 @@ class ProductVariations extends StatelessWidget {
                 onChanged: (value) =>
                     variations.salePrice = double.parse(value),
                 controller:
-                    controller.salePriceControllerList[index][variations],
+                    controller.getSalePriceController(index, variations) ??
+                    TextEditingController(),
                 keyboardType: const TextInputType.numberWithOptions(
                   decimal: true,
                 ),
@@ -164,7 +169,9 @@ class ProductVariations extends StatelessWidget {
         const SizedBox(height: TSizes.spaceBtwInputFields),
         // Variation Descriptio
         TextFormField(
-          controller: controller.descriprionControllerList[index][variations],
+          controller:
+              controller.getDescriptionController(index, variations) ??
+              TextEditingController(),
           onChanged: (value) => variations.description = value,
           decoration: InputDecoration(
             labelText: localizations.description,

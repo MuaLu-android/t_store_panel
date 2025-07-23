@@ -1,5 +1,5 @@
-import 'package:admin_hmoob_store/common/widgets/layouts/sidebars/sidebar_controller.dart';
-import 'package:admin_hmoob_store/route/route.dart';
+import 'package:trip_store/common/widgets/layouts/sidebars/sidebar_controller.dart';
+import 'package:trip_store/route/route.dart';
 import 'package:flutter/material.dart';
 import 'package:get/instance_manager.dart';
 import 'package:get/route_manager.dart';
