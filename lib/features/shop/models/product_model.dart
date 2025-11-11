@@ -3,7 +3,6 @@ import 'package:trip_store/features/shop/models/product_variation_model.dart';
 import 'package:trip_store/utils/formatters/formatter.dart';
 import 'package:trip_store/utils/helpers/helper_functions.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-
 import 'brand_model.dart';
 
 class ProductModel {
@@ -23,7 +22,6 @@ class ProductModel {
   int soldQuantity;
   List<ProductAttributeModel>? productAttribute;
   List<ProductVariationModel>? productVariations;
-
   ProductModel({
     required this.id,
     required this.title,
