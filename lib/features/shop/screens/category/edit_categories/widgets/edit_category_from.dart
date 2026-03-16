@@ -57,7 +57,7 @@ class EditCategoryFromScreen extends StatelessWidget {
                   labelText: local.parentCategoryColumn,
                   prefixIcon: Icon(Iconsax.bezier),
                 ),
-                value: controller.selectedParent.value.id.isNotEmpty
+                initialValue: controller.selectedParent.value.id.isNotEmpty
                     ? controller.selectedParent.value
                     : null,
                 items: categoryController.allItems
